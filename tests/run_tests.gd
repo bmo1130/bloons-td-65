@@ -1,9 +1,13 @@
 extends SceneTree
 
-const MAIN: PackedScene = preload("res://scenes/main.tscn")
+const MAIN: PackedScene = preload("res://tests/fixtures/v05_main.tscn")
 const BLUE: BalloonDefinition = preload("res://data/balloons/blue.tres")
 const RED: BalloonDefinition = preload("res://data/balloons/red.tres")
 const COMBAT_TESTS: Script = preload("res://tests/combat_tests.gd")
+const ATTRIBUTE_TESTS: Script = preload("res://tests/attribute_tests.gd")
+const UPGRADE_TESTS: Script = preload("res://tests/upgrade_tests.gd")
+const CROSSPATH_TESTS: Script = preload("res://tests/crosspath_tests.gd")
+const STATISTICS_TESTS: Script = preload("res://tests/statistics_tests.gd")
 
 var _checks: int = 0
 var _failures: int = 0
@@ -22,6 +26,34 @@ func _run() -> void:
 	var report: Dictionary = combat.run(root)
 	_checks += report.checks
 	_failures += report.failures
+	var attributes: RefCounted = ATTRIBUTE_TESTS.new()
+	var attribute_report: Dictionary = attributes.run(root)
+	_checks += attribute_report.checks
+	_failures += attribute_report.failures
+	var upgrades: RefCounted = UPGRADE_TESTS.new()
+	var upgrade_report: Dictionary = upgrades.run(root)
+	_checks += upgrade_report.checks
+	_failures += upgrade_report.failures
+	var crosspaths: RefCounted = CROSSPATH_TESTS.new()
+	var crosspath_report: Dictionary = crosspaths.run(root)
+	_checks += crosspath_report.checks
+	_failures += crosspath_report.failures
+	var statistics: RefCounted = STATISTICS_TESTS.new()
+	var statistics_report: Dictionary = statistics.run(root)
+	_checks += statistics_report.checks
+	_failures += statistics_report.failures
+	var tier4: RefCounted = load("res://tests/tier4_tests.gd").new()
+	var tier4_report: Dictionary = tier4.run(root)
+	_checks += tier4_report.checks
+	_failures += tier4_report.failures
+	var tier5: RefCounted = load("res://tests/tier5_tests.gd").new()
+	var tier5_report: Dictionary = tier5.run(root)
+	_checks += tier5_report.checks
+	_failures += tier5_report.failures
+	var properties: RefCounted = load("res://tests/balloon_properties_tests.gd").new()
+	var properties_report: Dictionary = properties.run(root)
+	_checks += properties_report.checks
+	_failures += properties_report.failures
 	print("TEST RESULT: %d checks, %d failures" % [_checks, _failures])
 	quit(0 if _failures == 0 else 1)
 
@@ -29,6 +61,7 @@ func _new_game() -> MainGame:
 	var game: MainGame = MAIN.instantiate() as MainGame
 	root.add_child(game)
 	game.set_process(false)
+	preload("res://tests/fixtures/v02_config.gd").apply(game)
 	return game
 
 func _check(condition: bool, description: String) -> void:

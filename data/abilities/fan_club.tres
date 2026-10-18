@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AbilityDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/ability_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"super_monkey_fan_club"
+display_name = "팬클럽 변신"
+duration = 15.0
+cooldown = 50.0
+initial_cooldown = 16.6666666667
+target_limit = 10
+transformed_intervals = PackedFloat32Array(0.06, 0.051, 0.04, 0.03, 0.015)
+minimum_range = 187.5
+eyesight_range = 37.5
+projectile_speed = 660.0

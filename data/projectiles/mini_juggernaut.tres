@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"mini_juggernaut"
+display_name = "분열 저거너트"
+damage = 2
+pierce = 50
+attack_attribute = 2
+ceramic_bonus = 3
+fortified_bonus = 2
+max_bounces = 8
+projectile_radius = 7.0
+projectile_length = 14.0
+projectile_lifetime = 1.0
+projectile_speed = 240.0

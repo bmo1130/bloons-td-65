@@ -39,6 +39,10 @@ func distance_to_path(at: Vector2) -> float:
 	return nearest
 
 func motion_between(from_distance: float, to_distance: float) -> PackedVector2Array:
+	if to_distance < from_distance:
+		var reversed: PackedVector2Array = motion_between(to_distance, from_distance)
+		reversed.reverse()
+		return reversed
 	var motion: PackedVector2Array = PackedVector2Array([position_at(from_distance)])
 	var vertex_distance: float = 0.0
 	for index in range(_segment_lengths.size()):

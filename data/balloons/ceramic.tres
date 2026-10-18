@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/rainbow.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"ceramic"
+color = Color(0.64, 0.36, 0.20, 1)
+speed = 237.5
+radius = 19.0
+appearance = 5
+shell_hp = 10
+fortified_hp = 20
+ceramic = true
+heavy = true
+spill_damage = true
+split_children = Array[Resource]([ExtResource("2"), ExtResource("2")])

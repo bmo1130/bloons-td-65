@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WaveDefinition" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/wave_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/wave_group.gd" id="2"]
+[ext_resource type="Resource" path="res://data/balloons/black.tres" id="3"]
+[ext_resource type="Resource" path="res://data/balloons/green.tres" id="4"]
+
+[sub_resource type="Resource" id="Group0"]
+script = ExtResource("2")
+balloon = ExtResource("3")
+count = 8
+interval = 0.5
+delay_before = 0
+
+[sub_resource type="Resource" id="Group1"]
+script = ExtResource("2")
+balloon = ExtResource("4")
+count = 30
+interval = 0.12
+delay_before = 0.5
+
+[resource]
+script = ExtResource("1")
+groups = Array[ExtResource("2")]([SubResource("Group0"), SubResource("Group1")])
+clear_reward = 100
+display_name = "11. 검정 면역"
+purpose = "검정·납 면역 분담"

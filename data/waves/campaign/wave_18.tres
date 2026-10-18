@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="WaveDefinition" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/wave_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/wave_group.gd" id="2"]
+[ext_resource type="Resource" path="res://data/balloons/lead.tres" id="3"]
+[ext_resource type="Resource" path="res://data/balloons/yellow.tres" id="4"]
+[ext_resource type="Resource" path="res://data/balloons/black.tres" id="5"]
+
+[sub_resource type="Resource" id="Group0"]
+script = ExtResource("2")
+balloon = ExtResource("3")
+count = 28
+interval = 0.28
+delay_before = 0
+
+[sub_resource type="Resource" id="Group1"]
+script = ExtResource("2")
+balloon = ExtResource("4")
+count = 70
+interval = 0.07
+delay_before = 0.5
+
+[sub_resource type="Resource" id="Group2"]
+script = ExtResource("2")
+balloon = ExtResource("5")
+count = 20
+interval = 0.16
+delay_before = 0.5
+
+[resource]
+script = ExtResource("1")
+groups = Array[ExtResource("2")]([SubResource("Group0"), SubResource("Group1"), SubResource("Group2")])
+clear_reward = 180
+display_name = "18. 납 행렬"
+purpose = "속도·밀집·면역 종합"

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WaveDefinition" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/wave_definition.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/wave_group.gd" id="2"]
+[ext_resource type="Resource" path="res://data/balloons/black.tres" id="3"]
+[ext_resource type="Resource" path="res://data/balloons/pink.tres" id="4"]
+
+[sub_resource type="Resource" id="Black"]
+script = ExtResource("2")
+balloon = ExtResource("3")
+count = 4
+interval = 0.55
+
+[sub_resource type="Resource" id="Pink"]
+script = ExtResource("2")
+balloon = ExtResource("4")
+count = 10
+interval = 0.16
+delay_before = 0.5
+
+[resource]
+script = ExtResource("1")
+groups = Array[ExtResource("2")]([SubResource("Black"), SubResource("Pink")])
+clear_reward = 30

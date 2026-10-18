@@ -8,10 +8,12 @@ signal defeated
 @export var starting_lives: int = 20
 var gold: int = 0
 var lives: int = 0
+var total_earned: int = 0
 
 func reset() -> void:
 	gold = starting_gold
 	lives = starting_lives
+	total_earned = 0
 	changed.emit(gold, lives)
 
 func try_spend(amount: int) -> bool:
@@ -24,6 +26,7 @@ func try_spend(amount: int) -> bool:
 func earn(amount: int) -> void:
 	if amount > 0 and lives > 0:
 		gold += amount
+		total_earned += amount
 		changed.emit(gold, lives)
 
 func lose_lives(amount: int) -> void:

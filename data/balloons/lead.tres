@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/black.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+heavy = true
+lead = true
+fortified_hp = 4
+id = &"lead"
+color = Color(0.5, 0.56, 0.62, 1)
+speed = 65.0
+radius = 16.0
+pop_reward = 1
+split_children = Array[Resource]([ExtResource("2"), ExtResource("2")])
+immunity_mask = 1
+appearance = 2

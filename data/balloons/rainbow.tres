@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/zebra.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"rainbow"
+color = Color(0.95, 0.45, 0.55, 1)
+speed = 209.0
+radius = 17.0
+appearance = 4
+spill_damage = true
+split_children = Array[Resource]([ExtResource("2"), ExtResource("2")])

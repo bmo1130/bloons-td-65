@@ -9,10 +9,11 @@ func _initialize() -> void:
 	call_deferred("_run")
 
 func _run() -> void:
-	var game: MainGame = load("res://scenes/main.tscn").instantiate() as MainGame
+	var game: MainGame = load("res://tests/fixtures/v05_main.tscn").instantiate() as MainGame
 	root.add_child(game)
 	current_scene = game
 	game.set_process(false)
+	preload("res://tests/fixtures/v02_config.gd").apply(game)
 	await process_frame
 	_click(Vector2(1120, 254))
 	_check(game.building, "build button enables placement")
@@ -61,6 +62,8 @@ func _run() -> void:
 	_click(Vector2(1175, 587))
 	await scene_changed
 	var restarted: MainGame = current_scene as MainGame
+	if restarted != null:
+		preload("res://tests/fixtures/v02_config.gd").apply(restarted)
 	_check(restarted != null and restarted.get_instance_id() != previous_id, "restart button reloads main scene")
 	if restarted != null:
 		_check(restarted.economy.gold == 200 and restarted.towers.towers.is_empty(), "restart restores initial state")

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="AbilityDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/ability_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"plasma_monkey_fan_club"
+display_name = "플라즈마 팬클럽"
+duration = 15.0
+cooldown = 50.0
+initial_cooldown = 16.6666666667
+target_limit = 20
+priority = 2
+max_middle_tier = 5
+prefer_untransformed = false
+self_overrides_stronger = false
+transformed_damage = 2
+pierce_bonus = 3
+attribute = 3
+transformed_intervals = PackedFloat32Array(0.03, 0.0255, 0.02, 0.015, 0.0075, 0.0075)
+minimum_range = 187.5
+eyesight_range = 37.5
+projectile_speed = 1406.25
+projectile_lifetime = 0.25
+projectile_radius = 4.5
+long_range_lifetime_multiplier = 1.15
+eyesight_lifetime_multiplier = 1.4112
+eyesight_speed_multiplier = 1.1
+grants_eyesight = true
+color = Color(0.84, 0.46, 1, 1)

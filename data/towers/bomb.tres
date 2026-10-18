@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb"
+display_name = "폭탄 슈터"
+cost = 150
+radius = 20.0
+attack_range = 165.0
+fire_interval = 1.35
+damage = 1
+pierce = 12
+projectile_speed = 360.0
+projectile_radius = 5.0
+projectile_lifetime = 3.5
+attack_attribute = 1
+explosion_radius = 68.0
+color = Color(0.92, 0.63, 0.32, 1)
+shortcut = "B"

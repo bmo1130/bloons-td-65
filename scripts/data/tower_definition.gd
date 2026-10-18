@@ -11,4 +11,42 @@ extends Resource
 @export var pierce: int = 2
 @export var projectile_speed: float = 480.0
 @export var projectile_radius: float = 2.5
+@export var projectile_length: float = 10.0
+@export var projectile_count: int = 1
+@export var spread_degrees: float = 0.0
+@export var heading_offset_degrees: float = 0.0
 @export var projectile_lifetime: float = 3.0
+@export var attack_attribute: AttackSpec.Attribute = AttackSpec.Attribute.SHARP
+@export var explosion_radius: float = 0.0
+@export var ceramic_bonus: int = 0
+@export var fortified_bonus: int = 0
+@export var lead_bonus: int = 0
+@export var detects_camo: bool = false
+@export var projectile_split: ProjectileSplitDefinition
+@export var knockback_duration: float = 0.0
+@export var knockback_light: float = 0.0
+@export var knockback_heavy: float = 0.0
+@export var max_bounces: int = 0
+@export var critical_every: int = 0
+@export var critical_damage: int = 0
+@export var ability: AbilityDefinition
+@export var color: Color = Color("84dbbd")
+@export var shortcut: String = "D"
+@export var upgrades: Array[UpgradeDefinition] = []
+
+func upgrade_at(path: int, tier: int) -> UpgradeDefinition:
+	for upgrade in upgrades:
+		if upgrade.path == path and upgrade.tier == tier:
+			return upgrade
+	return null
+
+func make_attack() -> AttackSpec:
+	var attack: AttackSpec = AttackSpec.new(damage, pierce, attack_attribute, explosion_radius)
+	attack.ceramic_bonus = ceramic_bonus
+	attack.fortified_bonus = fortified_bonus
+	attack.lead_bonus = lead_bonus
+	attack.detects_camo = detects_camo
+	attack.knockback_duration = knockback_duration
+	attack.knockback_light = knockback_light
+	attack.knockback_heavy = knockback_heavy
+	return attack

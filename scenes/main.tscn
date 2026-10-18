@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/world/route.gd" id="2"]
@@ -8,10 +8,29 @@
 [ext_resource type="Script" path="res://scripts/systems/economy.gd" id="6"]
 [ext_resource type="Script" path="res://scripts/systems/wave_system.gd" id="7"]
 [ext_resource type="Script" path="res://scripts/ui/game_hud.gd" id="8"]
-[ext_resource type="Resource" path="res://data/waves/wave_01.tres" id="9"]
-[ext_resource type="Resource" path="res://data/waves/wave_02.tres" id="10"]
-[ext_resource type="Resource" path="res://data/waves/wave_03.tres" id="11"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_01.tres" id="9"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_02.tres" id="10"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_03.tres" id="11"]
 [ext_resource type="Script" path="res://scripts/data/wave_definition.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/systems/combat_system.gd" id="13"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_04.tres" id="14"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_05.tres" id="15"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_06.tres" id="16"]
+[ext_resource type="Script" path="res://scripts/systems/upgrade_system.gd" id="17"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_07.tres" id="18"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_08.tres" id="19"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_09.tres" id="20"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_10.tres" id="21"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_11.tres" id="22"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_12.tres" id="23"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_13.tres" id="24"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_14.tres" id="25"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_15.tres" id="26"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_16.tres" id="27"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_17.tres" id="28"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_18.tres" id="29"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_19.tres" id="30"]
+[ext_resource type="Resource" path="res://data/waves/campaign/wave_20.tres" id="31"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1")
@@ -30,10 +49,18 @@ script = ExtResource("4")
 
 [node name="Economy" type="Node" parent="."]
 script = ExtResource("6")
+starting_gold = 400
+starting_lives = 50
+
+[node name="Combat" type="Node2D" parent="."]
+script = ExtResource("13")
+
+[node name="Upgrades" type="Node" parent="."]
+script = ExtResource("17")
 
 [node name="Waves" type="Node" parent="."]
 script = ExtResource("7")
-waves = Array[ExtResource("12")]([ExtResource("9"), ExtResource("10"), ExtResource("11")])
+waves = Array[ExtResource("12")]([ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31")])
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("8")

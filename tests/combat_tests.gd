@@ -1,6 +1,6 @@
 extends RefCounted
 
-const MAIN: PackedScene = preload("res://scenes/main.tscn")
+const MAIN: PackedScene = preload("res://tests/fixtures/v05_main.tscn")
 const RED: BalloonDefinition = preload("res://data/balloons/red.tres")
 const BLUE: BalloonDefinition = preload("res://data/balloons/blue.tres")
 const GREEN: BalloonDefinition = preload("res://data/balloons/green.tres")
@@ -31,6 +31,7 @@ func _new_game() -> MainGame:
 	var game: MainGame = MAIN.instantiate() as MainGame
 	_root.add_child(game)
 	game.set_process(false)
+	preload("res://tests/fixtures/v02_config.gd").apply(game)
 	return game
 
 func _check(condition: bool, description: String) -> void:

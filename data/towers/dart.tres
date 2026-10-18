@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"dart"
+display_name = "다트 타워"
+cost = 65
+radius = 20.0
+attack_range = 150.0
+fire_interval = 0.7
+damage = 1
+projectile_speed = 480.0

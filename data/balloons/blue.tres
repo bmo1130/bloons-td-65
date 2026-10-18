@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/red.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"blue"
+color = Color(0.26, 0.63, 1, 1)
+speed = 130.0
+radius = 14.0
+leak_damage = 2
+pop_reward = 1
+next_layer = ExtResource("2")

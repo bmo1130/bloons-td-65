@@ -11,4 +11,7 @@ radius = 20.0
 attack_range = 150.0
 fire_interval = 0.7
 damage = 1
+pierce = 2
 projectile_speed = 480.0
+projectile_radius = 2.5
+projectile_lifetime = 3.0

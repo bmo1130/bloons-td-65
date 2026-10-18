@@ -17,7 +17,7 @@ $env:LOCALAPPDATA = Join-Path $resultsPath 'profile/Local'
 New-Item -ItemType Directory -Force -Path $env:APPDATA,$env:LOCALAPPDATA | Out-Null
 
 function Invoke-GodotCheck {
-    param([string]$Name, [string[]]$Arguments)
+    param([string]$Name, [string[]]$Arguments, [string]$ExpectedResult = '')
     $logPath = Join-Path $resultsPath "$Name.log"
     & $Godot --path $projectRoot --log-file $logPath @Arguments
     if ($LASTEXITCODE -ne 0) {
@@ -27,14 +27,17 @@ function Invoke-GodotCheck {
     if (Select-String -LiteralPath $logPath -Pattern 'SCRIPT ERROR:|ERROR:' -Quiet) {
         throw "$Name reported errors. See $logPath"
     }
+    if ($ExpectedResult -and -not (Select-String -LiteralPath $logPath -Pattern $ExpectedResult -Quiet)) {
+        throw "$Name did not complete. See $logPath"
+    }
 }
 
 try {
     Invoke-GodotCheck -Name 'import' -Arguments @('--headless', '--editor', '--quit')
-    Invoke-GodotCheck -Name 'tests' -Arguments @('--headless', '--script', 'res://tests/run_tests.gd')
+    Invoke-GodotCheck -Name 'tests' -Arguments @('--headless', '--script', 'res://tests/run_tests.gd', '--quit-after', '600') -ExpectedResult 'TEST RESULT: \d+ checks, 0 failures'
     Invoke-GodotCheck -Name 'main' -Arguments @('--headless', '--quit-after', '120')
     if ($Visual) {
-        Invoke-GodotCheck -Name 'visual' -Arguments @('--script', 'res://tests/visual_smoke.gd')
+        Invoke-GodotCheck -Name 'visual' -Arguments @('--script', 'res://tests/visual_smoke.gd', '--quit-after', '600') -ExpectedResult 'VISUAL INPUT RESULT: \d+ checks, 0 failures'
     }
     Write-Output 'All requested checks passed.'
 } finally {

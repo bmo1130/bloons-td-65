@@ -54,12 +54,16 @@ func simulation_step(delta: float) -> void:
 	if result != &"":
 		return
 	waves.update(delta)
-	balloons.update(delta)
+	# Fire at the beginning of the step, then move both balloons and darts over
+	# the same interval. A newly fired dart never replays earlier balloon motion.
+	towers.update(delta)
+	balloons.update(delta, true)
 	if result != &"":
 		return
-	towers.update(delta)
 	projectiles.update(delta)
-	waves.check_cleared()
+	balloons.resolve_leaks()
+	if result == &"":
+		waves.check_cleared()
 
 func start_next_wave() -> bool:
 	if result != &"":

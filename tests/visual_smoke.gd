@@ -25,16 +25,31 @@ func _run() -> void:
 	_check(not game.building, "escape cancels placement")
 	_click(Vector2(1060, 587))
 	_check(game.simulation_speed == 2, "speed button updates simulation speed")
-	# Jump to the mixed wave so the frame shows both layer colors and darts.
-	game.waves.current_wave = 1
+	# Jump to the four-color wave and capture its actual dense combat.
+	game.waves.current_wave = 2
 	_key(KEY_SPACE)
 	_check(game.waves.active, "space starts the wave")
 	_check(game.simulation_speed == 2, "space does not activate the previously clicked button")
-	for tick in range(15 * 60):
+	var seen_colors: Dictionary = {}
+	var pierced: bool = false
+	var captured_four_colors: bool = false
+	for tick in range(20 * 60):
+		var previous_shots: Array[ProjectileState] = game.projectiles.projectiles.duplicate()
 		game.simulation_step(1.0 / 60.0)
-		if tick > 9 * 60 and not game.projectiles.projectiles.is_empty():
+		for shot in previous_shots:
+			pierced = pierced or shot.hit_ids.size() >= 2
+		var colors: Dictionary = {}
+		for balloon in game.balloons.balloons:
+			colors[balloon.definition.id] = true
+			seen_colors[balloon.definition.id] = true
+		if colors.size() == 4 and not game.projectiles.projectiles.is_empty() and pierced:
+			captured_four_colors = true
 			break
 	_check(not game.projectiles.projectiles.is_empty(), "combat frame contains a flying dart")
+	_check(seen_colors.size() == 4, "all four balloon colors appear during combat")
+	_check(pierced, "a real tower dart hits two distinct balloons in the dense wave")
+	_check(captured_four_colors, "rendered combat frame contains all four colors")
+	_check(game.hud._tower_attack.text.contains("공격력 1") and game.hud._tower_attack.text.contains("관통력 2"), "HUD exposes data-driven damage and pierce")
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var directory: String = ProjectSettings.globalize_path("res://test-results")
@@ -49,6 +64,12 @@ func _run() -> void:
 	_check(restarted != null and restarted.get_instance_id() != previous_id, "restart button reloads main scene")
 	if restarted != null:
 		_check(restarted.economy.gold == 200 and restarted.towers.towers.is_empty(), "restart restores initial state")
+		_check(restarted.balloons.balloons.is_empty() and restarted.projectiles.projectiles.is_empty(), "restart clears balloons and piercing darts")
+		_check(restarted.waves.current_wave == 0 and not restarted.waves.active and restarted.result == &"", "restart clears wave and result state")
+		_check(restarted.balloons.candidates_in_rect(GameRoute.BUILD_BOUNDS).is_empty(), "restart clears spatial index")
+		var balloon: BalloonState = restarted.balloons.spawn(preload("res://data/balloons/red.tres"))
+		var shot: ProjectileState = restarted.projectiles.launch(Vector2(100, 300), Vector2.RIGHT, MainGame.DART)
+		_check(balloon.id == 1 and shot.id == 1 and shot.hit_ids.is_empty() and shot.remaining_pierce == 2, "restart resets IDs, hit history and pierce")
 	print("VISUAL INPUT RESULT: %d checks, %d failures" % [_checks, _failures])
 	quit(0 if error == OK and _failures == 0 else 1)
 

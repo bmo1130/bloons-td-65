@@ -8,4 +8,7 @@ extends Resource
 @export var attack_range: float = 150.0
 @export var fire_interval: float = 0.7
 @export var damage: int = 1
+@export var pierce: int = 2
 @export var projectile_speed: float = 480.0
+@export var projectile_radius: float = 2.5
+@export var projectile_lifetime: float = 3.0

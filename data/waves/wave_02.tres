@@ -1,24 +1,32 @@
-[gd_resource type="Resource" script_class="WaveDefinition" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="WaveDefinition" load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/data/wave_definition.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/data/wave_group.gd" id="2"]
 [ext_resource type="Resource" path="res://data/balloons/red.tres" id="3"]
 [ext_resource type="Resource" path="res://data/balloons/blue.tres" id="4"]
+[ext_resource type="Resource" path="res://data/balloons/green.tres" id="5"]
 
 [sub_resource type="Resource" id="Group_red"]
 script = ExtResource("2")
 balloon = ExtResource("3")
-count = 8
-interval = 0.55
+count = 6
+interval = 0.3
 
 [sub_resource type="Resource" id="Group_blue"]
 script = ExtResource("2")
 balloon = ExtResource("4")
 count = 8
-interval = 0.65
-delay_before = 0.8
+interval = 0.22
+delay_before = 0.5
+
+[sub_resource type="Resource" id="Group_green"]
+script = ExtResource("2")
+balloon = ExtResource("5")
+count = 4
+interval = 0.24
+delay_before = 0.5
 
 [resource]
 script = ExtResource("1")
-groups = Array[ExtResource("2")]([SubResource("Group_red"), SubResource("Group_blue")])
+groups = Array[ExtResource("2")]([SubResource("Group_red"), SubResource("Group_blue"), SubResource("Group_green")])
 clear_reward = 30

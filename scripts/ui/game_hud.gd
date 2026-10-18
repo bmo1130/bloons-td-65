@@ -41,7 +41,7 @@ func _ready() -> void:
 	add_child(_root)
 	_panel(Rect2(24, 24, 1232, 80), Color("182d32"))
 	_label("풍타디 6.5", Rect2(46, 30, 340, 40), 28, INK)
-	_label("CORE COMBAT PROTOTYPE", Rect2(48, 72, 340, 20), 12, MUTED)
+	_label("v0.2  /  PIERCE & LAYERS", Rect2(48, 72, 340, 20), 12, MUTED)
 	_label("목숨", Rect2(622, 36, 80, 24), 14, MUTED)
 	_lives = _label("20", Rect2(622, 61, 100, 30), 24, MINT)
 	_label("골드", Rect2(790, 36, 80, 24), 14, MUTED)
@@ -63,7 +63,7 @@ func _ready() -> void:
 	_speed.pressed.connect(func() -> void: speed_requested.emit())
 	var restart: Button = _button("다시 시작", Rect2(1122, 568, 110, 38))
 	restart.pressed.connect(func() -> void: restart_requested.emit())
-	_label("빨강 1겹 / 파랑 2겹 · 겹당 +1 G", Rect2(1008, 628, 224, 24), 12, MUTED)
+	_label("빨강 1 · 파랑 2 · 초록 3 · 노랑 4\n제거한 겹당 +1 G", Rect2(1008, 622, 224, 42), 12, MUTED)
 	_label("입구", Rect2(40, 436, 72, 24), 13, MINT)
 	_label("출구", Rect2(882, 160, 72, 24), 13, Color("f6b27a"))
 	_label("자유 배치  /  길 위·타워 중첩 불가", Rect2(26, 686, 600, 22), 13, MUTED)
@@ -78,7 +78,7 @@ func set_stats(gold: int, lives: int) -> void:
 func configure_tower(definition: TowerDefinition) -> void:
 	_tower_definition = definition
 	_tower_stats.text = "사거리 %d  ·  공격 간격 %.1f초" % [definition.attack_range, definition.fire_interval]
-	_tower_attack.text = "앞선 풍선 우선 / 다트 피해 %d" % definition.damage
+	_tower_attack.text = "공격력 %d  ·  관통력 %d / 앞선 풍선" % [definition.damage, definition.pierce]
 	_build.text = "%s   ·   %d G  [D]" % [definition.display_name, definition.cost]
 
 func set_wave(number: int, total: int, active: bool, clear_reward: int = 0) -> void:

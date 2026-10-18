@@ -36,10 +36,13 @@ func update(delta: float) -> void:
 func _first_in_range(tower: TowerState) -> BalloonState:
 	var first: BalloonState = null
 	var range_squared: float = tower.definition.attack_range * tower.definition.attack_range
-	# Scan only when ready to fire; no physics objects or per-frame target searches.
-	for balloon in balloon_system.balloons:
+	var bounds: Rect2 = Rect2(tower.position, Vector2.ZERO).grow(tower.definition.attack_range)
+	for balloon in balloon_system.candidates_in_rect(bounds):
+		if balloon_system.find(balloon.id) == null or balloon.exit_time <= 1.0:
+			continue
 		if tower.position.distance_squared_to(balloon.position) <= range_squared:
-			if first == null or balloon.distance > first.distance:
+			if first == null or balloon.distance > first.distance or (
+				balloon.distance == first.distance and balloon.id < first.id):
 				first = balloon
 	return first
 

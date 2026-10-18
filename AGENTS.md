@@ -17,6 +17,10 @@
 - 공유 `*Definition` Resource는 실행 중 수정하지 않는다. 능력치는 `data/`의 `.tres`,
   개체별 상태는 `scripts/core/`에 둔다. UI에도 Resource의 수치를 전달한다.
 - 풍선은 경로상 거리와 ID로 관리한다. 개체마다 물리 노드나 타이머를 추가하지 않는다.
+- 전투 변경 전 `ARCHITECTURE.md`의 스텝 순서를 확인한다. 조준 후 직진, 풍선 ID당
+  다트 1회 명중, 피해/관통 독립, 제거 계층만 보상하는 규칙을 보존한다.
+- 계층 수/누수 피해는 `next_layer`에서 계산한다. Resource 연결은 순환 없이 유지한다.
+- `BalloonSystem.update(delta, true)`를 사용하면 같은 스텝에서 `resolve_leaks()`를 호출한다.
 - 업그레이드 확장 시 타워별 선택 상태와 계산된 능력치를 분리할 수 있도록 유지한다.
   실제 3경로 5티어 로직은 별도 작업 전까지 구현하지 않는다.
 - `.godot/`, `test-results/`, 내보내기 결과는 커밋하지 않는다. `.gd.uid`와

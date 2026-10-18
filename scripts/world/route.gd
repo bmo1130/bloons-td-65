@@ -38,6 +38,16 @@ func distance_to_path(at: Vector2) -> float:
 		nearest = minf(nearest, at.distance_to(on_segment))
 	return nearest
 
+func motion_between(from_distance: float, to_distance: float) -> PackedVector2Array:
+	var motion: PackedVector2Array = PackedVector2Array([position_at(from_distance)])
+	var vertex_distance: float = 0.0
+	for index in range(_segment_lengths.size()):
+		vertex_distance += _segment_lengths[index]
+		if vertex_distance > from_distance and vertex_distance < to_distance:
+			motion.append(points[index + 1])
+	motion.append(position_at(to_distance))
+	return motion
+
 func can_build(at: Vector2, radius: float) -> bool:
 	return BUILD_BOUNDS.grow(-radius).has_point(at) and (
 		distance_to_path(at) >= ROAD_WIDTH * 0.5 + radius + PLACEMENT_MARGIN)

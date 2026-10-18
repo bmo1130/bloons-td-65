@@ -3,6 +3,7 @@ extends SceneTree
 const MAIN: PackedScene = preload("res://scenes/main.tscn")
 const BLUE: BalloonDefinition = preload("res://data/balloons/blue.tres")
 const RED: BalloonDefinition = preload("res://data/balloons/red.tres")
+const COMBAT_TESTS: Script = preload("res://tests/combat_tests.gd")
 
 var _checks: int = 0
 var _failures: int = 0
@@ -16,6 +17,11 @@ func _run() -> void:
 	_test_targeting_and_projectiles()
 	_test_three_waves()
 	_test_defeat()
+	print("V0.1 REGRESSION: %d checks, %d failures" % [_checks, _failures])
+	var combat: RefCounted = COMBAT_TESTS.new()
+	var report: Dictionary = combat.run(root)
+	_checks += report.checks
+	_failures += report.failures
 	print("TEST RESULT: %d checks, %d failures" % [_checks, _failures])
 	quit(0 if _failures == 0 else 1)
 
@@ -88,9 +94,11 @@ func _test_targeting_and_projectiles() -> void:
 	var first: BalloonState = game.balloons.spawn(RED)
 	first.distance = 240.0
 	first.position = game.route.position_at(first.distance)
+	first.record_motion(PackedVector2Array([first.position, first.position]), 0.0)
 	var front: BalloonState = game.balloons.spawn(BLUE)
 	front.distance = 320.0
 	front.position = game.route.position_at(front.distance)
+	front.record_motion(PackedVector2Array([front.position, front.position]), 0.0)
 	game.towers.update(1.0 / 60.0)
 	_check(game.projectiles.projectiles.size() == 1, "tower fires a projectile")
 	if not game.projectiles.projectiles.is_empty():
@@ -102,12 +110,17 @@ func _test_targeting_and_projectiles() -> void:
 	game.balloons.damage(first.id, 1)
 	var gold: int = game.economy.gold
 	game.projectiles.update(0.1)
-	_check(game.projectiles.projectiles.is_empty(), "projectiles safely discard removed targets")
+	# v0.2: losing the aimed target must not destroy a useful ballistic dart.
+	_check(not game.projectiles.projectiles.is_empty(), "projectiles survive removed aim targets")
 	_check(game.economy.gold == gold, "stale projectile does not pay extra gold")
 	game.free()
 
 func _test_three_waves() -> void:
 	var game: MainGame = _new_game()
+	# Keep the original economy/balance regression; v0.2 waves are tested separately.
+	game.waves.waves = [preload("res://data/waves/wave_01.tres"),
+		preload("res://tests/fixtures/v01_wave_02.tres"),
+		preload("res://tests/fixtures/v01_wave_03.tres")]
 	for at in [Vector2(250, 350), Vector2(460, 450), Vector2(672, 232)]:
 		_check(game.try_place_tower(at), "three-tower scenario placement at %s" % at)
 	for wave in range(1, 4):

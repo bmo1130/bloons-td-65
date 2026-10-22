@@ -4,10 +4,12 @@ extends RefCounted
 var knockback_remaining: float = 0.0
 var knockback_multiplier: float = 0.0
 var camo: bool = false
+var regrow: bool = false # Inherited metadata only until the Regrow version.
 var fortified: bool = false
 var spill_damage: bool = false
 var shell_hp: int = 1
 var shell_max_hp: int = 1
+var speed: float = 95.0 # Spawned/layer value; Definition remains base data.
 
 var id: int
 var definition: BalloonDefinition
@@ -23,6 +25,8 @@ var motion_start_distance: float = 0.0
 func _init(new_id: int, data: BalloonDefinition, start_position: Vector2) -> void:
 	id = new_id
 	definition = data
+	camo = data.default_camo
+	speed = data.speed
 	spill_damage = data.spill_damage
 	# Legacy fortified classification remains a test hook; normal instances use
 	# the allowed fortified_hp data and set_layer(), never mutate a Resource.
@@ -34,6 +38,7 @@ func _init(new_id: int, data: BalloonDefinition, start_position: Vector2) -> voi
 
 func set_layer(data: BalloonDefinition, armor: bool = false) -> void:
 	definition = data
+	speed = data.speed
 	fortified = armor and data.fortified_hp > 0
 	shell_max_hp = data.max_hp(fortified)
 	shell_hp = shell_max_hp
@@ -45,9 +50,10 @@ func remaining_rbe() -> int:
 	return total_rbe() - (shell_max_hp - shell_hp)
 
 func leak_damage() -> int:
-	# BTD6 ordinary ceramic/lead leaks use the current TYPE's full value,
-	# including its full shell HP even after partial shell damage.
-	return total_rbe()
+	return BalloonLeakPolicy.damage(self)
+
+func damage_stage() -> int:
+	return clampi(floori(float(shell_max_hp - shell_hp) * 4.0 / maxi(1, shell_max_hp)), 0, 3)
 
 func remove_camo() -> void:
 	camo = false # Descendants inherit the live instance flag at split time.

@@ -21,6 +21,12 @@ func _run() -> void:
 		"gpu": RenderingServer.get_video_adapter_name() if _render else "headless", "rendered": _render,
 		"conditions": "Separate repeatable fixtures, full selected-tower HUD, debug editor engine. Burst: 20 fresh trials; Normal damage10 (all normal shells at full HP) or mixed camo/armor shells pre-damaged to1 outside timing then Normal damage1; radius1000/pierce=count AoE, detects camo, frozen initial membership. Measures actual common resolver, no child attack same batch. Ultra: 1x502, 100 ceramic instances at route distance500..649 with alternating camo/armor, 120 frames, speed1/2 fixed steps; no replacements. All creation timings nested inside total CPU. Post-draw intervals for render include renderer/driver/OS, not isolated GPU.", "rows": rows}
 	var base: String = "res://benchmarks/properties-v09" + ("-render" if _render else "-cpu")
+	if OS.get_cmdline_user_args().has("--v010"):
+		report.version = "v0.10"
+		base = base.replace("v09", "v010")
+	if OS.get_cmdline_user_args().has("--v011"):
+		report.version = "v0.11"
+		base = base.replace("v09", "v011")
 	var output: FileAccess = FileAccess.open(base + ".json", FileAccess.WRITE)
 	output.store_string(JSON.stringify(report, "\t") + "\n")
 	output.close()

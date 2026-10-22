@@ -14,6 +14,8 @@ var targets_damaged: int = 0
 var normal_pops: int = 0
 var shell_pops: int = 0
 var effective_damage: int = 0
+var moab_damage: int = 0
+var gold_earned: int = 0
 var immune_contacts: int = 0
 var pierce_available: int = 0
 var pierce_used: int = 0
@@ -31,6 +33,6 @@ func snapshot() -> Dictionary:
 	return {"id": tower_id, "name": display_name, "build": build, "invested_gold": invested_gold,
 		"volleys": volleys, "critical_volleys": critical_volleys, "critical_damage": critical_damage, "projectiles": projectiles, "split_projectiles": split_projectiles, "targets_damaged": targets_damaged,
 		"normal_pops": normal_pops, "shell_pops": shell_pops, "pops": pops(),
-		"effective_damage": effective_damage, "immune_contacts": immune_contacts,
+		"effective_damage": effective_damage, "moab_damage": moab_damage, "gold_earned": gold_earned, "immune_contacts": immune_contacts,
 		"pierce_available": pierce_available, "pierce_used": pierce_used,
 		"pops_per_gold": pops_per_gold(), "pierce_utilization": pierce_utilization()}

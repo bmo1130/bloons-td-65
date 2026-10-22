@@ -50,10 +50,18 @@ func _run() -> void:
 	var directory: String = ProjectSettings.globalize_path("res://benchmarks")
 	if OS.get_cmdline_user_args().has("--v09"):
 		report.version = "v0.9"
+	if OS.get_cmdline_user_args().has("--v010"):
+		report.version = "v0.10"
+	if OS.get_cmdline_user_args().has("--v011"):
+		report.version = "v0.11"
 	DirAccess.make_dir_recursive_absolute(directory)
 	var prefix: String = "results-v08-" if OS.get_cmdline_user_args().has("--v08") else ("results-v07-" if OS.get_cmdline_user_args().has("--v07") else "results-v06-")
 	if OS.get_cmdline_user_args().has("--v09"):
 		prefix = "results-v09-"
+	if OS.get_cmdline_user_args().has("--v010"):
+		prefix = "results-v010-"
+	if OS.get_cmdline_user_args().has("--v011"):
+		prefix = "results-v011-"
 	var basename: String = prefix + mode + ("-cluster" if _concentrated else "") + ("-on" if _statistics_enabled else "-off")
 	var output: FileAccess = FileAccess.open(directory.path_join(basename + ".json"), FileAccess.WRITE)
 	if output == null:

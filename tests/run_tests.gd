@@ -54,6 +54,12 @@ func _run() -> void:
 	var properties_report: Dictionary = properties.run(root)
 	_checks += properties_report.checks
 	_failures += properties_report.failures
+	var moab_report: Dictionary = load("res://tests/moab_tests.gd").new().run(root)
+	_checks += moab_report.checks
+	_failures += moab_report.failures
+	var late_report: Dictionary = load("res://tests/ddt_bad_tests.gd").new().run(root)
+	_checks += late_report.checks
+	_failures += late_report.failures
 	print("TEST RESULT: %d checks, %d failures" % [_checks, _failures])
 	quit(0 if _failures == 0 else 1)
 

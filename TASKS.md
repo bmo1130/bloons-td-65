@@ -1,5 +1,124 @@
 # 구현 현황
 
+## 완료 — v0.11 DDT·BAD (2026-10-18)
+
+- [x] 첨부 요청/6개 문서/기존 코드/Git 확인. 기존 미커밋·미추적 v0.10 결과를 지우지 않고
+  `test-results/v011-start/`에 시작본/Git 목록 보존. 변경 전3,711개 통과.
+- [x] DDT400/800HP,기본 카모·납/MOAB 분류·SHARP/EXPLOSIVE 면역,빨강×2.64,381Pops.
+- [x] BAD20000/40000HP,일반/강화 이종 자식 ZOMG2+DDT3,기본 비카모,55760/98360RBE.
+- [x] 부모 live 카모+자식 고유 카모로 BAD/decamo DDT 경계 처리,강화는 세라믹까지 상속.
+- [x] DDT 자식 재생 메타데이터/하위 계층 상속/분홍 호. 실제 재생 동작은 미구현으로 UI에 표시.
+- [x] 공통 can_apply_status와 BAD의 일반 제어·즉사·포획 자격 차단. 실제 넉백과 정상 피해 분리 검증.
+- [x] 기존 비행선 초과 피해 차단/ID/자식 제외/관통/보상/누수 경계 재사용. 별도 전투 엔진 없음.
+- [x] 생성된 State.speed/shell_max_hp와 기본 Definition 분리,이동/예측 같은 속도 사용. 후반 배율은 미구현.
+- [x] BalloonLeakPolicy로 기존 전체 타입RBE 누수 유지. 원작 DDT660/1100 등의 차이와 확인 수준 기록.
+- [x] Strong BAD>DDT>ZOMG의 데이터 순위,기존 동률/First/Last/Close와 공격 가능 필터 유지.
+- [x] 기존 검사실16종/35프리셋,DDT·BAD/강화/카모 제거/자식/면역/Plasma 탐지 비교/다중5티어/3BAD.
+- [x] 실제 화면·입력/헤드리스,DDT10/100·Plasma20·BAD1/강화BAD1/BAD3·일반20웨이브 CPU/렌더 측정.
+- [x] 기존 타워·강화·일반26웨이브 데이터와 이전84개 벤치마크 파일 보존,기존 파일 삭제 없음.
+
+### 변경 파일 영역
+
+- 신규 데이터: `data/balloons/ddt.tres`, `bad.tres`. 기존 비행선/타워 수치는 수정하지 않았다.
+- 공통 데이터/상태: balloon_definition/balloon_state,새 `scripts/core/balloon_leak_policy.gd`.
+- 시스템: combat_system의 상태 자격,balloon_system의 고유 속성/재생 상속·실제 속도·도형,
+  projectile_system의 동일 속도 예측. tower_system의 기존 타겟 comparator는 그대로다.
+- 화면: tier5_sandbox의 카탈로그/프리셋/decamo/표시,game_hud 버전.
+- 검증: `tests/ddt_bad_tests.gd`, `run_ddt_bad.gd`, `ddt_bad_visual.gd`, `ddt_bad_benchmark.gd`,
+  run_tests/공유 네이티브 선택 helper/기존 벤치의 매개변수·버전 출력/tools/verify.ps1. 새 UID도 보존한다.
+- 원시 결과: `benchmarks/ddt-bad-v011-{cpu,render}.json/csv`, `results-v011-crosspath-*`.
+- 문서: GAME_DESIGN/ARCHITECTURE/TASKS/BENCHMARKS/BTD6_REFERENCE/README/AGENTS.
+
+### 검사와 회귀 결과
+
+- `tools/verify.ps1 -Visual -Benchmark -DdtBadBenchmark`,마지막 독립 피해 속성 경계 추가 후 `-Visual` 재실행.
+  **3,914개 통과/실패0 = 기존3,711 + 신규 로직179 + 실제 화면·입력24**.
+  로직3,377/화면537,임포트/메인 헤드리스 통과,최종 엔진 로그 오류·경고0.
+- 기존 전투 기대값은 바꾸지 않았다. 고정6웨이브/3~5티어/변신·만료/전역 제한/카모·강화·세라믹·MOAB 검사를 유지한다.
+- 일반20웨이브는1×/2× 모두 승리/목숨50/잔액3,423G/Pops10,338이며 기존 가격·공격·웨이브 수치는 불변이다.
+- 신규 검사: DDT 탐지×속성 행렬/기본·002·폭탄·402·005·Plasma의 수혜자별 탐지/만료,
+  빠른 이동의 연속 충돌/동일 발 중복/낮은HP·고피해/이종 분열·카모 제거/강화·재생 상속,
+  BAD 상태 마스크와 피해 독립/실제 넉백/Strong/누수·출구/1×·2×·통계OFF·초기화.
+- DDT 전체816/1256HP,381Pops/381G. BAD 전체55760/98360HP,13346Pops/13346G,
+  MOAB 외피 부분합41200/82400이다. 단일 BAD 총4,386고유 ID/최대 활성2,240/끝 잔여0을 검증했다.
+- 35항목으로 길어진 팝업에 루트 마우스 release를 주입하면 새 창의 로컬 좌표와 혼동해 다른 항목이 선택됐다.
+  공유 화면 검사 helper를 실제 창의 Space/방향키/Enter 입력으로 바꿨다. 전투 기대값을 낮춘 수정이 아니며
+  기존 v0.9/v0.10 입력 검사도 같은 helper로 다시 통과했다.
+- 화면: `ddt-juggernaut-v011.png`, `ddt-regrow-children-v011.png`, `fortified-bad-v011.png`,
+  `bad-mixed-children-v011.png`(test-results). 기존 combat/upgrade-path/crosspath도 재생성했다.
+
+### 성능·차이·v0.12 권장
+
+- 혼합7타워 DDT100의 CPU 평균/p95는1×3.988/6.826ms,2×6.421/12.236ms;
+  렌더 포함30.356/48.930,39.176/53.020ms. Plasma20은11.601/17.975,18.550/28.116ms CPU다.
+- BAD3 완전 분열은 자식13,155개 생성/총13,158개 제거/최대 동시6,720개/잔여0,
+  CPU39.591/79.273ms,렌더271.576/556.576ms다. 기존과 마찬가지로 밀집 그리기 비용이 크다.
+  모든 자식을 유지했고 CPU↔렌더의6실전+3완전 분열 지문이 일치했다.
+- 일반 캠페인 CPU1×0.286/0.728ms,2×0.552/1.414ms. 후반 렌더8.768/9.887,10.399/12.247ms.
+  극단적인 분열 지그를 일반 캠페인 성능으로 일반화하지 않는다.
+- 미구현/잠정: 실제 재생,81+ 배율/슈퍼 세라믹/수입 감소,원작 누수,Strong 같은 종류 손상 동률,
+  BAD 특수 제어·포획 예외. 출처상 다른 시리즈와 속도2.64/2.75 충돌은 BTD6_REFERENCE에 분리했다.
+- v0.12는 재생의 최대 복원 계층/분열 후 복원·보상 중복/카모 제거 유지 규칙을 먼저 정의하고 구현한다.
+  최신 원작 누수 직접 확인과 밀집 도형 제출 프로파일링은 별도 과제로 유지한다. 기존20웨이브는 보존한다.
+
+## 완료 — v0.10 MOAB 계열 비행선 (2026-10-18)
+
+- [x] 첨부 요청/6개 문서/소스/Git 확인. 깨끗한 v0.9 작업 트리에서 기존3,518개 통과 후 시작.
+  시작본을 Git 제외 `test-results/v010-start/`에 보존했다.
+- [x] MOAB/BFB/ZOMG Resource:200/700/4000HP, 강화2배, 속도1/.25/.18배,4자식,분류/강함/넉백 저항.
+- [x] 기존 HP·ID·분열·격자·연속 원 충돌 재사용. 독립 비행선 전투 엔진/물리 노드/타이머 추가 없음.
+- [x] 비행선 외피 초과 피해 차단, 강화 비행선→강화 세라믹까지 상속/무지개에서 종료, 카모 별도 유지.
+- [x] moab_bonus의 데이터/합성/발사 스냅샷/공통 최초 접촉 판정. 기존 타워 보너스와 공격 수치는 변경하지 않았다.
+- [x] 기존 First를 기본으로 Last/Close/Strong을 공통 후보 탐색에 추가. 선택 타워의 조준 버튼/강화 상태와 독립 관리.
+- [x] 비행선만 hitbox 표면 사거리 획득, 대형 원형 swept 충돌/동일 발 중복 제외/부모 제거 후 자식 제외.
+- [x] MOAB 외피 실제HP 피해/타워 획득 골드 통계, Pops/관통/부분 HP/보상/누수 구분.
+- [x] 타원·방향·꼬리·25% 손상 단계·카모·강화·HP 막대. 기존 일반 도형 스타일 유지.
+- [x] 기존 검사실에14종/21프리셋, 비행선 선택·강화·수량·소환·HP·활성 수·초기화·반복 외피 파괴 통합.
+- [x] 기본/석궁/울트라 MOAB 전투와Plasma20 BFB,강화3종,ZOMG1/3,MOAB10/BFB4 분열 입력 확인.
+- [x] 원작 출처 충돌/잠정 Strong 동률/누수/프로젝트 원형 크기/라운드 배율 차이 문서화.
+- [x] 기존26개 웨이브/모든 기존 타워·강화 Resource/과거72개 벤치마크 파일은 시작본과 동일, 삭제 파일0.
+
+### 변경 파일 영역
+
+- 신규 데이터: `data/balloons/moab.tres`, `bfb.tres`, `zomg.tres`.
+- 데이터/상태: balloon_definition/attack_spec/tower_definition/balloon_state/tower_state/
+  tower_combat_stats/tower_stat_resolver. 피해·상속·강함은 타입 이름 대신 데이터로 판정한다.
+- 시스템: combat_system/balloon_system/tower_system/battle_statistics. 기존 이동/투사체 엔진은 재작성하지 않았다.
+- 화면: tier5_sandbox/game_hud/tower_upgrade_panel/tower_stats_panel.
+- 검증: `tests/moab_tests.gd`, `run_moab.gd`, `moab_visual.gd`, `moab_benchmark.gd`, run_tests,
+  기존 벤치 러너의 새 버전 출력 옵션과 tools/verify.ps1. 신규 `.gd.uid`를 포함한다.
+- 결과: `benchmarks/moab-v010-{cpu,render}.json/csv`, `results-v010-crosspath-*`.
+- 문서: GAME_DESIGN/ARCHITECTURE/TASKS/BENCHMARKS/BTD6_REFERENCE/README/AGENTS.
+
+### 검증 결과와 기존 기대값
+
+- `tools/verify.ps1 -Visual -Benchmark -MoabBenchmark` 후 마지막 UI 위치 조정/자산 보상 검사에 대해
+  `-Visual`을 다시 실행했다. **3,711개 통과/실패0 = 기존3,518 + 신규 로직170 + 실제 화면·입력23**.
+  로직3,198/화면513이며 임포트/메인 헤드리스/모든 최종 엔진 로그 오류·경고0이다.
+- 기존 전투 기대값은 수정하지 않았다. 6웨이브 fixture/카모·납·세라믹/교차/능력/5티어 전역 제한이 통과했다.
+- 일반20웨이브는1×/2× 모두 승리/목숨50/잔액3,423G/Pops10,338. 실제 렌더 후반 체크포인트도 실행했다.
+- 단일 ZOMG 전체 분열은 BFB4→MOAB16→세라믹64→분홍1,024→하위 색상까지 처리한다.
+  총2,005개 고유 ID 생성·제거,6,101Pops/6,101G,일반16,656HP/강화27,296HP다.
+  MOAB 외피 피해 부분합은10,000/20,000으로 내부HP를 중복 합산하지 않는다.
+- 부분 손상/정확한 출구 분열/강화 자식 누수, 동일 부모 중복 분열,고피해 차단,같은 발 재접촉,
+  보너스 분류·스냅샷,4타겟 모드/사거리 경계/카모 차단/모드 초기화,1×·2×·통계OFF를 대조했다.
+- 화면: `test-results/moab-v010.png`, `bfb-plasma-v010.png`, `fortified-zomg-v010.png`,
+  `zomg-children-v010.png`. 기존 combat/upgrade-path/crosspath 캡처도 재생성했다.
+- 새로운 통계 snapshot에 moab_damage/gold_earned 키가 추가되었다. 기존 전투 카운터 의미/값은 유지한다.
+
+### 성능·위험·다음 권장 작업
+
+- MOAB100 실제7타워 전투 CPU 평균/p95는1×7.299/14.306ms,2×15.124/27.717ms.
+  렌더 포함28.552/45.631,47.026/68.874ms다. 보충/개체 수 감축 없이 자식까지 처리했다.
+- 강화 ZOMG3 완전 분열은 자식6,012개 생성·총6,015개 제거·동시 활성3,072개·끝 잔여0.
+  CPU18.955/34.502ms,렌더232.015/446.733ms로 극단 밀집 그리기 비용이 크다.
+  일반 캠페인 CPU0.285/0.724,0.556/1.409ms와 같은 종류의 부하가 아니다.
+- 실험실의 큰 비행선은 상단 제어판에 가리지 않도록 경로 거리650부터 소환한다. 기존 일반 풍선은500 유지.
+- 누수 원문460/616 충돌,Strong 손상 동률 순서,라운드 수입 배율/자유 플레이/슈퍼 세라믹은 완전 재현하지 않았다.
+  BTD6_REFERENCE에 확인 근거와 채택 정책을 분리했다. DDT/BAD/새 타워/폭탄 강화는 추가하지 않았다.
+- v0.11 권장: 최신 원작에서 부분 손상 비행선 누수와Strong 동률을 직접 확정한 뒤,
+  승인된 별도 비행선 캠페인 또는 폭탄 MOAB 경로를 설계한다. 밀집 렌더는 도형 제출 비용부터 별도 프로파일링한다.
+
 ## 완료 — v0.9 카모·외피 HP·강화 (2026-10-18)
 
 - [x] 기존 문서/코드/Git/원작 자료 조사. 시작 상태를 Git 제외 `test-results/v09-start/`에 보존.

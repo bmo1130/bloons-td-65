@@ -24,7 +24,7 @@ func _aim_direction(at: Vector2, target: BalloonState, definition: TowerDefiniti
 	if target.motion_duration > 0.0 and definition.projectile_speed > 0.0:
 		for iteration in range(5):
 			var flight_time: float = at.distance_to(aim) / definition.projectile_speed
-			aim = balloon_system.route.position_at(target.distance + target.definition.speed * flight_time)
+			aim = balloon_system.route.position_at(target.distance + target.speed * flight_time)
 	return at.direction_to(aim)
 
 func fire(at: Vector2, target: BalloonState, definition: TowerDefinition, source_id: int = 0) -> ProjectileState:

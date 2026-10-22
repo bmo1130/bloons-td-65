@@ -21,6 +21,7 @@ extends Resource
 @export var ceramic_bonus: int = 0
 @export var fortified_bonus: int = 0
 @export var lead_bonus: int = 0
+@export var moab_bonus: int = 0
 @export var detects_camo: bool = false
 @export var projectile_split: ProjectileSplitDefinition
 @export var knockback_duration: float = 0.0
@@ -45,6 +46,7 @@ func make_attack() -> AttackSpec:
 	attack.ceramic_bonus = ceramic_bonus
 	attack.fortified_bonus = fortified_bonus
 	attack.lead_bonus = lead_bonus
+	attack.moab_bonus = moab_bonus
 	attack.detects_camo = detects_camo
 	attack.knockback_duration = knockback_duration
 	attack.knockback_light = knockback_light

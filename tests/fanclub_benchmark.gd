@@ -35,6 +35,12 @@ func _run() -> void:
 	var base: String = "res://benchmarks/fanclub-" + version + ("-render" if _render else "-cpu")
 	if version == "v09":
 		report.version = "v0.9"
+	if OS.get_cmdline_user_args().has("--v010"):
+		report.version = "v0.10"
+		base = base.replace(version, "v010")
+	if OS.get_cmdline_user_args().has("--v011"):
+		report.version = "v0.11"
+		base = base.replace(version, "v011")
 	if _hide_panel:
 		base += "-uihidden"
 	var output: FileAccess = FileAccess.open(base + ".json", FileAccess.WRITE)

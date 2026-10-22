@@ -1,4 +1,58 @@
-# 전투 구조 — v0.9
+# 전투 구조 — v0.11
+
+## DDT·BAD의 공통 확장
+
+- 신규 두 Definition도 같은 풍선/격자/투사체/피해 시스템을 사용한다. DDT의 default_camo/immunity_mask/
+  lead/moab_class/children_regrow와 BAD의 이종 split_children/status_immunity_mask만 데이터로 추가한다.
+- spawn은 live camo 인자와 자식 타입의 default_camo를 OR한다. 일반 BAD의 ZOMG 자식은 기본false,
+  DDT 자식은 true다. 카모 제거된 DDT의 live 값은false이고 세라믹 기본도false여서 다시 카모가 생기지 않는다.
+  카모 제거를 Definition에 적용하지 않는다. 동일 타입의 다른 개체는 원래 카모로 생성된다.
+- BalloonState.regrow는 메타데이터다. 분열은 parent.regrow OR parent.definition.children_regrow를
+  넘기고 단일 계층 전환은 같은 ID의 표식을 보존한다. 회복 타이머/최대 재생 계층/복원 동작은 아직 없다.
+- Definition.StatusEffect는 일반 효과의 안정된 비트 인덱스다. can_apply_status는 면역 마스크를 검사하고
+  기존 넉백 허용 bool도 존중한다. apply_hit는 실제HP가 줄어든 살아 있는 대상에 대해서만 별도로 넉백을 시도한다.
+  피해/면역 판정의 can_attack과 효과 자격을 혼동하지 않는다. 새 효과는 이 정책을 사용해야 하며
+  특수 예외는 장래 개별 효과의 명시적 기능으로 구현한다. 타입 이름별 if문은 없다.
+- BalloonLeakPolicy.damage가 누수의 단일 진입점이다. 현재는 balloon.total_rbe를 그대로 사용하며
+  보상/Pops/actualHP와 분리한다. 원작 재현 패치 때 이 정책과 누수 검사를 교체할 수 있다.
+- State.speed와 shell_max_hp는 생성된 수치, Definition은 기본 수치다. 이동/예측 조준은 같은 State.speed를
+  사용한다. 계층 전환 시 새 타입의 기본 속도로 초기화한다. 라운드 배율/하위 트리 스케일링은 미구현이며
+  장래 도입 시 spawn에서 계층별 생성값과 RBE까지 일관되게 확장해야 한다.
+- Strong은 기존 comparator에서 새 rank4000/5000만 사용한다. 동률 정책·First/Last/Close는 바꾸지 않았다.
+- 검사실은 기존 카탈로그에 타입/프리셋을 추가하고 같은 속성·수량·초기화 UI를 쓴다. DDT 고유 카모를 표시하며
+  해제는 spawn 설정을 무시하는 토글 대신 명시적 디버그 decamo 동작으로 분리했다.
+- ddt_bad_benchmark는 기존 _live/_complete 계측을 매개변수화해 재사용한다. 기존 기본 인자는 v0.10 지그와 같고
+  신규 BAD는13단계/부모 비카모로 시작한다. 생성 수·전체HP·보상·CPU/렌더 지문을 검사한다.
+  풍선 제거 타이머는 사전·배열 제거이며, 스냅샷/씬 정리 뒤의 최종 참조 해제까지 측정한다고 보장하지 않는다.
+
+## 비행선과 타겟 정책
+
+- 기존 BalloonDefinition/State/ID 사전/공간 격자/연속 원 충돌을 재사용한다. 비행선별 노드/타이머나
+  별도 피해 판정기는 없다. moab_class/strength_rank/blocks_child_damage와 기존 inherit_fortified/
+  knockback_allowed가 분류·분열·저항 데이터다. MOAB→Ceramic4/BFB→MOAB4/ZOMG→BFB4다.
+- `CombatSystem`의 최초 피해 예산에 moab_bonus를 더한다. 기존 ceramic/fortified/lead와 마찬가지로
+  최초 분류만 보고 합산한다. TowerDefinition→make_attack의 발사 스냅샷, Resolver의 정수 필드에 포함한다.
+  기존 타워 Resource는 수정하지 않았으며 새 보너스는 기본0이다.
+- `blocks_child_damage`는 instance spill_damage보다 우선한다. 실제 HP 제거/보상 후 분열은 그대로 수행하고
+  자식 재귀 전달만 중단한다. 다음 자식은 spawn 시 자기 Definition의 spill_damage도 적용하므로
+  비행선 단계는 중단하되 세라믹부터 v0.9 일반 그래프 전달 정책을 사용할 수 있다.
+- 강화는 부모 Definition.inherit_fortified가 허용할 때만 자식의 허용된 fortified_hp로 초기화한다.
+  비행선은 true/세라믹은 false여서 자료 그래프만으로 상속 종료를 표현한다. HP/ID/현재 카모는 상태에 남는다.
+- `TowerState.TargetMode`는 인스턴스별 First/Last/Close/Strong이다. `_first_in_range()`라는 기존 호출명은
+  호환성을 위해 유지하되 후보를 한 번만 순회하며 `_prefer_target()`으로 선택한다. 정렬/새 전체 탐색은 없다.
+  Strong은 명시 rank, 일반 풍선 기본RBE, 같은 분류의 강화/현재HP/First/ID를 비교한다.
+  자세한 원작 확인 수준은 BTD6_REFERENCE 참조. 기본 First 결과는 유지한다.
+- 비행선의 원형 hitbox만 타워 사거리 경계에 더한다. 격자에는 이미 이동 AABB+반지름이 등록되므로
+  중심이 검색 상자 밖인 대형 대상도 조회된다. 일반 풍선의 사거리 획득 규칙은 바꾸지 않는다.
+- 현재 넉백은 Definition.knockback_allowed=false로 거부한다. 새 MOAB 전용 상태 효과는 기존 일반 넉백
+  수치를 무조건 재사용하지 않고 효과의 지원 분류를 정의하는 후속 작업이 필요하다. 미사용 빙결/기절 코드는 없다.
+- 확정 결과 accumulator에 moab_hp를 하나 추가한다. BattleStatistics.moab_damage는 effective_damage의
+  부분집합이고 gold_earned는 확정 reward다. Pops/관통 집계는 그대로다. 이름이나 통계 값으로 전투를 분기하지 않는다.
+- BalloonSystem.profile_changes는 선택적으로 생성/제거 시간·수·실제 peak 활성 수를 기록한다.
+  삭제 시간은 사전/배열 제거 비용이며 살아 있는 참조의 최종 해제/GPU 리소스 비용을 포함한다고 주장하지 않는다.
+  전체 메모리 처리 비용은 전투 CPU 시간에 포함된다. 계측을 끈 일반 런에는 시계 호출을 추가하지 않는다.
+- `moab_benchmark.gd`는 기존 계측 러너를 재사용한다. 실제 타워 공격과12단계 완전 분열 지그를 구분하며,
+  새 자식은 같은 단계에서 제외한다. CPU/렌더 전투 지문과 전체HP/보상을 검사한 뒤 버전별 JSON/CSV를 쓴다.
 
 ## 외피 HP와 독립 속성
 
@@ -166,7 +220,7 @@ Resource는 실행 중 변경하지 않는다. 피격 시 풍선 상태가 참�
 창 이동 등에 따른 프레임 지연은 프레임당 최대 0.25초만 따라잡는다.
 
 1. 효과 시간 갱신, 웨이브 소환.
-2. 스텝 시작 위치에서 타워 조준/발사. 타겟은 사거리 안에서 가장 앞선 풍선이다.
+2. 스텝 시작 위치에서 타워 조준/발사. 기본은 First이며 인스턴스의 선택 정책을 공통 탐색에 적용한다.
 3. 풍선 이동. 경로 모퉁이를 각각의 선분으로 기록하며 출구 도달 시점도 정규화된 시간으로 저장한다.
 4. 투사체 이동과 충돌/타격. 풍선과 투사체의 이동은 동일한 시간 구간에 대응한다.
    폭탄은 접촉점에서 공통 범위 피해를 호출하고 제거된다.

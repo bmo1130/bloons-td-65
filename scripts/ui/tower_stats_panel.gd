@@ -30,13 +30,13 @@ func _ready() -> void:
 	add_child(button)
 	detail = Panel.new()
 	detail.position = Vector2(-298, -486)
-	detail.size = Vector2(282, 308)
+	detail.size = Vector2(282, 340)
 	detail.add_theme_stylebox_override("panel", style)
 	detail.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(detail)
 	detail_text = Label.new()
 	detail_text.position = Vector2(14, 10)
-	detail_text.size = Vector2(254, 288)
+	detail_text.size = Vector2(254, 320)
 	detail_text.add_theme_font_size_override("font_size", 13)
 	detail.add_child(detail_text)
 	detail.visible = false
@@ -68,3 +68,4 @@ func refresh() -> void:
 			record.targets_damaged, record.immune_contacts, record.invested_gold, record.pops_per_gold(),
 			record.pierce_used, record.pierce_available, record.pierce_utilization() * 100]
 		detail_text.text += "\nCRIT 발사 %d회 · 유효 피해 %d\n분열탄 %d (발사 횟수와 별도)" % [record.critical_volleys, record.critical_damage, record.split_projectiles]
+		detail_text.text += "\nMOAB 외피 피해 %d · 획득 %d G" % [record.moab_damage, record.gold_earned]

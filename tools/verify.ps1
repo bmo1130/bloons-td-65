@@ -6,7 +6,9 @@ param(
     [switch]$RenderBenchmark,
     [switch]$FanBenchmark,
     [switch]$Tier5Benchmark,
-    [switch]$PropertiesBenchmark
+    [switch]$PropertiesBenchmark,
+    [switch]$MoabBenchmark,
+    [switch]$DdtBadBenchmark
 )
 
 $ErrorActionPreference = 'Stop'
@@ -51,14 +53,16 @@ try {
         Invoke-GodotCheck -Name 'visual-v06' -Arguments @('--script', 'res://tests/statistics_visual.gd', '--quit-after', '600') -ExpectedResult 'V0.6 VISUAL RESULT: \d+ checks, 0 failures'
         Invoke-GodotCheck -Name 'visual-v07' -Arguments @('--script', 'res://tests/tier4_visual.gd', '--quit-after', '600') -ExpectedResult 'V0.7 VISUAL RESULT: \d+ checks, 0 failures'
         Invoke-GodotCheck -Name 'visual-v08' -Arguments @('--script', 'res://tests/tier5_visual.gd', '--quit-after', '600') -ExpectedResult 'V0.8 VISUAL RESULT: \d+ checks, 0 failures'
+        Invoke-GodotCheck -Name 'visual-v011' -Arguments @('--script', 'res://tests/ddt_bad_visual.gd', '--quit-after', '1600') -ExpectedResult 'V0.11 VISUAL RESULT: \d+ checks, 0 failures'
+        Invoke-GodotCheck -Name 'visual-v010' -Arguments @('--script', 'res://tests/moab_visual.gd', '--quit-after', '1200') -ExpectedResult 'V0.10 VISUAL RESULT: \d+ checks, 0 failures'
         Invoke-GodotCheck -Name 'visual-v09' -Arguments @('--script', 'res://tests/properties_visual.gd', '--quit-after', '1000') -ExpectedResult 'V0.9 VISUAL RESULT: \d+ checks, 0 failures'
     }
     if ($Benchmark) {
         foreach ($variant in @('on','off','cluster-on','cluster-off')) {
-            $benchArgs = @('--headless', '--script', 'res://tests/benchmark.gd', '--quit-after', '600', '--', '--crosspath', '--v09')
+            $benchArgs = @('--headless', '--script', 'res://tests/benchmark.gd', '--quit-after', '600', '--', '--crosspath', '--v011')
             if ($variant.EndsWith('off')) { $benchArgs += '--stats-off' }
             if ($variant.StartsWith('cluster')) { $benchArgs += '--concentrated' }
-            Invoke-GodotCheck -Name "benchmark-v09-$variant" -Arguments $benchArgs -ExpectedResult 'BENCHMARK COMPLETE:'
+            Invoke-GodotCheck -Name "benchmark-v011-$variant" -Arguments $benchArgs -ExpectedResult 'BENCHMARK COMPLETE:'
         }
     }
     if ($Balance) {
@@ -68,25 +72,25 @@ try {
         Invoke-GodotCheck -Name 'render-benchmark' -Arguments @('--script', 'res://tests/render_benchmark.gd', '--quit-after', '3000') -ExpectedResult 'RENDER BENCHMARK COMPLETE:'
     }
     if ($FanBenchmark) {
-        Invoke-GodotCheck -Name 'fanclub-cpu-v09' -Arguments @('--headless', '--script', 'res://tests/fanclub_benchmark.gd', '--quit-after', '3000', '--', '--v09') -ExpectedResult 'FANCLUB BENCHMARK COMPLETE:'
-        Invoke-GodotCheck -Name 'fanclub-render-v09' -Arguments @('--script', 'res://tests/fanclub_benchmark.gd', '--quit-after', '3000', '--', '--render', '--v09') -ExpectedResult 'FANCLUB BENCHMARK COMPLETE:'
+        Invoke-GodotCheck -Name 'fanclub-cpu-v011' -Arguments @('--headless', '--script', 'res://tests/fanclub_benchmark.gd', '--quit-after', '3000', '--', '--v011') -ExpectedResult 'FANCLUB BENCHMARK COMPLETE:'
+        Invoke-GodotCheck -Name 'fanclub-render-v011' -Arguments @('--script', 'res://tests/fanclub_benchmark.gd', '--quit-after', '3000', '--', '--render', '--v011') -ExpectedResult 'FANCLUB BENCHMARK COMPLETE:'
     }
     if ($Tier5Benchmark) {
         foreach ($rendered in @($false,$true)) {
             foreach ($uncached in @($false,$true)) {
-                $benchArgs = @('--script', 'res://tests/tier5_benchmark.gd', '--quit-after', '10000', '--', '--v09')
+                $benchArgs = @('--script', 'res://tests/tier5_benchmark.gd', '--quit-after', '10000', '--', '--v011')
                 $label = 'cpu'
                 if ($rendered) { $benchArgs += '--render'; $label = 'render' }
                 else { $benchArgs = @('--headless') + $benchArgs }
                 if ($uncached) { $benchArgs += '--uncached-ui'; $label += '-uncached' }
-                Invoke-GodotCheck -Name "tier5-benchmark-v09-$label" -Arguments $benchArgs -ExpectedResult 'TIER5 BENCHMARK COMPLETE:'
+                Invoke-GodotCheck -Name "tier5-benchmark-v011-$label" -Arguments $benchArgs -ExpectedResult 'TIER5 BENCHMARK COMPLETE:'
             }
         }
-        $cpuReport = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/tier5-v09-cpu.json') -Raw | ConvertFrom-Json
-        $renderReport = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/tier5-v09-render.json') -Raw | ConvertFrom-Json
+        $cpuReport = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/tier5-v011-cpu.json') -Raw | ConvertFrom-Json
+        $renderReport = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/tier5-v011-render.json') -Raw | ConvertFrom-Json
         foreach ($label in @('cpu','render')) {
-            $cached = Get-Content -LiteralPath (Join-Path $projectRoot "benchmarks/tier5-v09-$label.json") -Raw | ConvertFrom-Json
-            $uncached = Get-Content -LiteralPath (Join-Path $projectRoot "benchmarks/tier5-v09-$label-uncached.json") -Raw | ConvertFrom-Json
+            $cached = Get-Content -LiteralPath (Join-Path $projectRoot "benchmarks/tier5-v011-$label.json") -Raw | ConvertFrom-Json
+            $uncached = Get-Content -LiteralPath (Join-Path $projectRoot "benchmarks/tier5-v011-$label-uncached.json") -Raw | ConvertFrom-Json
             foreach ($row in $uncached.rows) {
                 $match = $cached.rows | Where-Object { $_.mode -eq $row.mode -and $_.balloons -eq $row.balloons -and $_.speed -eq $row.speed }
                 if (($match.fingerprint | ConvertTo-Json -Depth 40 -Compress) -ne ($row.fingerprint | ConvertTo-Json -Depth 40 -Compress)) {
@@ -105,20 +109,52 @@ try {
     if ($PropertiesBenchmark) {
         foreach ($rendered in @($false,$true)) {
             $prefix = @()
-            $userArgs = @()
+            $userArgs = @('--v011')
             $label = 'render'
             if ($rendered) { $userArgs += '--render' }
             else { $prefix += '--headless'; $label = 'cpu' }
-            Invoke-GodotCheck -Name "properties-benchmark-v09-$label" -Arguments ($prefix + @('--script', 'res://tests/properties_benchmark.gd', '--quit-after', '3000', '--') + $userArgs) -ExpectedResult 'PROPERTIES BENCHMARK COMPLETE:'
-            Invoke-GodotCheck -Name "campaign-benchmark-v09-$label" -Arguments ($prefix + @('--script', 'res://tests/tier5_benchmark.gd', '--quit-after', '3000', '--', '--v09', '--campaign-only') + $userArgs) -ExpectedResult 'TIER5 BENCHMARK COMPLETE:'
+            Invoke-GodotCheck -Name "properties-benchmark-v011-$label" -Arguments ($prefix + @('--script', 'res://tests/properties_benchmark.gd', '--quit-after', '3000', '--') + $userArgs) -ExpectedResult 'PROPERTIES BENCHMARK COMPLETE:'
+            Invoke-GodotCheck -Name "campaign-benchmark-v011-$label" -Arguments ($prefix + @('--script', 'res://tests/tier5_benchmark.gd', '--quit-after', '3000', '--', '--v011', '--campaign-only') + $userArgs) -ExpectedResult 'TIER5 BENCHMARK COMPLETE:'
         }
-        $cpu = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/properties-v09-cpu.json') -Raw | ConvertFrom-Json
-        $render = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/properties-v09-render.json') -Raw | ConvertFrom-Json
+        $cpu = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/properties-v011-cpu.json') -Raw | ConvertFrom-Json
+        $render = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/properties-v011-render.json') -Raw | ConvertFrom-Json
         foreach ($row in $render.rows) {
             $match = $cpu.rows | Where-Object { $_.case -eq $row.case -and $_.count -eq $row.count -and $_.speed -eq $row.speed }
             if (($match.fingerprint | ConvertTo-Json -Depth 40 -Compress) -ne ($row.fingerprint | ConvertTo-Json -Depth 40 -Compress)) { throw 'Properties CPU/render combat mismatch' }
         }
         Write-Output 'Properties CPU/render combat fingerprints match.'
+    }
+    if ($MoabBenchmark) {
+        foreach ($rendered in @($false,$true)) {
+            $benchArgs = @('--script', 'res://tests/moab_benchmark.gd', '--quit-after', '10000', '--', '--v011')
+            $label = 'cpu'
+            if ($rendered) { $benchArgs += '--render'; $label = 'render' }
+            else { $benchArgs = @('--headless') + $benchArgs }
+            Invoke-GodotCheck -Name "moab-benchmark-v011-$label" -Arguments $benchArgs -ExpectedResult 'MOAB BENCHMARK COMPLETE:'
+        }
+        $cpu = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/moab-v011-cpu.json') -Raw | ConvertFrom-Json
+        $render = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/moab-v011-render.json') -Raw | ConvertFrom-Json
+        foreach ($row in $render.rows | Where-Object { $_.mode -ne 'normal20_checkpoint' }) {
+            $match = $cpu.rows | Where-Object { $_.mode -eq $row.mode -and $_.balloons -eq $row.balloons -and $_.speed -eq $row.speed }
+            if (($match.fingerprint | ConvertTo-Json -Depth 40 -Compress) -ne ($row.fingerprint | ConvertTo-Json -Depth 40 -Compress)) { throw "MOAB CPU/render mismatch: $($row.mode)/$($row.speed)" }
+        }
+        Write-Output 'MOAB CPU/render combat fingerprints match.'
+    }
+    if ($DdtBadBenchmark) {
+        foreach ($rendered in @($false,$true)) {
+            $benchArgs = @('--script', 'res://tests/ddt_bad_benchmark.gd', '--quit-after', '10000')
+            $label = 'cpu'
+            if ($rendered) { $benchArgs += @('--', '--render'); $label = 'render' }
+            else { $benchArgs = @('--headless') + $benchArgs }
+            Invoke-GodotCheck -Name "ddt-bad-benchmark-v011-$label" -Arguments $benchArgs -ExpectedResult 'DDT BAD BENCHMARK COMPLETE:'
+        }
+        $cpu = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/ddt-bad-v011-cpu.json') -Raw | ConvertFrom-Json
+        $render = Get-Content -LiteralPath (Join-Path $projectRoot 'benchmarks/ddt-bad-v011-render.json') -Raw | ConvertFrom-Json
+        foreach ($row in $render.rows | Where-Object { $_.mode -ne 'normal20_checkpoint' }) {
+            $match = $cpu.rows | Where-Object { $_.mode -eq $row.mode -and $_.balloons -eq $row.balloons -and $_.speed -eq $row.speed }
+            if (($match.fingerprint | ConvertTo-Json -Depth 40 -Compress) -ne ($row.fingerprint | ConvertTo-Json -Depth 40 -Compress)) { throw "DDT/BAD CPU/render mismatch: $($row.mode)/$($row.speed)" }
+        }
+        Write-Output 'DDT/BAD CPU/render combat fingerprints match.'
     }
     Write-Output 'All requested checks passed.'
 } finally {

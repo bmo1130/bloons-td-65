@@ -86,18 +86,45 @@ func update(delta: float) -> void:
 func _first_in_range(tower: TowerState) -> BalloonState:
 	var first: BalloonState = null
 	var stats: TowerDefinition = tower.combat_definition()
-	var range_squared: float = stats.attack_range * stats.attack_range
 	var bounds: Rect2 = Rect2(tower.position, Vector2.ZERO).grow(stats.attack_range)
 	for balloon in balloon_system.candidates_in_rect(bounds):
 		if balloon_system.find(balloon.id) == null or balloon.exit_time <= 1.0:
 			continue
 		if not combat.can_attack(balloon, stats.attack_attribute, stats.detects_camo):
 			continue
-		if tower.position.distance_squared_to(balloon.position) <= range_squared:
-			if first == null or balloon.distance > first.distance or (
-				balloon.distance == first.distance and balloon.id < first.id):
+		# Existing small-bloon center acquisition stays unchanged. Blimps expose
+		# their circular hitbox at the range boundary, also indexed by the grid.
+		var reach: float = stats.attack_range + (balloon.definition.radius if balloon.definition.moab_class else 0.0)
+		if tower.position.distance_squared_to(balloon.position) <= reach * reach:
+			if first == null or _prefer_target(balloon, first, tower):
 				first = balloon
 	return first
+
+func _prefer_target(candidate: BalloonState, current: BalloonState, tower: TowerState) -> bool:
+	match tower.target_mode:
+		TowerState.TargetMode.LAST:
+			if candidate.distance != current.distance:
+				return candidate.distance < current.distance
+		TowerState.TargetMode.CLOSE:
+			var a: float = tower.position.distance_squared_to(candidate.position)
+			var b: float = tower.position.distance_squared_to(current.position)
+			if a != b:
+				return a < b
+		TowerState.TargetMode.STRONG:
+			var a: int = candidate.definition.strength_rank
+			var b: int = current.definition.strength_rank
+			a = candidate.definition.total_rbe() if a == 0 else a
+			b = current.definition.total_rbe() if b == 0 else b
+			if a != b:
+				return a > b
+			if candidate.fortified != current.fortified:
+				return candidate.fortified
+			if candidate.shell_hp != current.shell_hp:
+				return candidate.shell_hp > current.shell_hp
+	# First is also the deterministic tie-break for Close/Strong.
+	if tower.target_mode != TowerState.TargetMode.LAST and candidate.distance != current.distance:
+		return candidate.distance > current.distance
+	return candidate.id < current.id
 
 func _draw() -> void:
 	var measuring: bool = projectile_system != null and projectile_system.profile_updates

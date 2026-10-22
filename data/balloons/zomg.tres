@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/bfb.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"zomg"
+color = Color(0.18, 0.30, 0.22, 1)
+shell_hp = 4000
+fortified_hp = 8000
+inherit_fortified = true
+moab_class = true
+blocks_child_damage = true
+knockback_allowed = false
+heavy = true
+strength_rank = 3000
+speed = 17.1
+radius = 50
+appearance = 6
+split_children = Array[Resource]([ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2")])

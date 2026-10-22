@@ -1,6 +1,9 @@
 class_name TowerState
 extends RefCounted
 
+enum TargetMode { FIRST, LAST, CLOSE, STRONG }
+var target_mode: TargetMode = TargetMode.FIRST
+
 # Shared definition is immutable. Only this instance owns tiers/resolved stats.
 var definition: TowerDefinition
 var id: int = 0

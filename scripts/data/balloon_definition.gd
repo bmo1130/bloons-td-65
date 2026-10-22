@@ -11,6 +11,17 @@ extends Resource
 @export var heavy: bool = false
 @export var lead: bool = false
 @export var knockback_allowed: bool = true
+@export var moab_class: bool = false
+# Absolute boundary: ordinary attacks never spill through this shell, even in
+# the laboratory's otherwise spilling lineage. No tower-name checks needed.
+@export var blocks_child_damage: bool = false
+@export var strength_rank: int = 0
+@export var default_camo: bool = false
+@export var children_regrow: bool = false
+# Effect eligibility only. Slow/stun/freeze/instakill/capture mechanics are not
+# implemented; future effects must query the same policy as knockback.
+enum StatusEffect { SLOW, STUN, FREEZE, KNOCKBACK, FORCED_MOVEMENT, INSTANT_KILL, CAPTURE }
+@export_flags("Slow", "Stun", "Freeze", "Knockback", "Forced movement", "Instant kill", "Capture") var status_immunity_mask: int = 0
 
 @export var id: StringName
 @export var color: Color = Color.RED
@@ -22,7 +33,7 @@ extends Resource
 # shutdown. Entries are BalloonDefinition assets, checked by the data tests.
 @export var split_children: Array[Resource] = []
 @export_flags("SHARP", "EXPLOSIVE", "NORMAL", "PLASMA", "COLD") var immunity_mask: int = 0
-@export_enum("Round", "Banded", "Metal", "Zebra", "Rainbow", "Ceramic") var appearance: int = 0
+@export_enum("Round", "Banded", "Metal", "Zebra", "Rainbow", "Ceramic", "Blimp", "DDT", "BAD") var appearance: int = 0
 
 # The data chain is the single source of truth for remaining layers and leaks.
 var leak_damage: int:
@@ -48,4 +59,13 @@ func total_rbe(is_fortified: bool = false) -> int:
 			value += child.total_rbe(is_fortified and inherit_fortified)
 	elif next_layer != null:
 		value += next_layer.total_rbe(is_fortified and inherit_fortified)
+	return value
+
+func total_reward() -> int:
+	var value: int = pop_reward
+	if not split_children.is_empty():
+		for child: BalloonDefinition in split_children:
+			value += child.total_reward()
+	elif next_layer != null:
+		value += next_layer.total_reward()
 	return value

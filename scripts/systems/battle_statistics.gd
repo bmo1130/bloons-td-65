@@ -26,7 +26,7 @@ func record_projectile(id: int, capacity: int, split: bool = false) -> void:
 		records[id].pierce_available += capacity
 		records[id].split_projectiles += 1 if split else 0
 
-func record_hit(id: int, normal: int, shells: int, immune: bool, critical: bool = false, actual_hp: int = -1, targets: int = 1, immune_count: int = -1) -> void:
+func record_hit(id: int, normal: int, shells: int, immune: bool, critical: bool = false, actual_hp: int = -1, targets: int = 1, immune_count: int = -1, moab_hp: int = 0, reward: int = 0) -> void:
 	if not enabled or not records.has(id):
 		return
 	var record: TowerCombatStats = records[id]
@@ -38,6 +38,8 @@ func record_hit(id: int, normal: int, shells: int, immune: bool, critical: bool 
 		record.normal_pops += normal
 		record.shell_pops += shells
 		record.effective_damage += applied
+		record.moab_damage += moab_hp
+		record.gold_earned += reward
 		record.critical_damage += applied if critical else 0
 		total_pops += removed
 	if immune:

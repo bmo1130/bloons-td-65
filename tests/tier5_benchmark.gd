@@ -44,6 +44,12 @@ func _run() -> void:
 	if OS.get_cmdline_user_args().has("--v09"):
 		report.version = "v0.9"
 		base = base.replace("v08", "v09")
+	if OS.get_cmdline_user_args().has("--v010"):
+		report.version = "v0.10"
+		base = base.replace("v08", "v010")
+	if OS.get_cmdline_user_args().has("--v011"):
+		report.version = "v0.11"
+		base = base.replace("v08", "v011")
 	if _unbatched:
 		base += "-prebatch"
 	var file: FileAccess = FileAccess.open(base + ".json", FileAccess.WRITE)

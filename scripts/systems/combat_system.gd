@@ -17,6 +17,11 @@ func can_detect(balloon: BalloonState, detects_camo: bool) -> bool:
 func can_attack(balloon: BalloonState, attribute: AttackSpec.Attribute, detects_camo: bool = false) -> bool:
 	return can_detect(balloon, detects_camo) and can_damage(balloon.definition, attribute)
 
+func can_apply_status(balloon: BalloonState, effect: BalloonDefinition.StatusEffect) -> bool:
+	if (balloon.definition.status_immunity_mask & (1 << effect)) != 0:
+		return false
+	return effect != BalloonDefinition.StatusEffect.KNOCKBACK or balloon.definition.knockback_allowed
+
 func apply_hit(id: int, attack: AttackSpec, time: float = 1.0, excluded_ids: Variant = null) -> int:
 	var excluded: Dictionary = {} if excluded_ids == null else excluded_ids
 	var balloon: BalloonState = balloon_system.find(id)
@@ -25,12 +30,12 @@ func apply_hit(id: int, attack: AttackSpec, time: float = 1.0, excluded_ids: Var
 	excluded[id] = true
 	var original: BalloonDefinition = balloon.definition
 	var armored: bool = balloon.fortified
-	var damage: int = attack.damage + (attack.ceramic_bonus if original.ceramic else 0) + (attack.fortified_bonus if armored else 0) + (attack.lead_bonus if original.lead else 0)
+	var damage: int = attack.damage + (attack.ceramic_bonus if original.ceramic else 0) + (attack.fortified_bonus if armored else 0) + (attack.lead_bonus if original.lead else 0) + (attack.moab_bonus if original.moab_class else 0)
 	# One compact accumulator per contact, shared through the data tree. Children
 	# do not create more attack events or consume additional pierce.
-	var result: Array[int] = [0, 0, 0, 0, 0, 0] # normal shells actual_hp reward immune damaged_ids
+	var result: Array[int] = [0, 0, 0, 0, 0, 0, 0] # normal shells actual_hp reward immune damaged_ids moab_hp
 	_damage_layers(balloon, maxi(0, damage), attack, time, excluded, result)
-	if result[2] > 0 and balloon_system.find(id) != null and original.knockback_allowed and attack.knockback_duration > 0.0:
+	if result[2] > 0 and balloon_system.find(id) != null and original.knockback_allowed and can_apply_status(balloon, BalloonDefinition.StatusEffect.KNOCKBACK) and attack.knockback_duration > 0.0:
 		# Motion already resolved this tick is immutable. Status starts next tick.
 		balloon.knockback_remaining = maxf(balloon.knockback_remaining, attack.knockback_duration)
 		var heavy: bool = original.heavy or original.ceramic or armored
@@ -38,7 +43,7 @@ func apply_hit(id: int, attack: AttackSpec, time: float = 1.0, excluded_ids: Var
 	if result[3] > 0:
 		balloon_system.layer_popped.emit(result[3])
 	if battle_stats != null:
-		battle_stats.record_hit(attack.source_id, result[0], result[1], result[4] > 0, attack.critical, result[2], result[5], result[4])
+		battle_stats.record_hit(attack.source_id, result[0], result[1], result[4] > 0, attack.critical, result[2], result[5], result[4], result[6], result[3])
 	balloon_system.queue_redraw()
 	return result[2]
 
@@ -54,6 +59,8 @@ func _damage_layers(balloon: BalloonState, amount: int, attack: AttackSpec, time
 		balloon.shell_hp -= applied
 		amount -= applied
 		result[2] += applied
+		if data.moab_class:
+			result[6] += applied
 		if applied > 0 and not counted:
 			result[5] += 1
 			counted = true
@@ -65,7 +72,7 @@ func _damage_layers(balloon: BalloonState, amount: int, attack: AttackSpec, time
 		var first_child: int = balloon_system.latest_id() + 1
 		var branched: bool = balloon_system.peel_layer(balloon, time, excluded)
 		if branched:
-			if balloon.spill_damage and amount > 0:
+			if balloon.spill_damage and not data.blocks_child_damage and amount > 0:
 				var last_child: int = balloon_system.latest_id()
 				for child_id in range(first_child, last_child + 1):
 					var child: BalloonState = balloon_system.find(child_id)

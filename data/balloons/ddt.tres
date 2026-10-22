@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/ceramic.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"ddt"
+color = Color(0.32, 0.37, 0.42, 1)
+shell_hp = 400
+fortified_hp = 800
+inherit_fortified = true
+moab_class = true
+lead = true
+blocks_child_damage = true
+knockback_allowed = false
+heavy = true
+strength_rank = 4000
+default_camo = true
+children_regrow = true
+immunity_mask = 3
+speed = 250.8
+radius = 32.0
+appearance = 7
+split_children = Array[Resource]([ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2")])

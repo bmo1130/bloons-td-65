@@ -12,6 +12,7 @@ var source_id: int = 0
 var ceramic_bonus: int = 0
 var fortified_bonus: int = 0
 var lead_bonus: int = 0
+var moab_bonus: int = 0
 var knockback_duration: float = 0.0
 var knockback_light: float = 0.0
 var knockback_heavy: float = 0.0

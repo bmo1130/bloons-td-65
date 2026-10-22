@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BalloonDefinition" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/balloon_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/balloons/zomg.tres" id="2"]
+[ext_resource type="Resource" path="res://data/balloons/ddt.tres" id="3"]
+
+[resource]
+script = ExtResource("1")
+id = &"bad"
+color = Color(0.57, 0.28, 0.70, 1)
+shell_hp = 20000
+fortified_hp = 40000
+inherit_fortified = true
+moab_class = true
+blocks_child_damage = true
+knockback_allowed = false
+heavy = true
+strength_rank = 5000
+status_immunity_mask = 127
+speed = 17.1
+radius = 64.0
+appearance = 8
+split_children = Array[Resource]([ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("3"), ExtResource("3")])

@@ -1,7 +1,9 @@
 # bloons-td-65
 
 풍타디 6.5: Godot 4 / GDScript 기반의 순수 2D 타워디펜스 프로토타입.
-v0.9는 카모 탐지·외피 HP·강화와 하얀/얼룩말/무지개/세라믹 풍선 검사실을 추가합니다.
+v0.11은 DDT의 복합 면역과 BAD의 이종 분열·상태 효과 면역 정책을 추가합니다.
+MOAB·BFB·ZOMG, 강화 상속과 기존 비행선 실험실도 유지합니다.
+카모 탐지·외피 HP·하얀/얼룩말/무지개/세라믹과 기존 풍선 검사실도 유지합니다.
 울트라 저거너트·플라즈마 팬클럽·석궁의 대가와 맵 전체5티어 제한도 유지합니다.
 15개 Resource 강화를 최대 두 경로로 조합합니다. 주력5티어/보조 최대2이며 세 번째 경로는 잠깁니다.
 기존20웨이브와 기본/1~3티어 수치는 유지합니다. 원작 재현 범위·출처·차이는 `BTD6_REFERENCE.md`에 기록합니다.
@@ -40,12 +42,24 @@ F6으로 시작400G/목숨50의 일반20웨이브로 돌아갑니다. 개발자 
 울트라는105/210 관통 소비 또는 만료 시 최대12소형 공을 방출하고, 석궁은5발마다 CRIT80을 발사합니다.
 상세 통계에서 분열탄 수와 치명타 유효 피해를 볼 수 있습니다. F6으로 일반 모드에 복귀합니다.
 
-F7 실험실의 ‘풍선 검사실’을 누르면11종/수량/카모/강화를 선택해 소환할 수 있습니다.
-10개 프리셋으로 기본 다트와002의 카모 탐지,402의 카모 납 공격,폭탄의 강화납 공격,
-502의 강화세라믹 추가 피해를 비교하세요. 강화는 납/세라믹에만 허용됩니다.
+F7 실험실의 ‘풍선 검사실’을 누르면16종/수량/카모/강화를 선택해 소환할 수 있습니다.
+기존10개 풍선 프리셋으로 기본 다트와002의 카모 탐지,402의 카모 납 공격,폭탄의 강화납 공격,
+502의 강화세라믹 추가 피해를 비교하세요. 강화는 납/세라믹/비행선에 허용됩니다.
 카모는 자식에게 상속되고 강화는 외피 파괴 후 사라집니다. HP가 남은 세라믹은 내부를 생성하지 않습니다.
 기존20웨이브에는 신규 풍선이 들어가지 않습니다. 새 그래프의 초과 피해 전달과 기존 캠페인의
 분기 중단 호환 정책을 구분하며 자세한 차이는 GAME_DESIGN/BTD6_REFERENCE에 기록합니다.
+
+‘비행선 검사실’에서는 기본 다트·석궁·울트라와 MOAB,Plasma20과 BFB,강화3종/ZOMG 분열을 비교합니다.
+소환 후 실제 공격을 보거나 ‘비행선 외피 파괴’를 눌러 현재 비행선만 한 단계 분열시키세요.
+강화는 ZOMG→BFB→MOAB→세라믹까지만 상속됩니다. 일반 공격의 비행선 초과 피해는 자식에게 전달되지 않습니다.
+타워 선택 패널 위 ‘조준’ 버튼은 First/Last/Close/Strong을 전환합니다. 통계 상세에 MOAB 외피 피해도 표시합니다.
+비행선은 기존 일반20웨이브에 들어가지 않으며 기존 타워 수치를 변경하지 않았습니다.
+
+‘DDT·BAD 검사’ 버튼으로14개 신규 프리셋을 엽니다. DDT는 탐지와 Normal/Plasma가 모두 필요합니다.
+402·005·탐지 가능한 Plasma로 공격하고,‘카모 제거’ 후 자식의 카모가 되살아나지 않는 것도 확인하세요.
+BAD는 기본20000/강화40000HP이며 외피 파괴 시 ZOMG2+DDT3을 생성합니다. 기본 BAD는 카모가 아닙니다.
+재생 자식은 분홍 호/표식으로 표시하지만 **실제 재생 동작은 미구현**입니다. 후반 라운드 HP 배율도 적용하지 않습니다.
+BAD 넉백 면역,다중5티어 공격,강화·3기 완전 분열을 같은 검사실에서 비교할 수 있습니다. F6은 일반 복귀입니다.
 
 ## 검증
 
@@ -59,19 +73,26 @@ PowerShell에서 Godot 실행 파일을 지정합니다. PATH에 등록했다면
 .\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -FanBenchmark
 .\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Tier5Benchmark
 .\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -PropertiesBenchmark
+.\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -MoabBenchmark
+.\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -DdtBadBenchmark
 ```
 
-첫 명령은 임포트, 3,028개 로직 검증, 메인 씬 헤드리스 실행을 수행합니다.
+첫 명령은 임포트, 3,377개 로직 검증, 메인 씬 헤드리스 실행을 수행합니다.
 기존 3,048개 검사 범위는 별도 6웨이브 fixture에서 기대값 그대로 유지합니다.
-`-Visual`은 실제 렌더러/입력 검사490개를 실행하며, 전체는3,518개입니다.
+`-Visual`은 실제 렌더러/입력 검사537개를 실행하며, 전체는3,914개입니다.
 로그/화면은 `test-results/`에 저장합니다. 신규 화면은 `bloon-properties-v09.png`,
 `camo-fortified-ceramic-v09.png`, `fortified-lead-v09.png`입니다.
+비행선 화면은 `moab-v010.png`, `bfb-plasma-v010.png`, `fortified-zomg-v010.png`, `zomg-children-v010.png`입니다.
+신규 화면은 `ddt-juggernaut-v011.png`, `ddt-regrow-children-v011.png`, `fortified-bad-v011.png`, `bad-mixed-children-v011.png`입니다.
 러너는 Godot 사용자 설정을 해당 폴더에 격리하고 오류 로그와 테스트 완료 여부도 검사합니다.
-`-Benchmark`는 분산/집중 × 통계 ON/OFF CPU 측정을 `benchmarks/results-v09-*`에 기록합니다.
-`-Tier5Benchmark`는 일반20웨이브/Plasma5·20/울트라/기존팬클럽10기의 CPU·렌더·UI 대조를 `tier5-v09-*`에 기록합니다.
-`-FanBenchmark`는10기 변신 전후/100·500·1,000풍선/1×·2×의 CPU 및 실제 렌더러 결과를 `fanclub-v09-*`에 기록합니다.
-`-PropertiesBenchmark`는 세라믹10/100 동시 파괴·카모강화 혼합·울트라를 `properties-v09-*`에,
-일반20웨이브 CPU/렌더 체크포인트를 `tier5-v09-*`에 기록합니다. 두 옵션은 같은 캠페인 파일을 사용합니다.
+`-Benchmark`는 분산/집중 × 통계 ON/OFF CPU 측정을 `benchmarks/results-v011-*`에 기록합니다.
+`-Tier5Benchmark`는 일반20웨이브/Plasma5·20/울트라/기존팬클럽10기의 CPU·렌더·UI 대조를 `tier5-v011-*`에 기록합니다.
+`-FanBenchmark`는10기 변신 전후/100·500·1,000풍선/1×·2×의 CPU 및 실제 렌더러 결과를 `fanclub-v011-*`에 기록합니다.
+`-PropertiesBenchmark`는 세라믹10/100 동시 파괴·카모강화 혼합·울트라를 `properties-v011-*`에,
+일반20웨이브 CPU/렌더 체크포인트를 `tier5-v011-*`에 기록합니다. 두 옵션은 같은 캠페인 파일을 사용합니다.
+`-MoabBenchmark`는 실제 비행선 전투/완전 분열/일반 캠페인을 CPU와 실제 렌더러에서 검사하고
+`moab-v011-*`에 기록합니다. `-DdtBadBenchmark`는 DDT 물량/Plasma20/BAD 완전 분열/일반 캠페인을
+`ddt-bad-v011-*`에 기록합니다. 과거 버전의 원시 결과는 보존합니다.
 `-Balance`는 실제 자금 5전략과 500G 상한 단일 타워 80케이스를 `balance-v06.json/csv`로 생성합니다.
 `-RenderBenchmark`는 실제 렌더러 프레임 간격을 `render-v06.json`에 기록합니다. 과거 결과는 보존합니다.
 성능 결과 해석과 재현 조건은 `BENCHMARKS.md`를 참고하세요.
@@ -84,6 +105,10 @@ godot --headless --path . --script res://tests/run_tests.gd
 godot --path .
 # 신규 풍선 검사실로 직접 실행:
 godot --path . res://scenes/tier5_sandbox.tscn -- --specimen-lab
+# 비행선 검사실로 직접 실행:
+godot --path . res://scenes/tier5_sandbox.tscn -- --moab-lab
+# DDT·BAD 검사실로 직접 실행:
+godot --path . res://scenes/tier5_sandbox.tscn -- --ddt-bad-lab
 ```
 
 ## 주요 파일

@@ -16,6 +16,7 @@ var _details: Array[Label] = []
 var _next: Array[UpgradeDefinition] = [null, null, null]
 var abilities: AbilitySystem
 var ability_button: Button
+var target_button: Button
 var _elapsed: float = 0.0
 var cache_previews: bool = true
 var preview_rebuilds: int = 0
@@ -81,6 +82,15 @@ func _ready() -> void:
 			abilities.activate(tower)
 		refresh())
 	add_child(ability_button)
+	target_button = Button.new()
+	target_button.position = Vector2(0, -32)
+	target_button.size = Vector2(248, 28)
+	target_button.add_theme_font_size_override("font_size", 12)
+	target_button.focus_mode = Control.FOCUS_NONE
+	target_button.pressed.connect(func() -> void:
+		tower.target_mode = ((int(tower.target_mode) + 1) % TowerState.TargetMode.size()) as TowerState.TargetMode
+		refresh())
+	add_child(target_button)
 	visible = false
 
 func _process(delta: float) -> void:
@@ -98,6 +108,7 @@ func show_tower(selected: TowerState, upgrades: UpgradeSystem) -> void:
 func refresh() -> void:
 	if not visible or tower == null:
 		return
+	target_button.text = "조준: %s  [클릭 전환]" % TowerState.TargetMode.keys()[tower.target_mode].capitalize()
 	var started: int = Time.get_ticks_usec() if profile_updates else 0
 	var stats: TowerDefinition = tower.combat_definition()
 	if _cache_tower != tower or _cache_stats != stats or _cache_permanent != tower.stats or not cache_previews:

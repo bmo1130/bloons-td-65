@@ -102,11 +102,19 @@ func _run() -> void:
 	quit(0 if _failures == 0 else 1)
 
 func _pick(control: OptionButton, index: int) -> void:
-	_click(control.global_position + control.size * 0.5)
+	# Open by keyboard: injecting a root mouse release after a native popup has
+	# opened uses the wrong window-local coordinates when a tall menu overlaps
+	# the source control. Actual Window keyboard input avoids that test artifact.
+	control.grab_focus()
+	_key(KEY_SPACE)
 	await process_frame
 	var popup: PopupMenu = control.get_popup()
 	popup.grab_focus()
-	popup.set_focused_item(index)
+	if popup.get_focused_item() < 0:
+		_key(KEY_DOWN, popup)
+	var start: int = popup.get_focused_item()
+	for step in range(absi(index - start)):
+		_key(KEY_DOWN if index > start else KEY_UP, popup)
 	_key(KEY_ENTER, popup)
 
 func _key(code: Key, viewport: Viewport = root) -> void:

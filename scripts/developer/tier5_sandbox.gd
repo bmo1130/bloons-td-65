@@ -14,9 +14,10 @@ var fortified_toggle: CheckButton
 var specimen_status: Label
 var _status_elapsed: float = 0.0
 var _spawn_batch: int = 0
-const SPECIMENS: Array[String] = ["기본 다트 vs 카모", "002 다트 vs 카모", "400 vs 카모 납", "402 vs 카모 납", "폭탄 vs 강화 납", "기본 다트 vs 세라믹", "400 vs 세라믹", "502 vs 강화 세라믹", "052 팬클럽 vs 카모", "520 vs 세라믹 물량"]
-const BALLOON_IDS: Array[String] = ["red", "blue", "green", "yellow", "pink", "black", "white", "zebra", "rainbow", "lead", "ceramic"]
-const BALLOON_NAMES: Array[String] = ["빨강", "파랑", "초록", "노랑", "분홍", "검정", "하얀", "얼룩말", "무지개", "납", "세라믹"]
+const SPECIMENS: Array[String] = ["기본 다트 vs 카모", "002 다트 vs 카모", "400 vs 카모 납", "402 vs 카모 납", "폭탄 vs 강화 납", "기본 다트 vs 세라믹", "400 vs 세라믹", "502 vs 강화 세라믹", "052 팬클럽 vs 카모", "520 vs 세라믹 물량", "기본 다트 vs MOAB", "석궁의 대가 vs MOAB", "울트라 vs MOAB", "플라즈마20기 vs BFB", "ZOMG 단일", "강화 MOAB", "강화 BFB", "강화 ZOMG", "MOAB10 동시 외피 파괴", "BFB4 동시 외피 파괴", "ZOMG3 다단계 분열"]
+const ADVANCED_SPECIMENS: Array[String] = ["기본 다트 vs DDT", "002 다트 vs DDT (SHARP 면역)", "폭탄 vs DDT (카모·폭발 면역)", "402 저거너트 vs DDT", "석궁의 대가 vs DDT", "Plasma20 vs DDT (탐지 비교)", "강화 DDT10", "BAD 단독", "강화 BAD 단독", "BAD 이종 자식 분열", "강화 BAD 완전 분열", "BAD 넉백 면역", "다중5티어 vs BAD", "BAD3 분열 스트레스"]
+const BALLOON_IDS: Array[String] = ["red", "blue", "green", "yellow", "pink", "black", "white", "zebra", "rainbow", "lead", "ceramic", "moab", "bfb", "zomg", "ddt", "bad"]
+const BALLOON_NAMES: Array[String] = ["빨강", "파랑", "초록", "노랑", "분홍", "검정", "하얀", "얼룩말", "무지개", "납", "세라믹", "MOAB", "BFB", "ZOMG", "DDT", "BAD"]
 
 func _ready() -> void:
 	game = get_parent() as MainGame
@@ -24,6 +25,12 @@ func _ready() -> void:
 		_command_line_applied = true
 		if OS.get_cmdline_user_args().has("--specimen-lab"):
 			scenario_index = 5
+		if OS.get_cmdline_user_args().has("--moab-lab"):
+			scenario_index = 5
+			specimen_index = 10
+		if OS.get_cmdline_user_args().has("--ddt-bad-lab"):
+			scenario_index = 5
+			specimen_index = 21
 	game.economy.gold = 200000
 	game.economy.lives = 100000
 	game.economy.changed.emit(game.economy.gold, game.economy.lives)
@@ -57,7 +64,26 @@ func _ready() -> void:
 			for index in range(19):
 				builds.append([2, 2, 0])
 		5:
-			builds = [[[0, 0, 0]], [[0, 0, 2]], [[4, 0, 0]], [[4, 0, 2]], [], [[0, 0, 0]], [[4, 0, 0]], [[5, 0, 2]], [[0, 5, 2], [0, 0, 2], [0, 0, 0]], [[5, 2, 0]]][specimen_index]
+			if specimen_index < 10:
+				builds = [[[0, 0, 0]], [[0, 0, 2]], [[4, 0, 0]], [[4, 0, 2]], [], [[0, 0, 0]], [[4, 0, 0]], [[5, 0, 2]], [[0, 5, 2], [0, 0, 2], [0, 0, 0]], [[5, 2, 0]]][specimen_index]
+			else:
+				builds = [[0, 0, 0]] if specimen_index == 10 else ([[5, 0, 2]] if specimen_index == 12 else [[0, 2, 5]])
+				if specimen_index in [13, 19, 20]:
+					builds = [[0, 5, 2]]
+					for index in range(19):
+						builds.append([0, 0, 2])
+				if specimen_index >= 21:
+					builds = [[0, 2, 5]]
+					if specimen_index in [21, 22, 23, 24, 32]:
+						builds = [[[0, 0, 0]], [[0, 0, 2]], [], [[4, 0, 2]], [[4, 0, 2]]][[21, 22, 23, 24, 32].find(specimen_index)]
+					elif specimen_index == 26:
+						builds = [[0, 5, 2]]
+						for index in range(19):
+							builds.append([0, 0, 2] if index % 2 == 0 else [0, 0, 0])
+					elif specimen_index == 33:
+						builds = [[5, 0, 2], [0, 5, 2], [0, 2, 5]]
+						for index in range(19):
+							builds.append([0, 0, 2])
 	for index in range(builds.size()):
 		game.try_place_tower(positions[index])
 		var tower: TowerState = game.towers.towers.back()
@@ -66,7 +92,7 @@ func _ready() -> void:
 				game.try_upgrade(tower, MainGame.DART.upgrade_at(path, tier))
 	if scenario_index == 2:
 		game.try_place_tower(positions[builds.size()], MainGame.BOMB)
-	if scenario_index == 5 and specimen_index == 4:
+	if scenario_index == 5 and specimen_index in [4, 23]:
 		game.try_place_tower(positions[0], MainGame.BOMB)
 	game.waves.waves.clear()
 	game.hud.set_wave(0, 0, false)
@@ -92,16 +118,30 @@ func _ready() -> void:
 			game.select_instance(null)
 			game.hud.upgrade_panel.refresh())
 	_button("풍선 검사실", Vector2(840, 604)).pressed.connect(_choose.bind(5))
+	_button("비행선 검사실", Vector2(724, 604)).pressed.connect(func() -> void:
+		specimen_index = 10
+		_choose(5))
+	_button("DDT·BAD 검사", Vector2(492, 604)).pressed.connect(func() -> void:
+		specimen_index = 21
+		_choose(5))
 	if scenario_index == 5:
 		_specimen_controls()
+		var burst: Button = _button("비행선 외피 파괴", Vector2(608, 604))
+		burst.tooltip_text = "검사용 Normal 공격: 현재 비행선 각각의 남은 외피 HP만 제거합니다. 새 자식은 같은 처리에 포함하지 않습니다."
+		burst.pressed.connect(break_blimp_shells)
+		var decamo: Button = _button("카모 제거", Vector2(376, 604))
+		decamo.tooltip_text = "검사실 전용: 활성 풍선의 카모를 제거합니다. 이후 자식도 제거된 상태를 계승합니다."
+		decamo.pressed.connect(func() -> void:
+			for balloon in game.balloons.balloons:
+				balloon.remove_camo())
 	game.hud._wave.text = "5티어 실험"
 	game.hud._status.text = "실험 전용 · 일반 모드는 F6"
 	game.hud._wave_help.text = "F6: 일반 / F7: 실험 전환"
 	game.hud._hint.text = "200,000G · 제거 시 환급 없음\n능력 충전은 실험 전용입니다"
 	game.select_instance(game.towers.towers[0])
 	if scenario_index == 5:
-		game.hud._status.text = "카모·외피 검사실 · 일반 모드는 F6"
-		game.hud._wave.text = "풍선 검사실"
+		game.hud._status.text = "풍선·비행선 검사실 · 일반 모드는 F6"
+		game.hud._wave.text = "비행선 검사실" if specimen_index >= 10 else "풍선 검사실"
 		game.hud._start.text = "선택 풍선 소환 [Space]"
 
 func _specimen_controls() -> void:
@@ -115,6 +155,8 @@ func _specimen_controls() -> void:
 	presets.size = Vector2(310, 30)
 	for title in SPECIMENS:
 		presets.add_item(title)
+	for title in ADVANCED_SPECIMENS:
+		presets.add_item(title)
 	presets.selected = specimen_index
 	presets.item_selected.connect(func(index: int) -> void:
 		specimen_index = index
@@ -126,6 +168,10 @@ func _specimen_controls() -> void:
 	for title in BALLOON_NAMES:
 		type_picker.add_item(title)
 	type_picker.selected = 9 if specimen_index in [2, 3, 4] else (10 if specimen_index in [5, 6, 7, 9] else 0)
+	if specimen_index >= 10:
+		type_picker.selected = 13 if specimen_index in [14, 17, 20] else (12 if specimen_index in [13, 16, 19] else 11)
+	if specimen_index >= 21:
+		type_picker.selected = 14 if specimen_index <= 27 else 15
 	type_picker.item_selected.connect(func(_index: int) -> void: _allow_armor())
 	game.hud._root.add_child(type_picker)
 	quantity = SpinBox.new()
@@ -134,6 +180,10 @@ func _specimen_controls() -> void:
 	quantity.min_value = 1
 	quantity.max_value = 1000
 	quantity.value = 100 if specimen_index == 9 else 10
+	if specimen_index >= 10:
+		quantity.value = 10 if specimen_index == 18 else (4 if specimen_index == 19 else (3 if specimen_index == 20 else 1))
+	if specimen_index in [27, 34]:
+		quantity.value = 10 if specimen_index == 27 else 3
 	game.hud._root.add_child(quantity)
 	camo_toggle = CheckButton.new()
 	camo_toggle.text = "카모"
@@ -143,7 +193,7 @@ func _specimen_controls() -> void:
 	fortified_toggle = CheckButton.new()
 	fortified_toggle.text = "강화"
 	fortified_toggle.position = Vector2(392, 184)
-	fortified_toggle.button_pressed = specimen_index in [4, 7]
+	fortified_toggle.button_pressed = specimen_index in [4, 7, 15, 16, 17, 27, 29, 31]
 	game.hud._root.add_child(fortified_toggle)
 	_allow_armor()
 	_button("선택 풍선 소환", Vector2(506, 184), Vector2(126, 30)).pressed.connect(spawn_selected)
@@ -153,7 +203,7 @@ func _specimen_controls() -> void:
 	specimen_status.add_theme_font_size_override("font_size", 12)
 	game.hud._root.add_child(specimen_status)
 	var note: Label = Label.new()
-	note.text = "실험실: 자식별 잔여 피해 전달\n기존20웨이브: 분기 피해 중단 유지"
+	note.text = "재생 표식만 · 재생 동작 미구현\n비행선 외피 초과 피해 차단"
 	note.position = Vector2(366, 148)
 	note.add_theme_font_size_override("font_size", 11)
 	game.hud._root.add_child(note)
@@ -162,6 +212,14 @@ func _allow_armor() -> void:
 	if fortified_toggle == null:
 		return
 	var data: BalloonDefinition = load("res://data/balloons/%s.tres" % BALLOON_IDS[type_picker.selected])
+	if camo_toggle != null:
+		var was_intrinsic: bool = camo_toggle.disabled
+		camo_toggle.disabled = data.default_camo
+		if data.default_camo:
+			camo_toggle.button_pressed = true
+		elif was_intrinsic:
+			camo_toggle.button_pressed = false
+		camo_toggle.tooltip_text = "DDT는 기본 카모입니다. 소환 후 '카모 제거'로 해제할 수 있습니다." if data.default_camo else "소환할 개체에 카모를 추가합니다."
 	fortified_toggle.disabled = data.fortified_hp <= 0
 	if fortified_toggle.disabled:
 		fortified_toggle.button_pressed = false
@@ -170,9 +228,28 @@ func spawn_selected() -> void:
 	if game.result != &"":
 		return
 	var data: BalloonDefinition = load("res://data/balloons/%s.tres" % BALLOON_IDS[type_picker.selected])
+	var start_distance: float = 650.0 if data.moab_class else 500.0
 	for index in range(int(quantity.value)):
-		game.balloons.spawn(data, 500.0 + (_spawn_batch % 6) * 60.0 + (index % 100) * 1.5, camo_toggle.button_pressed, fortified_toggle.button_pressed, true)
+		game.balloons.spawn(data, start_distance + (_spawn_batch % 6) * 60.0 + (index % 100) * 1.5, camo_toggle.button_pressed, fortified_toggle.button_pressed, true)
 	_spawn_batch += 1
+
+func break_blimp_shells() -> void:
+	if game.result != &"":
+		return
+	# Freeze IDs: an already removed parent cannot split again and newborns
+	# are never independently hit by this debug action.
+	var ids: Array[int] = []
+	for balloon in game.balloons.balloons:
+		if balloon.definition.moab_class:
+			ids.append(balloon.id)
+	game.hud.begin_combat_update()
+	for id in ids:
+		var balloon: BalloonState = game.balloons.find(id)
+		if balloon != null:
+			var hit: AttackSpec = AttackSpec.new(balloon.shell_hp, 1, AttackSpec.Attribute.NORMAL)
+			hit.detects_camo = true
+			game.combat.apply_hit(id, hit)
+	game.hud.end_combat_update()
 
 func _process(delta: float) -> void:
 	if specimen_status == null:
@@ -181,9 +258,10 @@ func _process(delta: float) -> void:
 	if _status_elapsed < 0.2:
 		return
 	_status_elapsed = 0.0
-	specimen_status.text = "활성 %d · 카모/강화는 독립 속성\nPops = 제거 외피 · 피해 = 실제 HP" % game.balloons.balloons.size()
+	specimen_status.text = "활성 %d · 재생은 표식만(미동작)" % game.balloons.balloons.size()
 	if not game.balloons.balloons.is_empty():
 		var first: BalloonState = game.balloons.balloons[0]
+		specimen_status.text += "\n카모%d · 강화%d · 재생%d" % [int(first.camo), int(first.fortified), int(first.regrow)]
 		specimen_status.text += "\n예시 %s HP %d/%d · RBE %d/%d" % [first.definition.id, first.shell_hp, first.shell_max_hp, first.remaining_rbe(), first.total_rbe()]
 
 func charge() -> void:

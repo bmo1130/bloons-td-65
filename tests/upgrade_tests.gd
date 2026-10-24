@@ -50,7 +50,7 @@ func _at(game: MainGame, data: BalloonDefinition, at: Vector2) -> BalloonState:
 
 func _test_catalog_and_purchases() -> void:
 	var ids: Dictionary = {}
-	_check(MainGame.DART.upgrades.filter(func(item: UpgradeDefinition) -> bool: return item.tier <= 3).size() == 9 and MainGame.BOMB.upgrades.is_empty(), "original nine dart upgrades preserved, bomb uses empty catalog")
+	_check(MainGame.DART.upgrades.filter(func(item: UpgradeDefinition) -> bool: return item.tier <= 3).size() == 9 and MainGame.BOMB.upgrades.filter(func(item: UpgradeDefinition) -> bool: return item.tier <= 3).size() == 9, "original nine upgrades per tower preserved in tier1-3 catalog")
 	for item in MainGame.DART.upgrades:
 		if item.tier > 3:
 			continue

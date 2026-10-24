@@ -1,4 +1,70 @@
-# 전투 구조 — v0.11
+# 전투 구조 — v0.12
+
+## 폭탄 고티어의 기존 시스템 확장
+
+- TowerDefinition/AttackSpec에 일반·MOAB 기절시간과 경로 넉백거리,파편 추가피해,재귀 주기만 추가했다.
+  CombatSystem.can_apply_status는 마스크를 먼저 검사하고 명시적 MOAB 지원 인자가 있을 때만 기존
+  일반 넉백 bool을 확장한다. 타입 이름 분기가 없다. 현재 스텝의 충돌 궤적은 불변이며 제어는 다음 이동부터다.
+  예측 조준은 기절로 멈추는 시간과 예약된 경로 넉백을 반영하되 개체 상태를 소비하지 않는다.
+- BalloonState의 stun_remaining/pending_push는 개체 상태다. 이동에서 초 단위 기절을 소비하고 경로거리를
+  차감한다. 상태가0인 대다수 풍선은 감소/최소값 연산을 실행하지 않는다. 이 변경은 계측된 이동 오버헤드만 줄인다.
+- AbilityDefinition.Effect에 MOAB_MISSILE/LEAK_STORM을 추가했다. 팬클럽 lease/우선순위/변신 합성은
+  기존 코드 그대로다. Missile은 현재 타겟 comparator,같은 launch/이동/정밀충돌/apply_hit를 재사용한다.
+  targeted_only 투사체는 보관한 ID만 추적하고 다른 풍선·신규 목표에는 피해를 주지 않는다.
+- AbilityState는 동일 타워ID에 하나다. 미사일 업그레이드는 정의만 대체하고 남은 대기를 새 최대치로 제한한다.
+  passive도 같은 시뮬레이션 시계로 갱신하지만 activate를 거부하고 UI에서 버튼을 만들지 않는다.
+- BalloonSystem.resolve_leaks는 각 살아 있는 ID 제거 직전에 leak_pending을 동기 발행하고 생존 여부를
+  다시 검사한다. AbilitySystem은 쿨다운을 예약한 뒤 화면 ID 스냅샷을 공통 피해기로 처리한다.
+  출구 분열 자식은 기존 pending queue에 붙고 생존한 자식만 누출한다. 삭제된 부모/자식은 다시 차감하지 않는다.
+  기존 효과→능력→웨이브→타워→이동→투사체→누수→완료 순서는 바꾸지 않았다.
+- Recursive는 기존 on_explosion descriptor의 bounded secondary ring이다. 발사 시 두 프로필을 복사하고
+  TowerState의 성공 volley 카운터로 해당 발사의 recursive flag를 확정한다. 이미 확정한 split_bursts 안에서
+  기본8개와 선택적 추가8개만 생성한다. 각각0.14/0.28초 만료가 기존 시간순 큐에서 독립 AoE를 발생시킨다.
+  새 노드/타이머/별도 피해 엔진/무한 Resource 그래프는 없다. 발사·피해 통계는 기존 source_id에 귀속한다.
+- 공통 업그레이드 패널은 같은 능력 영역에 액티브 버튼 또는 패시브 라벨을 표시한다. HUD 안내 문구는 그
+  영역을 사용할 때 숨겨 글자 겹침을 막는다. A는 선택 타워 능력이며 기존D/B/Space/Esc/F6/F7과 충돌하지 않는다.
+
+이하 절은 v0.11.1까지의 설계 기록이다. 새 상한/상태 효과는 위 확장을 따른다.
+
+## 렌더 캐시와 관측 경계
+
+- BalloonSystem은 일반 appearance=0/radius≤20 Definition을 최대64개 보관하는512×512 논리 atlas를
+  SVG 도형으로 구성하고2배 크기1024×1024 ImageTexture로 한 번 래스터화한다. 실제 알파 텍스처의
+  기본 저장량은 약4MiB다. 같은 공유 텍스처의 영역을 `_draw()`에서 순서대로 제출하므로 풍선 간 겹침 순서를 유지하고
+  Compatibility의 텍스처 배칭을 사용할 수 있다. 외부 이미지/플러그인/별도 렌더러/풍선별 노드는 추가하지 않는다.
+- 팔레트/크기는 불변 Definition에서 읽는다. 새로운 Definition이 처음 화면에 나타날 때만 atlas를 갱신한다.
+  초과 크기/장식/비행선/64개 초과는 기존 도형으로 그리며, 카모·강화·재생의 live 표식은 캐시 뒤에 그대로 덧그린다.
+  헤드리스에서는 `_draw()`가 실행되지 않아 텍스처를 만들지 않는다. `use_draw_cache=false`는 검증용 기존 경로다.
+- 원래 비용이 컸던 draw_circle 등5개 기본 도형을 풍선당 텍스처 사각형 하나로 대체한다. 이동/격자/충돌/HP/분열/
+  공격 스냅샷/명중 기록은 캐시를 읽지 않는다. 캐시가 없거나 래스터화에 실패하면 원래 도형을 사용한다.
+- CombatSystem의 선택적 계측은 AoE 후보 구성/정렬/피해와 이펙트 도형 제출을 구분한다. ProjectileSystem의 기존
+  생성/정밀 충돌/해결 타이머도 함께 읽는다. 생성 ID 수·후보 Dictionary 수·접촉 시도는 할당의 대리 지표이며
+  실제 힙 할당 추적이라고 부르지 않는다. 프로세스 전체 정적 메모리/객체 수의 프레임 후 표본도 별도로 남긴다.
+- 판정 순서/제외 ID/정렬/풀링을 바꾸지 않았다. 프로파일링 평균상 주 병목은 렌더이고, 투사체 생성은0.01~0.02ms다.
+  임시 접촉 자료구조나 객체 생명주기에 대한 위험한 최적화를 추정만으로 추가하지 않는다.
+- bomb_stability_benchmark는 기존 bomb/tier5 부하 지그를 재사용한다. 동일 시각 입력/동일 스냅샷의 전투 지문과
+  개별 프레임 표본을 새 v0111 파일에 보존한다. 배속별 부하 측정의 총 시뮬레이션 시간은 다르므로 그 둘의 최종 지문을
+  직접 같다고 주장하지 않고,40개 교차/5개 캠페인의 같은 시뮬레이션 시간으로1×/2×를 따로 검사한다.
+
+## 폭탄 1~3티어 확장
+
+- 기존 UpgradeDefinition/TowerStatResolver/UpgradePolicy/UpgradeSystem을 그대로 사용한다.
+  새9개 Resource는 data/upgrades/bomb에 두며, TowerDefinition.max_upgrade_tier로 UI의 상한을
+  카탈로그에서 읽는다. 업그레이드 경로 이름도 Definition 데이터라 다트/폭탄 UI를 분기 복제하지 않는다.
+- ProjectileSplitDefinition에 on_explosion/inherit_damage만 추가했다. 기본false이므로 울트라의
+  관통 임계치/수명 종료 방출은 그대로다. 폭탄은 접촉 폭발 시 `_emit_splits`를 한 번 호출하며
+  기존 split_bursts를 생성 전에 확정한다. 주 폭탄 수명 종료는 on_explosion을 발동시키지 않는다.
+- ProjectileState는 기존 부모/자식 스냅샷에 상단 피해/탐지/탄속을 복사한다. 자식은 원래 source_id와
+  split_child=true로 같은 launch API를 사용한다. 통계 ON/OFF는 생성·피해·타겟팅에 관여하지 않는다.
+- 클러스터의 TowerDefinition.timed_explosion은 시간순 큐의 만료 이벤트로 CombatSystem.explode를 호출한다.
+  퓨즈 전에는 정밀 접촉 후보를 만들지 않으며 별도 타이머·노드·피해 엔진은 없다. 동일 스텝에 생성된
+  자식도 spawn_fraction 이후 궤적만 기존 큐에 삽입한다. 전역 max_eligible_id의 새 풍선 제외를 보존한다.
+- 독립 파편/폭발은 별도 hit_ids, 동일 AoE는 기존 제외 Dictionary를 쓴다. 이는 의도적인 독립 재타격과
+  한 폭발 내 중복을 구분한다. MOAB 보너스는 부모 make_attack에만 있고 자식 프로필에는0이다.
+- CombatSystem.can_target은 기본 공격 또는 on_explosion 자식의 피해 속성과 공통 탐지를 검사한다.
+  Frag의 검정 조준을 허용하지만 타입 면역은 바꾸지 않는다. 기존 다른 타워는 같은 can_attack 결과다.
+- 기존 효과→능력→웨이브→타워→풍선→투사체→누수→완료의 스텝/경제/First 동률은 보존한다.
+  bomb_benchmark는 기존 tier5 계측 도구를 상속하여 CPU·실제 렌더·캠페인을 분리하며 기존 원시 파일을 덮지 않는다.
 
 ## DDT·BAD의 공통 확장
 
@@ -150,7 +216,7 @@
 도탄 상한8(안전 보정≤16)과 다음 경계에서의 제거로 정지 접촉/큰 delta의 무한 반사를 막는다.
 사각 범퍼 반사는 v0.8에서 추가했다. v0.9의 외피 HP/분열 트리도 같은 접촉 큐를 사용한다.
 
-스텝의 첫 단계에서 능력 타이머/만료를 처리한 뒤 기존 효과→웨이브→타워→풍선→투사체→누수→완료 순서를 따른다.
+스텝은 기존 효과 수명→능력 타이머/만료→웨이브→타워→풍선→투사체→누수→완료 순서를 따른다.
 기존 비변신/비도탄 경로의 결과는 유지한다. 벤치마크는 버전별로 따로 저장한다.
 
 ## 기존 기반

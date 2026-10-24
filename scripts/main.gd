@@ -36,6 +36,7 @@ var step_metrics: Dictionary = {}
 func _ready() -> void:
 	abilities = AbilitySystem.new()
 	abilities.tower_system = towers
+	abilities.economy = economy
 	add_child(abilities)
 	towers.abilities = abilities
 	if regression_six_waves:
@@ -57,11 +58,14 @@ func _ready() -> void:
 	upgrades.upgraded.connect(func(_tower: TowerState) -> void:
 		hud.upgrade_panel.refresh()
 		hud.stats_panel.refresh())
-	abilities.changed.connect(func() -> void: hud.upgrade_panel.refresh())
+	abilities.changed.connect(func() -> void:
+		hud.upgrade_panel.refresh()
+		hud.sync_ability_status())
 	hud.upgrade_panel.abilities = abilities
 	waves.balloon_system = balloons
 	balloons.layer_popped.connect(economy.earn)
 	balloons.leaked.connect(economy.lose_lives)
+	balloons.leak_pending.connect(abilities.before_leak)
 	economy.changed.connect(hud.set_stats)
 	economy.defeated.connect(func() -> void: _finish(false))
 	waves.started.connect(_on_wave_started)
@@ -173,6 +177,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_ESCAPE:
 				building = false
 				select_instance(null)
+			KEY_A:
+				abilities.activate(selected_instance)
 		for definition in TOWER_CATALOG:
 			if event.keycode == definition.shortcut.unicode_at(0):
 				select_tower(definition)

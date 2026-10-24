@@ -3,6 +3,7 @@ extends Node2D
 
 signal layer_popped(reward: int)
 signal leaked(damage: int)
+signal leak_pending(balloon: BalloonState) # Synchronous interception before removal/life loss.
 
 var route: GameRoute
 var combat: CombatSystem
@@ -21,6 +22,41 @@ var spawn_count: int = 0
 var removal_usec: int = 0
 var removal_count: int = 0
 var peak_active_count: int = 0
+# Render-only cache. Collision, motion, IDs and damage never read it.
+var use_draw_cache: bool = true
+var _plain_atlas: ImageTexture
+var _plain_regions: Dictionary = {}
+var _plain_definitions: Array[BalloonDefinition] = []
+
+func _prepare_plain_atlas() -> void:
+	var changed: bool = false
+	for balloon in balloons:
+		var data: BalloonDefinition = balloon.definition
+		if data.appearance != 0 or data.radius > 20.0 or _plain_regions.has(data) or _plain_definitions.size() >= 64:
+			continue
+		var index: int = _plain_definitions.size()
+		_plain_definitions.append(data)
+		_plain_regions[data] = Rect2(Vector2(index % 8, index / 8) * 128.0, Vector2(128, 128))
+		changed = true
+	if not changed:
+		return
+	# A shared atlas preserves per-balloon painter order while allowing the
+	# Compatibility renderer to batch adjacent textured quads. The 2x raster
+	# retains smooth edges; camo/fortified/regrow overlays still use _draw().
+	var svg: String = '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">'
+	for index in range(_plain_definitions.size()):
+		var data: BalloonDefinition = _plain_definitions[index]
+		var r: float = data.radius
+		svg += '<g transform="translate(%d,%d)">' % [(index % 8) * 64 + 32, (index / 8) * 64 + 28]
+		svg += '<circle cx="2" cy="4" r="%f" fill="#051217" fill-opacity="0.3"/>' % (r + 2.0)
+		svg += '<line x1="0" y1="%f" x2="-2" y2="%f" stroke="#e4e6d9" stroke-width="1"/>' % [r, r + 8.0]
+		svg += '<circle r="%f" fill="#17252c"/><circle r="%f" fill="#%s" fill-opacity="%f"/>' % [r + 1.5, r, data.color.to_html(false), data.color.a]
+		svg += '<circle cx="-4" cy="-4" r="%f" fill="white" fill-opacity="0.4"/></g>' % (r * 0.26)
+	var raster: Image = Image.new()
+	if raster.load_svg_from_string(svg + "</svg>", 2.0) == OK:
+		_plain_atlas = ImageTexture.create_from_image(raster)
+	else:
+		_plain_atlas = null # Preserve the original draw path on raster failure.
 
 func spawn(definition: BalloonDefinition, distance: float = 0.0, camo: bool = false, fortified: bool = false, spill: bool = false, regrow: bool = false) -> BalloonState:
 	var started: int = Time.get_ticks_usec() if profile_changes else 0
@@ -52,16 +88,19 @@ func update(delta: float, defer_leaks: bool = false) -> void:
 		var balloon: BalloonState = balloons[index]
 		var old_distance: float = balloon.distance
 		balloon.motion_start_distance = old_distance
-		var backwards: float = minf(delta, balloon.knockback_remaining)
+		var moving: float = delta
+		if balloon.stun_remaining > 0.0:
+			moving -= minf(delta, balloon.stun_remaining)
+			balloon.stun_remaining = maxf(0.0, balloon.stun_remaining - delta)
+		var backwards: float = minf(moving, balloon.knockback_remaining)
 		balloon.knockback_remaining = maxf(0.0, balloon.knockback_remaining - delta)
 		balloon.distance = maxf(0.0, balloon.distance + balloon.speed * (
-			delta - backwards - backwards * balloon.knockback_multiplier))
+			moving - backwards - backwards * balloon.knockback_multiplier))
+		if balloon.pending_push > 0.0:
+			balloon.distance = maxf(0.0, balloon.distance - balloon.pending_push)
+			balloon.pending_push = 0.0
 		balloon.exit_time = INF
 		if balloon.distance >= route.total_length:
-			if not defer_leaks:
-				_remove(index)
-				leaked.emit(balloon.leak_damage())
-				continue
 			balloon.exit_time = clampf((route.total_length - old_distance) / maxf(balloon.distance - old_distance, 0.000001), 0.0, 1.0)
 			balloon.distance = route.total_length
 			_pending_leaks.append(balloon)
@@ -69,11 +108,15 @@ func update(delta: float, defer_leaks: bool = false) -> void:
 		balloon.record_motion(route.motion_between(old_distance, balloon.distance), delta, minf(balloon.exit_time, 1.0))
 	_spatial_dirty = true
 	queue_redraw()
+	if not defer_leaks:
+		resolve_leaks()
 
 func resolve_leaks() -> void:
 	# Existing darts may hit before an exit within this step. Charge only the
 	# layers that remain after these impacts, and never hit a balloon after exit.
 	for balloon in _pending_leaks:
+		if find(balloon.id) != null:
+			leak_pending.emit(balloon)
 		if find(balloon.id) != null:
 			_remove(balloon.array_index)
 			leaked.emit(balloon.leak_damage())
@@ -141,17 +184,24 @@ func _remove(index: int) -> void:
 
 func _draw() -> void:
 	var started: int = Time.get_ticks_usec() if profile_draw else 0
+	if use_draw_cache:
+		_prepare_plain_atlas()
 	for balloon in balloons:
 		var at: Vector2 = balloon.position
 		var radius: float = balloon.definition.radius
+		if balloon.stun_remaining > 0.0:
+			draw_arc(at, radius + 5.0, 0.0, TAU, 20, Color("fff18a"), 2.0, true)
 		if balloon.definition.appearance >= 6:
 			_draw_blimp(balloon)
 			continue
-		draw_circle(at + Vector2(2, 4), radius + 2.0, Color(0.02, 0.07, 0.09, 0.3))
-		draw_line(at + Vector2(0, radius), at + Vector2(-2, radius + 8), Color("e4e6d9"), 1.0, true)
-		draw_circle(at, radius + 1.5, Color("17252c"))
-		draw_circle(at, radius, balloon.definition.color)
-		draw_circle(at + Vector2(-4, -4), radius * 0.26, Color(1, 1, 1, 0.4))
+		if use_draw_cache and _plain_atlas != null and _plain_regions.has(balloon.definition):
+			draw_texture_rect_region(_plain_atlas, Rect2(at - Vector2(32, 28), Vector2(64, 64)), _plain_regions[balloon.definition])
+		else:
+			draw_circle(at + Vector2(2, 4), radius + 2.0, Color(0.02, 0.07, 0.09, 0.3))
+			draw_line(at + Vector2(0, radius), at + Vector2(-2, radius + 8), Color("e4e6d9"), 1.0, true)
+			draw_circle(at, radius + 1.5, Color("17252c"))
+			draw_circle(at, radius, balloon.definition.color)
+			draw_circle(at + Vector2(-4, -4), radius * 0.26, Color(1, 1, 1, 0.4))
 		if balloon.definition.appearance == 1:
 			draw_arc(at, radius - 3.0, 0.2, 2.9, 16, Color("dadbe4"), 2.0, true)
 		elif balloon.definition.appearance == 2:

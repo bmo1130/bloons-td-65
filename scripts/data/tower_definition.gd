@@ -24,6 +24,15 @@ extends Resource
 @export var moab_bonus: int = 0
 @export var detects_camo: bool = false
 @export var projectile_split: ProjectileSplitDefinition
+@export var timed_explosion: bool = false
+@export var targeted_only: bool = false
+@export var stun_duration: float = 0.0
+@export var stun_moab_duration: float = 0.0
+@export var push_distance: float = 0.0
+@export var push_moab_distance: float = 0.0
+@export var frag_damage_bonus: int = 0
+@export var recursive_every: int = 0
+@export var upgrade_path_names: PackedStringArray = PackedStringArray(["상단 · 관통", "중단 · 연사", "하단 · 고화력"])
 @export var knockback_duration: float = 0.0
 @export var knockback_light: float = 0.0
 @export var knockback_heavy: float = 0.0
@@ -41,6 +50,13 @@ func upgrade_at(path: int, tier: int) -> UpgradeDefinition:
 			return upgrade
 	return null
 
+func max_upgrade_tier(path: int) -> int:
+	var maximum: int = 0
+	for upgrade in upgrades:
+		if upgrade.path == path:
+			maximum = maxi(maximum, upgrade.tier)
+	return maximum
+
 func make_attack() -> AttackSpec:
 	var attack: AttackSpec = AttackSpec.new(damage, pierce, attack_attribute, explosion_radius)
 	attack.ceramic_bonus = ceramic_bonus
@@ -51,4 +67,8 @@ func make_attack() -> AttackSpec:
 	attack.knockback_duration = knockback_duration
 	attack.knockback_light = knockback_light
 	attack.knockback_heavy = knockback_heavy
+	attack.stun_duration = stun_duration
+	attack.stun_moab_duration = stun_moab_duration
+	attack.push_distance = push_distance
+	attack.push_moab_distance = push_moab_distance
 	return attack

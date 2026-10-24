@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[ext_resource type="Resource" path="res://data/projectiles/bomb_cluster_split.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_bottom_3"
+display_name = "집속 폭탄"
+path = 2
+tier = 3
+cost = 300
+reference_version = "prototype-v0.11-bomb; official-v40/v47 context"
+description = "Cluster Bombs: 파편을 8개 추가 폭발로 대체. 0.14초 후 반경36, 피해1/관통8. 상단 피해 계승. 임시 수치."
+
+projectile_split = ExtResource("2")
+visual_color = Color(0.67, 0.52, 0.91, 1)

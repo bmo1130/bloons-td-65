@@ -1,0 +1,7273 @@
+{
+	"campaigns": [
+		{
+			"balloons_created": 2832,
+			"cost": 6310,
+			"earned": 12573,
+			"gold": 6663,
+			"leaked_instances": 0,
+			"leaked_rbe": 0,
+			"lives": 50,
+			"pops": 10338,
+			"projectiles_created": 3452,
+			"purchases": [
+				{
+					"balance": 335,
+					"cost": 65,
+					"id": 1,
+					"kind": "dart",
+					"position": [
+						250.0,
+						350.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 185,
+					"cost": 150,
+					"id": 2,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						410.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 120,
+					"cost": 65,
+					"id": 3,
+					"kind": "dart",
+					"position": [
+						460.0,
+						450.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 55,
+					"cost": 65,
+					"id": 4,
+					"kind": "dart",
+					"position": [
+						672.0,
+						232.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 40,
+					"cost": 65,
+					"id": 5,
+					"kind": "dart",
+					"position": [
+						460.0,
+						650.0
+					],
+					"wave": 2
+				},
+				{
+					"balance": 44,
+					"cost": 65,
+					"id": 6,
+					"kind": "dart",
+					"position": [
+						704.0,
+						440.0
+					],
+					"wave": 3
+				},
+				{
+					"balance": 75,
+					"cost": 65,
+					"id": 7,
+					"kind": "dart",
+					"position": [
+						80.0,
+						300.0
+					],
+					"wave": 4
+				},
+				{
+					"balance": 10,
+					"cost": 65,
+					"id": 8,
+					"kind": "dart",
+					"position": [
+						860.0,
+						420.0
+					],
+					"wave": 4
+				},
+				{
+					"balance": 56,
+					"cost": 65,
+					"id": 9,
+					"kind": "dart",
+					"position": [
+						460.0,
+						180.0
+					],
+					"wave": 5
+				},
+				{
+					"balance": 63,
+					"cost": 150,
+					"id": 10,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						180.0
+					],
+					"wave": 6
+				},
+				{
+					"balance": 123,
+					"cost": 150,
+					"id": 11,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						410.0
+					],
+					"wave": 7
+				},
+				{
+					"balance": 58,
+					"cost": 65,
+					"id": 12,
+					"kind": "dart",
+					"position": [
+						80.0,
+						650.0
+					],
+					"wave": 7
+				},
+				{
+					"balance": 127,
+					"cost": 150,
+					"id": 13,
+					"kind": "bomb",
+					"position": [
+						156.0,
+						180.0
+					],
+					"wave": 8
+				},
+				{
+					"balance": 62,
+					"cost": 65,
+					"id": 14,
+					"kind": "dart",
+					"position": [
+						156.0,
+						650.0
+					],
+					"wave": 8
+				},
+				{
+					"balance": 224,
+					"cost": 150,
+					"id": 15,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						180.0
+					],
+					"wave": 9
+				},
+				{
+					"balance": 74,
+					"cost": 150,
+					"id": 16,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						300.0
+					],
+					"wave": 9
+				},
+				{
+					"balance": 9,
+					"cost": 65,
+					"id": 17,
+					"kind": "dart",
+					"position": [
+						250.0,
+						650.0
+					],
+					"wave": 9
+				},
+				{
+					"balance": 285,
+					"cost": 65,
+					"id": 18,
+					"kind": "dart",
+					"position": [
+						350.0,
+						180.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 135,
+					"cost": 150,
+					"id": 19,
+					"kind": "bomb",
+					"position": [
+						350.0,
+						650.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 70,
+					"cost": 65,
+					"id": 20,
+					"kind": "dart",
+					"position": [
+						460.0,
+						300.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 5,
+					"cost": 65,
+					"id": 21,
+					"kind": "dart",
+					"position": [
+						575.0,
+						180.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 325,
+					"cost": 150,
+					"id": 22,
+					"kind": "bomb",
+					"position": [
+						575.0,
+						650.0
+					],
+					"wave": 11
+				},
+				{
+					"balance": 260,
+					"cost": 65,
+					"id": 23,
+					"kind": "dart",
+					"position": [
+						672.0,
+						180.0
+					],
+					"wave": 11
+				},
+				{
+					"balance": 195,
+					"cost": 65,
+					"id": 24,
+					"kind": "dart",
+					"position": [
+						672.0,
+						650.0
+					],
+					"wave": 11
+				},
+				{
+					"balance": 45,
+					"cost": 150,
+					"id": 25,
+					"kind": "bomb",
+					"position": [
+						770.0,
+						410.0
+					],
+					"wave": 11
+				},
+				{
+					"balance": 258,
+					"cost": 65,
+					"id": 26,
+					"kind": "dart",
+					"position": [
+						770.0,
+						650.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 193,
+					"cost": 65,
+					"id": 27,
+					"kind": "dart",
+					"position": [
+						860.0,
+						300.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 43,
+					"cost": 150,
+					"id": 28,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						650.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 346,
+					"cost": 65,
+					"id": 29,
+					"kind": "dart",
+					"position": [
+						304.0,
+						160.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 281,
+					"cost": 65,
+					"id": 30,
+					"kind": "dart",
+					"position": [
+						416.0,
+						160.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 131,
+					"cost": 150,
+					"id": 31,
+					"kind": "bomb",
+					"position": [
+						528.0,
+						160.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 66,
+					"cost": 65,
+					"id": 32,
+					"kind": "dart",
+					"position": [
+						416.0,
+						216.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 1,
+					"cost": 65,
+					"id": 33,
+					"kind": "dart",
+					"position": [
+						528.0,
+						216.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 307,
+					"cost": 150,
+					"id": 34,
+					"kind": "bomb",
+					"position": [
+						416.0,
+						272.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 242,
+					"cost": 65,
+					"id": 35,
+					"kind": "dart",
+					"position": [
+						528.0,
+						272.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 177,
+					"cost": 65,
+					"id": 36,
+					"kind": "dart",
+					"position": [
+						584.0,
+						272.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 27,
+					"cost": 150,
+					"id": 37,
+					"kind": "bomb",
+					"position": [
+						640.0,
+						272.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 604,
+					"cost": 65,
+					"id": 38,
+					"kind": "dart",
+					"position": [
+						416.0,
+						328.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 539,
+					"cost": 65,
+					"id": 39,
+					"kind": "dart",
+					"position": [
+						416.0,
+						384.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 389,
+					"cost": 150,
+					"id": 40,
+					"kind": "bomb",
+					"position": [
+						472.0,
+						384.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 324,
+					"cost": 65,
+					"id": 41,
+					"kind": "dart",
+					"position": [
+						640.0,
+						384.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 259,
+					"cost": 65,
+					"id": 42,
+					"kind": "dart",
+					"position": [
+						696.0,
+						384.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 109,
+					"cost": 150,
+					"id": 43,
+					"kind": "bomb",
+					"position": [
+						640.0,
+						440.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 44,
+					"cost": 65,
+					"id": 44,
+					"kind": "dart",
+					"position": [
+						808.0,
+						440.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 717,
+					"cost": 65,
+					"id": 45,
+					"kind": "dart",
+					"position": [
+						248.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 567,
+					"cost": 150,
+					"id": 46,
+					"kind": "bomb",
+					"position": [
+						416.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 502,
+					"cost": 65,
+					"id": 47,
+					"kind": "dart",
+					"position": [
+						640.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 437,
+					"cost": 65,
+					"id": 48,
+					"kind": "dart",
+					"position": [
+						696.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 287,
+					"cost": 150,
+					"id": 49,
+					"kind": "bomb",
+					"position": [
+						752.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 222,
+					"cost": 65,
+					"id": 50,
+					"kind": "dart",
+					"position": [
+						808.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 157,
+					"cost": 65,
+					"id": 51,
+					"kind": "dart",
+					"position": [
+						864.0,
+						496.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 7,
+					"cost": 150,
+					"id": 52,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						552.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 872,
+					"cost": 65,
+					"id": 53,
+					"kind": "dart",
+					"position": [
+						136.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 807,
+					"cost": 65,
+					"id": 54,
+					"kind": "dart",
+					"position": [
+						192.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 657,
+					"cost": 150,
+					"id": 55,
+					"kind": "bomb",
+					"position": [
+						248.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 592,
+					"cost": 65,
+					"id": 56,
+					"kind": "dart",
+					"position": [
+						640.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 527,
+					"cost": 65,
+					"id": 57,
+					"kind": "dart",
+					"position": [
+						696.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 377,
+					"cost": 150,
+					"id": 58,
+					"kind": "bomb",
+					"position": [
+						752.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 312,
+					"cost": 65,
+					"id": 59,
+					"kind": "dart",
+					"position": [
+						808.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 247,
+					"cost": 65,
+					"id": 60,
+					"kind": "dart",
+					"position": [
+						864.0,
+						552.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 97,
+					"cost": 150,
+					"id": 61,
+					"kind": "bomb",
+					"position": [
+						192.0,
+						608.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 32,
+					"cost": 65,
+					"id": 62,
+					"kind": "dart",
+					"position": [
+						304.0,
+						608.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 827,
+					"cost": 65,
+					"id": 63,
+					"kind": "dart",
+					"position": [
+						416.0,
+						608.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 677,
+					"cost": 150,
+					"id": 64,
+					"kind": "bomb",
+					"position": [
+						528.0,
+						608.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 612,
+					"cost": 65,
+					"id": 65,
+					"kind": "dart",
+					"position": [
+						640.0,
+						608.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 547,
+					"cost": 65,
+					"id": 66,
+					"kind": "dart",
+					"position": [
+						696.0,
+						608.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 397,
+					"cost": 150,
+					"id": 67,
+					"kind": "bomb",
+					"position": [
+						808.0,
+						608.0
+					],
+					"wave": 18
+				}
+			],
+			"removed_instances": 2832,
+			"result": "victory",
+			"speed_match": true,
+			"strategy": "none",
+			"towers": [
+				{
+					"build": "0-0-0",
+					"id": 1,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 541
+				},
+				{
+					"build": "0-0-0",
+					"id": 2,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 917
+				},
+				{
+					"build": "0-0-0",
+					"id": 3,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 125
+				},
+				{
+					"build": "0-0-0",
+					"id": 4,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 5,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 31
+				},
+				{
+					"build": "0-0-0",
+					"id": 6,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 7,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 560
+				},
+				{
+					"build": "0-0-0",
+					"id": 8,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 9,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 258
+				},
+				{
+					"build": "0-0-0",
+					"id": 10,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 724
+				},
+				{
+					"build": "0-0-0",
+					"id": 11,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 859
+				},
+				{
+					"build": "0-0-0",
+					"id": 12,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 13,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 798
+				},
+				{
+					"build": "0-0-0",
+					"id": 14,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 15,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 665
+				},
+				{
+					"build": "0-0-0",
+					"id": 16,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 616
+				},
+				{
+					"build": "0-0-0",
+					"id": 17,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 25
+				},
+				{
+					"build": "0-0-0",
+					"id": 18,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 297
+				},
+				{
+					"build": "0-0-0",
+					"id": 19,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 80
+				},
+				{
+					"build": "0-0-0",
+					"id": 20,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 193
+				},
+				{
+					"build": "0-0-0",
+					"id": 21,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 22,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 14
+				},
+				{
+					"build": "0-0-0",
+					"id": 23,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 24,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 2
+				},
+				{
+					"build": "0-0-0",
+					"id": 25,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 26,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 27,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 28,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 29,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 269
+				},
+				{
+					"build": "0-0-0",
+					"id": 30,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 192
+				},
+				{
+					"build": "0-0-0",
+					"id": 31,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 32,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 218
+				},
+				{
+					"build": "0-0-0",
+					"id": 33,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 34,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 369
+				},
+				{
+					"build": "0-0-0",
+					"id": 35,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 36,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 37,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 38,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 153
+				},
+				{
+					"build": "0-0-0",
+					"id": 39,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 114
+				},
+				{
+					"build": "0-0-0",
+					"id": 40,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 184
+				},
+				{
+					"build": "0-0-0",
+					"id": 41,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 42,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 43,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 6
+				},
+				{
+					"build": "0-0-0",
+					"id": 44,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 45,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 253
+				},
+				{
+					"build": "0-0-0",
+					"id": 46,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 81
+				},
+				{
+					"build": "0-0-0",
+					"id": 47,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 4
+				},
+				{
+					"build": "0-0-0",
+					"id": 48,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 2
+				},
+				{
+					"build": "0-0-0",
+					"id": 49,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 50,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 51,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 52,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 423
+				},
+				{
+					"build": "0-0-0",
+					"id": 53,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 222
+				},
+				{
+					"build": "0-0-0",
+					"id": 54,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 214
+				},
+				{
+					"build": "0-0-0",
+					"id": 55,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 387
+				},
+				{
+					"build": "0-0-0",
+					"id": 56,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 16
+				},
+				{
+					"build": "0-0-0",
+					"id": 57,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 6
+				},
+				{
+					"build": "0-0-0",
+					"id": 58,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 59,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 60,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 61,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 379
+				},
+				{
+					"build": "0-0-0",
+					"id": 62,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 38
+				},
+				{
+					"build": "0-0-0",
+					"id": 63,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 44
+				},
+				{
+					"build": "0-0-0",
+					"id": 64,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 43
+				},
+				{
+					"build": "0-0-0",
+					"id": 65,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 14
+				},
+				{
+					"build": "0-0-0",
+					"id": 66,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 2
+				},
+				{
+					"build": "0-0-0",
+					"id": 67,
+					"invested": 150,
+					"kind": "bomb",
+					"pops": 0
+				}
+			],
+			"wave": 20,
+			"waves": [
+				{
+					"gold": 105,
+					"lives": 50,
+					"pops": 10,
+					"wave": 1
+				},
+				{
+					"gold": 109,
+					"lives": 50,
+					"pops": 34,
+					"wave": 2
+				},
+				{
+					"gold": 140,
+					"lives": 50,
+					"pops": 80,
+					"wave": 3
+				},
+				{
+					"gold": 121,
+					"lives": 50,
+					"pops": 136,
+					"wave": 4
+				},
+				{
+					"gold": 213,
+					"lives": 50,
+					"pops": 228,
+					"wave": 5
+				},
+				{
+					"gold": 273,
+					"lives": 50,
+					"pops": 368,
+					"wave": 6
+				},
+				{
+					"gold": 277,
+					"lives": 50,
+					"pops": 512,
+					"wave": 7
+				},
+				{
+					"gold": 374,
+					"lives": 50,
+					"pops": 744,
+					"wave": 8
+				},
+				{
+					"gold": 350,
+					"lives": 50,
+					"pops": 1000,
+					"wave": 9
+				},
+				{
+					"gold": 475,
+					"lives": 50,
+					"pops": 1370,
+					"wave": 10
+				},
+				{
+					"gold": 323,
+					"lives": 50,
+					"pops": 1548,
+					"wave": 11
+				},
+				{
+					"gold": 411,
+					"lives": 50,
+					"pops": 1806,
+					"wave": 12
+				},
+				{
+					"gold": 457,
+					"lives": 50,
+					"pops": 2142,
+					"wave": 13
+				},
+				{
+					"gold": 669,
+					"lives": 50,
+					"pops": 2654,
+					"wave": 14
+				},
+				{
+					"gold": 782,
+					"lives": 50,
+					"pops": 3242,
+					"wave": 15
+				},
+				{
+					"gold": 937,
+					"lives": 50,
+					"pops": 4012,
+					"wave": 16
+				},
+				{
+					"gold": 892,
+					"lives": 50,
+					"pops": 4702,
+					"wave": 17
+				},
+				{
+					"gold": 1721,
+					"lives": 50,
+					"pops": 5846,
+					"wave": 18
+				},
+				{
+					"gold": 3413,
+					"lives": 50,
+					"pops": 7338,
+					"wave": 19
+				},
+				{
+					"gold": 6663,
+					"lives": 50,
+					"pops": 10338,
+					"wave": 20
+				}
+			]
+		},
+		{
+			"balloons_created": 2832,
+			"cost": 9665,
+			"earned": 12573,
+			"gold": 3308,
+			"leaked_instances": 0,
+			"leaked_rbe": 0,
+			"lives": 50,
+			"pops": 10338,
+			"projectiles_created": 1920,
+			"purchases": [
+				{
+					"balance": 335,
+					"cost": 65,
+					"id": 1,
+					"kind": "dart",
+					"position": [
+						250.0,
+						350.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 185,
+					"cost": 150,
+					"id": 2,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						410.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 105,
+					"cost": 80,
+					"id": 2,
+					"upgrade": "bomb_top_1",
+					"wave": 1
+				},
+				{
+					"balance": 40,
+					"cost": 65,
+					"id": 3,
+					"kind": "dart",
+					"position": [
+						460.0,
+						450.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 25,
+					"cost": 65,
+					"id": 4,
+					"kind": "dart",
+					"position": [
+						672.0,
+						232.0
+					],
+					"wave": 2
+				},
+				{
+					"balance": 29,
+					"cost": 65,
+					"id": 5,
+					"kind": "dart",
+					"position": [
+						460.0,
+						650.0
+					],
+					"wave": 3
+				},
+				{
+					"balance": 60,
+					"cost": 65,
+					"id": 6,
+					"kind": "dart",
+					"position": [
+						704.0,
+						440.0
+					],
+					"wave": 4
+				},
+				{
+					"balance": 31,
+					"cost": 140,
+					"id": 2,
+					"upgrade": "bomb_top_2",
+					"wave": 5
+				},
+				{
+					"balance": 38,
+					"cost": 150,
+					"id": 7,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						300.0
+					],
+					"wave": 6
+				},
+				{
+					"balance": 168,
+					"cost": 80,
+					"id": 7,
+					"upgrade": "bomb_top_1",
+					"wave": 7
+				},
+				{
+					"balance": 28,
+					"cost": 140,
+					"id": 7,
+					"upgrade": "bomb_top_2",
+					"wave": 7
+				},
+				{
+					"balance": 97,
+					"cost": 150,
+					"id": 8,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						420.0
+					],
+					"wave": 8
+				},
+				{
+					"balance": 17,
+					"cost": 80,
+					"id": 8,
+					"upgrade": "bomb_top_1",
+					"wave": 8
+				},
+				{
+					"balance": 29,
+					"cost": 300,
+					"id": 2,
+					"upgrade": "bomb_top_3",
+					"wave": 9
+				},
+				{
+					"balance": 70,
+					"cost": 300,
+					"id": 7,
+					"upgrade": "bomb_top_3",
+					"wave": 10
+				},
+				{
+					"balance": 5,
+					"cost": 65,
+					"id": 9,
+					"kind": "dart",
+					"position": [
+						460.0,
+						180.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 335,
+					"cost": 140,
+					"id": 8,
+					"upgrade": "bomb_top_2",
+					"wave": 11
+				},
+				{
+					"balance": 35,
+					"cost": 300,
+					"id": 8,
+					"upgrade": "bomb_top_3",
+					"wave": 11
+				},
+				{
+					"balance": 163,
+					"cost": 150,
+					"id": 10,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						180.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 83,
+					"cost": 80,
+					"id": 10,
+					"upgrade": "bomb_top_1",
+					"wave": 12
+				},
+				{
+					"balance": 18,
+					"cost": 65,
+					"id": 11,
+					"kind": "dart",
+					"position": [
+						80.0,
+						410.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 246,
+					"cost": 140,
+					"id": 10,
+					"upgrade": "bomb_top_2",
+					"wave": 13
+				},
+				{
+					"balance": 181,
+					"cost": 65,
+					"id": 12,
+					"kind": "dart",
+					"position": [
+						80.0,
+						650.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 31,
+					"cost": 150,
+					"id": 13,
+					"kind": "bomb",
+					"position": [
+						156.0,
+						180.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 187,
+					"cost": 300,
+					"id": 10,
+					"upgrade": "bomb_top_3",
+					"wave": 14
+				},
+				{
+					"balance": 107,
+					"cost": 80,
+					"id": 13,
+					"upgrade": "bomb_top_1",
+					"wave": 14
+				},
+				{
+					"balance": 42,
+					"cost": 65,
+					"id": 14,
+					"kind": "dart",
+					"position": [
+						156.0,
+						650.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 544,
+					"cost": 140,
+					"id": 13,
+					"upgrade": "bomb_top_2",
+					"wave": 15
+				},
+				{
+					"balance": 244,
+					"cost": 300,
+					"id": 13,
+					"upgrade": "bomb_top_3",
+					"wave": 15
+				},
+				{
+					"balance": 179,
+					"cost": 65,
+					"id": 15,
+					"kind": "dart",
+					"position": [
+						250.0,
+						180.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 29,
+					"cost": 150,
+					"id": 16,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						300.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 687,
+					"cost": 80,
+					"id": 16,
+					"upgrade": "bomb_top_1",
+					"wave": 16
+				},
+				{
+					"balance": 547,
+					"cost": 140,
+					"id": 16,
+					"upgrade": "bomb_top_2",
+					"wave": 16
+				},
+				{
+					"balance": 247,
+					"cost": 300,
+					"id": 16,
+					"upgrade": "bomb_top_3",
+					"wave": 16
+				},
+				{
+					"balance": 182,
+					"cost": 65,
+					"id": 17,
+					"kind": "dart",
+					"position": [
+						250.0,
+						650.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 117,
+					"cost": 65,
+					"id": 18,
+					"kind": "dart",
+					"position": [
+						350.0,
+						180.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 52,
+					"cost": 65,
+					"id": 19,
+					"kind": "dart",
+					"position": [
+						350.0,
+						650.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 832,
+					"cost": 150,
+					"id": 20,
+					"kind": "bomb",
+					"position": [
+						460.0,
+						300.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 752,
+					"cost": 80,
+					"id": 20,
+					"upgrade": "bomb_top_1",
+					"wave": 17
+				},
+				{
+					"balance": 612,
+					"cost": 140,
+					"id": 20,
+					"upgrade": "bomb_top_2",
+					"wave": 17
+				},
+				{
+					"balance": 312,
+					"cost": 300,
+					"id": 20,
+					"upgrade": "bomb_top_3",
+					"wave": 17
+				},
+				{
+					"balance": 247,
+					"cost": 65,
+					"id": 21,
+					"kind": "dart",
+					"position": [
+						575.0,
+						180.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 97,
+					"cost": 150,
+					"id": 22,
+					"kind": "bomb",
+					"position": [
+						575.0,
+						650.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 17,
+					"cost": 80,
+					"id": 22,
+					"upgrade": "bomb_top_1",
+					"wave": 17
+				},
+				{
+					"balance": 737,
+					"cost": 140,
+					"id": 22,
+					"upgrade": "bomb_top_2",
+					"wave": 18
+				},
+				{
+					"balance": 437,
+					"cost": 300,
+					"id": 22,
+					"upgrade": "bomb_top_3",
+					"wave": 18
+				},
+				{
+					"balance": 372,
+					"cost": 65,
+					"id": 23,
+					"kind": "dart",
+					"position": [
+						672.0,
+						180.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 307,
+					"cost": 65,
+					"id": 24,
+					"kind": "dart",
+					"position": [
+						672.0,
+						650.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 157,
+					"cost": 150,
+					"id": 25,
+					"kind": "bomb",
+					"position": [
+						770.0,
+						410.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 77,
+					"cost": 80,
+					"id": 25,
+					"upgrade": "bomb_top_1",
+					"wave": 18
+				},
+				{
+					"balance": 12,
+					"cost": 65,
+					"id": 26,
+					"kind": "dart",
+					"position": [
+						770.0,
+						650.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 1196,
+					"cost": 140,
+					"id": 25,
+					"upgrade": "bomb_top_2",
+					"wave": 19
+				},
+				{
+					"balance": 896,
+					"cost": 300,
+					"id": 25,
+					"upgrade": "bomb_top_3",
+					"wave": 19
+				},
+				{
+					"balance": 831,
+					"cost": 65,
+					"id": 27,
+					"kind": "dart",
+					"position": [
+						860.0,
+						300.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 681,
+					"cost": 150,
+					"id": 28,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						650.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 601,
+					"cost": 80,
+					"id": 28,
+					"upgrade": "bomb_top_1",
+					"wave": 19
+				},
+				{
+					"balance": 461,
+					"cost": 140,
+					"id": 28,
+					"upgrade": "bomb_top_2",
+					"wave": 19
+				},
+				{
+					"balance": 161,
+					"cost": 300,
+					"id": 28,
+					"upgrade": "bomb_top_3",
+					"wave": 19
+				},
+				{
+					"balance": 96,
+					"cost": 65,
+					"id": 29,
+					"kind": "dart",
+					"position": [
+						304.0,
+						160.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 31,
+					"cost": 65,
+					"id": 30,
+					"kind": "dart",
+					"position": [
+						416.0,
+						160.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 1573,
+					"cost": 150,
+					"id": 31,
+					"kind": "bomb",
+					"position": [
+						528.0,
+						160.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 1493,
+					"cost": 80,
+					"id": 31,
+					"upgrade": "bomb_top_1",
+					"wave": 20
+				},
+				{
+					"balance": 1353,
+					"cost": 140,
+					"id": 31,
+					"upgrade": "bomb_top_2",
+					"wave": 20
+				},
+				{
+					"balance": 1053,
+					"cost": 300,
+					"id": 31,
+					"upgrade": "bomb_top_3",
+					"wave": 20
+				},
+				{
+					"balance": 988,
+					"cost": 65,
+					"id": 32,
+					"kind": "dart",
+					"position": [
+						416.0,
+						216.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 923,
+					"cost": 65,
+					"id": 33,
+					"kind": "dart",
+					"position": [
+						528.0,
+						216.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 773,
+					"cost": 150,
+					"id": 34,
+					"kind": "bomb",
+					"position": [
+						416.0,
+						272.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 693,
+					"cost": 80,
+					"id": 34,
+					"upgrade": "bomb_top_1",
+					"wave": 20
+				},
+				{
+					"balance": 553,
+					"cost": 140,
+					"id": 34,
+					"upgrade": "bomb_top_2",
+					"wave": 20
+				},
+				{
+					"balance": 253,
+					"cost": 300,
+					"id": 34,
+					"upgrade": "bomb_top_3",
+					"wave": 20
+				},
+				{
+					"balance": 188,
+					"cost": 65,
+					"id": 35,
+					"kind": "dart",
+					"position": [
+						528.0,
+						272.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 123,
+					"cost": 65,
+					"id": 36,
+					"kind": "dart",
+					"position": [
+						584.0,
+						272.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 58,
+					"cost": 65,
+					"id": 37,
+					"kind": "dart",
+					"position": [
+						640.0,
+						272.0
+					],
+					"wave": 20
+				}
+			],
+			"removed_instances": 2832,
+			"result": "victory",
+			"speed_match": true,
+			"strategy": "top",
+			"towers": [
+				{
+					"build": "0-0-0",
+					"id": 1,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 580
+				},
+				{
+					"build": "3-0-0",
+					"id": 2,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 1838
+				},
+				{
+					"build": "0-0-0",
+					"id": 3,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 162
+				},
+				{
+					"build": "0-0-0",
+					"id": 4,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 5,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 66
+				},
+				{
+					"build": "0-0-0",
+					"id": 6,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 10
+				},
+				{
+					"build": "3-0-0",
+					"id": 7,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 2344
+				},
+				{
+					"build": "3-0-0",
+					"id": 8,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 9,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 147
+				},
+				{
+					"build": "3-0-0",
+					"id": 10,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 1099
+				},
+				{
+					"build": "0-0-0",
+					"id": 11,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 372
+				},
+				{
+					"build": "0-0-0",
+					"id": 12,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "3-0-0",
+					"id": 13,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 1223
+				},
+				{
+					"build": "0-0-0",
+					"id": 14,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 15,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 209
+				},
+				{
+					"build": "3-0-0",
+					"id": 16,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 1044
+				},
+				{
+					"build": "0-0-0",
+					"id": 17,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 17
+				},
+				{
+					"build": "0-0-0",
+					"id": 18,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 149
+				},
+				{
+					"build": "0-0-0",
+					"id": 19,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 38
+				},
+				{
+					"build": "3-0-0",
+					"id": 20,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 575
+				},
+				{
+					"build": "0-0-0",
+					"id": 21,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "3-0-0",
+					"id": 22,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 129
+				},
+				{
+					"build": "0-0-0",
+					"id": 23,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 24,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 16
+				},
+				{
+					"build": "3-0-0",
+					"id": 25,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 26,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 27,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "3-0-0",
+					"id": 28,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 29,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 89
+				},
+				{
+					"build": "0-0-0",
+					"id": 30,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 70
+				},
+				{
+					"build": "3-0-0",
+					"id": 31,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 32,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 44
+				},
+				{
+					"build": "0-0-0",
+					"id": 33,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 2
+				},
+				{
+					"build": "3-0-0",
+					"id": 34,
+					"invested": 670,
+					"kind": "bomb",
+					"pops": 103
+				},
+				{
+					"build": "0-0-0",
+					"id": 35,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 2
+				},
+				{
+					"build": "0-0-0",
+					"id": 36,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 6
+				},
+				{
+					"build": "0-0-0",
+					"id": 37,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 4
+				}
+			],
+			"wave": 20,
+			"waves": [
+				{
+					"gold": 90,
+					"lives": 50,
+					"pops": 10,
+					"wave": 1
+				},
+				{
+					"gold": 94,
+					"lives": 50,
+					"pops": 34,
+					"wave": 2
+				},
+				{
+					"gold": 125,
+					"lives": 50,
+					"pops": 80,
+					"wave": 3
+				},
+				{
+					"gold": 171,
+					"lives": 50,
+					"pops": 136,
+					"wave": 4
+				},
+				{
+					"gold": 188,
+					"lives": 50,
+					"pops": 228,
+					"wave": 5
+				},
+				{
+					"gold": 248,
+					"lives": 50,
+					"pops": 368,
+					"wave": 6
+				},
+				{
+					"gold": 247,
+					"lives": 50,
+					"pops": 512,
+					"wave": 7
+				},
+				{
+					"gold": 329,
+					"lives": 50,
+					"pops": 744,
+					"wave": 8
+				},
+				{
+					"gold": 370,
+					"lives": 50,
+					"pops": 1000,
+					"wave": 9
+				},
+				{
+					"gold": 475,
+					"lives": 50,
+					"pops": 1370,
+					"wave": 10
+				},
+				{
+					"gold": 313,
+					"lives": 50,
+					"pops": 1548,
+					"wave": 11
+				},
+				{
+					"gold": 386,
+					"lives": 50,
+					"pops": 1806,
+					"wave": 12
+				},
+				{
+					"gold": 487,
+					"lives": 50,
+					"pops": 2142,
+					"wave": 13
+				},
+				{
+					"gold": 684,
+					"lives": 50,
+					"pops": 2654,
+					"wave": 14
+				},
+				{
+					"gold": 767,
+					"lives": 50,
+					"pops": 3242,
+					"wave": 15
+				},
+				{
+					"gold": 982,
+					"lives": 50,
+					"pops": 4012,
+					"wave": 16
+				},
+				{
+					"gold": 877,
+					"lives": 50,
+					"pops": 4702,
+					"wave": 17
+				},
+				{
+					"gold": 1336,
+					"lives": 50,
+					"pops": 5846,
+					"wave": 18
+				},
+				{
+					"gold": 1723,
+					"lives": 50,
+					"pops": 7338,
+					"wave": 19
+				},
+				{
+					"gold": 3308,
+					"lives": 50,
+					"pops": 10338,
+					"wave": 20
+				}
+			]
+		},
+		{
+			"balloons_created": 958,
+			"cost": 4115,
+			"earned": 4305,
+			"gold": 590,
+			"leaked_instances": 18,
+			"leaked_rbe": 51,
+			"lives": 0,
+			"pops": 3180,
+			"projectiles_created": 1140,
+			"purchases": [
+				{
+					"balance": 335,
+					"cost": 65,
+					"id": 1,
+					"kind": "dart",
+					"position": [
+						250.0,
+						350.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 185,
+					"cost": 150,
+					"id": 2,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						410.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 125,
+					"cost": 60,
+					"id": 2,
+					"upgrade": "bomb_middle_1",
+					"wave": 1
+				},
+				{
+					"balance": 5,
+					"cost": 120,
+					"id": 2,
+					"upgrade": "bomb_middle_2",
+					"wave": 1
+				},
+				{
+					"balance": 59,
+					"cost": 65,
+					"id": 3,
+					"kind": "dart",
+					"position": [
+						460.0,
+						450.0
+					],
+					"wave": 3
+				},
+				{
+					"balance": 5,
+					"cost": 150,
+					"id": 4,
+					"kind": "bomb",
+					"position": [
+						672.0,
+						232.0
+					],
+					"wave": 4
+				},
+				{
+					"balance": 56,
+					"cost": 60,
+					"id": 4,
+					"upgrade": "bomb_middle_1",
+					"wave": 5
+				},
+				{
+					"balance": 93,
+					"cost": 120,
+					"id": 4,
+					"upgrade": "bomb_middle_2",
+					"wave": 6
+				},
+				{
+					"balance": 28,
+					"cost": 65,
+					"id": 5,
+					"kind": "dart",
+					"position": [
+						460.0,
+						650.0
+					],
+					"wave": 6
+				},
+				{
+					"balance": 173,
+					"cost": 65,
+					"id": 6,
+					"kind": "dart",
+					"position": [
+						704.0,
+						440.0
+					],
+					"wave": 7
+				},
+				{
+					"balance": 23,
+					"cost": 150,
+					"id": 7,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						300.0
+					],
+					"wave": 7
+				},
+				{
+					"balance": 182,
+					"cost": 60,
+					"id": 7,
+					"upgrade": "bomb_middle_1",
+					"wave": 8
+				},
+				{
+					"balance": 62,
+					"cost": 120,
+					"id": 7,
+					"upgrade": "bomb_middle_2",
+					"wave": 8
+				},
+				{
+					"balance": 24,
+					"cost": 350,
+					"id": 2,
+					"upgrade": "bomb_middle_3",
+					"wave": 9
+				},
+				{
+					"balance": 15,
+					"cost": 350,
+					"id": 4,
+					"upgrade": "bomb_middle_3",
+					"wave": 10
+				},
+				{
+					"balance": 126,
+					"cost": 350,
+					"id": 7,
+					"upgrade": "bomb_middle_3",
+					"wave": 11
+				},
+				{
+					"balance": 61,
+					"cost": 65,
+					"id": 8,
+					"kind": "dart",
+					"position": [
+						860.0,
+						420.0
+					],
+					"wave": 11
+				},
+				{
+					"balance": 274,
+					"cost": 65,
+					"id": 9,
+					"kind": "dart",
+					"position": [
+						460.0,
+						180.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 124,
+					"cost": 150,
+					"id": 10,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						180.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 64,
+					"cost": 60,
+					"id": 10,
+					"upgrade": "bomb_middle_1",
+					"wave": 12
+				},
+				{
+					"balance": 310,
+					"cost": 120,
+					"id": 10,
+					"upgrade": "bomb_middle_2",
+					"wave": 13
+				},
+				{
+					"balance": 245,
+					"cost": 65,
+					"id": 11,
+					"kind": "dart",
+					"position": [
+						80.0,
+						410.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 180,
+					"cost": 65,
+					"id": 12,
+					"kind": "dart",
+					"position": [
+						80.0,
+						650.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 30,
+					"cost": 150,
+					"id": 13,
+					"kind": "bomb",
+					"position": [
+						156.0,
+						180.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 136,
+					"cost": 350,
+					"id": 10,
+					"upgrade": "bomb_middle_3",
+					"wave": 14
+				},
+				{
+					"balance": 76,
+					"cost": 60,
+					"id": 13,
+					"upgrade": "bomb_middle_1",
+					"wave": 14
+				},
+				{
+					"balance": 11,
+					"cost": 65,
+					"id": 14,
+					"kind": "dart",
+					"position": [
+						156.0,
+						650.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 513,
+					"cost": 120,
+					"id": 13,
+					"upgrade": "bomb_middle_2",
+					"wave": 15
+				},
+				{
+					"balance": 163,
+					"cost": 350,
+					"id": 13,
+					"upgrade": "bomb_middle_3",
+					"wave": 15
+				},
+				{
+					"balance": 98,
+					"cost": 65,
+					"id": 15,
+					"kind": "dart",
+					"position": [
+						250.0,
+						180.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 33,
+					"cost": 65,
+					"id": 16,
+					"kind": "dart",
+					"position": [
+						250.0,
+						300.0
+					],
+					"wave": 15
+				}
+			],
+			"removed_instances": 935,
+			"result": "defeat",
+			"speed_match": true,
+			"strategy": "middle",
+			"towers": [
+				{
+					"build": "0-0-0",
+					"id": 1,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 401
+				},
+				{
+					"build": "0-3-0",
+					"id": 2,
+					"invested": 680,
+					"kind": "bomb",
+					"pops": 919
+				},
+				{
+					"build": "0-0-0",
+					"id": 3,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 222
+				},
+				{
+					"build": "0-3-0",
+					"id": 4,
+					"invested": 680,
+					"kind": "bomb",
+					"pops": 145
+				},
+				{
+					"build": "0-0-0",
+					"id": 5,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 143
+				},
+				{
+					"build": "0-0-0",
+					"id": 6,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 85
+				},
+				{
+					"build": "0-3-0",
+					"id": 7,
+					"invested": 680,
+					"kind": "bomb",
+					"pops": 597
+				},
+				{
+					"build": "0-0-0",
+					"id": 8,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 20
+				},
+				{
+					"build": "0-0-0",
+					"id": 9,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 77
+				},
+				{
+					"build": "0-3-0",
+					"id": 10,
+					"invested": 680,
+					"kind": "bomb",
+					"pops": 228
+				},
+				{
+					"build": "0-0-0",
+					"id": 11,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 94
+				},
+				{
+					"build": "0-0-0",
+					"id": 12,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-3-0",
+					"id": 13,
+					"invested": 680,
+					"kind": "bomb",
+					"pops": 168
+				},
+				{
+					"build": "0-0-0",
+					"id": 14,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 15,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 37
+				},
+				{
+					"build": "0-0-0",
+					"id": 16,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 44
+				}
+			],
+			"wave": 15,
+			"waves": [
+				{
+					"gold": 55,
+					"lives": 50,
+					"pops": 10,
+					"wave": 1
+				},
+				{
+					"gold": 124,
+					"lives": 50,
+					"pops": 34,
+					"wave": 2
+				},
+				{
+					"gold": 155,
+					"lives": 50,
+					"pops": 80,
+					"wave": 3
+				},
+				{
+					"gold": 116,
+					"lives": 50,
+					"pops": 136,
+					"wave": 4
+				},
+				{
+					"gold": 213,
+					"lives": 50,
+					"pops": 228,
+					"wave": 5
+				},
+				{
+					"gold": 238,
+					"lives": 50,
+					"pops": 368,
+					"wave": 6
+				},
+				{
+					"gold": 242,
+					"lives": 50,
+					"pops": 512,
+					"wave": 7
+				},
+				{
+					"gold": 374,
+					"lives": 50,
+					"pops": 744,
+					"wave": 8
+				},
+				{
+					"gold": 365,
+					"lives": 50,
+					"pops": 1000,
+					"wave": 9
+				},
+				{
+					"gold": 476,
+					"lives": 41,
+					"pops": 1361,
+					"wave": 10
+				},
+				{
+					"gold": 339,
+					"lives": 41,
+					"pops": 1539,
+					"wave": 11
+				},
+				{
+					"gold": 430,
+					"lives": 39,
+					"pops": 1795,
+					"wave": 12
+				},
+				{
+					"gold": 486,
+					"lives": 39,
+					"pops": 2131,
+					"wave": 13
+				},
+				{
+					"gold": 633,
+					"lives": 19,
+					"pops": 2623,
+					"wave": 14
+				},
+				{
+					"gold": 590,
+					"lives": 0,
+					"pops": 3180,
+					"wave": 15
+				}
+			]
+		},
+		{
+			"balloons_created": 2832,
+			"cost": 9685,
+			"earned": 12573,
+			"gold": 3288,
+			"leaked_instances": 0,
+			"leaked_rbe": 0,
+			"lives": 50,
+			"pops": 10338,
+			"projectiles_created": 6820,
+			"purchases": [
+				{
+					"balance": 335,
+					"cost": 65,
+					"id": 1,
+					"kind": "dart",
+					"position": [
+						250.0,
+						350.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 185,
+					"cost": 150,
+					"id": 2,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						410.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 135,
+					"cost": 50,
+					"id": 2,
+					"upgrade": "bomb_bottom_1",
+					"wave": 1
+				},
+				{
+					"balance": 15,
+					"cost": 120,
+					"id": 2,
+					"upgrade": "bomb_bottom_2",
+					"wave": 1
+				},
+				{
+					"balance": 0,
+					"cost": 65,
+					"id": 3,
+					"kind": "dart",
+					"position": [
+						460.0,
+						450.0
+					],
+					"wave": 2
+				},
+				{
+					"balance": 4,
+					"cost": 65,
+					"id": 4,
+					"kind": "dart",
+					"position": [
+						672.0,
+						232.0
+					],
+					"wave": 3
+				},
+				{
+					"balance": 35,
+					"cost": 65,
+					"id": 5,
+					"kind": "dart",
+					"position": [
+						460.0,
+						650.0
+					],
+					"wave": 4
+				},
+				{
+					"balance": 81,
+					"cost": 65,
+					"id": 6,
+					"kind": "dart",
+					"position": [
+						704.0,
+						440.0
+					],
+					"wave": 5
+				},
+				{
+					"balance": 16,
+					"cost": 65,
+					"id": 7,
+					"kind": "dart",
+					"position": [
+						80.0,
+						300.0
+					],
+					"wave": 5
+				},
+				{
+					"balance": 23,
+					"cost": 150,
+					"id": 8,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						420.0
+					],
+					"wave": 6
+				},
+				{
+					"balance": 183,
+					"cost": 50,
+					"id": 8,
+					"upgrade": "bomb_bottom_1",
+					"wave": 7
+				},
+				{
+					"balance": 63,
+					"cost": 120,
+					"id": 8,
+					"upgrade": "bomb_bottom_2",
+					"wave": 7
+				},
+				{
+					"balance": 132,
+					"cost": 150,
+					"id": 9,
+					"kind": "bomb",
+					"position": [
+						460.0,
+						180.0
+					],
+					"wave": 8
+				},
+				{
+					"balance": 82,
+					"cost": 50,
+					"id": 9,
+					"upgrade": "bomb_bottom_1",
+					"wave": 8
+				},
+				{
+					"balance": 17,
+					"cost": 65,
+					"id": 10,
+					"kind": "dart",
+					"position": [
+						80.0,
+						180.0
+					],
+					"wave": 8
+				},
+				{
+					"balance": 29,
+					"cost": 300,
+					"id": 2,
+					"upgrade": "bomb_bottom_3",
+					"wave": 9
+				},
+				{
+					"balance": 70,
+					"cost": 300,
+					"id": 8,
+					"upgrade": "bomb_bottom_3",
+					"wave": 10
+				},
+				{
+					"balance": 5,
+					"cost": 65,
+					"id": 11,
+					"kind": "dart",
+					"position": [
+						80.0,
+						410.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 355,
+					"cost": 120,
+					"id": 9,
+					"upgrade": "bomb_bottom_2",
+					"wave": 11
+				},
+				{
+					"balance": 55,
+					"cost": 300,
+					"id": 9,
+					"upgrade": "bomb_bottom_3",
+					"wave": 11
+				},
+				{
+					"balance": 183,
+					"cost": 150,
+					"id": 12,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						650.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 133,
+					"cost": 50,
+					"id": 12,
+					"upgrade": "bomb_bottom_1",
+					"wave": 12
+				},
+				{
+					"balance": 13,
+					"cost": 120,
+					"id": 12,
+					"upgrade": "bomb_bottom_2",
+					"wave": 12
+				},
+				{
+					"balance": 81,
+					"cost": 300,
+					"id": 12,
+					"upgrade": "bomb_bottom_3",
+					"wave": 13
+				},
+				{
+					"balance": 16,
+					"cost": 65,
+					"id": 13,
+					"kind": "dart",
+					"position": [
+						156.0,
+						180.0
+					],
+					"wave": 13
+				},
+				{
+					"balance": 322,
+					"cost": 150,
+					"id": 14,
+					"kind": "bomb",
+					"position": [
+						156.0,
+						650.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 272,
+					"cost": 50,
+					"id": 14,
+					"upgrade": "bomb_bottom_1",
+					"wave": 14
+				},
+				{
+					"balance": 152,
+					"cost": 120,
+					"id": 14,
+					"upgrade": "bomb_bottom_2",
+					"wave": 14
+				},
+				{
+					"balance": 87,
+					"cost": 65,
+					"id": 15,
+					"kind": "dart",
+					"position": [
+						250.0,
+						180.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 22,
+					"cost": 65,
+					"id": 16,
+					"kind": "dart",
+					"position": [
+						250.0,
+						300.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 364,
+					"cost": 300,
+					"id": 14,
+					"upgrade": "bomb_bottom_3",
+					"wave": 15
+				},
+				{
+					"balance": 214,
+					"cost": 150,
+					"id": 17,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						650.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 164,
+					"cost": 50,
+					"id": 17,
+					"upgrade": "bomb_bottom_1",
+					"wave": 15
+				},
+				{
+					"balance": 44,
+					"cost": 120,
+					"id": 17,
+					"upgrade": "bomb_bottom_2",
+					"wave": 15
+				},
+				{
+					"balance": 482,
+					"cost": 300,
+					"id": 17,
+					"upgrade": "bomb_bottom_3",
+					"wave": 16
+				},
+				{
+					"balance": 417,
+					"cost": 65,
+					"id": 18,
+					"kind": "dart",
+					"position": [
+						350.0,
+						180.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 267,
+					"cost": 150,
+					"id": 19,
+					"kind": "bomb",
+					"position": [
+						350.0,
+						650.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 217,
+					"cost": 50,
+					"id": 19,
+					"upgrade": "bomb_bottom_1",
+					"wave": 16
+				},
+				{
+					"balance": 97,
+					"cost": 120,
+					"id": 19,
+					"upgrade": "bomb_bottom_2",
+					"wave": 16
+				},
+				{
+					"balance": 32,
+					"cost": 65,
+					"id": 20,
+					"kind": "dart",
+					"position": [
+						460.0,
+						300.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 662,
+					"cost": 300,
+					"id": 19,
+					"upgrade": "bomb_bottom_3",
+					"wave": 17
+				},
+				{
+					"balance": 597,
+					"cost": 65,
+					"id": 21,
+					"kind": "dart",
+					"position": [
+						575.0,
+						180.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 447,
+					"cost": 150,
+					"id": 22,
+					"kind": "bomb",
+					"position": [
+						575.0,
+						650.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 397,
+					"cost": 50,
+					"id": 22,
+					"upgrade": "bomb_bottom_1",
+					"wave": 17
+				},
+				{
+					"balance": 277,
+					"cost": 120,
+					"id": 22,
+					"upgrade": "bomb_bottom_2",
+					"wave": 17
+				},
+				{
+					"balance": 212,
+					"cost": 65,
+					"id": 23,
+					"kind": "dart",
+					"position": [
+						672.0,
+						180.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 147,
+					"cost": 65,
+					"id": 24,
+					"kind": "dart",
+					"position": [
+						672.0,
+						650.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 82,
+					"cost": 65,
+					"id": 25,
+					"kind": "dart",
+					"position": [
+						770.0,
+						410.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 17,
+					"cost": 65,
+					"id": 26,
+					"kind": "dart",
+					"position": [
+						770.0,
+						650.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 577,
+					"cost": 300,
+					"id": 22,
+					"upgrade": "bomb_bottom_3",
+					"wave": 18
+				},
+				{
+					"balance": 427,
+					"cost": 150,
+					"id": 27,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						300.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 377,
+					"cost": 50,
+					"id": 27,
+					"upgrade": "bomb_bottom_1",
+					"wave": 18
+				},
+				{
+					"balance": 257,
+					"cost": 120,
+					"id": 27,
+					"upgrade": "bomb_bottom_2",
+					"wave": 18
+				},
+				{
+					"balance": 107,
+					"cost": 150,
+					"id": 28,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						650.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 57,
+					"cost": 50,
+					"id": 28,
+					"upgrade": "bomb_bottom_1",
+					"wave": 18
+				},
+				{
+					"balance": 1081,
+					"cost": 300,
+					"id": 27,
+					"upgrade": "bomb_bottom_3",
+					"wave": 19
+				},
+				{
+					"balance": 961,
+					"cost": 120,
+					"id": 28,
+					"upgrade": "bomb_bottom_2",
+					"wave": 19
+				},
+				{
+					"balance": 661,
+					"cost": 300,
+					"id": 28,
+					"upgrade": "bomb_bottom_3",
+					"wave": 19
+				},
+				{
+					"balance": 596,
+					"cost": 65,
+					"id": 29,
+					"kind": "dart",
+					"position": [
+						304.0,
+						160.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 531,
+					"cost": 65,
+					"id": 30,
+					"kind": "dart",
+					"position": [
+						416.0,
+						160.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 381,
+					"cost": 150,
+					"id": 31,
+					"kind": "bomb",
+					"position": [
+						528.0,
+						160.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 331,
+					"cost": 50,
+					"id": 31,
+					"upgrade": "bomb_bottom_1",
+					"wave": 19
+				},
+				{
+					"balance": 211,
+					"cost": 120,
+					"id": 31,
+					"upgrade": "bomb_bottom_2",
+					"wave": 19
+				},
+				{
+					"balance": 146,
+					"cost": 65,
+					"id": 32,
+					"kind": "dart",
+					"position": [
+						416.0,
+						216.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 81,
+					"cost": 65,
+					"id": 33,
+					"kind": "dart",
+					"position": [
+						528.0,
+						216.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 16,
+					"cost": 65,
+					"id": 34,
+					"kind": "dart",
+					"position": [
+						416.0,
+						272.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 1408,
+					"cost": 300,
+					"id": 31,
+					"upgrade": "bomb_bottom_3",
+					"wave": 20
+				},
+				{
+					"balance": 1258,
+					"cost": 150,
+					"id": 35,
+					"kind": "bomb",
+					"position": [
+						528.0,
+						272.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 1208,
+					"cost": 50,
+					"id": 35,
+					"upgrade": "bomb_bottom_1",
+					"wave": 20
+				},
+				{
+					"balance": 1088,
+					"cost": 120,
+					"id": 35,
+					"upgrade": "bomb_bottom_2",
+					"wave": 20
+				},
+				{
+					"balance": 788,
+					"cost": 300,
+					"id": 35,
+					"upgrade": "bomb_bottom_3",
+					"wave": 20
+				},
+				{
+					"balance": 723,
+					"cost": 65,
+					"id": 36,
+					"kind": "dart",
+					"position": [
+						584.0,
+						272.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 573,
+					"cost": 150,
+					"id": 37,
+					"kind": "bomb",
+					"position": [
+						640.0,
+						272.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 523,
+					"cost": 50,
+					"id": 37,
+					"upgrade": "bomb_bottom_1",
+					"wave": 20
+				},
+				{
+					"balance": 403,
+					"cost": 120,
+					"id": 37,
+					"upgrade": "bomb_bottom_2",
+					"wave": 20
+				},
+				{
+					"balance": 103,
+					"cost": 300,
+					"id": 37,
+					"upgrade": "bomb_bottom_3",
+					"wave": 20
+				},
+				{
+					"balance": 38,
+					"cost": 65,
+					"id": 38,
+					"kind": "dart",
+					"position": [
+						416.0,
+						328.0
+					],
+					"wave": 20
+				}
+			],
+			"removed_instances": 2832,
+			"result": "victory",
+			"speed_match": true,
+			"strategy": "bottom",
+			"towers": [
+				{
+					"build": "0-0-0",
+					"id": 1,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 563
+				},
+				{
+					"build": "0-0-3",
+					"id": 2,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 1970
+				},
+				{
+					"build": "0-0-0",
+					"id": 3,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 238
+				},
+				{
+					"build": "0-0-0",
+					"id": 4,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 13
+				},
+				{
+					"build": "0-0-0",
+					"id": 5,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 94
+				},
+				{
+					"build": "0-0-0",
+					"id": 6,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 29
+				},
+				{
+					"build": "0-0-0",
+					"id": 7,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 549
+				},
+				{
+					"build": "0-0-3",
+					"id": 8,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 2
+				},
+				{
+					"build": "0-0-3",
+					"id": 9,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 1249
+				},
+				{
+					"build": "0-0-0",
+					"id": 10,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 411
+				},
+				{
+					"build": "0-0-0",
+					"id": 11,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 460
+				},
+				{
+					"build": "0-0-3",
+					"id": 12,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 1158
+				},
+				{
+					"build": "0-0-0",
+					"id": 13,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 326
+				},
+				{
+					"build": "0-0-3",
+					"id": 14,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 651
+				},
+				{
+					"build": "0-0-0",
+					"id": 15,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 286
+				},
+				{
+					"build": "0-0-0",
+					"id": 16,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 288
+				},
+				{
+					"build": "0-0-3",
+					"id": 17,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 423
+				},
+				{
+					"build": "0-0-0",
+					"id": 18,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 188
+				},
+				{
+					"build": "0-0-3",
+					"id": 19,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 242
+				},
+				{
+					"build": "0-0-0",
+					"id": 20,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 129
+				},
+				{
+					"build": "0-0-0",
+					"id": 21,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-3",
+					"id": 22,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 88
+				},
+				{
+					"build": "0-0-0",
+					"id": 23,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 24,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 8
+				},
+				{
+					"build": "0-0-0",
+					"id": 25,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 26,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-3",
+					"id": 27,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-3",
+					"id": 28,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 29,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 108
+				},
+				{
+					"build": "0-0-0",
+					"id": 30,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 85
+				},
+				{
+					"build": "0-0-3",
+					"id": 31,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 346
+				},
+				{
+					"build": "0-0-0",
+					"id": 32,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 94
+				},
+				{
+					"build": "0-0-0",
+					"id": 33,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 34,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 92
+				},
+				{
+					"build": "0-0-3",
+					"id": 35,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 187
+				},
+				{
+					"build": "0-0-0",
+					"id": 36,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-3",
+					"id": 37,
+					"invested": 620,
+					"kind": "bomb",
+					"pops": 12
+				},
+				{
+					"build": "0-0-0",
+					"id": 38,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 49
+				}
+			],
+			"wave": 20,
+			"waves": [
+				{
+					"gold": 65,
+					"lives": 50,
+					"pops": 10,
+					"wave": 1
+				},
+				{
+					"gold": 69,
+					"lives": 50,
+					"pops": 34,
+					"wave": 2
+				},
+				{
+					"gold": 100,
+					"lives": 50,
+					"pops": 80,
+					"wave": 3
+				},
+				{
+					"gold": 146,
+					"lives": 50,
+					"pops": 136,
+					"wave": 4
+				},
+				{
+					"gold": 173,
+					"lives": 50,
+					"pops": 228,
+					"wave": 5
+				},
+				{
+					"gold": 233,
+					"lives": 50,
+					"pops": 368,
+					"wave": 6
+				},
+				{
+					"gold": 282,
+					"lives": 50,
+					"pops": 512,
+					"wave": 7
+				},
+				{
+					"gold": 329,
+					"lives": 50,
+					"pops": 744,
+					"wave": 8
+				},
+				{
+					"gold": 370,
+					"lives": 50,
+					"pops": 1000,
+					"wave": 9
+				},
+				{
+					"gold": 475,
+					"lives": 50,
+					"pops": 1370,
+					"wave": 10
+				},
+				{
+					"gold": 333,
+					"lives": 50,
+					"pops": 1548,
+					"wave": 11
+				},
+				{
+					"gold": 381,
+					"lives": 50,
+					"pops": 1806,
+					"wave": 12
+				},
+				{
+					"gold": 472,
+					"lives": 50,
+					"pops": 2142,
+					"wave": 13
+				},
+				{
+					"gold": 664,
+					"lives": 50,
+					"pops": 2654,
+					"wave": 14
+				},
+				{
+					"gold": 782,
+					"lives": 50,
+					"pops": 3242,
+					"wave": 15
+				},
+				{
+					"gold": 962,
+					"lives": 50,
+					"pops": 4012,
+					"wave": 16
+				},
+				{
+					"gold": 877,
+					"lives": 50,
+					"pops": 4702,
+					"wave": 17
+				},
+				{
+					"gold": 1381,
+					"lives": 50,
+					"pops": 5846,
+					"wave": 18
+				},
+				{
+					"gold": 1708,
+					"lives": 50,
+					"pops": 7338,
+					"wave": 19
+				},
+				{
+					"gold": 3288,
+					"lives": 50,
+					"pops": 10338,
+					"wave": 20
+				}
+			]
+		},
+		{
+			"balloons_created": 2832,
+			"cost": 9705,
+			"earned": 12573,
+			"gold": 3268,
+			"leaked_instances": 0,
+			"leaked_rbe": 0,
+			"lives": 50,
+			"pops": 10338,
+			"projectiles_created": 5883,
+			"purchases": [
+				{
+					"balance": 335,
+					"cost": 65,
+					"id": 1,
+					"kind": "dart",
+					"position": [
+						250.0,
+						350.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 185,
+					"cost": 150,
+					"id": 2,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						410.0
+					],
+					"wave": 1
+				},
+				{
+					"balance": 105,
+					"cost": 80,
+					"id": 2,
+					"upgrade": "bomb_top_1",
+					"wave": 1
+				},
+				{
+					"balance": 55,
+					"cost": 50,
+					"id": 2,
+					"upgrade": "bomb_bottom_1",
+					"wave": 1
+				},
+				{
+					"balance": 40,
+					"cost": 65,
+					"id": 3,
+					"kind": "dart",
+					"position": [
+						460.0,
+						450.0
+					],
+					"wave": 2
+				},
+				{
+					"balance": 44,
+					"cost": 65,
+					"id": 4,
+					"kind": "dart",
+					"position": [
+						672.0,
+						232.0
+					],
+					"wave": 3
+				},
+				{
+					"balance": 0,
+					"cost": 140,
+					"id": 2,
+					"upgrade": "bomb_top_2",
+					"wave": 4
+				},
+				{
+					"balance": 46,
+					"cost": 65,
+					"id": 5,
+					"kind": "dart",
+					"position": [
+						460.0,
+						650.0
+					],
+					"wave": 5
+				},
+				{
+					"balance": 83,
+					"cost": 120,
+					"id": 2,
+					"upgrade": "bomb_bottom_2",
+					"wave": 6
+				},
+				{
+					"balance": 18,
+					"cost": 65,
+					"id": 6,
+					"kind": "dart",
+					"position": [
+						704.0,
+						440.0
+					],
+					"wave": 6
+				},
+				{
+					"balance": 78,
+					"cost": 150,
+					"id": 7,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						300.0
+					],
+					"wave": 7
+				},
+				{
+					"balance": 28,
+					"cost": 50,
+					"id": 7,
+					"upgrade": "bomb_bottom_1",
+					"wave": 7
+				},
+				{
+					"balance": 167,
+					"cost": 80,
+					"id": 7,
+					"upgrade": "bomb_top_1",
+					"wave": 8
+				},
+				{
+					"balance": 27,
+					"cost": 140,
+					"id": 7,
+					"upgrade": "bomb_top_2",
+					"wave": 8
+				},
+				{
+					"balance": 39,
+					"cost": 300,
+					"id": 2,
+					"upgrade": "bomb_top_3",
+					"wave": 9
+				},
+				{
+					"balance": 260,
+					"cost": 120,
+					"id": 7,
+					"upgrade": "bomb_bottom_2",
+					"wave": 10
+				},
+				{
+					"balance": 110,
+					"cost": 150,
+					"id": 8,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						420.0
+					],
+					"wave": 10
+				},
+				{
+					"balance": 50,
+					"cost": 60,
+					"id": 8,
+					"upgrade": "bomb_middle_1",
+					"wave": 10
+				},
+				{
+					"balance": 0,
+					"cost": 50,
+					"id": 8,
+					"upgrade": "bomb_bottom_1",
+					"wave": 10
+				},
+				{
+					"balance": 170,
+					"cost": 300,
+					"id": 7,
+					"upgrade": "bomb_bottom_3",
+					"wave": 11
+				},
+				{
+					"balance": 50,
+					"cost": 120,
+					"id": 8,
+					"upgrade": "bomb_middle_2",
+					"wave": 11
+				},
+				{
+					"balance": 208,
+					"cost": 120,
+					"id": 8,
+					"upgrade": "bomb_bottom_2",
+					"wave": 12
+				},
+				{
+					"balance": 143,
+					"cost": 65,
+					"id": 9,
+					"kind": "dart",
+					"position": [
+						460.0,
+						180.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 78,
+					"cost": 65,
+					"id": 10,
+					"kind": "dart",
+					"position": [
+						80.0,
+						180.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 13,
+					"cost": 65,
+					"id": 11,
+					"kind": "dart",
+					"position": [
+						80.0,
+						410.0
+					],
+					"wave": 12
+				},
+				{
+					"balance": 31,
+					"cost": 350,
+					"id": 8,
+					"upgrade": "bomb_middle_3",
+					"wave": 13
+				},
+				{
+					"balance": 337,
+					"cost": 150,
+					"id": 12,
+					"kind": "bomb",
+					"position": [
+						80.0,
+						650.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 277,
+					"cost": 60,
+					"id": 12,
+					"upgrade": "bomb_middle_1",
+					"wave": 14
+				},
+				{
+					"balance": 157,
+					"cost": 120,
+					"id": 12,
+					"upgrade": "bomb_middle_2",
+					"wave": 14
+				},
+				{
+					"balance": 107,
+					"cost": 50,
+					"id": 12,
+					"upgrade": "bomb_bottom_1",
+					"wave": 14
+				},
+				{
+					"balance": 42,
+					"cost": 65,
+					"id": 13,
+					"kind": "dart",
+					"position": [
+						156.0,
+						180.0
+					],
+					"wave": 14
+				},
+				{
+					"balance": 564,
+					"cost": 120,
+					"id": 12,
+					"upgrade": "bomb_bottom_2",
+					"wave": 15
+				},
+				{
+					"balance": 264,
+					"cost": 300,
+					"id": 12,
+					"upgrade": "bomb_bottom_3",
+					"wave": 15
+				},
+				{
+					"balance": 114,
+					"cost": 150,
+					"id": 14,
+					"kind": "bomb",
+					"position": [
+						156.0,
+						650.0
+					],
+					"wave": 15
+				},
+				{
+					"balance": 34,
+					"cost": 80,
+					"id": 14,
+					"upgrade": "bomb_top_1",
+					"wave": 15
+				},
+				{
+					"balance": 632,
+					"cost": 140,
+					"id": 14,
+					"upgrade": "bomb_top_2",
+					"wave": 16
+				},
+				{
+					"balance": 332,
+					"cost": 300,
+					"id": 14,
+					"upgrade": "bomb_top_3",
+					"wave": 16
+				},
+				{
+					"balance": 282,
+					"cost": 50,
+					"id": 14,
+					"upgrade": "bomb_bottom_1",
+					"wave": 16
+				},
+				{
+					"balance": 162,
+					"cost": 120,
+					"id": 14,
+					"upgrade": "bomb_bottom_2",
+					"wave": 16
+				},
+				{
+					"balance": 97,
+					"cost": 65,
+					"id": 15,
+					"kind": "dart",
+					"position": [
+						250.0,
+						180.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 32,
+					"cost": 65,
+					"id": 16,
+					"kind": "dart",
+					"position": [
+						250.0,
+						300.0
+					],
+					"wave": 16
+				},
+				{
+					"balance": 812,
+					"cost": 150,
+					"id": 17,
+					"kind": "bomb",
+					"position": [
+						250.0,
+						650.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 732,
+					"cost": 80,
+					"id": 17,
+					"upgrade": "bomb_top_1",
+					"wave": 17
+				},
+				{
+					"balance": 592,
+					"cost": 140,
+					"id": 17,
+					"upgrade": "bomb_top_2",
+					"wave": 17
+				},
+				{
+					"balance": 542,
+					"cost": 50,
+					"id": 17,
+					"upgrade": "bomb_bottom_1",
+					"wave": 17
+				},
+				{
+					"balance": 422,
+					"cost": 120,
+					"id": 17,
+					"upgrade": "bomb_bottom_2",
+					"wave": 17
+				},
+				{
+					"balance": 122,
+					"cost": 300,
+					"id": 17,
+					"upgrade": "bomb_bottom_3",
+					"wave": 17
+				},
+				{
+					"balance": 57,
+					"cost": 65,
+					"id": 18,
+					"kind": "dart",
+					"position": [
+						350.0,
+						180.0
+					],
+					"wave": 17
+				},
+				{
+					"balance": 767,
+					"cost": 150,
+					"id": 19,
+					"kind": "bomb",
+					"position": [
+						350.0,
+						650.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 707,
+					"cost": 60,
+					"id": 19,
+					"upgrade": "bomb_middle_1",
+					"wave": 18
+				},
+				{
+					"balance": 587,
+					"cost": 120,
+					"id": 19,
+					"upgrade": "bomb_middle_2",
+					"wave": 18
+				},
+				{
+					"balance": 237,
+					"cost": 350,
+					"id": 19,
+					"upgrade": "bomb_middle_3",
+					"wave": 18
+				},
+				{
+					"balance": 187,
+					"cost": 50,
+					"id": 19,
+					"upgrade": "bomb_bottom_1",
+					"wave": 18
+				},
+				{
+					"balance": 67,
+					"cost": 120,
+					"id": 19,
+					"upgrade": "bomb_bottom_2",
+					"wave": 18
+				},
+				{
+					"balance": 2,
+					"cost": 65,
+					"id": 20,
+					"kind": "dart",
+					"position": [
+						460.0,
+						300.0
+					],
+					"wave": 18
+				},
+				{
+					"balance": 1261,
+					"cost": 65,
+					"id": 21,
+					"kind": "dart",
+					"position": [
+						575.0,
+						180.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 1111,
+					"cost": 150,
+					"id": 22,
+					"kind": "bomb",
+					"position": [
+						575.0,
+						650.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 1051,
+					"cost": 60,
+					"id": 22,
+					"upgrade": "bomb_middle_1",
+					"wave": 19
+				},
+				{
+					"balance": 931,
+					"cost": 120,
+					"id": 22,
+					"upgrade": "bomb_middle_2",
+					"wave": 19
+				},
+				{
+					"balance": 881,
+					"cost": 50,
+					"id": 22,
+					"upgrade": "bomb_bottom_1",
+					"wave": 19
+				},
+				{
+					"balance": 761,
+					"cost": 120,
+					"id": 22,
+					"upgrade": "bomb_bottom_2",
+					"wave": 19
+				},
+				{
+					"balance": 461,
+					"cost": 300,
+					"id": 22,
+					"upgrade": "bomb_bottom_3",
+					"wave": 19
+				},
+				{
+					"balance": 396,
+					"cost": 65,
+					"id": 23,
+					"kind": "dart",
+					"position": [
+						672.0,
+						180.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 331,
+					"cost": 65,
+					"id": 24,
+					"kind": "dart",
+					"position": [
+						672.0,
+						650.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 181,
+					"cost": 150,
+					"id": 25,
+					"kind": "bomb",
+					"position": [
+						770.0,
+						410.0
+					],
+					"wave": 19
+				},
+				{
+					"balance": 101,
+					"cost": 80,
+					"id": 25,
+					"upgrade": "bomb_top_1",
+					"wave": 19
+				},
+				{
+					"balance": 51,
+					"cost": 50,
+					"id": 25,
+					"upgrade": "bomb_bottom_1",
+					"wave": 19
+				},
+				{
+					"balance": 1603,
+					"cost": 140,
+					"id": 25,
+					"upgrade": "bomb_top_2",
+					"wave": 20
+				},
+				{
+					"balance": 1303,
+					"cost": 300,
+					"id": 25,
+					"upgrade": "bomb_top_3",
+					"wave": 20
+				},
+				{
+					"balance": 1183,
+					"cost": 120,
+					"id": 25,
+					"upgrade": "bomb_bottom_2",
+					"wave": 20
+				},
+				{
+					"balance": 1118,
+					"cost": 65,
+					"id": 26,
+					"kind": "dart",
+					"position": [
+						770.0,
+						650.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 1053,
+					"cost": 65,
+					"id": 27,
+					"kind": "dart",
+					"position": [
+						860.0,
+						300.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 903,
+					"cost": 150,
+					"id": 28,
+					"kind": "bomb",
+					"position": [
+						860.0,
+						650.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 823,
+					"cost": 80,
+					"id": 28,
+					"upgrade": "bomb_top_1",
+					"wave": 20
+				},
+				{
+					"balance": 683,
+					"cost": 140,
+					"id": 28,
+					"upgrade": "bomb_top_2",
+					"wave": 20
+				},
+				{
+					"balance": 633,
+					"cost": 50,
+					"id": 28,
+					"upgrade": "bomb_bottom_1",
+					"wave": 20
+				},
+				{
+					"balance": 513,
+					"cost": 120,
+					"id": 28,
+					"upgrade": "bomb_bottom_2",
+					"wave": 20
+				},
+				{
+					"balance": 213,
+					"cost": 300,
+					"id": 28,
+					"upgrade": "bomb_bottom_3",
+					"wave": 20
+				},
+				{
+					"balance": 148,
+					"cost": 65,
+					"id": 29,
+					"kind": "dart",
+					"position": [
+						304.0,
+						160.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 83,
+					"cost": 65,
+					"id": 30,
+					"kind": "dart",
+					"position": [
+						416.0,
+						160.0
+					],
+					"wave": 20
+				},
+				{
+					"balance": 18,
+					"cost": 65,
+					"id": 31,
+					"kind": "dart",
+					"position": [
+						528.0,
+						160.0
+					],
+					"wave": 20
+				}
+			],
+			"removed_instances": 2832,
+			"result": "victory",
+			"speed_match": true,
+			"strategy": "cross",
+			"towers": [
+				{
+					"build": "0-0-0",
+					"id": 1,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 498
+				},
+				{
+					"build": "3-0-2",
+					"id": 2,
+					"invested": 840,
+					"kind": "bomb",
+					"pops": 2675
+				},
+				{
+					"build": "0-0-0",
+					"id": 3,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 155
+				},
+				{
+					"build": "0-0-0",
+					"id": 4,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 3
+				},
+				{
+					"build": "0-0-0",
+					"id": 5,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 75
+				},
+				{
+					"build": "0-0-0",
+					"id": 6,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 6
+				},
+				{
+					"build": "2-0-3",
+					"id": 7,
+					"invested": 840,
+					"kind": "bomb",
+					"pops": 2446
+				},
+				{
+					"build": "0-3-2",
+					"id": 8,
+					"invested": 850,
+					"kind": "bomb",
+					"pops": 2
+				},
+				{
+					"build": "0-0-0",
+					"id": 9,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 131
+				},
+				{
+					"build": "0-0-0",
+					"id": 10,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 210
+				},
+				{
+					"build": "0-0-0",
+					"id": 11,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 351
+				},
+				{
+					"build": "0-2-3",
+					"id": 12,
+					"invested": 800,
+					"kind": "bomb",
+					"pops": 1046
+				},
+				{
+					"build": "0-0-0",
+					"id": 13,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 229
+				},
+				{
+					"build": "3-0-2",
+					"id": 14,
+					"invested": 840,
+					"kind": "bomb",
+					"pops": 1383
+				},
+				{
+					"build": "0-0-0",
+					"id": 15,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 145
+				},
+				{
+					"build": "0-0-0",
+					"id": 16,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 184
+				},
+				{
+					"build": "2-0-3",
+					"id": 17,
+					"invested": 840,
+					"kind": "bomb",
+					"pops": 323
+				},
+				{
+					"build": "0-0-0",
+					"id": 18,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 116
+				},
+				{
+					"build": "0-3-2",
+					"id": 19,
+					"invested": 850,
+					"kind": "bomb",
+					"pops": 136
+				},
+				{
+					"build": "0-0-0",
+					"id": 20,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 81
+				},
+				{
+					"build": "0-0-0",
+					"id": 21,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-2-3",
+					"id": 22,
+					"invested": 800,
+					"kind": "bomb",
+					"pops": 57
+				},
+				{
+					"build": "0-0-0",
+					"id": 23,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 24,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "3-0-2",
+					"id": 25,
+					"invested": 840,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 26,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 27,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				},
+				{
+					"build": "2-0-3",
+					"id": 28,
+					"invested": 840,
+					"kind": "bomb",
+					"pops": 0
+				},
+				{
+					"build": "0-0-0",
+					"id": 29,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 44
+				},
+				{
+					"build": "0-0-0",
+					"id": 30,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 42
+				},
+				{
+					"build": "0-0-0",
+					"id": 31,
+					"invested": 65,
+					"kind": "dart",
+					"pops": 0
+				}
+			],
+			"wave": 20,
+			"waves": [
+				{
+					"gold": 105,
+					"lives": 50,
+					"pops": 10,
+					"wave": 1
+				},
+				{
+					"gold": 109,
+					"lives": 50,
+					"pops": 34,
+					"wave": 2
+				},
+				{
+					"gold": 140,
+					"lives": 50,
+					"pops": 80,
+					"wave": 3
+				},
+				{
+					"gold": 111,
+					"lives": 50,
+					"pops": 136,
+					"wave": 4
+				},
+				{
+					"gold": 203,
+					"lives": 50,
+					"pops": 228,
+					"wave": 5
+				},
+				{
+					"gold": 228,
+					"lives": 50,
+					"pops": 368,
+					"wave": 6
+				},
+				{
+					"gold": 247,
+					"lives": 50,
+					"pops": 512,
+					"wave": 7
+				},
+				{
+					"gold": 339,
+					"lives": 50,
+					"pops": 744,
+					"wave": 8
+				},
+				{
+					"gold": 380,
+					"lives": 50,
+					"pops": 1000,
+					"wave": 9
+				},
+				{
+					"gold": 470,
+					"lives": 50,
+					"pops": 1370,
+					"wave": 10
+				},
+				{
+					"gold": 328,
+					"lives": 50,
+					"pops": 1548,
+					"wave": 11
+				},
+				{
+					"gold": 381,
+					"lives": 50,
+					"pops": 1806,
+					"wave": 12
+				},
+				{
+					"gold": 487,
+					"lives": 50,
+					"pops": 2142,
+					"wave": 13
+				},
+				{
+					"gold": 684,
+					"lives": 50,
+					"pops": 2654,
+					"wave": 14
+				},
+				{
+					"gold": 772,
+					"lives": 50,
+					"pops": 3242,
+					"wave": 15
+				},
+				{
+					"gold": 962,
+					"lives": 50,
+					"pops": 4012,
+					"wave": 16
+				},
+				{
+					"gold": 917,
+					"lives": 50,
+					"pops": 4702,
+					"wave": 17
+				},
+				{
+					"gold": 1326,
+					"lives": 50,
+					"pops": 5846,
+					"wave": 18
+				},
+				{
+					"gold": 1743,
+					"lives": 50,
+					"pops": 7338,
+					"wave": 19
+				},
+				{
+					"gold": 3268,
+					"lives": 50,
+					"pops": 10338,
+					"wave": 20
+				}
+			]
+		}
+	],
+	"conditions": "Micro: one forced real projectile, stationary targets, incoming origin250,350 vs MOAB300,350; centered origin300,350; area4 each at offsets0,45x,45y,45xy; Single shots1second60Hz; sustained uses actual tower cooldown/aiming for10seconds against16initial stationary MOABs, all descendants retained. Forced immune contacts explicitly separate from can_target. Campaign: normal400G/50lives/20waves, unupgraded dart support; upgrade existing bombs in ID/path order, then spend remaining cash with shared2-dart:1-bomb expansion (if cash<150 buy dart), upgrade each newly placed bomb toward strategy. No artificial unit cap or extra cash. Cross rotates302/203/032/023. Shared valid placement priority from balance_scenarios then56px grid fallback; purchase/start on next whole simulation second after clear. Failed play stops at defeat, not forced victory. Removed instances counts fully removed IDs including split parents, Pops counts removed layers; leaks count instances and full current-type RBE. All purchases/positions/waves retained.",
+	"micro": [
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 12,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					188,
+					false,
+					false
+				]
+			],
+			"moab_damage": 12,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 27,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					173,
+					false,
+					false
+				]
+			],
+			"moab_damage": 27,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 72,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					173,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					197,
+					false,
+					false
+				]
+			],
+			"moab_damage": 72,
+			"pierce_used": 24,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 575,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"moab",
+					161,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					17,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					18,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					19,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					20,
+					"ceramic",
+					10,
+					false,
+					false
+				]
+			],
+			"moab_damage": 575,
+			"pierce_used": 192,
+			"pops": 1,
+			"projectiles": 72,
+			"projectiles_end": 0,
+			"split_projectiles": 64,
+			"volleys": 8
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 11,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 11,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 23,
+			"effects_end": 0,
+			"gold_earned": 23,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 7,
+			"pops": 23,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 36,
+			"effects_end": 0,
+			"gold_earned": 17,
+			"live": [
+				[
+					6,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					7,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					10,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					11,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					12,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					13,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					16,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					17,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					18,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					19,
+					"yellow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 17,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				3,
+				0,
+				2
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 8,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					192,
+					false,
+					false
+				]
+			],
+			"moab_damage": 8,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					198,
+					false,
+					false
+				]
+			],
+			"moab_damage": 2,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 80,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					196,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					196,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					196,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					196,
+					false,
+					false
+				]
+			],
+			"moab_damage": 80,
+			"pierce_used": 40,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 576,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					136,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					136,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					136,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					136,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					168,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					168,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					168,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					168,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					152,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					152,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					152,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					152,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				]
+			],
+			"moab_damage": 576,
+			"pierce_used": 288,
+			"pops": 0,
+			"projectiles": 72,
+			"projectiles_end": 0,
+			"split_projectiles": 64,
+			"volleys": 8
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					2,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"yellow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 3,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					18,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				3
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 22,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					178,
+					false,
+					false
+				]
+			],
+			"moab_damage": 22,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 27,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					173,
+					false,
+					false
+				]
+			],
+			"moab_damage": 27,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 236,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					173,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					181,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				]
+			],
+			"moab_damage": 236,
+			"pierce_used": 20,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 1632,
+			"effects_end": 1,
+			"gold_earned": 7,
+			"live": [
+				[
+					5,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					7,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					10,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					18,
+					"ceramic",
+					2,
+					false,
+					false
+				],
+				[
+					19,
+					"ceramic",
+					5,
+					false,
+					false
+				],
+				[
+					20,
+					"ceramic",
+					5,
+					false,
+					false
+				],
+				[
+					21,
+					"ceramic",
+					7,
+					false,
+					false
+				],
+				[
+					22,
+					"ceramic",
+					7,
+					false,
+					false
+				],
+				[
+					23,
+					"ceramic",
+					7,
+					false,
+					false
+				],
+				[
+					24,
+					"ceramic",
+					7,
+					false,
+					false
+				],
+				[
+					25,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					26,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					27,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					28,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					29,
+					"ceramic",
+					9,
+					false,
+					false
+				],
+				[
+					30,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					31,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					32,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					33,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					34,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					35,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					36,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					37,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					38,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					39,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					40,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					41,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					42,
+					"rainbow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1583,
+			"pierce_used": 214,
+			"pops": 7,
+			"projectiles": 117,
+			"projectiles_end": 4,
+			"split_projectiles": 104,
+			"volleys": 13
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 8,
+			"effects_end": 0,
+			"gold_earned": 8,
+			"live": [
+				[
+					3,
+					"green",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 8,
+			"pops": 8,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 9,
+			"live": [
+				[
+					3,
+					"blue",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 9,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					4,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					5,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					6,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					7,
+					"pink",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 3,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					11,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				3,
+				2
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					198,
+					false,
+					false
+				]
+			],
+			"moab_damage": 2,
+			"pierce_used": 2,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					199,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 24,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					199,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					199,
+					false,
+					false
+				]
+			],
+			"moab_damage": 24,
+			"pierce_used": 24,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 312,
+			"effects_end": 9,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					161,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					161,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					161,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					161,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					187,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					187,
+					false,
+					false
+				]
+			],
+			"moab_damage": 312,
+			"pierce_used": 312,
+			"pops": 0,
+			"projectiles": 117,
+			"projectiles_end": 0,
+			"split_projectiles": 104,
+			"volleys": 13
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"pink",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					19,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				3
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"split_projectiles": 0,
+			"volleys": 1
+		}
+	],
+	"phase": "after",
+	"version": "v0.11.1"
+}

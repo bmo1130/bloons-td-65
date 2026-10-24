@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/abilities/bomb_storm.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_bottom_5"
+display_name = "Bomb Blitz"
+path = 2
+tier = 5
+cost = 20000
+reference_version = "prototype-v0.12; values provisional"
+description = "모든 발사에 집속8+재귀8. 누출 확정 전 자동 Bomb Storm2000 피해, 재사용40초. 버튼 없음. 신규 가격/제어/일반 공격은 임시 밸런스 값."
+replacement_values = {"damage": 6, "pierce": 48, "fire_interval": 0.675, "recursive_every": 1}
+ability = ExtResource("2")
+visual_color = Color(0.8, 0.5, 1, 1)
+

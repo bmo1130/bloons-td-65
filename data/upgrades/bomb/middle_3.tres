@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_middle_3"
+display_name = "MOAB 격파자"
+path = 1
+tier = 3
+cost = 350
+reference_version = "prototype-v0.11-bomb; official-v40/v47 context"
+description = "MOAB Mauler: 최초 접촉 MOAB 분류에 피해+18, 사거리+15. DDT 면역/카모는 별도입니다. 임시 수치."
+additions = {"moab_bonus": 18, "attack_range": 15.0}
+
+visual_color = Color(0.95, 0.69, 0.28, 1)

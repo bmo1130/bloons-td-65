@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_top_5"
+display_name = "Bloon Crush"
+path = 0
+tier = 5
+cost = 18000
+reference_version = "prototype-v0.12; values provisional"
+description = "일반1.5초/MOAB0.75초 기절, 넉백45/12px. Normal 폭발로 검정/납 대응, 카모와 상태 면역은 유지. 신규 가격/제어/일반 공격은 임시 밸런스 값."
+replacement_values = {"damage": 30, "pierce": 100, "explosion_radius": 124.0, "stun_duration": 1.5, "stun_moab_duration": 0.75, "push_distance": 45.0, "push_moab_distance": 12.0, "frag_damage_bonus": 2, "attack_attribute": 2}
+visual_color = Color(0.4, 0.8, 1, 1)
+

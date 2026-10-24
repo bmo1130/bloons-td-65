@@ -16,6 +16,7 @@ var cooldown: float = 0.0
 var direction: Vector2 = Vector2.UP
 var transformed_stats: TowerDefinition
 var critical_counter: int = 0
+var attack_counter: int = 0 # Successful volleys, independent of statistics.
 var crit_flash: float = 0.0
 
 func combat_definition() -> TowerDefinition:

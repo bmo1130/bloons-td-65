@@ -3,6 +3,8 @@ extends RefCounted
 
 var knockback_remaining: float = 0.0
 var knockback_multiplier: float = 0.0
+var stun_remaining: float = 0.0
+var pending_push: float = 0.0 # Applied next movement tick; current collision history stays immutable.
 var camo: bool = false
 var regrow: bool = false # Inherited metadata only until the Regrow version.
 var fortified: bool = false

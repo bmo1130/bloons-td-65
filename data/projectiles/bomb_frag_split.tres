@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ProjectileSplitDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/projectile_split_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/projectiles/bomb_frag.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+child_projectile = ExtResource("2")
+thresholds = PackedFloat32Array(1.0)
+count_per_burst = 8
+burst_rotation_degrees = 0.0
+child_speed_ratio = 1.1666667
+inherit_lifetime = false
+on_explosion = true
+inherit_damage = true

@@ -4,7 +4,6 @@ extends Panel
 signal purchase_requested(upgrade: UpgradeDefinition)
 signal close_requested
 
-const PATH_NAMES: Array[String] = ["상단 · 관통", "중단 · 연사", "하단 · 고화력"]
 const PATH_COLORS: Array[Color] = [Color("79b8ff"), Color("ffc176"), Color("c0a0ff")]
 var tower: TowerState
 var system: UpgradeSystem
@@ -16,6 +15,7 @@ var _details: Array[Label] = []
 var _next: Array[UpgradeDefinition] = [null, null, null]
 var abilities: AbilitySystem
 var ability_button: Button
+var passive_status: Label
 var target_button: Button
 var _elapsed: float = 0.0
 var cache_previews: bool = true
@@ -82,6 +82,7 @@ func _ready() -> void:
 			abilities.activate(tower)
 		refresh())
 	add_child(ability_button)
+	passive_status = _label(Vector2(0, 322), Vector2(248, 38), 12)
 	target_button = Button.new()
 	target_button.position = Vector2(0, -32)
 	target_button.size = Vector2(248, 28)
@@ -128,14 +129,20 @@ func refresh() -> void:
 		stats.projectile_speed, stats.projectile_count, stats.spread_degrees,
 		AttackSpec.attribute_name(stats.attack_attribute), stats.projectile_radius,
 		" · 폭발 %d" % stats.explosion_radius if stats.explosion_radius > 0.0 else ""]
+	if stats.explosion_radius > 0.0:
+		var children: String = ""
+		if stats.projectile_split != null and stats.projectile_split.on_explosion:
+			var child: TowerDefinition = stats.projectile_split.child_projectile as TowerDefinition
+			children = " · %s%d" % ["폭발" if child.timed_explosion else "파편", stats.projectile_split.count_per_burst]
+		_stats.text = "공격 %d · 관통 %d · 간격 %s초\n사거리 %d · 속도 %d · MOAB+%d\n%s · 폭발 %d%s" % [stats.damage, stats.pierce, interval_text, stats.attack_range, stats.projectile_speed, stats.moab_bonus, AttackSpec.attribute_name(stats.attack_attribute), stats.explosion_radius, children]
 	for path in range(3):
 		var item: UpgradeDefinition = tower.definition.upgrade_at(path, tower.tiers[path] + 1)
 		_next[path] = item
 		var reason: String = system.error_for_path(tower, path)
-		var current: String = "%s %d" % [PATH_NAMES[path], tower.tiers[path]]
+		var current: String = "%s %d" % [tower.definition.upgrade_path_names[path], tower.tiers[path]]
 		_buttons[path].disabled = not reason.is_empty()
 		if item == null:
-			_buttons[path].text = current + (" · 완료" if tower.tiers[path] >= UpgradePolicy.AVAILABLE_TIER else " · 준비 중")
+			_buttons[path].text = current + (" · 완료" if tower.tiers[path] >= tower.definition.max_upgrade_tier(path) else " · 준비 중")
 			_details[path].text = reason
 			_buttons[path].tooltip_text = reason
 		else:
@@ -153,26 +160,45 @@ func refresh() -> void:
 		_details[path].text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		_details[path].mouse_filter = Control.MOUSE_FILTER_PASS
 	var main: int = UpgradePolicy.main_path(tower.tiers)
-	_policy.text = "주력 미확정 · 최대 두 경로" if main < 0 else "%s 주력 · 보조 최대2" % PATH_NAMES[main].split(" · ")[0]
-	_title.tooltip_text = "주력 미확정 · 두 경로 중 어느 쪽도 3티어 선택 가능" if main < 0 else "%s 주력 · 보조는 최대 2티어" % PATH_NAMES[main]
+	_policy.text = "주력 미확정 · 최대 두 경로" if main < 0 else "%s 주력 · 보조 최대2" % tower.definition.upgrade_path_names[main].split(" · ")[0]
+	_title.tooltip_text = "주력 미확정 · 두 경로 중 어느 쪽도 3티어 선택 가능" if main < 0 else "%s 주력 · 보조는 최대 2티어" % tower.definition.upgrade_path_names[main]
 	var state: AbilityState = abilities.state_for(tower) if abilities != null else null
-	ability_button.visible = state != null
+	var passive: bool = state != null and state.definition.effect == AbilityDefinition.Effect.LEAK_STORM
+	ability_button.visible = state != null and not passive
+	passive_status.visible = passive
 	if state != null:
 		ability_button.disabled = not abilities.enabled or state.cooldown_remaining > 0.000001
 		var remaining: float = float(abilities.transformations[tower.id].remaining) if abilities.transformations.has(tower.id) else 0.0
 		ability_button.text = "%s 발동 · %.0f초 / 최대 %d기" % [state.definition.display_name, state.definition.duration, state.definition.target_limit] if state.cooldown_remaining <= 0.000001 else "대기 %.1f초 · 변신 %.1f초" % [state.cooldown_remaining, remaining]
 		ability_button.tooltip_text = "자신+가까운 적격 다트 · 상단3+/하단3+ 제외\n최초 대기 %.2f초 · 재사용 %.0f초 (시뮬레이션 시간)" % [state.definition.initial_cooldown, state.definition.cooldown]
+		if state.definition.effect == AbilityDefinition.Effect.MOAB_MISSILE:
+			var target: BalloonState = abilities.missile_target(tower)
+			ability_button.disabled = ability_button.disabled or target == null
+			ability_button.text = "%s [A] · %s" % [state.definition.display_name, ("대기 %.1f초" % state.cooldown_remaining) if state.cooldown_remaining > 0.000001 else ("준비" if target != null else "대상 없음")]
+			ability_button.tooltip_text = "화면 내 유효 MOAB · 현재 조준 우선순위 · 사거리 무관\n단일 대상 %d 피해 · 재사용 %.0f초 · 타겟 소멸 시 미사일 제거\n선택 타워 능력 단축키 A" % [state.definition.attack_profile.damage, state.definition.cooldown]
+		elif passive:
+			passive_status.text = "Bomb Storm · " + ("누출 감지 준비" if state.cooldown_remaining <= 0.000001 else "대기 %.1f초" % state.cooldown_remaining)
+			passive_status.tooltip_text = "자동 발동 · 누출 확정 전 전 화면 %d 피해 · 재사용 %.0f초" % [state.definition.attack_profile.damage, state.definition.cooldown]
 	if tower.transformed_stats != null:
 		_title.text += " [변신]"
 	_stats.tooltip_text = "영구 공격: %d 피해 / 관통 %d / %.3f초\nCRIT: 매 %d번째 발사에 %d 피해" % [tower.stats.damage, tower.stats.pierce, tower.stats.fire_interval, tower.stats.critical_every, tower.stats.critical_damage]
 	_stats.tooltip_text += "\n카모 탐지: %s · 공격 속성 면역은 별도 판정" % ("가능" if stats.detects_camo else "불가")
+	_stats.tooltip_text += "\nMOAB 추가 피해: +%d" % stats.moab_bonus
+	if stats.stun_duration > 0.0:
+		_stats.tooltip_text += "\n기절 %.2f초 / MOAB %.2f초 · 넉백 %.0f / MOAB %.0fpx" % [stats.stun_duration, stats.stun_moab_duration, stats.push_distance, stats.push_moab_distance]
+	if stats.recursive_every > 0:
+		_stats.tooltip_text += "\n매 %d번째 공격: 기본8 + 재귀8 (추가16개 상한)" % stats.recursive_every
+	if stats.projectile_split != null:
+		var split: ProjectileSplitDefinition = stats.projectile_split
+		var child: TowerDefinition = split.child_projectile as TowerDefinition
+		_stats.tooltip_text += "\n%s %d개 · %s · 피해%d / 관통%d / 폭발%.0f" % ["폭발 시" if split.on_explosion else "분열 묶음", split.count_per_burst, AttackSpec.attribute_name(child.attack_attribute), stats.damage if split.inherit_damage else child.damage, child.pierce, child.explosion_radius]
 	if profile_updates:
 		refresh_usec += Time.get_ticks_usec() - started
 		refresh_count += 1
 
 static func stat_changes(before: TowerDefinition, after: TowerDefinition) -> String:
 	var parts: PackedStringArray = []
-	var names: Array[String] = ["공격", "관통", "간격", "사거리", "속도", "반경", "길이", "발수", "확산", "각도", "속성", "폭발", "수명", "세라믹", "강화", "넉백 시간", "경량 넉백", "중량 넉백", "도탄 상한", "CRIT 주기", "CRIT 피해", "납 추가", "카모 감지"]
+	var names: Array[String] = ["공격", "관통", "간격", "사거리", "속도", "반경", "길이", "발수", "확산", "각도", "속성", "폭발", "수명", "세라믹", "강화", "넉백 시간", "경량 넉백", "중량 넉백", "도탄 상한", "CRIT 주기", "CRIT 피해", "납 추가", "카모 감지", "MOAB 추가", "기절", "MOAB 기절", "넉백 거리", "MOAB 넉백", "파편 추가", "재귀 주기"]
 	for index in range(TowerStatResolver.FIELDS.size()):
 		var field: StringName = TowerStatResolver.FIELDS[index]
 		var first: float = float(before.get(field))
@@ -183,6 +209,9 @@ static func stat_changes(before: TowerDefinition, after: TowerDefinition) -> Str
 			parts.append("%s %s→%s" % [names[index], AttackSpec.attribute_name(int(first)), AttackSpec.attribute_name(int(second))])
 		else:
 			parts.append("%s %s→%s" % [names[index], str(snappedf(first, 0.001)), str(snappedf(second, 0.001))])
+	if before.projectile_split != after.projectile_split and after.projectile_split != null:
+		var child: TowerDefinition = after.projectile_split.child_projectile as TowerDefinition
+		parts.append("%d개 %s" % [after.projectile_split.count_per_burst, "추가 폭발" if child.timed_explosion else "파편"])
 	return " · ".join(parts) if not parts.is_empty() else "외형 변경"
 
 func _request(path: int) -> void:

@@ -24,7 +24,12 @@ func _aim_direction(at: Vector2, target: BalloonState, definition: TowerDefiniti
 	if target.motion_duration > 0.0 and definition.projectile_speed > 0.0:
 		for iteration in range(5):
 			var flight_time: float = at.distance_to(aim) / definition.projectile_speed
-			aim = balloon_system.route.position_at(target.distance + target.speed * flight_time)
+			var distance: float = target.distance + target.speed * flight_time
+			if target.stun_remaining > 0.0:
+				distance = target.distance + target.speed * maxf(0.0, flight_time - target.stun_remaining)
+			if target.pending_push > 0.0:
+				distance = maxf(0.0, distance - target.pending_push)
+			aim = balloon_system.route.position_at(distance)
 	return at.direction_to(aim)
 
 func fire(at: Vector2, target: BalloonState, definition: TowerDefinition, source_id: int = 0) -> ProjectileState:
@@ -35,7 +40,7 @@ func fire(at: Vector2, target: BalloonState, definition: TowerDefinition, source
 			battle_stats.record_volley(source_id)
 	return shot
 
-func fire_volley(at: Vector2, target: BalloonState, definition: TowerDefinition, source_id: int = 0, critical: bool = false, spawn_fraction: float = 0.0) -> int:
+func fire_volley(at: Vector2, target: BalloonState, definition: TowerDefinition, source_id: int = 0, critical: bool = false, spawn_fraction: float = 0.0, recursive: bool = false) -> int:
 	var heading: Vector2 = _aim_direction(at, target, definition)
 	var launched: int = 0
 	for index in range(definition.projectile_count):
@@ -45,6 +50,7 @@ func fire_volley(at: Vector2, target: BalloonState, definition: TowerDefinition,
 		var shot: ProjectileState = launch(at, heading.rotated(deg_to_rad(angle)), definition, source_id)
 		if shot != null:
 			shot.target_id = target.id
+			shot.recursive = recursive
 			shot.spawn_fraction = spawn_fraction
 			shot.attack.critical = critical
 			if critical:
@@ -79,6 +85,12 @@ func update(delta: float) -> void:
 	var max_eligible_id: int = balloon_system.latest_id()
 	var hits: Array[Dictionary] = []
 	for shot in projectiles:
+		if shot.targeted_only:
+			var target: BalloonState = balloon_system.find(shot.target_id)
+			if target == null or not target.definition.moab_class:
+				shot.remaining_pierce = 0
+				continue
+			shot.direction = shot.position.direction_to(target.position)
 		_collect_hits(shot, delta, max_eligible_id, hits)
 	# Resolve all darts chronologically, then by stable IDs for simultaneous hits.
 	# Candidate arrays are snapshots; removal cannot invalidate their iteration.
@@ -93,6 +105,10 @@ func update(delta: float) -> void:
 		cursor += 1
 		var shot: ProjectileState = hit.shot
 		if hit.get("expire", false):
+			if shot.remaining_pierce <= 0:
+				continue
+			if shot.timed_explosion:
+				combat.explode(hit.position, shot.attack, hit.time, max_eligible_id, shot.hit_ids)
 			_emit_splits(shot, hit.position, shot.direction, hit.time, delta, max_eligible_id, hits, cursor, true)
 			shot.remaining_pierce = 0
 			continue
@@ -132,7 +148,7 @@ func update(delta: float) -> void:
 		if shot.remaining_pierce == 0:
 			shot.position = hit.position
 			shot.end_fraction = hit.time
-		_emit_splits(shot, hit.position, hit.travel.normalized(), hit.time, delta, max_eligible_id, hits, cursor, shot.remaining_pierce <= 0)
+		_emit_splits(shot, hit.position, hit.travel.normalized(), hit.time, delta, max_eligible_id, hits, cursor, shot.remaining_pierce <= 0, shot.attack.explosion_radius > 0.0)
 	if profile_updates:
 		profile_usec.resolution += Time.get_ticks_usec() - profiled_at
 		profiled_at = Time.get_ticks_usec()
@@ -150,6 +166,8 @@ func _collect_hits(shot: ProjectileState, delta: float, max_id: int, hits: Array
 	if profile_updates:
 		profile_usec.trajectory += Time.get_ticks_usec() - started
 	for segment in segments:
+		if shot.timed_explosion:
+			continue # Fused cluster bombs travel before their independent AoE.
 		var bounds: Rect2 = Rect2(segment.at, Vector2.ZERO).expand(segment.end).grow(shot.radius)
 		if profile_updates:
 			started = Time.get_ticks_usec()
@@ -158,6 +176,8 @@ func _collect_hits(shot: ProjectileState, delta: float, max_id: int, hits: Array
 			profile_usec.candidates += Time.get_ticks_usec() - started
 			started = Time.get_ticks_usec()
 		for balloon in candidates:
+			if shot.targeted_only and balloon.id != shot.target_id:
+				continue
 			if shot.was_hit(balloon.id, segment.epoch) or balloon.id > max_id or balloon_system.find(balloon.id) == null:
 				continue
 			collision_checks += 1
@@ -173,7 +193,7 @@ func _collect_hits(shot: ProjectileState, delta: float, max_id: int, hits: Array
 					_insert_hit(hits, first, hit)
 		if profile_updates:
 			profile_usec.narrow += Time.get_ticks_usec() - started
-	if shot.split != null and shot.lifetime <= 0.0:
+	if (shot.split != null or shot.timed_explosion) and shot.lifetime <= 0.0:
 		var expiration: Dictionary = {"time": shot.end_fraction, "shot": shot, "balloon_id": 9223372036854775807,
 			"position": shot.position, "expire": true}
 		if first < 0:
@@ -182,8 +202,10 @@ func _collect_hits(shot: ProjectileState, delta: float, max_id: int, hits: Array
 			_insert_hit(hits, first, expiration)
 	shot.spawn_fraction = 0.0
 
-func _emit_splits(shot: ProjectileState, at: Vector2, heading: Vector2, time: float, delta: float, max_id: int, hits: Array[Dictionary], first: int, force: bool) -> void:
+func _emit_splits(shot: ProjectileState, at: Vector2, heading: Vector2, time: float, delta: float, max_id: int, hits: Array[Dictionary], first: int, force: bool, detonated: bool = false) -> void:
 	if shot.split == null:
+		return
+	if shot.split.on_explosion and not detonated:
 		return
 	var used: int = shot.initial_pierce - shot.remaining_pierce
 	while shot.split_bursts < shot.split.thresholds.size():
@@ -199,6 +221,14 @@ func _emit_splits(shot: ProjectileState, at: Vector2, heading: Vector2, time: fl
 				child.spawn_fraction = time
 				_collect_hits(child, delta, max_id, hits, first)
 		split_effects.append({"position": at, "remaining": 0.14})
+		if shot.recursive and shot.secondary_profile != null:
+			# Exactly one additional ring of at most eight, committed with the base burst.
+			for index in range(shot.split.secondary_count):
+				var direction: Vector2 = heading.rotated(TAU * index / shot.split.secondary_count + PI / 8.0)
+				var child: ProjectileState = launch(at, direction, shot.secondary_profile, shot.attack.source_id, true)
+				if child != null:
+					child.spawn_fraction = time
+					_collect_hits(child, delta, max_id, hits, first)
 
 func _trajectory(shot: ProjectileState, delta: float) -> Array[Dictionary]:
 	var segments: Array[Dictionary] = []

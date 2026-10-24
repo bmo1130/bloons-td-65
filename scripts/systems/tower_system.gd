@@ -72,7 +72,10 @@ func update(delta: float) -> void:
 			if stats.critical_every > 0:
 				critical = (tower.critical_counter + 1) % stats.critical_every == 0
 			var fraction: float = clampf((delta + tower.cooldown) / delta, 0.0, 1.0) if tower.transformed_stats != null else 0.0
-			var launched: int = projectile_system.fire_volley(tower.position + tower.direction * 22.0, target, stats, tower.id, critical, fraction)
+			var recursive: bool = stats.recursive_every > 0 and (tower.attack_counter + 1) % stats.recursive_every == 0
+			var launched: int = projectile_system.fire_volley(tower.position + tower.direction * 22.0, target, stats, tower.id, critical, fraction, recursive)
+			if launched > 0:
+				tower.attack_counter += 1
 			if launched > 0 and stats.critical_every > 0:
 				tower.critical_counter += 1
 				if critical:
@@ -90,7 +93,7 @@ func _first_in_range(tower: TowerState) -> BalloonState:
 	for balloon in balloon_system.candidates_in_rect(bounds):
 		if balloon_system.find(balloon.id) == null or balloon.exit_time <= 1.0:
 			continue
-		if not combat.can_attack(balloon, stats.attack_attribute, stats.detects_camo):
+		if not combat.can_target(balloon, stats):
 			continue
 		# Existing small-bloon center acquisition stays unchanged. Blimps expose
 		# their circular hitbox at the range boundary, also indexed by the grid.

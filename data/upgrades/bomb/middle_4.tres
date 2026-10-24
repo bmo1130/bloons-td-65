@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/abilities/bomb_assassin.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_middle_4"
+display_name = "MOAB Assassin"
+path = 1
+tier = 4
+cost = 1600
+reference_version = "prototype-v0.12; values provisional"
+description = "액티브 단일 MOAB750 피해, 재사용30초. 대상 소멸 시 소진. 신규 가격/제어/일반 공격은 임시 밸런스 값."
+replacement_values = {"moab_bonus": 35}
+ability = ExtResource("2")
+visual_color = Color(1, 0.4, 0.3, 1)
+

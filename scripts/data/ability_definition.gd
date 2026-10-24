@@ -1,7 +1,8 @@
 class_name AbilityDefinition
 extends Resource
 
-enum Effect { FAN_TRANSFORM }
+enum Effect { FAN_TRANSFORM, MOAB_MISSILE, LEAK_STORM }
+@export var attack_profile: TowerDefinition
 @export var id: StringName
 @export var display_name: String
 @export var effect: Effect = Effect.FAN_TRANSFORM

@@ -7,6 +7,15 @@ var balloon_system: BalloonSystem
 var battle_stats: BattleStatistics
 var effects: Array[Dictionary] = []
 var aoe_candidates: int = 0
+var profile_updates: bool = false
+var profile_usec: Dictionary = {"aoe_query": 0, "aoe_sort": 0, "aoe_damage": 0}
+var profile_counts: Dictionary = {"explosions": 0, "aoe_entries": 0, "contacts": 0}
+var draw_usec: int = 0
+
+func reset_profile() -> void:
+	profile_usec = {"aoe_query": 0, "aoe_sort": 0, "aoe_damage": 0}
+	profile_counts = {"explosions": 0, "aoe_entries": 0, "contacts": 0}
+	draw_usec = 0
 
 func can_damage(definition: BalloonDefinition, attribute: AttackSpec.Attribute) -> bool:
 	return (definition.immunity_mask & (1 << attribute)) == 0
@@ -17,12 +26,23 @@ func can_detect(balloon: BalloonState, detects_camo: bool) -> bool:
 func can_attack(balloon: BalloonState, attribute: AttackSpec.Attribute, detects_camo: bool = false) -> bool:
 	return can_detect(balloon, detects_camo) and can_damage(balloon.definition, attribute)
 
-func can_apply_status(balloon: BalloonState, effect: BalloonDefinition.StatusEffect) -> bool:
+func can_target(balloon: BalloonState, profile: TowerDefinition) -> bool:
+	if can_attack(balloon, profile.attack_attribute, profile.detects_camo):
+		return true
+	var split: ProjectileSplitDefinition = profile.projectile_split
+	if split != null and split.on_explosion:
+		var child: TowerDefinition = split.child_projectile as TowerDefinition
+		return child != null and can_attack(balloon, child.attack_attribute, profile.detects_camo)
+	return false
+
+func can_apply_status(balloon: BalloonState, effect: BalloonDefinition.StatusEffect, supports_moab: bool = false) -> bool:
 	if (balloon.definition.status_immunity_mask & (1 << effect)) != 0:
 		return false
-	return effect != BalloonDefinition.StatusEffect.KNOCKBACK or balloon.definition.knockback_allowed
+	return effect != BalloonDefinition.StatusEffect.KNOCKBACK or balloon.definition.knockback_allowed or (supports_moab and balloon.definition.moab_class)
 
 func apply_hit(id: int, attack: AttackSpec, time: float = 1.0, excluded_ids: Variant = null) -> int:
+	if profile_updates:
+		profile_counts.contacts += 1
 	var excluded: Dictionary = {} if excluded_ids == null else excluded_ids
 	var balloon: BalloonState = balloon_system.find(id)
 	if balloon == null or excluded.has(id):
@@ -40,6 +60,14 @@ func apply_hit(id: int, attack: AttackSpec, time: float = 1.0, excluded_ids: Var
 		balloon.knockback_remaining = maxf(balloon.knockback_remaining, attack.knockback_duration)
 		var heavy: bool = original.heavy or original.ceramic or armored
 		balloon.knockback_multiplier = maxf(0.0, attack.knockback_heavy if heavy else attack.knockback_light)
+	if result[2] > 0 and balloon_system.find(id) != null:
+		var moab: bool = balloon.definition.moab_class
+		var stun: float = attack.stun_moab_duration if moab else attack.stun_duration
+		if stun > 0.0 and can_apply_status(balloon, BalloonDefinition.StatusEffect.STUN):
+			balloon.stun_remaining = maxf(balloon.stun_remaining, stun)
+		var push: float = attack.push_moab_distance if moab else attack.push_distance
+		if push > 0.0 and can_apply_status(balloon, BalloonDefinition.StatusEffect.KNOCKBACK, attack.push_moab_distance > 0.0):
+			balloon.pending_push = maxf(balloon.pending_push, push)
 	if result[3] > 0:
 		balloon_system.layer_popped.emit(result[3])
 	if battle_stats != null:
@@ -83,6 +111,7 @@ func _damage_layers(balloon: BalloonState, amount: int, attack: AttackSpec, time
 			return
 
 func explode(center: Vector2, attack: AttackSpec, time: float = 1.0, max_id: int = 2147483647, excluded_ids: Variant = null) -> Array[int]:
+	var profiled_at: int = Time.get_ticks_usec() if profile_updates else 0
 	var excluded: Dictionary = {} if excluded_ids == null else excluded_ids
 	var radius: float = maxf(0.0, attack.explosion_radius)
 	var candidates: Array[Dictionary] = []
@@ -98,8 +127,16 @@ func explode(center: Vector2, attack: AttackSpec, time: float = 1.0, max_id: int
 		var distance_squared: float = center.distance_squared_to(balloon.position_at_time(time))
 		if distance_squared <= radius * radius:
 			candidates.append({"id": balloon.id, "distance": distance_squared})
+	if profile_updates:
+		profile_usec.aoe_query += Time.get_ticks_usec() - profiled_at
+		profile_counts.explosions += 1
+		profile_counts.aoe_entries += candidates.size()
+		profiled_at = Time.get_ticks_usec()
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return a.distance < b.distance if a.distance != b.distance else a.id < b.id)
+	if profile_updates:
+		profile_usec.aoe_sort += Time.get_ticks_usec() - profiled_at
+		profiled_at = Time.get_ticks_usec()
 	var hit_ids: Array[int] = []
 	for candidate in candidates:
 		if hit_ids.size() >= attack.pierce:
@@ -109,6 +146,8 @@ func explode(center: Vector2, attack: AttackSpec, time: float = 1.0, max_id: int
 			continue
 		if apply_hit(id, attack, time, excluded) > 0:
 			hit_ids.append(id)
+	if profile_updates:
+		profile_usec.aoe_damage += Time.get_ticks_usec() - profiled_at
 	effects.append({"position": center, "radius": radius, "remaining": 0.28})
 	exploded.emit(center, radius)
 	queue_redraw()
@@ -123,7 +162,10 @@ func update(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
+	var started: int = Time.get_ticks_usec() if profile_updates else 0
 	for effect in effects:
 		var alpha: float = clampf(effect.remaining / 0.28, 0.0, 1.0)
 		draw_circle(effect.position, effect.radius, Color(1.0, 0.65, 0.23, alpha * 0.13))
 		draw_arc(effect.position, effect.radius * (1.0 - alpha * 0.25), 0.0, TAU, 48, Color(1.0, 0.77, 0.37, alpha), 2.5, true)
+	if profile_updates:
+		draw_usec += Time.get_ticks_usec() - started

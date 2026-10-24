@@ -62,6 +62,16 @@ func _run() -> void:
 		prefix = "results-v010-"
 	if OS.get_cmdline_user_args().has("--v011"):
 		prefix = "results-v011-"
+	if OS.get_cmdline_user_args().has("--bomb-upgrades"):
+		report.version = "v0.11-bomb"
+		prefix = "results-v011-bomb-"
+		report.workload += "; bomb towers also buy CROSS_BUILDS, budget excluded from timing"
+	if OS.get_cmdline_user_args().has("--v0111"):
+		report.version = "v0.11.1"
+		prefix = "results-v0111-bomb-"
+	if OS.get_cmdline_user_args().has("--v012"):
+		report.version = "v0.12"
+		prefix = "results-v012-bomb-"
 	var basename: String = prefix + mode + ("-cluster" if _concentrated else "") + ("-on" if _statistics_enabled else "-off")
 	var output: FileAccess = FileAccess.open(directory.path_join(basename + ".json"), FileAccess.WRITE)
 	if output == null:
@@ -114,6 +124,15 @@ func _measure(count: int, speed: int) -> Dictionary:
 							push_error("Benchmark upgrade setup failed")
 							quit(1)
 							return {}
+		if OS.get_cmdline_user_args().has("--bomb-upgrades"):
+			game.economy.earn(10000)
+			for index in range(4):
+				var tower: TowerState = game.towers.towers[index * 2 + 1]
+				for path in range(3):
+					for tier in range(1, CROSS_BUILDS[index][path] + 1):
+						if not game.try_upgrade(tower, tower.definition.upgrade_at(path, tier)):
+							push_error("Bomb benchmark purchase failed")
+							quit(1)
 		_maintain_population(game, count)
 		for frame in range(WARMUP_FRAMES):
 			for step in range(speed):

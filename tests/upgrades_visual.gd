@@ -79,13 +79,13 @@ func _run() -> void:
 		await process_frame
 		_check(game.economy.gold == 400 and game.towers.towers.is_empty() and game.selected_instance == null, "actual restart restores budget and clears upgraded towers/selection")
 		_check(game.projectiles.projectiles.is_empty() and game.projectiles._next_id == 1 and not game.hud.upgrade_panel.visible, "actual restart clears volley IDs and upgrade panel")
-	# Bomb selection is informative, but has no upgrade offers in v0.4.
+	# v0.11 adds bomb offers using this same panel and purchase transaction.
 	_key(KEY_B)
 	_click(Vector2(250, 410))
 	_key(KEY_ESCAPE)
 	_click(Vector2(250, 410))
 	_check(game.hud.upgrade_panel.visible and game.hud.upgrade_panel._stats.text.contains("폭발 68"), "bomb selection shows explosive radius and stats")
-	_check(game.hud.upgrade_panel._buttons.all(func(button: Button) -> bool: return button.disabled), "bomb does not offer unimplemented upgrades")
+	_check(game.hud.upgrade_panel._buttons.all(func(button: Button) -> bool: return not button.disabled), "bomb offers all three affordable tier-one upgrades")
 	_click(Vector2(820, 600))
 	_check(game.selected_instance == null and not game.hud.upgrade_panel.visible, "empty map click clears selection")
 	print("V0.4 VISUAL RESULT: %d checks, %d failures" % [_checks, _failures])

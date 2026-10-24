@@ -67,7 +67,7 @@ func _ready() -> void:
 	add_child(_root)
 	_panel(Rect2(24, 24, 1232, 80), Color("182d32"))
 	_label("풍타디 6.5", Rect2(46, 30, 340, 40), 28, INK)
-	_label("v0.11  /  DDT & BAD", Rect2(48, 72, 350, 20), 12, MUTED)
+	_label("v0.12  /  폭탄 15강화 · 액티브 / 패시브", Rect2(48, 72, 350, 20), 12, MUTED)
 	var tier5: Button = _button("F7 · 5티어 실험", Rect2(410, 26, 180, 28))
 	tier5.add_theme_font_size_override("font_size", 13)
 	tier5.pressed.connect(func() -> void: tier5_requested.emit())
@@ -130,6 +130,10 @@ func set_stats(gold: int, lives: int) -> void:
 func show_selection(tower: TowerState, upgrades: UpgradeSystem) -> void:
 	upgrade_panel.show_tower(tower, upgrades)
 	stats_panel.select(tower)
+	sync_ability_status()
+
+func sync_ability_status() -> void:
+	_status.visible = not (upgrade_panel.visible and (upgrade_panel.ability_button.visible or upgrade_panel.passive_status.visible))
 
 func configure_tower(definition: TowerDefinition) -> void:
 	_tower_definition = definition

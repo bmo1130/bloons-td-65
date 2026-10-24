@@ -18,6 +18,10 @@ var knockback_light: float = 0.0
 var knockback_heavy: float = 0.0
 var critical: bool = false
 var detects_camo: bool = false
+var stun_duration: float = 0.0
+var stun_moab_duration: float = 0.0
+var push_distance: float = 0.0
+var push_moab_distance: float = 0.0
 
 func _init(amount: int = 1, limit: int = 1, kind: Attribute = Attribute.SHARP, blast_radius: float = 0.0) -> void:
 	damage = amount

@@ -1,0 +1,6 @@
+strategy,result,wave,cost,pops,removed_instances,leaked_instances,leaked_rbe,lives,gold,earned
+none,victory,20,6310,10338,2832,0,0,50,6663,12573
+top,victory,20,9665,10338,2832,0,0,50,3308,12573
+middle,defeat,15,4115,3180,935,18,51,0,590,4305
+bottom,victory,20,9685,10338,2832,0,0,50,3288,12573
+cross,victory,20,9705,10338,2832,0,0,50,3268,12573

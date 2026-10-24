@@ -60,6 +60,15 @@ func _run() -> void:
 	var late_report: Dictionary = load("res://tests/ddt_bad_tests.gd").new().run(root)
 	_checks += late_report.checks
 	_failures += late_report.failures
+	var bomb_report: Dictionary = load("res://tests/bomb_upgrade_tests.gd").new().run(root)
+	_checks += bomb_report.checks
+	_failures += bomb_report.failures
+	var stability_report: Dictionary = load("res://tests/bomb_stability_tests.gd").new().run(root)
+	_checks += stability_report.checks
+	_failures += stability_report.failures
+	var bomb_tier5_report: Dictionary = load("res://tests/bomb_tier5_tests.gd").new().run(root)
+	_checks += bomb_tier5_report.checks
+	_failures += bomb_tier5_report.failures
 	print("TEST RESULT: %d checks, %d failures" % [_checks, _failures])
 	quit(0 if _failures == 0 else 1)
 

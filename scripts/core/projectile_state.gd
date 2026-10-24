@@ -28,6 +28,10 @@ var split: ProjectileSplitDefinition
 var child_profile: TowerDefinition
 var split_bursts: int = 0
 var end_fraction: float = 1.0
+var timed_explosion: bool = false
+var targeted_only: bool = false
+var secondary_profile: TowerDefinition
+var recursive: bool = false
 
 func was_hit(balloon_id: int, epoch: int) -> bool:
 	if max_bounces <= 0:
@@ -46,10 +50,18 @@ func _init(new_id: int, at: Vector2, heading: Vector2, data: TowerDefinition) ->
 	length = data.projectile_length
 	lifetime = data.projectile_lifetime
 	max_bounces = clampi(data.max_bounces, 0, 16)
+	timed_explosion = data.timed_explosion
+	targeted_only = data.targeted_only
 	if data.projectile_split != null:
 		split = data.projectile_split.duplicate() as ProjectileSplitDefinition
 		child_profile = (split.child_projectile as TowerDefinition).duplicate() as TowerDefinition
 		child_profile.projectile_speed = speed * split.child_speed_ratio
 		child_profile.detects_camo = data.detects_camo
+		if split.inherit_damage:
+			child_profile.damage = data.damage + (data.frag_damage_bonus if not child_profile.timed_explosion else 0)
 		if split.inherit_lifetime:
 			child_profile.projectile_lifetime = data.projectile_lifetime
+		if split.secondary_projectile != null:
+			secondary_profile = (split.secondary_projectile as TowerDefinition).duplicate() as TowerDefinition
+			secondary_profile.damage = data.damage
+			secondary_profile.detects_camo = data.detects_camo

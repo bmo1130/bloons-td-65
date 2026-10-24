@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_middle_1"
+display_name = "빠른 재장전"
+path = 1
+tier = 1
+cost = 60
+reference_version = "prototype-v0.11-bomb; official-v40/v47 context"
+description = "Faster Reload: 공격 간격×0.8 (1.35→1.08초). 임시 수치."
+multipliers = {"fire_interval": 0.8}
+
+visual_color = Color(0.95, 0.69, 0.28, 1)

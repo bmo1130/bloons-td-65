@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_top_3"
+display_name = "초대형 폭탄"
+path = 0
+tier = 3
+cost = 300
+reference_version = "prototype-v0.11-bomb; official-v40/v47 context"
+description = "Really Big Bombs: 피해2→3, 관통22→32, 폭발82→104. 임시 수치."
+additions = {"damage": 1, "pierce": 10, "explosion_radius": 22.0}
+
+visual_color = Color(0.45, 0.68, 0.95, 1)

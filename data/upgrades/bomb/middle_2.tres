@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_middle_2"
+display_name = "미사일 발사기"
+path = 1
+tier = 2
+cost = 120
+reference_version = "prototype-v0.11-bomb; official-v40/v47 context"
+description = "Missile Launcher: 간격×0.75 (1.08→0.81초), 탄속360→540. 임시 수치."
+multipliers = {"fire_interval": 0.75, "projectile_speed": 1.5}
+
+visual_color = Color(0.95, 0.69, 0.28, 1)

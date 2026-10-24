@@ -1,0 +1,11408 @@
+{
+	"conditions": "Stationary fixture inherited from v0111. Incoming/centered single MOAB, area16 MOAB, sustained10seconds with tower volleys; other types single contact. Recursive single-shot rows force recursive second shot; sustained uses actual attack counter. No abilities/movement. Fortified ceramic, invisible DDT. All real purchases funded with1M laboratory budget. All120cases match1x/2x.",
+	"rows": [
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 5,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					195,
+					false,
+					false
+				]
+			],
+			"moab_damage": 5,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 5,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					195,
+					false,
+					false
+				]
+			],
+			"moab_damage": 5,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 80,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					195,
+					false,
+					false
+				]
+			],
+			"moab_damage": 80,
+			"pierce_used": 16,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 1040,
+			"effects_end": 1,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					135,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					135,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1040,
+			"pierce_used": 208,
+			"pops": 0,
+			"projectiles": 13,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 13
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 9,
+			"live": [
+				[
+					2,
+					"red",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"red",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 9,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 5,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					15,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				2,
+				0
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 26,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					174,
+					false,
+					false
+				]
+			],
+			"moab_damage": 26,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 61,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					139,
+					false,
+					false
+				]
+			],
+			"moab_damage": 61,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 136,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					139,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					195,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					195,
+					false,
+					false
+				]
+			],
+			"moab_damage": 136,
+			"pierce_used": 24,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 1126,
+			"effects_end": 0,
+			"gold_earned": 14,
+			"live": [
+				[
+					3,
+					"moab",
+					62,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					160,
+					false,
+					false
+				],
+				[
+					29,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					30,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					31,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					32,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					33,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					34,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					35,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					36,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					37,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					38,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					39,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					40,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					41,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					42,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					43,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					44,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					45,
+					"ceramic",
+					5,
+					false,
+					false
+				],
+				[
+					46,
+					"ceramic",
+					5,
+					false,
+					false
+				],
+				[
+					47,
+					"ceramic",
+					5,
+					false,
+					false
+				],
+				[
+					48,
+					"ceramic",
+					5,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1058,
+			"pierce_used": 207,
+			"pops": 14,
+			"projectiles": 72,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 64,
+			"volleys": 8
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 11,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 23,
+			"effects_end": 0,
+			"gold_earned": 23,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 23,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 92,
+			"effects_end": 0,
+			"gold_earned": 73,
+			"live": [
+				[
+					15,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					16,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					17,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					22,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					23,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					24,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					25,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					28,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					29,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					30,
+					"blue",
+					1,
+					false,
+					false
+				],
+				[
+					31,
+					"blue",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 73,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				4,
+				0,
+				2
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 30,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					170,
+					false,
+					false
+				]
+			],
+			"moab_damage": 30,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 30,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					170,
+					false,
+					false
+				]
+			],
+			"moab_damage": 30,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 480,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					170,
+					false,
+					false
+				]
+			],
+			"moab_damage": 480,
+			"pierce_used": 16,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 9856,
+			"effects_end": 0,
+			"gold_earned": 6096,
+			"live": [],
+			"moab_damage": 3200,
+			"pierce_used": 176,
+			"pops": 6096,
+			"projectiles": 8,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 8
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 23,
+			"effects_end": 0,
+			"gold_earned": 23,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 23,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 114,
+			"effects_end": 0,
+			"gold_earned": 95,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 95,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				2,
+				0
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 126,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					74,
+					false,
+					false
+				]
+			],
+			"moab_damage": 126,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 408,
+			"effects_end": 0,
+			"gold_earned": 191,
+			"live": [
+				[
+					4,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					5,
+					"ceramic",
+					10,
+					false,
+					false
+				]
+			],
+			"moab_damage": 200,
+			"pierce_used": 9,
+			"pops": 191,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 714,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"moab",
+					106,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					170,
+					false,
+					false
+				],
+				[
+					17,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					18,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					19,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					20,
+					"ceramic",
+					10,
+					false,
+					false
+				]
+			],
+			"moab_damage": 714,
+			"pierce_used": 24,
+			"pops": 1,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 9856,
+			"effects_end": 0,
+			"gold_earned": 6096,
+			"live": [],
+			"moab_damage": 3200,
+			"pierce_used": 176,
+			"pops": 6096,
+			"projectiles": 72,
+			"projectiles_end": 8,
+			"speed_match": true,
+			"split_projectiles": 64,
+			"volleys": 8
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 23,
+			"effects_end": 0,
+			"gold_earned": 23,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 23,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 114,
+			"effects_end": 0,
+			"gold_earned": 95,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 95,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				5,
+				0,
+				2
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 37,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					163,
+					false,
+					false
+				]
+			],
+			"moab_damage": 37,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 37,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					163,
+					false,
+					false
+				]
+			],
+			"moab_damage": 37,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 592,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					163,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					163,
+					false,
+					false
+				]
+			],
+			"moab_damage": 592,
+			"pierce_used": 16,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 2674,
+			"effects_end": 1,
+			"gold_earned": 68,
+			"live": [
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					39,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					40,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					41,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					42,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					43,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					44,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					45,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					46,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					47,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					48,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					49,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					50,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					51,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					52,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					53,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					54,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					55,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					56,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					57,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					58,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					59,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					60,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					61,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					62,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					63,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					64,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					99,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					100,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					101,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					102,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					103,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					104,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					105,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					106,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					107,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					108,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					109,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					110,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					111,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					112,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					113,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					114,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					115,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					116,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					117,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					118,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					119,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					120,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					121,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					122,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					123,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					124,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					125,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					126,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					127,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					128,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					129,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					130,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					131,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					132,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					133,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					134,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					135,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					136,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					137,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					138,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					139,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					140,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					141,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					142,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					143,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					144,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					145,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					146,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					147,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					148,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					149,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					150,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					151,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					152,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					153,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					154,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					155,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					156,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					157,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					158,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					159,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					160,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					161,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					162,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					163,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					164,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					165,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					166,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					167,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					168,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					169,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					170,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					171,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					172,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					173,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					174,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					175,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					176,
+					"zebra",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 2400,
+			"pierce_used": 226,
+			"pops": 68,
+			"projectiles": 13,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 13
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					2,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"yellow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 3,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					18,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				4,
+				0
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 39,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					161,
+					false,
+					false
+				]
+			],
+			"moab_damage": 39,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 44,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					156,
+					false,
+					false
+				]
+			],
+			"moab_damage": 44,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 440,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					156,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					164,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				]
+			],
+			"moab_damage": 440,
+			"pierce_used": 20,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 1712,
+			"effects_end": 1,
+			"gold_earned": 13,
+			"live": [
+				[
+					5,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					22,
+					"ceramic",
+					1,
+					false,
+					false
+				],
+				[
+					23,
+					"ceramic",
+					3,
+					false,
+					false
+				],
+				[
+					24,
+					"ceramic",
+					3,
+					false,
+					false
+				],
+				[
+					25,
+					"ceramic",
+					3,
+					false,
+					false
+				],
+				[
+					26,
+					"ceramic",
+					3,
+					false,
+					false
+				],
+				[
+					27,
+					"ceramic",
+					3,
+					false,
+					false
+				],
+				[
+					28,
+					"ceramic",
+					3,
+					false,
+					false
+				],
+				[
+					29,
+					"ceramic",
+					5,
+					false,
+					false
+				],
+				[
+					30,
+					"ceramic",
+					7,
+					false,
+					false
+				],
+				[
+					31,
+					"ceramic",
+					8,
+					false,
+					false
+				],
+				[
+					32,
+					"ceramic",
+					9,
+					false,
+					false
+				],
+				[
+					33,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					34,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					35,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					36,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					37,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					38,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					39,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					40,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					41,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					42,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					43,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					44,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					45,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					46,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					47,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					48,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					49,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					50,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					51,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					52,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					53,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					54,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					55,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					56,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					57,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					58,
+					"rainbow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1600,
+			"pierce_used": 199,
+			"pops": 13,
+			"projectiles": 117,
+			"projectiles_end": 5,
+			"speed_match": true,
+			"split_projectiles": 104,
+			"volleys": 13
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 8,
+			"effects_end": 0,
+			"gold_earned": 8,
+			"live": [
+				[
+					3,
+					"green",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 8,
+			"pops": 8,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 9,
+			"live": [
+				[
+					3,
+					"blue",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 9,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					4,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					5,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					6,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					7,
+					"pink",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 3,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					11,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				4,
+				2
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 101,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					99,
+					false,
+					false
+				]
+			],
+			"moab_damage": 101,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 101,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					99,
+					false,
+					false
+				]
+			],
+			"moab_damage": 101,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 1616,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					99,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					99,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1616,
+			"pierce_used": 16,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 2840,
+			"effects_end": 1,
+			"gold_earned": 88,
+			"live": [
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					49,
+					"ceramic",
+					2,
+					false,
+					false
+				],
+				[
+					50,
+					"ceramic",
+					2,
+					false,
+					false
+				],
+				[
+					51,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					52,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					53,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					54,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					55,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					56,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					57,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					58,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					59,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					60,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					61,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					62,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					63,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					64,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					109,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					110,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					111,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					112,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					113,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					114,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					115,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					116,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					117,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					118,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					119,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					120,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					121,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					122,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					123,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					124,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					125,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					126,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					127,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					128,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					129,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					130,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					131,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					132,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					133,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					134,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					135,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					136,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					137,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					138,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					139,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					140,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					141,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					142,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					143,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					144,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					145,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					146,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					147,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					148,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					149,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					150,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					151,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					152,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					153,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					154,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					155,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					156,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					157,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					158,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					159,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					160,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					161,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					162,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					163,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					164,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					165,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					166,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					167,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					168,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					169,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					170,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					171,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					172,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					173,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					174,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					175,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					176,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					177,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					178,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					179,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					180,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					181,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					182,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					183,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					184,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					185,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					186,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					187,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					188,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					189,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					190,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					191,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					192,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					193,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					194,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					195,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					196,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					197,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					198,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					199,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					200,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					201,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					202,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					203,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					204,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					205,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					206,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					207,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					208,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					209,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					210,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					211,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					212,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					213,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					214,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					215,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					216,
+					"rainbow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 2400,
+			"pierce_used": 266,
+			"pops": 88,
+			"projectiles": 13,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 13
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					2,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"yellow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 3,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					18,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				5,
+				0
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 103,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					97,
+					false,
+					false
+				]
+			],
+			"moab_damage": 103,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 108,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					92,
+					false,
+					false
+				]
+			],
+			"moab_damage": 108,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 1208,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					92,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					100,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1208,
+			"pierce_used": 20,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 1768,
+			"effects_end": 1,
+			"gold_earned": 40,
+			"live": [
+				[
+					5,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					200,
+					false,
+					false
+				],
+				[
+					31,
+					"ceramic",
+					4,
+					false,
+					false
+				],
+				[
+					32,
+					"ceramic",
+					6,
+					false,
+					false
+				],
+				[
+					33,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					34,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					35,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					36,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					37,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					38,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					39,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					40,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					41,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					42,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					43,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					44,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					45,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					46,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					47,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					48,
+					"ceramic",
+					10,
+					false,
+					false
+				],
+				[
+					59,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					60,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					65,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					66,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					67,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					68,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					73,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					74,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					75,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					76,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					77,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					78,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					79,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					80,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					81,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					82,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					83,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					84,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					85,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					86,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					87,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					88,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					89,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					90,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					91,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					92,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					93,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					94,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					95,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					96,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					97,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					98,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					99,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					100,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					101,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					102,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					103,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					104,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					105,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					106,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					107,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					108,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					109,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					110,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					111,
+					"rainbow",
+					1,
+					false,
+					false
+				],
+				[
+					112,
+					"rainbow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1600,
+			"pierce_used": 192,
+			"pops": 40,
+			"projectiles": 117,
+			"projectiles_end": 5,
+			"speed_match": true,
+			"split_projectiles": 104,
+			"volleys": 13
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "black",
+			"damage": 8,
+			"effects_end": 0,
+			"gold_earned": 8,
+			"live": [
+				[
+					3,
+					"green",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 8,
+			"pops": 8,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 9,
+			"live": [
+				[
+					3,
+					"blue",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 9,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					4,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					5,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					6,
+					"pink",
+					1,
+					false,
+					false
+				],
+				[
+					7,
+					"pink",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 3,
+			"pops": 3,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 9,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					11,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 9,
+			"pops": 0,
+			"projectiles": 9,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 8,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				5,
+				2
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 18,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					182,
+					false,
+					false
+				]
+			],
+			"moab_damage": 18,
+			"pierce_used": 6,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					197,
+					false,
+					false
+				]
+			],
+			"moab_damage": 3,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 192,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					197,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					182,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					182,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					182,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					182,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					185,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					185,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					185,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					185,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					188,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					188,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					188,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					188,
+					false,
+					false
+				]
+			],
+			"moab_damage": 192,
+			"pierce_used": 64,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 1152,
+			"effects_end": 8,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					92,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					92,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					92,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					92,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					128,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					128,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					128,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					128,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					104,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					104,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					104,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					104,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					188,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					188,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					188,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					188,
+					false,
+					false
+				]
+			],
+			"moab_damage": 1152,
+			"pierce_used": 384,
+			"pops": 0,
+			"projectiles": 104,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 96,
+			"volleys": 8
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 5,
+			"effects_end": 0,
+			"gold_earned": 5,
+			"live": [
+				[
+					2,
+					"green",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"green",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 5,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					17,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				4
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 8,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					192,
+					false,
+					false
+				]
+			],
+			"moab_damage": 8,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					198,
+					false,
+					false
+				]
+			],
+			"moab_damage": 2,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 104,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					198,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					192,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					192,
+					false,
+					false
+				]
+			],
+			"moab_damage": 104,
+			"pierce_used": 52,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 912,
+			"effects_end": 9,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					150,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					150,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					150,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					150,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					98,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					98,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					98,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					98,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					162,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					162,
+					false,
+					false
+				]
+			],
+			"moab_damage": 912,
+			"pierce_used": 456,
+			"pops": 0,
+			"projectiles": 165,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 152,
+			"volleys": 13
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 3,
+			"effects_end": 0,
+			"gold_earned": 3,
+			"live": [
+				[
+					2,
+					"yellow",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"yellow",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 3,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 2,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					18,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				4
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 42,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					158,
+					false,
+					false
+				]
+			],
+			"moab_damage": 42,
+			"pierce_used": 6,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 7,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					193,
+					false,
+					false
+				]
+			],
+			"moab_damage": 7,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 448,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					193,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					193,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					193,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					193,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					158,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					158,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					158,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					158,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					165,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					165,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					165,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					165,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					172,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					172,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					172,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					172,
+					false,
+					false
+				]
+			],
+			"moab_damage": 448,
+			"pierce_used": 64,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 3968,
+			"effects_end": 0,
+			"gold_earned": 208,
+			"live": [
+				[
+					51,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					52,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					53,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					54,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					57,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					58,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					59,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					60,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					63,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					64,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					65,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					66,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					69,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					70,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					71,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					72,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					75,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					76,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					77,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					78,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					81,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					82,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					83,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					84,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					87,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					88,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					89,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					90,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					93,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					94,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					95,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					96,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					99,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					100,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					101,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					102,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					105,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					106,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					107,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					108,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					111,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					112,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					113,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					114,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					117,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					118,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					119,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					120,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					123,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					124,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					125,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					126,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					129,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					130,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					131,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					132,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					135,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					136,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					137,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					138,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					141,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					142,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					143,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					144,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					147,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					148,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					149,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					150,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					153,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					154,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					155,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					156,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					159,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					160,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					161,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					162,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					165,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					166,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					167,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					168,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					171,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					172,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					173,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					174,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					177,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					178,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					179,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					180,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					183,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					184,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					185,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					186,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					189,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					190,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					191,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					192,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					195,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					196,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					197,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					198,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					201,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					202,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					203,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					204,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					207,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					208,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					209,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					210,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					213,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					214,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					215,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					216,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					219,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					220,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					221,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					222,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					225,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					226,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					227,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					228,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					231,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					232,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					233,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					234,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					237,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					238,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					239,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					240,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					259,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					260,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					261,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					262,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					265,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					266,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					267,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					268,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					271,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					272,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					273,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					274,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					277,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					278,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					279,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					280,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					283,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					284,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					285,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					286,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					289,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					290,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					291,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					292,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					295,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					296,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					297,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					298,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					301,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					302,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					303,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					304,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					307,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					308,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					309,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					310,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					313,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					314,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					315,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					316,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					319,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					320,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					321,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					322,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					325,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					326,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					327,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					328,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					331,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					332,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					333,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					334,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					337,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					338,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					339,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					340,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					343,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					344,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					345,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					346,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					349,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					350,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					351,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					352,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					371,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					372,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					373,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					374,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					377,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					378,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					379,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					380,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					383,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					384,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					385,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					386,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					389,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					390,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					391,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					392,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					395,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					396,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					397,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					398,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					401,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					402,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					403,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					404,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					407,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					408,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					409,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					410,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					413,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					414,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					415,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					416,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					419,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					420,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					421,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					422,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					425,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					426,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					427,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					428,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					431,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					432,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					433,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					434,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					437,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					438,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					439,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					440,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					443,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					444,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					445,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					446,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					449,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					450,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					451,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					452,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					455,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					456,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					457,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					458,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					461,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					462,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					463,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					464,
+					"zebra",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 3200,
+			"pierce_used": 592,
+			"pops": 208,
+			"projectiles": 238,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 224,
+			"volleys": 14
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 7,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					13,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				2,
+				0,
+				5
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "incoming",
+			"damage": 24,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					176,
+					false,
+					false
+				]
+			],
+			"moab_damage": 24,
+			"pierce_used": 4,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "centered",
+			"damage": 6,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					194,
+					false,
+					false
+				]
+			],
+			"moab_damage": 6,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "area",
+			"damage": 312,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					2,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					3,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					4,
+					"moab",
+					194,
+					false,
+					false
+				],
+				[
+					5,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					6,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					7,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					8,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					9,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					10,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					11,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					12,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					13,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					14,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					15,
+					"moab",
+					176,
+					false,
+					false
+				],
+				[
+					16,
+					"moab",
+					176,
+					false,
+					false
+				]
+			],
+			"moab_damage": 312,
+			"pierce_used": 52,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "sustained",
+			"damage": 3968,
+			"effects_end": 0,
+			"gold_earned": 208,
+			"live": [
+				[
+					35,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					36,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					37,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					38,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					41,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					42,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					43,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					44,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					47,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					48,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					49,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					50,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					53,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					54,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					55,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					56,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					59,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					60,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					61,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					62,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					65,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					66,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					67,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					68,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					71,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					72,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					73,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					74,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					77,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					78,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					79,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					80,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					83,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					84,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					85,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					86,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					89,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					90,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					91,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					92,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					95,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					96,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					97,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					98,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					101,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					102,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					103,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					104,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					107,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					108,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					109,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					110,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					113,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					114,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					115,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					116,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					119,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					120,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					121,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					122,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					125,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					126,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					127,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					128,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					147,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					148,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					149,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					150,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					153,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					154,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					155,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					156,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					159,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					160,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					161,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					162,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					165,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					166,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					167,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					168,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					171,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					172,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					173,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					174,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					177,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					178,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					179,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					180,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					183,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					184,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					185,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					186,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					189,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					190,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					191,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					192,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					195,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					196,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					197,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					198,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					201,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					202,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					203,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					204,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					207,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					208,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					209,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					210,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					213,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					214,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					215,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					216,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					219,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					220,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					221,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					222,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					225,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					226,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					227,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					228,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					231,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					232,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					233,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					234,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					237,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					238,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					239,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					240,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					259,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					260,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					261,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					262,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					265,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					266,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					267,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					268,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					271,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					272,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					273,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					274,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					277,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					278,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					279,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					280,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					283,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					284,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					285,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					286,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					289,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					290,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					291,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					292,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					295,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					296,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					297,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					298,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					301,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					302,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					303,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					304,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					307,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					308,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					309,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					310,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					313,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					314,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					315,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					316,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					319,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					320,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					321,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					322,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					325,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					326,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					327,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					328,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					331,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					332,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					333,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					334,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					337,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					338,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					339,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					340,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					343,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					344,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					345,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					346,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					349,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					350,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					351,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					352,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					371,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					372,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					373,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					374,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					377,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					378,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					379,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					380,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					383,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					384,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					385,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					386,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					389,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					390,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					391,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					392,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					395,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					396,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					397,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					398,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					401,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					402,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					403,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					404,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					407,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					408,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					409,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					410,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					413,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					414,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					415,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					416,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					419,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					420,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					421,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					422,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					425,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					426,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					427,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					428,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					431,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					432,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					433,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					434,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					437,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					438,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					439,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					440,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					443,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					444,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					445,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					446,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					449,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					450,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					451,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					452,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					455,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					456,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					457,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					458,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					461,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					462,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					463,
+					"zebra",
+					1,
+					false,
+					false
+				],
+				[
+					464,
+					"zebra",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 3200,
+			"pierce_used": 672,
+			"pops": 208,
+			"projectiles": 306,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 288,
+			"volleys": 18
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": false,
+			"condition": "black",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "white",
+			"damage": 11,
+			"effects_end": 0,
+			"gold_earned": 11,
+			"live": [],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 11,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "lead",
+			"damage": 1,
+			"effects_end": 0,
+			"gold_earned": 1,
+			"live": [
+				[
+					2,
+					"black",
+					1,
+					false,
+					false
+				],
+				[
+					3,
+					"black",
+					1,
+					false,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 1,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": true,
+			"condition": "ceramic",
+			"damage": 6,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ceramic",
+					14,
+					true,
+					false
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 1,
+			"pops": 0,
+			"projectiles": 17,
+			"projectiles_end": 0,
+			"speed_match": true,
+			"split_projectiles": 16,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": false,
+			"condition": "camo",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"moab",
+					200,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		},
+		{
+			"build": [
+				0,
+				2,
+				5
+			],
+			"can_target": false,
+			"condition": "ddt",
+			"damage": 0,
+			"effects_end": 0,
+			"gold_earned": 0,
+			"live": [
+				[
+					1,
+					"ddt",
+					400,
+					false,
+					true
+				]
+			],
+			"moab_damage": 0,
+			"pierce_used": 0,
+			"pops": 0,
+			"projectiles": 1,
+			"projectiles_end": 1,
+			"speed_match": true,
+			"split_projectiles": 0,
+			"volleys": 1
+		}
+	]
+}

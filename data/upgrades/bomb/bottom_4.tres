@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/projectiles/bomb_recursive_split.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_bottom_4"
+display_name = "Recursive Cluster"
+path = 2
+tier = 4
+cost = 1300
+reference_version = "prototype-v0.12; values provisional"
+description = "매 두 번째 성공 발사에 집속8+재귀8. 독립 피해/관통/반경, 재귀의 재귀 없음. 신규 가격/제어/일반 공격은 임시 밸런스 값."
+replacement_values = {"damage": 2, "pierce": 24, "recursive_every": 2}
+projectile_split = ExtResource("2")
+visual_color = Color(0.8, 0.5, 1, 1)
+

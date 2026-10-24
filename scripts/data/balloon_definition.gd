@@ -18,8 +18,8 @@ extends Resource
 @export var strength_rank: int = 0
 @export var default_camo: bool = false
 @export var children_regrow: bool = false
-# Effect eligibility only. Slow/stun/freeze/instakill/capture mechanics are not
-# implemented; future effects must query the same policy as knockback.
+# Stun and knockback use this eligibility policy. Other effect bits reserve
+# future capabilities; they do not implement slow/freeze/instakill/capture.
 enum StatusEffect { SLOW, STUN, FREEZE, KNOCKBACK, FORCED_MOVEMENT, INSTANT_KILL, CAPTURE }
 @export_flags("Slow", "Stun", "Freeze", "Knockback", "Forced movement", "Instant kill", "Capture") var status_immunity_mask: int = 0
 

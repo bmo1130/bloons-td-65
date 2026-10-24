@@ -1,12 +1,16 @@
 # bloons-td-65
 
 풍타디 6.5: Godot 4 / GDScript 기반의 순수 2D 타워디펜스 프로토타입.
-v0.11은 DDT의 복합 면역과 BAD의 이종 분열·상태 효과 면역 정책을 추가합니다.
+v0.12는 폭탄 슈터4~5티어6개를 추가해15개 강화를 완성합니다. 기절·경로 넉백·추적 액티브 미사일·
+8+8 재귀 폭발·누출 직전 자동Bomb Storm을 기존 전투/업그레이드/능력 시스템으로 처리합니다.
+기존1~3티어/다트/20웨이브와 v0.11.1 렌더 캐시는 유지합니다. 신규 수치는 프로젝트 임시 밸런스입니다.
+DDT의 복합 면역·BAD의 이종 분열·상태 효과 면역 정책을 제공합니다.
 MOAB·BFB·ZOMG, 강화 상속과 기존 비행선 실험실도 유지합니다.
 카모 탐지·외피 HP·하얀/얼룩말/무지개/세라믹과 기존 풍선 검사실도 유지합니다.
 울트라 저거너트·플라즈마 팬클럽·석궁의 대가와 맵 전체5티어 제한도 유지합니다.
-15개 Resource 강화를 최대 두 경로로 조합합니다. 주력5티어/보조 최대2이며 세 번째 경로는 잠깁니다.
-기존20웨이브와 기본/1~3티어 수치는 유지합니다. 원작 재현 범위·출처·차이는 `BTD6_REFERENCE.md`에 기록합니다.
+다트15개/폭탄15개 Resource 강화를 최대 두 경로로 조합합니다. 두 타워 모두 주력 최대5티어,
+보조 최대2이며 세 번째 경로는 잠깁니다. 같은 종류/주력5티어는 맵당 한 기입니다.
+기존20웨이브와 기본 타워/다트1~3티어 수치는 유지합니다. 원작 재현 범위·출처·차이는 `BTD6_REFERENCE.md`에 기록합니다.
 
 ## 실행
 
@@ -24,6 +28,14 @@ Esc로 배치를 취소하고 설치한 타워를 클릭하면 강화 패널이 
 2-2-0에서는 주력이 미정이고 어느 쪽이든 3티어로 선택할 수 있습니다. 2-3-0의 삼중 발사는 각 관통 5,
 0-3-2는 사거리 200/속도 660, 2-0-3은 피해 2/관통 5입니다. 버튼 아래에서 전후 수치와 잠금 이유를 확인하세요.
 빈 맵/패널 ×로 선택을 해제하고 D/B로 설치 모드에 돌아갑니다.
+폭탄을 선택하면 상단 폭발/중단 MOAB/하단 연쇄의15개 강화를 같은 UI에서 구매합니다.
+300은 피해3/관통32/폭발104,030은 일반1/MOAB19/0.81초,003은8개 추가 폭발입니다.
+002의 SHARP 파편8개는 검정에 유효하며 폭발 자체는 계속 검정 면역을 존중합니다. 하양은 냉기 면역입니다.
+가격·최종 능력치·교차 효과는 `GAME_DESIGN.md`의 폭탄 표를 참조하세요. 새 수치는 프로젝트 임시 밸런스입니다.
+400/500은 일반/MOAB 제어,040/050은 선택한 타워의 능력 버튼 또는 `A`로750/4500 단일 피해를 줍니다.
+004는 매 두 번째 발사,005는 모든 발사에 추가8개 재귀 폭발을 냅니다.005의Storm은 누출 직전 자동으로
+발동하며 버튼이 없습니다. F7→폭탄 강화 검사→마지막6프리셋에서 직접 확인하고025의 ‘누출+Storm’을 누르세요.
+상세 구현·가격·측정·제한 사항은 `V012_REPORT.md`에 정리했습니다.
 선택한 타워 아래에서 Pops/발사/투자/관통 활용률을 보고, ‘상세’로 전체 통계를 펼칩니다.
 20웨이브 종료 시 전체 Pops와 상위 타워를 표시합니다. 기존 기본/1~3티어 수치는 v0.5 그대로입니다.
 클리어한 예시 배치와 추가 설치 순서는 `TASKS.md`에 기록했습니다.
@@ -61,6 +73,9 @@ BAD는 기본20000/강화40000HP이며 외피 파괴 시 ZOMG2+DDT3을 생성합
 재생 자식은 분홍 호/표식으로 표시하지만 **실제 재생 동작은 미구현**입니다. 후반 라운드 HP 배율도 적용하지 않습니다.
 BAD 넉백 면역,다중5티어 공격,강화·3기 완전 분열을 같은 검사실에서 비교할 수 있습니다. F6은 일반 복귀입니다.
 
+‘폭탄 강화 검사’는300/030/002/203/032/023의6개 실제 구매 프리셋을 제공합니다.
+일반20웨이브의 기본 타워 수치/시작 자원은 유지하며, 검사실200,000G는 별도 모드에만 적용됩니다.
+
 ## 검증
 
 PowerShell에서 Godot 실행 파일을 지정합니다. PATH에 등록했다면 `-Godot`을 생략할 수 있습니다.
@@ -75,17 +90,25 @@ PowerShell에서 Godot 실행 파일을 지정합니다. PATH에 등록했다면
 .\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -PropertiesBenchmark
 .\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -MoabBenchmark
 .\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -DdtBadBenchmark
+.\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -BombBenchmark
+.\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -Balance -StabilityBenchmark
+.\tools\verify.ps1 -Godot 'C:\path\to\Godot_console.exe' -Visual -Benchmark -BombTier5Benchmark
 ```
 
-첫 명령은 임포트, 3,377개 로직 검증, 메인 씬 헤드리스 실행을 수행합니다.
+첫 명령은 임포트, 4,058개 로직 검증, 메인 씬 헤드리스 실행을 수행합니다.
 기존 3,048개 검사 범위는 별도 6웨이브 fixture에서 기대값 그대로 유지합니다.
-`-Visual`은 실제 렌더러/입력 검사537개를 실행하며, 전체는3,914개입니다.
+`-Visual`은 실제 렌더러/입력 검사663개를 실행하며, 로직4876개와 합쳐 전체5539개입니다.
+기존4664개+v0.12 신규로직818개/신규화면57개입니다. 벤치마크 표본과 지문비교는 검사 개수에 포함하지 않습니다.
+`-BombTier5Benchmark`는 기존000/302/203과 신규204/024/Blitz혼합의CPU/실제 렌더,교차120조건,
+72쌍 전투 지문과6개 동시간 전투를 검증하고 `benchmarks/bomb-v012-*`에 기록합니다.
 로그/화면은 `test-results/`에 저장합니다. 신규 화면은 `bloon-properties-v09.png`,
 `camo-fortified-ceramic-v09.png`, `fortified-lead-v09.png`입니다.
 비행선 화면은 `moab-v010.png`, `bfb-plasma-v010.png`, `fortified-zomg-v010.png`, `zomg-children-v010.png`입니다.
 신규 화면은 `ddt-juggernaut-v011.png`, `ddt-regrow-children-v011.png`, `fortified-bad-v011.png`, `bad-mixed-children-v011.png`입니다.
 러너는 Godot 사용자 설정을 해당 폴더에 격리하고 오류 로그와 테스트 완료 여부도 검사합니다.
-`-Benchmark`는 분산/집중 × 통계 ON/OFF CPU 측정을 `benchmarks/results-v011-*`에 기록합니다.
+`-Benchmark`는 분산/집중 × 통계 ON/OFF CPU 측정을 `benchmarks/results-v0111-bomb-*`에 기록합니다.
+`-StabilityBenchmark`는000/302/203×10기의1,000개부하를CPU/실제렌더/1×·2×에서2회측정하고,
+기존도형/캐시의240프레임평균·P95와전체전투지문을 `bomb-v0111-{before,after}-*`에서 비교합니다.
 `-Tier5Benchmark`는 일반20웨이브/Plasma5·20/울트라/기존팬클럽10기의 CPU·렌더·UI 대조를 `tier5-v011-*`에 기록합니다.
 `-FanBenchmark`는10기 변신 전후/100·500·1,000풍선/1×·2×의 CPU 및 실제 렌더러 결과를 `fanclub-v011-*`에 기록합니다.
 `-PropertiesBenchmark`는 세라믹10/100 동시 파괴·카모강화 혼합·울트라를 `properties-v011-*`에,
@@ -93,7 +116,9 @@ PowerShell에서 Godot 실행 파일을 지정합니다. PATH에 등록했다면
 `-MoabBenchmark`는 실제 비행선 전투/완전 분열/일반 캠페인을 CPU와 실제 렌더러에서 검사하고
 `moab-v011-*`에 기록합니다. `-DdtBadBenchmark`는 DDT 물량/Plasma20/BAD 완전 분열/일반 캠페인을
 `ddt-bad-v011-*`에 기록합니다. 과거 버전의 원시 결과는 보존합니다.
-`-Balance`는 실제 자금 5전략과 500G 상한 단일 타워 80케이스를 `balance-v06.json/csv`로 생성합니다.
+`-Balance`는 실제400G/목숨50의폭탄5정책과40교차공격조건을 `bomb-v0111-after-analysis.json` 및
+balance/crosspaths CSV로기록합니다. 이전500G비교지그와원본은삭제하지않았으며새검사와구분합니다.
+`-BombBenchmark`의기존14항목지그는 `bomb-v0111-{cpu,render}.*`로새파일을사용합니다.
 `-RenderBenchmark`는 실제 렌더러 프레임 간격을 `render-v06.json`에 기록합니다. 과거 결과는 보존합니다.
 성능 결과 해석과 재현 조건은 `BENCHMARKS.md`를 참고하세요.
 

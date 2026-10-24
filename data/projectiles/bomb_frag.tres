@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bomb_frag"
+damage = 1
+pierce = 1
+projectile_speed = 420.0
+projectile_radius = 2.0
+projectile_length = 8.0
+projectile_lifetime = 0.45
+attack_attribute = 0
+explosion_radius = 0.0
+timed_explosion = false

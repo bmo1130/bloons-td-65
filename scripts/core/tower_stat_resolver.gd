@@ -5,9 +5,10 @@ const FIELDS: Array[StringName] = [&"damage", &"pierce", &"fire_interval", &"att
 	&"projectile_speed", &"projectile_radius", &"projectile_length", &"projectile_count",
 	&"spread_degrees", &"heading_offset_degrees", &"attack_attribute", &"explosion_radius",
 	&"projectile_lifetime", &"ceramic_bonus", &"fortified_bonus", &"knockback_duration",
-	&"knockback_light", &"knockback_heavy", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"detects_camo", &"moab_bonus"]
+	&"knockback_light", &"knockback_heavy", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"detects_camo", &"moab_bonus",
+	&"stun_duration", &"stun_moab_duration", &"push_distance", &"push_moab_distance", &"frag_damage_bonus", &"recursive_every"]
 const INTEGER_FIELDS: Array[StringName] = [&"damage", &"pierce", &"projectile_count", &"attack_attribute",
-	&"ceramic_bonus", &"fortified_bonus", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"moab_bonus"]
+	&"ceramic_bonus", &"fortified_bonus", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"moab_bonus", &"frag_damage_bonus", &"recursive_every"]
 
 static func acquired(base: TowerDefinition, tiers: PackedInt32Array) -> Array[UpgradeDefinition]:
 	var items: Array[UpgradeDefinition] = []

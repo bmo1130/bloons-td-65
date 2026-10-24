@@ -14,8 +14,9 @@ func error_for_path(tower: TowerState, path: int) -> String:
 	var item: UpgradeDefinition = tower.definition.upgrade_at(path, tower.tiers[path] + 1)
 	if item != null:
 		return error_for(tower, item)
-	if tower.tiers[path] >= UpgradePolicy.AVAILABLE_TIER:
-		return "현재 구현된 최대 티어 도달 (%d)" % UpgradePolicy.AVAILABLE_TIER
+	var maximum: int = tower.definition.max_upgrade_tier(path)
+	if maximum > 0 and tower.tiers[path] >= maximum:
+		return "현재 구현된 최대 티어 도달 (%d)" % maximum
 	return "강화 정의 없음" if not tower.definition.upgrades.is_empty() else "이 타워는 아직 강화가 없습니다"
 
 func error_for(tower: TowerState, upgrade: UpgradeDefinition) -> String:
@@ -50,6 +51,7 @@ func purchase(tower: TowerState, upgrade: UpgradeDefinition) -> bool:
 		return false
 	var old_interval: float = tower.stats.fire_interval
 	var old_critical: int = tower.stats.critical_every
+	var old_recursive: int = tower.stats.recursive_every
 	tower.tiers[upgrade.path] = upgrade.tier
 	tower.stats = next_stats
 	tower.spent_on_upgrades += upgrade.cost
@@ -61,6 +63,8 @@ func purchase(tower: TowerState, upgrade: UpgradeDefinition) -> bool:
 		tower.cooldown *= tower.stats.fire_interval / old_interval
 	if old_critical != tower.stats.critical_every:
 		tower.critical_counter = 0
+	if old_recursive != tower.stats.recursive_every:
+		tower.attack_counter = 0
 	if tower_system.abilities != null:
 		tower_system.abilities.sync_tower(tower)
 	tower_system.queue_redraw()

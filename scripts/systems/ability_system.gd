@@ -3,6 +3,9 @@ extends Node
 
 signal changed
 var tower_system: TowerSystem
+var economy: GameEconomy
+const SCREEN_BOUNDS: Rect2 = Rect2(0, 0, 980, 720)
+var _storm_running: bool = false
 var enabled: bool = true
 var states: Dictionary = {} # Caster ID -> cooldown/duration state, never tower refs.
 var transformations: Dictionary = {} # Target ID -> {remaining, definition}.
@@ -16,6 +19,8 @@ func sync_tower(tower: TowerState) -> void:
 		states[tower.id] = AbilityState.new(tower.stats.ability)
 	elif tower.stats.ability != null:
 		# Buying the next ability tier preserves the already running cooldown.
+		if tower.stats.ability.effect == AbilityDefinition.Effect.MOAB_MISSILE:
+			states[tower.id].cooldown_remaining = minf(states[tower.id].cooldown_remaining, tower.stats.ability.cooldown)
 		states[tower.id].definition = tower.stats.ability
 	if transformations.has(tower.id):
 		_refresh(tower, true)
@@ -50,6 +55,20 @@ func activate(caster: TowerState) -> bool:
 	var state: AbilityState = state_for(caster)
 	if not enabled or state == null or not tower_system.towers.has(caster) or state.cooldown_remaining > 0.000001:
 		return false
+	if state.definition.effect == AbilityDefinition.Effect.LEAK_STORM:
+		return false
+	if state.definition.effect == AbilityDefinition.Effect.MOAB_MISSILE:
+		var target: BalloonState = missile_target(caster)
+		if target == null:
+			return false # Empty/invisible screen never consumes cooldown.
+		var shot: ProjectileState = tower_system.projectile_system.launch(caster.position, caster.position.direction_to(target.position), state.definition.attack_profile, caster.id)
+		if shot == null:
+			return false
+		shot.target_id = target.id
+		state.last_targets = PackedInt64Array([target.id])
+		state.cooldown_remaining = state.definition.cooldown
+		changed.emit()
+		return true
 	var targets: Array[TowerState] = select_targets(caster, state.definition)
 	state.cooldown_remaining = state.definition.cooldown
 	state.active_remaining = state.definition.duration
@@ -67,6 +86,47 @@ func activate(caster: TowerState) -> bool:
 		_refresh(tower, old == null or old.priority <= state.definition.priority or tower == caster)
 	changed.emit()
 	return true
+
+func missile_target(caster: TowerState) -> BalloonState:
+	var state: AbilityState = state_for(caster)
+	if state == null or state.definition.effect != AbilityDefinition.Effect.MOAB_MISSILE:
+		return null
+	var profile: TowerDefinition = state.definition.attack_profile
+	var best: BalloonState
+	for balloon in tower_system.balloon_system.balloons:
+		if not balloon.definition.moab_class or balloon.exit_time <= 1.0 or not SCREEN_BOUNDS.has_point(balloon.position):
+			continue
+		if not tower_system.combat.can_attack(balloon, profile.attack_attribute, profile.detects_camo):
+			continue
+		if best == null or tower_system._prefer_target(balloon, best, caster):
+			best = balloon
+	return best
+
+func before_leak(balloon: BalloonState) -> void:
+	if not enabled or _storm_running or economy == null or economy.lives <= 0 or balloon.leak_damage() <= 0:
+		return
+	# Tower array/IDs are stable. One ready caster answers a pending leak; reserve
+	# cooldown before damage signals. Newly split children stay in the leak queue.
+	for caster in tower_system.towers:
+		var state: AbilityState = state_for(caster)
+		if state == null or state.definition.effect != AbilityDefinition.Effect.LEAK_STORM or state.cooldown_remaining > 0.000001:
+			continue
+		state.cooldown_remaining = state.definition.cooldown
+		_storm_running = true
+		var attack: AttackSpec = state.definition.attack_profile.make_attack()
+		attack.source_id = caster.id
+		var ids: PackedInt64Array = []
+		for target in tower_system.balloon_system.balloons:
+			if SCREEN_BOUNDS.has_point(target.position):
+				ids.append(target.id)
+		ids.sort()
+		var excluded: Dictionary = {}
+		for id in ids:
+			tower_system.combat.apply_hit(id, attack, 1.0, excluded)
+		tower_system.combat.effects.append({"position": Vector2(490, 360), "radius": 600.0, "remaining": 0.28})
+		_storm_running = false
+		changed.emit()
+		return
 
 func _apply(tower: TowerState, data: AbilityDefinition) -> void:
 	var stats: TowerDefinition = transformed_definition(tower.stats, tower.tiers, data)

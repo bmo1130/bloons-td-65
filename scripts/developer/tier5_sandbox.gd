@@ -16,6 +16,8 @@ var _status_elapsed: float = 0.0
 var _spawn_batch: int = 0
 const SPECIMENS: Array[String] = ["기본 다트 vs 카모", "002 다트 vs 카모", "400 vs 카모 납", "402 vs 카모 납", "폭탄 vs 강화 납", "기본 다트 vs 세라믹", "400 vs 세라믹", "502 vs 강화 세라믹", "052 팬클럽 vs 카모", "520 vs 세라믹 물량", "기본 다트 vs MOAB", "석궁의 대가 vs MOAB", "울트라 vs MOAB", "플라즈마20기 vs BFB", "ZOMG 단일", "강화 MOAB", "강화 BFB", "강화 ZOMG", "MOAB10 동시 외피 파괴", "BFB4 동시 외피 파괴", "ZOMG3 다단계 분열"]
 const ADVANCED_SPECIMENS: Array[String] = ["기본 다트 vs DDT", "002 다트 vs DDT (SHARP 면역)", "폭탄 vs DDT (카모·폭발 면역)", "402 저거너트 vs DDT", "석궁의 대가 vs DDT", "Plasma20 vs DDT (탐지 비교)", "강화 DDT10", "BAD 단독", "강화 BAD 단독", "BAD 이종 자식 분열", "강화 BAD 완전 분열", "BAD 넉백 면역", "다중5티어 vs BAD", "BAD3 분열 스트레스"]
+const BOMB_SPECIMENS: Array[String] = ["300 폭탄 / 광역", "030 폭탄 / MOAB", "002 폭탄 / 파편·검정", "203 폭탄 / 클러스터", "032 폭탄 / 강화 BFB", "023 폭탄 / 동시 폭발100", "402 Impact / 기절·파편", "502 Crush / MOAB 제어", "042 Assassin / 능력 A", "052 Eliminator / 능력 A", "204 Recursive / 매 두 번째", "025 Blitz / 누출 Storm"]
+const BOMB_BUILDS: Array = [[3, 0, 0], [0, 3, 0], [0, 0, 2], [2, 0, 3], [0, 3, 2], [0, 2, 3], [4, 0, 2], [5, 0, 2], [0, 4, 2], [0, 5, 2], [2, 0, 4], [0, 2, 5]]
 const BALLOON_IDS: Array[String] = ["red", "blue", "green", "yellow", "pink", "black", "white", "zebra", "rainbow", "lead", "ceramic", "moab", "bfb", "zomg", "ddt", "bad"]
 const BALLOON_NAMES: Array[String] = ["빨강", "파랑", "초록", "노랑", "분홍", "검정", "하얀", "얼룩말", "무지개", "납", "세라믹", "MOAB", "BFB", "ZOMG", "DDT", "BAD"]
 
@@ -31,6 +33,12 @@ func _ready() -> void:
 		if OS.get_cmdline_user_args().has("--ddt-bad-lab"):
 			scenario_index = 5
 			specimen_index = 21
+		if OS.get_cmdline_user_args().has("--bomb-lab"):
+			scenario_index = 5
+			specimen_index = 35
+		if OS.get_cmdline_user_args().has("--bomb-tier5-lab"):
+			scenario_index = 5
+			specimen_index = 41
 	game.economy.gold = 200000
 	game.economy.lives = 100000
 	game.economy.changed.emit(game.economy.gold, game.economy.lives)
@@ -84,6 +92,14 @@ func _ready() -> void:
 						builds = [[5, 0, 2], [0, 5, 2], [0, 2, 5]]
 						for index in range(19):
 							builds.append([0, 0, 2])
+	if scenario_index == 5 and specimen_index >= 35:
+		builds = []
+		game.try_place_tower(positions[0], MainGame.BOMB)
+		var bomb: TowerState = game.towers.towers.back()
+		for path in range(3):
+			for tier in range(1, BOMB_BUILDS[specimen_index - 35][path] + 1):
+				game.try_upgrade(bomb, MainGame.BOMB.upgrade_at(path, tier))
+		game.select_instance(bomb)
 	for index in range(builds.size()):
 		game.try_place_tower(positions[index])
 		var tower: TowerState = game.towers.towers.back()
@@ -124,12 +140,20 @@ func _ready() -> void:
 	_button("DDT·BAD 검사", Vector2(492, 604)).pressed.connect(func() -> void:
 		specimen_index = 21
 		_choose(5))
+	_button("폭탄 강화 검사", Vector2(260, 604)).pressed.connect(func() -> void:
+		specimen_index = 35
+		_choose(5))
 	if scenario_index == 5:
 		_specimen_controls()
 		var burst: Button = _button("비행선 외피 파괴", Vector2(608, 604))
 		burst.tooltip_text = "검사용 Normal 공격: 현재 비행선 각각의 남은 외피 HP만 제거합니다. 새 자식은 같은 처리에 포함하지 않습니다."
 		burst.pressed.connect(break_blimp_shells)
 		var decamo: Button = _button("카모 제거", Vector2(376, 604))
+		if specimen_index == 46:
+			burst.text = "누출 + Storm"
+			burst.pressed.disconnect(break_blimp_shells)
+			burst.pressed.connect(func() -> void:
+				game.balloons.spawn(load("res://data/balloons/red.tres"), game.route.total_length - 0.1))
 		decamo.tooltip_text = "검사실 전용: 활성 풍선의 카모를 제거합니다. 이후 자식도 제거된 상태를 계승합니다."
 		decamo.pressed.connect(func() -> void:
 			for balloon in game.balloons.balloons:
@@ -142,6 +166,9 @@ func _ready() -> void:
 	if scenario_index == 5:
 		game.hud._status.text = "풍선·비행선 검사실 · 일반 모드는 F6"
 		game.hud._wave.text = "비행선 검사실" if specimen_index >= 10 else "풍선 검사실"
+		if specimen_index >= 35:
+			game.hud._wave.text = "폭탄 강화 검사실"
+			game.hud._status.text = "폭탄 15강화 실험 · 일반 모드는 F6"
 		game.hud._start.text = "선택 풍선 소환 [Space]"
 
 func _specimen_controls() -> void:
@@ -156,6 +183,8 @@ func _specimen_controls() -> void:
 	for title in SPECIMENS:
 		presets.add_item(title)
 	for title in ADVANCED_SPECIMENS:
+		presets.add_item(title)
+	for title in BOMB_SPECIMENS:
 		presets.add_item(title)
 	presets.selected = specimen_index
 	presets.item_selected.connect(func(index: int) -> void:
@@ -172,6 +201,8 @@ func _specimen_controls() -> void:
 		type_picker.selected = 13 if specimen_index in [14, 17, 20] else (12 if specimen_index in [13, 16, 19] else 11)
 	if specimen_index >= 21:
 		type_picker.selected = 14 if specimen_index <= 27 else 15
+	if specimen_index >= 35:
+		type_picker.selected = [10, 11, 5, 10, 12, 10, 10, 12, 12, 13, 10, 10][specimen_index - 35]
 	type_picker.item_selected.connect(func(_index: int) -> void: _allow_armor())
 	game.hud._root.add_child(type_picker)
 	quantity = SpinBox.new()
@@ -184,6 +215,8 @@ func _specimen_controls() -> void:
 		quantity.value = 10 if specimen_index == 18 else (4 if specimen_index == 19 else (3 if specimen_index == 20 else 1))
 	if specimen_index in [27, 34]:
 		quantity.value = 10 if specimen_index == 27 else 3
+	if specimen_index >= 35:
+		quantity.value = [30, 10, 30, 30, 4, 100, 30, 4, 4, 1, 100, 100][specimen_index - 35]
 	game.hud._root.add_child(quantity)
 	camo_toggle = CheckButton.new()
 	camo_toggle.text = "카모"
@@ -193,7 +226,7 @@ func _specimen_controls() -> void:
 	fortified_toggle = CheckButton.new()
 	fortified_toggle.text = "강화"
 	fortified_toggle.position = Vector2(392, 184)
-	fortified_toggle.button_pressed = specimen_index in [4, 7, 15, 16, 17, 27, 29, 31]
+	fortified_toggle.button_pressed = specimen_index in [4, 7, 15, 16, 17, 27, 29, 31, 39]
 	game.hud._root.add_child(fortified_toggle)
 	_allow_armor()
 	_button("선택 풍선 소환", Vector2(506, 184), Vector2(126, 30)).pressed.connect(spawn_selected)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_bottom_1"
+display_name = "More Tacks"
+path = 2
+tier = 1
+cost = 110
+reference_medium_cost = 150
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "고정 360도에 독립 압정 10발을 고르게 발사합니다."
+prerequisites = Array[StringName]([])
+visual_color = Color(1,0.35,0.42,1)
+additions = {"projectile_count": 2}

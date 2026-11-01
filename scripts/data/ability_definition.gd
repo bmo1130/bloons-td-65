@@ -1,7 +1,10 @@
 class_name AbilityDefinition
 extends Resource
 
-enum Effect { FAN_TRANSFORM, MOAB_MISSILE, LEAK_STORM }
+enum Effect { FAN_TRANSFORM, MOAB_MISSILE, LEAK_STORM, SELF_BUFF }
+@export var self_additions: Dictionary = {}
+@export var self_overrides: Dictionary = {}
+@export var self_multipliers: Dictionary = {}
 @export var attack_profile: TowerDefinition
 @export var id: StringName
 @export var display_name: String

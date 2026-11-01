@@ -67,7 +67,7 @@ func _ready() -> void:
 	add_child(_root)
 	_panel(Rect2(24, 24, 1232, 80), Color("182d32"))
 	_label("풍타디 6.5", Rect2(46, 30, 340, 40), 28, INK)
-	_label("v0.12  /  폭탄 15강화 · 액티브 / 패시브", Rect2(48, 72, 350, 20), 12, MUTED)
+	_label("v0.15  /  압정 · 고정 방사형 · 칼날", Rect2(48, 72, 350, 20), 12, MUTED)
 	var tier5: Button = _button("F7 · 5티어 실험", Rect2(410, 26, 180, 28))
 	tier5.add_theme_font_size_override("font_size", 13)
 	tier5.pressed.connect(func() -> void: tier5_requested.emit())
@@ -85,17 +85,17 @@ func _ready() -> void:
 	_label("타워를 설치해 경로를 지키세요", Rect2(1008, 184, 224, 24), 14, MUTED)
 	var scroll: ScrollContainer = ScrollContainer.new()
 	scroll.position = Vector2(1008, 220)
-	scroll.size = Vector2(224, 98)
+	scroll.size = Vector2(224, 136)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_root.add_child(scroll)
 	_catalog_list = VBoxContainer.new()
 	_catalog_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_catalog_list.add_theme_constant_override("separation", 8)
+	_catalog_list.add_theme_constant_override("separation", 2)
 	scroll.add_child(_catalog_list)
-	_tower_stats = _label("", Rect2(1008, 328, 224, 22), 13, MUTED)
-	_tower_attack = _label("", Rect2(1008, 353, 224, 22), 13, MUTED)
-	_tower_attribute = _label("", Rect2(1008, 378, 224, 42), 13, MINT)
-	_hint = _label("D: 다트 / B: 폭탄 · 버튼으로 선택\n우클릭 또는 Esc: 배치 취소", Rect2(1008, 424, 224, 32), 11, MUTED)
+	_tower_stats = _label("", Rect2(1008, 360, 224, 19), 12, MUTED)
+	_tower_attack = _label("", Rect2(1008, 381, 224, 19), 12, MUTED)
+	_tower_attribute = _label("", Rect2(1008, 402, 224, 32), 11, MINT)
+	_hint = _label("D:다트 B:폭탄 W:부메랑 R:압정\n우클릭 또는 Esc: 배치 취소", Rect2(1008, 438, 224, 24), 10, MUTED)
 	_status = _label("첫 웨이브를 시작하세요", Rect2(1008, 464, 224, 30), 15, MINT)
 	_start = _button("웨이브 1 시작  [Space]", Rect2(1008, 506, 224, 48))
 	_start.pressed.connect(func() -> void: wave_requested.emit())
@@ -141,7 +141,12 @@ func configure_tower(definition: TowerDefinition) -> void:
 	_tower_attack.text = "공격력 %d  ·  관통력 %d" % [definition.damage, definition.pierce]
 	_tower_attribute.text = AttackSpec.attribute_name(definition.attack_attribute)
 	_tower_attribute.text += " · 폭발 반경 %d" % definition.explosion_radius if definition.explosion_radius > 0.0 else " · 직진 다트"
-	_tower_attribute.text += "\n앞선 유효 대상 우선"
+	if definition.flight_mode != TowerDefinition.Flight.STRAIGHT:
+		_tower_attribute.text = "%s · %s" % [AttackSpec.attribute_name(definition.attack_attribute), ["직선", "곡선 왕복", "글레이브 연쇄", "직선 왕복"][definition.flight_mode]]
+	if definition.attack_pattern == TowerDefinition.AttackPattern.RADIAL:
+		_tower_attribute.text = "%s · 고정 360° / %d발\n유효 풍선이 범위에 있을 때 발사" % [AttackSpec.attribute_name(definition.attack_attribute), definition.projectile_count]
+	else:
+		_tower_attribute.text += "\n앞선 유효 대상 우선"
 
 func configure_catalog(definitions: Array[TowerDefinition]) -> void:
 	for definition in definitions:
@@ -150,7 +155,10 @@ func configure_catalog(definitions: Array[TowerDefinition]) -> void:
 
 func _add_tower_option(definition: TowerDefinition) -> void:
 	var button: Button = Button.new()
-	button.custom_minimum_size = Vector2(214, 44)
+	# Keep legacy Dart254/Bomb294 input positions inside their rows.
+	var row_height: int = 40 if _tower_buttons.is_empty() else (34 if _tower_buttons.size() == 1 else 28)
+	button.custom_minimum_size = Vector2(214, row_height)
+	button.add_theme_font_size_override("font_size", 14)
 	button.text = "%s · %d G [%s]" % [definition.display_name, definition.cost, definition.shortcut]
 	_style_button(button)
 	_catalog_list.add_child(button)

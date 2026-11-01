@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/abilities/boomerang_5.tres" id="ability"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_middle_5"
+display_name = "Perma Charge"
+path = 1
+tier = 5
+minimum_fire_interval = 0.03
+cost = 35000
+reference_medium_cost = 35000
+reference_version = "v014: official v57 family + detailed wiki conflicts; see BTD6_REFERENCE.md"
+prerequisites = Array[StringName]([&"boomerang_middle_4"])
+replacement_values = {"damage": 4, "moab_bonus": 2, "fire_interval": 0.03, "projectile_speed": 1440.0}
+description = "v0.14 채택값. 독립 공격·능력·지속 피해 수치는 툴팁과 BTD6_REFERENCE.md 참조."
+visual_color = Color(1, 0.7, 0.3, 1)
+ability = ExtResource("ability")
+interactions = [{"requires": [0, 5, 2], "overrides": {"damage": 8}}]

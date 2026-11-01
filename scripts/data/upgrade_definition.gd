@@ -5,6 +5,11 @@ extends Resource
 # path modifiers normally. This avoids a tier-4 override erasing crosspaths.
 @export var replacement_values: Dictionary = {}
 @export var interactions: Array[Dictionary] = []
+@export var minimum_fire_interval: float = 0.0 # Zero keeps the existing resolver floor.
+@export var aura_profile: Resource
+@export var secondary_attack: Resource
+@export var damage_over_time: DamageOverTimeDefinition
+@export var dot_first_moab: bool = false
 @export var ability: AbilityDefinition
 @export var projectile_split: ProjectileSplitDefinition
 

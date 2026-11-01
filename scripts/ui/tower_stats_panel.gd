@@ -62,6 +62,7 @@ func refresh() -> void:
 	var record: TowerCombatStats = tower.combat_stats
 	summary.text = "Pops %d · 발사 %d\n투자 %d G · Pops/G %.2f\n관통 %d/%d (%.1f%%)" % [record.pops(), record.volleys,
 		record.invested_gold, record.pops_per_gold(), record.pierce_used, record.pierce_available, record.pierce_utilization() * 100]
+	summary.tooltip_text = "주력 발사 %d · 실제 투사체 %d (특수 %d)\n별도 범위 이벤트 %d · 지속 피해 틱 %d\n범위/틱 관통 예산도 분모에 포함" % [record.volleys, record.projectiles, record.secondary_projectiles, record.area_events, record.dot_ticks]
 	if detail.visible:
 		detail_text.text = "%s #%d · %s\n일반 겹 %d · 특수 외피 %d\n전체 Pops / 유효 피해 %d / %d\n발사 %d · 투사체 %d\n피해 적용 대상 %d회\n면역 접촉 %d회\n투자 %d G · Pops/G %.3f\n관통 사용 %d / 부여 %d\n활용률 %.2f%%\n\n비행 중 관통도 분모에 포함\n같은 대상도 별개 공격이면 재집계" % [record.display_name, record.tower_id, record.build,
 			record.normal_pops, record.shell_pops, record.pops(), record.effective_damage, record.volleys, record.projectiles,

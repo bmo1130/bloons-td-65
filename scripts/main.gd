@@ -3,7 +3,9 @@ extends Node2D
 
 const DART: TowerDefinition = preload("res://data/towers/dart.tres")
 const BOMB: TowerDefinition = preload("res://data/towers/bomb.tres")
-const TOWER_CATALOG: Array[TowerDefinition] = [DART, BOMB]
+const BOOMERANG: TowerDefinition = preload("res://data/towers/boomerang.tres")
+const TACK: TowerDefinition = preload("res://data/towers/tack.tres")
+const TOWER_CATALOG: Array[TowerDefinition] = [DART, BOMB, BOOMERANG, TACK]
 const FIXED_STEP: float = 1.0 / 60.0
 const LEGACY_WAVES: Array[WaveDefinition] = [preload("res://data/waves/wave_01.tres"), preload("res://data/waves/wave_02.tres"),
 	preload("res://data/waves/wave_03.tres"), preload("res://data/waves/wave_04.tres"), preload("res://data/waves/wave_05.tres"), preload("res://data/waves/wave_06.tres")]

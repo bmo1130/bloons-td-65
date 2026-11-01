@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_bottom_2"
+display_name = "Red Hot Rangs"
+path = 2
+tier = 2
+cost = 300
+reference_medium_cost = 300
+reference_version = "v0.13 user price table; v53 Bionic; prototype trajectory"
+description = "피해+1, NORMAL 속성. 납/검정 대응, 카모 탐지는 없음. 픽셀 궤적/속도/수명은 프로젝트 적응값."
+prerequisites = Array[StringName]([&"boomerang_bottom_1"])
+additions = {"damage": 1}
+overrides = {"attack_attribute": 2}
+visual_color = Color(1, 0.42, 0.3, 1)

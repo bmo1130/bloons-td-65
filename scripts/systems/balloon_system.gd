@@ -99,6 +99,9 @@ func update(delta: float, defer_leaks: bool = false) -> void:
 		if balloon.pending_push > 0.0:
 			balloon.distance = maxf(0.0, balloon.distance - balloon.pending_push)
 			balloon.pending_push = 0.0
+		if balloon.pending_press > 0.0:
+			balloon.distance = maxf(0.0, balloon.distance - balloon.pending_press)
+			balloon.pending_press = 0.0
 		balloon.exit_time = INF
 		if balloon.distance >= route.total_length:
 			balloon.exit_time = clampf((route.total_length - old_distance) / maxf(balloon.distance - old_distance, 0.000001), 0.0, 1.0)

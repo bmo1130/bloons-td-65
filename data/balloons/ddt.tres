@@ -11,6 +11,7 @@ shell_hp = 400
 fortified_hp = 800
 inherit_fortified = true
 moab_class = true
+press_multiplier = 0.25
 lead = true
 blocks_child_damage = true
 knockback_allowed = false

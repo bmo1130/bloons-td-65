@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/top_1.tres" id="2"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/top_2.tres" id="3"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/top_3.tres" id="4"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/middle_1.tres" id="5"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/middle_2.tres" id="6"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/middle_3.tres" id="7"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/bottom_1.tres" id="8"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/bottom_2.tres" id="9"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/bottom_3.tres" id="10"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack"
+display_name = "압정 슈터"
+cost = 260
+radius = 20.0
+attack_range = 107.8125
+fire_interval = 1.12
+damage = 1
+pierce = 1
+projectile_speed = 360.0
+projectile_radius = 2.0
+projectile_length = 6.0
+projectile_count = 8
+spread_degrees = 360.0
+projectile_range_multiplier = 1.0
+projectile_lifetime = 0.2994791666666667
+attack_pattern = 1
+projectile_style = 4
+color = Color(0.87,0.28,0.39,1)
+shortcut = "R"
+upgrade_path_names = PackedStringArray("상단 · 연사/화력", "중단 · 사거리/칼날", "하단 · 압정 수")
+upgrades = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10")]

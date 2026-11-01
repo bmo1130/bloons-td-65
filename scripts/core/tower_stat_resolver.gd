@@ -6,9 +6,10 @@ const FIELDS: Array[StringName] = [&"damage", &"pierce", &"fire_interval", &"att
 	&"spread_degrees", &"heading_offset_degrees", &"attack_attribute", &"explosion_radius",
 	&"projectile_lifetime", &"ceramic_bonus", &"fortified_bonus", &"knockback_duration",
 	&"knockback_light", &"knockback_heavy", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"detects_camo", &"moab_bonus",
-	&"stun_duration", &"stun_moab_duration", &"push_distance", &"push_moab_distance", &"frag_damage_bonus", &"recursive_every"]
+	&"stun_duration", &"stun_moab_duration", &"push_distance", &"push_moab_distance", &"frag_damage_bonus", &"recursive_every",
+	&"flight_mode", &"flight_distance", &"curve_width", &"rehit_interval", &"chain_range", &"projectile_style"]
 const INTEGER_FIELDS: Array[StringName] = [&"damage", &"pierce", &"projectile_count", &"attack_attribute",
-	&"ceramic_bonus", &"fortified_bonus", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"moab_bonus", &"frag_damage_bonus", &"recursive_every"]
+	&"ceramic_bonus", &"fortified_bonus", &"max_bounces", &"critical_every", &"critical_damage", &"lead_bonus", &"moab_bonus", &"frag_damage_bonus", &"recursive_every", &"flight_mode", &"projectile_style"]
 
 static func acquired(base: TowerDefinition, tiers: PackedInt32Array) -> Array[UpgradeDefinition]:
 	var items: Array[UpgradeDefinition] = []
@@ -49,6 +50,18 @@ static func resolve(base: TowerDefinition, tiers: PackedInt32Array) -> TowerDefi
 		else:
 			stats.set(field, value)
 	for item in items:
+		if item.minimum_fire_interval > 0.0:
+			stats.minimum_fire_interval = item.minimum_fire_interval
+		if item.aura_profile != null:
+			stats.aura_profile = item.aura_profile.duplicate(true)
+		if item.secondary_attack != null:
+			stats.secondary_attack = item.secondary_attack.duplicate()
+			var secondary: TowerDefinition = stats.secondary_attack as TowerDefinition
+			if secondary.end_explosion != null:
+				secondary.end_explosion = secondary.end_explosion.duplicate()
+		if item.damage_over_time != null:
+			stats.damage_over_time = item.damage_over_time
+			stats.dot_first_moab = item.dot_first_moab
 		if item.ability != null:
 			stats.ability = item.ability
 		if item.projectile_split != null:
@@ -56,6 +69,16 @@ static func resolve(base: TowerDefinition, tiers: PackedInt32Array) -> TowerDefi
 		for interaction in item.interactions:
 			var required: Array = interaction.get("requires", [0, 0, 0])
 			if tiers[0] >= required[0] and tiers[1] >= required[1] and tiers[2] >= required[2]:
+				for profile_name: String in interaction.get("profiles", {}):
+					var profile: TowerDefinition = stats.get(profile_name) as TowerDefinition
+					if profile != null:
+						for key: String in interaction.profiles[profile_name]:
+							if key == "end_explosion":
+								var blast: TowerDefinition = profile.end_explosion as TowerDefinition
+								for field: String in interaction.profiles[profile_name][key]:
+									blast.set(field, interaction.profiles[profile_name][key][field])
+							else:
+								profile.set(key, interaction.profiles[profile_name][key])
 				for field: String in interaction.get("multipliers", {}):
 					stats.set(field, float(stats.get(field)) * float(interaction.multipliers[field]))
 				for field: String in interaction.get("overrides", {}):
@@ -69,13 +92,15 @@ static func resolve(base: TowerDefinition, tiers: PackedInt32Array) -> TowerDefi
 			visual_tier = item.tier
 	stats.damage = maxi(1, stats.damage)
 	stats.pierce = maxi(1, stats.pierce)
-	stats.fire_interval = maxf(0.05, stats.fire_interval)
+	stats.fire_interval = maxf(stats.minimum_fire_interval, stats.fire_interval)
 	stats.attack_range = maxf(1.0, stats.attack_range)
 	stats.projectile_speed = maxf(1.0, stats.projectile_speed)
 	stats.projectile_radius = maxf(0.1, stats.projectile_radius)
 	stats.projectile_length = maxf(0.1, stats.projectile_length)
 	stats.projectile_count = clampi(stats.projectile_count, 1, 32)
 	stats.spread_degrees = clampf(stats.spread_degrees, 0.0, 360.0)
+	if stats.projectile_range_multiplier > 0.0:
+		stats.projectile_lifetime = stats.attack_range * stats.projectile_range_multiplier / stats.projectile_speed
 	return stats
 
 static func preview(base: TowerDefinition, tiers: PackedInt32Array, upgrade: UpgradeDefinition) -> TowerDefinition:

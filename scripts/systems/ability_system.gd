@@ -19,9 +19,14 @@ func sync_tower(tower: TowerState) -> void:
 		states[tower.id] = AbilityState.new(tower.stats.ability)
 	elif tower.stats.ability != null:
 		# Buying the next ability tier preserves the already running cooldown.
-		if tower.stats.ability.effect == AbilityDefinition.Effect.MOAB_MISSILE:
+		if tower.stats.ability.effect in [AbilityDefinition.Effect.MOAB_MISSILE, AbilityDefinition.Effect.SELF_BUFF]:
 			states[tower.id].cooldown_remaining = minf(states[tower.id].cooldown_remaining, tower.stats.ability.cooldown)
 		states[tower.id].definition = tower.stats.ability
+	var state: AbilityState = state_for(tower)
+	if state != null and state.definition.effect == AbilityDefinition.Effect.SELF_BUFF and state.active_remaining > 0.000001:
+		var progress: float = tower.cooldown / tower.combat_definition().fire_interval
+		tower.transformed_stats = transformed_definition(tower.stats, tower.tiers, state.definition)
+		tower.cooldown = maxf(0.0, progress) * tower.transformed_stats.fire_interval
 	if transformations.has(tower.id):
 		_refresh(tower, true)
 	changed.emit()
@@ -55,6 +60,15 @@ func activate(caster: TowerState) -> bool:
 	var state: AbilityState = state_for(caster)
 	if not enabled or state == null or not tower_system.towers.has(caster) or state.cooldown_remaining > 0.000001:
 		return false
+	if state.definition.effect == AbilityDefinition.Effect.SELF_BUFF:
+		if state.active_remaining > 0.000001:
+			return false
+		state.cooldown_remaining = state.definition.cooldown
+		state.active_remaining = state.definition.duration
+		state.last_targets = PackedInt64Array([caster.id])
+		_apply(caster, state.definition)
+		changed.emit()
+		return true
 	if state.definition.effect == AbilityDefinition.Effect.LEAK_STORM:
 		return false
 	if state.definition.effect == AbilityDefinition.Effect.MOAB_MISSILE:
@@ -137,6 +151,15 @@ func _apply(tower: TowerState, data: AbilityDefinition) -> void:
 
 func transformed_definition(permanent: TowerDefinition, tiers: PackedInt32Array, data: AbilityDefinition) -> TowerDefinition:
 	var stats: TowerDefinition = permanent.duplicate() as TowerDefinition
+	if data.effect == AbilityDefinition.Effect.SELF_BUFF:
+		for field: String in data.self_additions:
+			stats.set(field, stats.get(field) + data.self_additions[field])
+		for field: String in data.self_multipliers:
+			stats.set(field, stats.get(field) * data.self_multipliers[field])
+		for field: String in data.self_overrides:
+			stats.set(field, data.self_overrides[field])
+		stats.color = data.color
+		return stats
 	stats.damage = data.transformed_damage
 	stats.pierce += data.pierce_bonus
 	stats.attack_attribute = data.attribute
@@ -159,6 +182,9 @@ func preview(tower: TowerState, upgrade: UpgradeDefinition) -> TowerDefinition:
 	var permanent: TowerDefinition = TowerStatResolver.preview(tower.definition, tower.tiers, upgrade)
 	var tiers: PackedInt32Array = tower.tiers.duplicate()
 	tiers[upgrade.path] = upgrade.tier
+	var state: AbilityState = state_for(tower)
+	if state != null and state.definition.effect == AbilityDefinition.Effect.SELF_BUFF and state.active_remaining > 0.000001:
+		return transformed_definition(permanent, tiers, permanent.ability)
 	if transformations.has(tower.id) and tiers[0] < 3 and tiers[2] < 3:
 		return transformed_definition(permanent, tiers, transformations[tower.id].definition)
 	return permanent
@@ -200,10 +226,17 @@ func remove_tower(id: int) -> void:
 	changed.emit()
 
 func update(delta: float) -> void:
-	for state: AbilityState in states.values():
+	for id: int in states:
+		var state: AbilityState = states[id]
+		var was_active: bool = state.active_remaining > 0.000001
 		var was_charging: bool = state.cooldown_remaining > 0.000001
 		state.cooldown_remaining = maxf(0.0, state.cooldown_remaining - delta)
 		state.active_remaining = maxf(0.0, state.active_remaining - delta)
+		if was_active and state.active_remaining <= 0.000001 and state.definition.effect == AbilityDefinition.Effect.SELF_BUFF:
+			var tower: TowerState = tower_system.find(id)
+			if tower != null:
+				_restore(tower)
+			changed.emit()
 		if was_charging and state.cooldown_remaining <= 0.000001:
 			changed.emit()
 	for id: int in transformations.keys():

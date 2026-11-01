@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_middle_2"
+display_name = "Super Range Tacks"
+path = 1
+tier = 2
+cost = 225
+reference_medium_cost = 225
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "공격 범위가 더 늘어나고 각 투사체의 관통이 3 증가합니다."
+prerequisites = Array[StringName]([&"tack_middle_1"])
+visual_color = Color(0.55,0.78,1,1)
+additions = {"attack_range": 18.75, "pierce": 3}

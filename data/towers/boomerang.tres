@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/top_1.tres" id="2"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/top_2.tres" id="3"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/top_3.tres" id="4"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/middle_1.tres" id="5"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/middle_2.tres" id="6"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/middle_3.tres" id="7"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/bottom_1.tres" id="8"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/bottom_2.tres" id="9"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/bottom_3.tres" id="10"]
+
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/top_4.tres" id="11"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/top_5.tres" id="12"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/middle_4.tres" id="13"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/middle_5.tres" id="14"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/bottom_4.tres" id="15"]
+[ext_resource type="Resource" path="res://data/upgrades/boomerang/bottom_5.tres" id="16"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang"
+display_name = "부메랑 원숭이"
+cost = 315
+radius = 20.0
+attack_range = 201.5625
+fire_interval = 1.2
+damage = 1
+pierce = 4
+projectile_speed = 480.0
+projectile_radius = 4.5
+projectile_length = 14.0
+projectile_lifetime = 3.0
+attack_attribute = 0
+flight_mode = 1
+flight_distance = 300.0
+curve_width = 32.0
+projectile_style = 1
+color = Color(0.82, 0.57, 0.31, 1)
+shortcut = "W"
+upgrade_path_names = PackedStringArray("상단 · 글레이브", "중단 · 연사", "하단 · 카일리")
+upgrades = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16")]

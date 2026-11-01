@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/attacks/domination_blast.tres" id="blast"]
+
+[resource]
+script = ExtResource("1")
+attack_range = 468.75
+damage = 1
+moab_bonus = 24
+pierce = 300
+fire_interval = 5.0
+attack_attribute = 2
+moab_only = true
+requires_press_target = false
+press_distance = 46.875
+flight_mode = 3
+flight_distance = 468.75
+rehit_interval = 0.1
+projectile_style = 3
+projectile_speed = 480.0
+projectile_radius = 10.0
+projectile_length = 24.0
+projectile_lifetime = 4.0
+return_flight = false
+stun_moab_duration = 0.25
+end_explosion = ExtResource("blast")

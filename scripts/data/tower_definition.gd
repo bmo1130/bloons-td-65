@@ -1,11 +1,37 @@
 class_name TowerDefinition
 extends Resource
 
+enum Flight { STRAIGHT, CURVE, CHAIN, RETURN }
+enum ProjectileStyle { DEFAULT, RANG, GLAIVE, KYLIE, TACK, BLADE }
+enum AttackPattern { AIMED, RADIAL }
+@export var attack_pattern: AttackPattern = AttackPattern.AIMED
+# Zero preserves authored lifetime. Positive values derive travel from final range.
+@export var projectile_range_multiplier: float = 0.0
+# Independent attacks share immutable profiles; resolved copies own crosspath changes.
+@export var aura_profile: Resource
+@export var secondary_attack: Resource
+@export var end_explosion: Resource
+@export var damage_over_time: DamageOverTimeDefinition
+@export var dot_first_moab: bool = false
+@export var moab_only: bool = false
+@export var requires_press_target: bool = false
+@export var press_distance: float = 0.0
+@export var return_flight: bool = true
+@export var area_visual: bool = true
+
+@export var flight_mode: Flight = Flight.STRAIGHT
+@export var flight_distance: float = 0.0
+@export var curve_width: float = 0.0
+@export var rehit_interval: float = 0.0
+@export var chain_range: float = 0.0
+@export var projectile_style: ProjectileStyle = ProjectileStyle.DEFAULT
+
 @export var id: StringName
 @export var display_name: String = "Dart tower"
 @export var cost: int = 65
 @export var radius: float = 20.0
 @export var attack_range: float = 150.0
+@export var minimum_fire_interval: float = 0.05
 @export var fire_interval: float = 0.7
 @export var damage: int = 1
 @export var pierce: int = 2
@@ -71,4 +97,8 @@ func make_attack() -> AttackSpec:
 	attack.stun_moab_duration = stun_moab_duration
 	attack.push_distance = push_distance
 	attack.push_moab_distance = push_moab_distance
+	attack.damage_over_time = damage_over_time
+	attack.dot_first_moab = dot_first_moab
+	attack.moab_only = moab_only
+	attack.press_distance = press_distance
 	return attack

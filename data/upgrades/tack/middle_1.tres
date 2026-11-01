@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_middle_1"
+display_name = "Long Range Tacks"
+path = 1
+tier = 1
+cost = 100
+reference_medium_cost = 100
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "공격 범위가 늘어나고 투사체가 1.5배 빨라집니다."
+prerequisites = Array[StringName]([])
+visual_color = Color(0.55,0.78,1,1)
+additions = {"attack_range": 18.75}
+multipliers = {"projectile_speed": 1.5}

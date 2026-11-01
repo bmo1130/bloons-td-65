@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_bottom_3"
+display_name = "Tack Sprayer"
+path = 2
+tier = 3
+cost = 450
+reference_medium_cost = 450
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "독립 압정 16발을 발사하며 각 압정의 기본 관통이 2가 됩니다. 발사 간격은 유지합니다."
+prerequisites = Array[StringName]([&"tack_bottom_2"])
+visual_color = Color(1,0.35,0.42,1)
+replacement_values = {"projectile_count": 16, "pierce": 2}

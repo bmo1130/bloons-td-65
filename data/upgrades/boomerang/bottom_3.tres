@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_bottom_3"
+display_name = "Kylie Boomerang"
+path = 2
+tier = 3
+cost = 1300
+reference_medium_cost = 1300
+reference_version = "v0.13 user price table; v53 Bionic; prototype trajectory"
+description = "직선 왕복, 관통18(103=22,203=27). 같은 ID재타격 최소0.3초. 고유자식 제외 영구 유지. 픽셀 궤적/속도/수명은 프로젝트 적응값."
+prerequisites = Array[StringName]([&"boomerang_bottom_2"])
+replacement_values = {"pierce": 18, "flight_mode": 3, "projectile_style": 3, "flight_distance": 375.0, "curve_width": 0.0, "rehit_interval": 0.3, "projectile_radius": 6.0}
+visual_color = Color(1, 0.42, 0.3, 1)

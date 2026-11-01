@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_top_3"
+display_name = "Glaive Ricochet"
+path = 0
+tier = 3
+cost = 600
+reference_medium_cost = 600
+reference_version = "v0.13 user price table; v53 Bionic; prototype trajectory"
+description = "실제 대상 간 이동, 최대15회 고유 타격. 가까운 유효 ID 우선, 거리 동률은 ID순. 픽셀 궤적/속도/수명은 프로젝트 적응값."
+prerequisites = Array[StringName]([&"boomerang_top_2"])
+replacement_values = {"pierce": 15, "flight_mode": 2, "projectile_style": 2, "projectile_speed": 640.0, "projectile_lifetime": 5.0, "chain_range": 281.25}
+visual_color = Color(0.55, 0.78, 1, 1)

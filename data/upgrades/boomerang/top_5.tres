@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/attacks/glaive_orbit.tres" id="aura"]
+[ext_resource type="Resource" path="res://data/effects/shred.tres" id="shred"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_top_5"
+display_name = "Glaive Lord"
+path = 0
+tier = 5
+cost = 32500
+reference_medium_cost = 32500
+reference_version = "v014: official v57 family + detailed wiki conflicts; see BTD6_REFERENCE.md"
+prerequisites = Array[StringName]([&"boomerang_top_4"])
+replacement_values = {"damage": 6, "pierce": 60, "fire_interval": 0.4, "ceramic_bonus": 10, "projectile_speed": 960.0, "chain_range": 2000.0, "rehit_interval": 0.6}
+description = "v0.14 채택값. 독립 공격·능력·지속 피해 수치는 툴팁과 BTD6_REFERENCE.md 참조."
+visual_color = Color(0.65, 0.85, 1, 1)
+aura_profile = ExtResource("aura")
+damage_over_time = ExtResource("shred")
+dot_first_moab = true
+interactions = [{"requires": [5, 0, 1], "profiles": {"aura_profile": {"explosion_radius": 187.03125}}}, {"requires": [5, 0, 2], "overrides": {"ceramic_bonus": 12}, "profiles": {"aura_profile": {"damage": 5, "attack_attribute": 2}}}]

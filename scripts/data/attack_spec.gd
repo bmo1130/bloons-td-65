@@ -2,8 +2,13 @@ class_name AttackSpec
 extends RefCounted
 
 # Attribution never participates in damage/targeting decisions.
-enum Attribute { SHARP, EXPLOSIVE, NORMAL, PLASMA, COLD }
+enum Attribute { SHARP, EXPLOSIVE, NORMAL, PLASMA, COLD, SHATTER }
 
+var damage_over_time: DamageOverTimeDefinition
+var dot_consumed: bool = false
+var dot_first_moab: bool = false
+var moab_only: bool = false
+var press_distance: float = 0.0
 var damage: int
 var pierce: int
 var attribute: Attribute

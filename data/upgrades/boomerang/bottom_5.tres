@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/attacks/boomerang_special_5.tres" id="secondary"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_bottom_5"
+display_name = "MOAB Domination"
+path = 2
+tier = 5
+cost = 50000
+reference_medium_cost = 50000
+reference_version = "v014: official v57 family + detailed wiki conflicts; see BTD6_REFERENCE.md"
+prerequisites = Array[StringName]([&"boomerang_bottom_4"])
+replacement_values = {"damage": 12, "pierce": 54, "fire_interval": 0.6}
+description = "v0.14 채택값. 독립 공격·능력·지속 피해 수치는 툴팁과 BTD6_REFERENCE.md 참조."
+visual_color = Color(1, 0.4, 0.3, 1)
+secondary_attack = ExtResource("secondary")
+interactions = [{"requires": [1, 0, 5], "profiles": {"secondary_attack": {"pierce": 400}}}, {"requires": [2, 0, 5], "profiles": {"secondary_attack": {"pierce": 520, "press_distance": 70.3125}}}, {"requires": [0, 1, 5], "profiles": {"secondary_attack": {"fire_interval": 4.0}}}, {"requires": [0, 2, 5], "profiles": {"secondary_attack": {"fire_interval": 3.0}}}, {"requires": [2, 0, 5], "overrides": {"pierce": 81}, "profiles": {"secondary_attack": {"end_explosion": {"pierce": 50, "explosion_radius": 351.5625}}}}]

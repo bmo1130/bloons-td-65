@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_top_3"
+display_name = "Hot Shots"
+path = 0
+tier = 3
+cost = 600
+reference_medium_cost = 600
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "뜨거운 압정이 2피해를 주고 납을 뚫습니다. 지속 화상은 없습니다."
+prerequisites = Array[StringName]([&"tack_top_2"])
+visual_color = Color(1,0.65,0.25,1)
+replacement_values = {"damage": 2}
+overrides = {"attack_attribute": 2}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/abilities/boomerang_4.tres" id="ability"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_middle_4"
+display_name = "Turbo Charge"
+path = 1
+tier = 4
+cost = 4200
+reference_medium_cost = 4200
+reference_version = "v014: official v57 family + detailed wiki conflicts; see BTD6_REFERENCE.md"
+prerequisites = Array[StringName]([&"boomerang_middle_3"])
+replacement_values = {}
+description = "v0.14 채택값. 독립 공격·능력·지속 피해 수치는 툴팁과 BTD6_REFERENCE.md 참조."
+visual_color = Color(1, 0.7, 0.3, 1)
+ability = ExtResource("ability")
+interactions = []

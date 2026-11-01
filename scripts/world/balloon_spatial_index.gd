@@ -27,6 +27,7 @@ func rebuild(balloons: Array[BalloonState]) -> void:
 		for point in balloon.motion_points:
 			bounds = bounds.expand(point)
 		bounds = bounds.grow(balloon.definition.radius)
+		balloon.broadphase_bounds = bounds
 		var first: Vector2i = _cell(bounds.position)
 		var last: Vector2i = _cell(bounds.end)
 		for x in range(first.x, last.x + 1):

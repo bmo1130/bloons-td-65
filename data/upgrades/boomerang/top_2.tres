@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_top_2"
+display_name = "Glaives"
+path = 0
+tier = 2
+cost = 280
+reference_medium_cost = 280
+reference_version = "v0.13 user price table; v53 Bionic; prototype trajectory"
+description = "관통8→13, 글레이브 외형. 숨은 연사 보너스는 채택하지 않음. 픽셀 궤적/속도/수명은 프로젝트 적응값."
+prerequisites = Array[StringName]([&"boomerang_top_1"])
+additions = {"pierce": 5}
+overrides = {"projectile_style": 2}
+visual_color = Color(0.55, 0.78, 1, 1)

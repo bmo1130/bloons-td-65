@@ -72,6 +72,17 @@ func _run() -> void:
 	if OS.get_cmdline_user_args().has("--v012"):
 		report.version = "v0.12"
 		prefix = "results-v012-bomb-"
+	if OS.get_cmdline_user_args().has("--v013"):
+		report.version = "v0.13"
+		prefix = "boomerang-v013-legacy-"
+	if OS.get_cmdline_user_args().has("--v0131"):
+		report.version = "v0.13.1"
+		prefix = "boomerang-v0131-legacy-"
+	if OS.get_cmdline_user_args().has("--v014"):
+		prefix = "boomerang-v014-legacy-"
+	if OS.get_cmdline_user_args().has("--v015"):
+		prefix = "tack-v015-legacy-"
+		report.version = "v0.15"
 	var basename: String = prefix + mode + ("-cluster" if _concentrated else "") + ("-on" if _statistics_enabled else "-off")
 	var output: FileAccess = FileAccess.open(directory.path_join(basename + ".json"), FileAccess.WRITE)
 	if output == null:

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_middle_3"
+display_name = "Bionic Boomerang"
+path = 1
+tier = 3
+cost = 1250
+reference_medium_cost = 1250
+reference_version = "v0.13 user price table; v53 Bionic; prototype trajectory"
+description = "기본의8배 연사(0.15초)로 이전 배율 대체, MOAB추가1. 공식v53 역할. 픽셀 궤적/속도/수명은 프로젝트 적응값."
+prerequisites = Array[StringName]([&"boomerang_middle_2"])
+replacement_values = {"fire_interval": 0.15, "moab_bonus": 1}
+visual_color = Color(0.8, 0.7, 1, 1)

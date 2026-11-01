@@ -50,6 +50,8 @@ func purchase(tower: TowerState, upgrade: UpgradeDefinition) -> bool:
 		_purchasing.erase(tower.id)
 		return false
 	var old_interval: float = tower.stats.fire_interval
+	var old_secondary: TowerDefinition = tower.stats.secondary_attack as TowerDefinition
+	var self_buff_active: bool = tower.transformed_stats != null and tower.stats.ability != null and tower.stats.ability.effect == AbilityDefinition.Effect.SELF_BUFF
 	var old_critical: int = tower.stats.critical_every
 	var old_recursive: int = tower.stats.recursive_every
 	tower.tiers[upgrade.path] = upgrade.tier
@@ -59,8 +61,13 @@ func purchase(tower: TowerState, upgrade: UpgradeDefinition) -> bool:
 		tower.combat_stats.invested_gold += upgrade.cost
 		tower.combat_stats.build = tower.upgrade_text()
 	# Preserve reload progress instead of granting an extra shot on purchase.
-	if tower.cooldown > 0.0:
+	if tower.cooldown > 0.0 and not self_buff_active:
 		tower.cooldown *= tower.stats.fire_interval / old_interval
+	# Preserve independent secondary reload progress as well. Active self buffs
+	# are rescaled once by AbilitySystem using their effective (not base) interval.
+	var new_secondary: TowerDefinition = tower.stats.secondary_attack as TowerDefinition
+	if old_secondary != null and new_secondary != null and tower.secondary_cooldown > 0.0:
+		tower.secondary_cooldown *= new_secondary.fire_interval / old_secondary.fire_interval
 	if old_critical != tower.stats.critical_every:
 		tower.critical_counter = 0
 	if old_recursive != tower.stats.recursive_every:

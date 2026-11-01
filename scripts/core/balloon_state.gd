@@ -4,6 +4,7 @@ extends RefCounted
 var knockback_remaining: float = 0.0
 var knockback_multiplier: float = 0.0
 var stun_remaining: float = 0.0
+var pending_press: float = 0.0 # Additive contacts, separate from Crush max push.
 var pending_push: float = 0.0 # Applied next movement tick; current collision history stays immutable.
 var camo: bool = false
 var regrow: bool = false # Inherited metadata only until the Regrow version.
@@ -14,6 +15,7 @@ var shell_max_hp: int = 1
 var speed: float = 95.0 # Spawned/layer value; Definition remains base data.
 
 var id: int
+var shell_generation: int = 0
 var definition: BalloonDefinition
 var distance: float = 0.0
 var position: Vector2
@@ -23,6 +25,7 @@ var motion_times: PackedFloat32Array = PackedFloat32Array([0.0, 1.0])
 var motion_duration: float = 0.0
 var exit_time: float = INF
 var motion_start_distance: float = 0.0
+var broadphase_bounds: Rect2 # Conservative swept circle AABB, written during existing grid rebuild.
 
 func _init(new_id: int, data: BalloonDefinition, start_position: Vector2) -> void:
 	id = new_id
@@ -39,6 +42,7 @@ func _init(new_id: int, data: BalloonDefinition, start_position: Vector2) -> voi
 	motion_points = PackedVector2Array([start_position, start_position])
 
 func set_layer(data: BalloonDefinition, armor: bool = false) -> void:
+	shell_generation += 1
 	definition = data
 	speed = data.speed
 	fortified = armor and data.fortified_hp > 0

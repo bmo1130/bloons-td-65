@@ -1,6 +1,9 @@
 class_name TowerCombatStats
 extends RefCounted
 
+var secondary_projectiles: int = 0
+var area_events: int = 0
+var dot_ticks: int = 0
 var tower_id: int
 var display_name: String
 var build: String = "0-0-0"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_top_1"
+display_name = "Improved Rangs"
+path = 0
+tier = 1
+cost = 200
+reference_medium_cost = 200
+reference_version = "v0.13 user price table; v53 Bionic; prototype trajectory"
+description = "관통4→8. 픽셀 궤적/속도/수명은 프로젝트 적응값."
+additions = {"pierce": 4}
+visual_color = Color(0.55, 0.78, 1, 1)

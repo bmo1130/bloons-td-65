@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_middle_3"
+display_name = "Blade Shooter"
+path = 1
+tier = 3
+cost = 550
+reference_medium_cost = 550
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "넓은 SHATTER 칼날을 발사합니다. 납에는 피해를 주지 못하며 기본 관통은 8입니다."
+prerequisites = Array[StringName]([&"tack_middle_2"])
+visual_color = Color(0.55,0.78,1,1)
+replacement_values = {"pierce": 8, "attack_range": 215.625, "projectile_radius": 18.75, "projectile_length": 37.5, "projectile_style": 5, "attack_attribute": 5}

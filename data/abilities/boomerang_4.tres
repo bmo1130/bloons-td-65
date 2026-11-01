@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/ability_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"boomerang_charge_4"
+display_name = "Turbo Charge"
+effect = 3
+tower_type = &"boomerang"
+duration = 10.0
+cooldown = 45.0
+initial_cooldown = 15.0
+self_additions = {"damage": 1}
+self_overrides = {"fire_interval": 0.03}
+self_multipliers = {"projectile_speed": 2.0}
+color = Color(1, 0.55, 0.2, 1)

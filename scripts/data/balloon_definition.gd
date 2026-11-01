@@ -11,6 +11,7 @@ extends Resource
 @export var heavy: bool = false
 @export var lead: bool = false
 @export var knockback_allowed: bool = true
+@export var press_multiplier: float = 1.0
 @export var moab_class: bool = false
 # Absolute boundary: ordinary attacks never spill through this shell, even in
 # the laboratory's otherwise spilling lineage. No tower-name checks needed.
@@ -32,7 +33,7 @@ enum StatusEffect { SLOW, STUN, FREEZE, KNOCKBACK, FORCED_MOVEMENT, INSTANT_KILL
 # Resource avoids a Godot 4.7 self-typed array default retaining this script at
 # shutdown. Entries are BalloonDefinition assets, checked by the data tests.
 @export var split_children: Array[Resource] = []
-@export_flags("SHARP", "EXPLOSIVE", "NORMAL", "PLASMA", "COLD") var immunity_mask: int = 0
+@export_flags("SHARP", "EXPLOSIVE", "NORMAL", "PLASMA", "COLD", "SHATTER") var immunity_mask: int = 0
 @export_enum("Round", "Banded", "Metal", "Zebra", "Rainbow", "Ceramic", "Blimp", "DDT", "BAD") var appearance: int = 0
 
 # The data chain is the single source of truth for remaining layers and leaks.

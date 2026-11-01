@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tack_top_1"
+display_name = "Faster Shooting"
+path = 0
+tier = 1
+cost = 150
+reference_medium_cost = 150
+reference_version = "User v015 values; official v56 differences in BTD6_REFERENCE.md"
+description = "재장전 시간을 줄여 공격 간격이 0.84초가 됩니다."
+prerequisites = Array[StringName]([])
+visual_color = Color(1,0.65,0.25,1)
+multipliers = {"fire_interval": 0.75}

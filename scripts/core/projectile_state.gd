@@ -1,10 +1,15 @@
 class_name ProjectileState
 extends RefCounted
 
+var end_explosion: TowerDefinition
+var end_emitted: bool = false
+var return_flight: bool = true
+var area_visual: bool = true
+var dot_applied: bool = false
 var id: int
 var position: Vector2
 var direction: Vector2
-# Aim provenance only; flight and collisions never depend on this target.
+# Straight shots keep aim provenance; chain/missile modes track this live ID.
 var target_id: int = -1
 var speed: float
 var attack: AttackSpec
@@ -32,13 +37,35 @@ var timed_explosion: bool = false
 var targeted_only: bool = false
 var secondary_profile: TowerDefinition
 var recursive: bool = false
+var flight_mode: TowerDefinition.Flight = TowerDefinition.Flight.STRAIGHT
+var flight_distance: float = 0.0
+var curve_width: float = 0.0
+var rehit_interval: float = 0.0
+var chain_range: float = 0.0
+var projectile_style: TowerDefinition.ProjectileStyle = TowerDefinition.ProjectileStyle.DEFAULT
+var flight_points: PackedVector2Array
+var flight_index: int = 0
+var age: float = 0.0
+var age_origin: float = 0.0
+var hit_times: Dictionary = {} # Kylie time policy, never bounce epochs/statistics.
+var frame_segments: Array[Dictionary] = []
+var flight_revision: int = 0 # Invalidates a chain's former planned contacts.
+var trail: PackedVector2Array # Render only, at most12 actual end-of-step positions.
+
+func can_rehit(balloon_id: int, at_time: float) -> bool:
+	return not child_ids.has(balloon_id) and (not hit_times.has(balloon_id) or at_time + 0.00000001 >= float(hit_times[balloon_id]) + rehit_interval)
 
 func was_hit(balloon_id: int, epoch: int) -> bool:
+	if rehit_interval > 0.0:
+		return child_ids.has(balloon_id)
 	if max_bounces <= 0:
 		return hit_ids.has(balloon_id)
 	return child_ids.has(balloon_id) or int(hit_epochs.get(balloon_id, -1)) >= epoch
 
 func _init(new_id: int, at: Vector2, heading: Vector2, data: TowerDefinition) -> void:
+	end_explosion = (data.end_explosion as TowerDefinition).duplicate(true) if data.end_explosion != null else null
+	return_flight = data.return_flight
+	area_visual = data.area_visual
 	id = new_id
 	position = at
 	direction = heading.normalized()
@@ -52,6 +79,12 @@ func _init(new_id: int, at: Vector2, heading: Vector2, data: TowerDefinition) ->
 	max_bounces = clampi(data.max_bounces, 0, 16)
 	timed_explosion = data.timed_explosion
 	targeted_only = data.targeted_only
+	flight_mode = data.flight_mode
+	flight_distance = data.flight_distance
+	curve_width = data.curve_width
+	rehit_interval = data.rehit_interval
+	chain_range = data.chain_range
+	projectile_style = data.projectile_style
 	if data.projectile_split != null:
 		split = data.projectile_split.duplicate() as ProjectileSplitDefinition
 		child_profile = (split.child_projectile as TowerDefinition).duplicate() as TowerDefinition

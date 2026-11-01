@@ -1,0 +1,1227 @@
+{
+  "version": "v0.14",
+  "logic": 6300,
+  "visual": 984,
+  "total": 7284,
+  "baseline": 6553,
+  "new_logic": 501,
+  "new_visual": 230,
+  "separate_stability": 656,
+  "fingerprints": {
+    "original": 150,
+    "additional_historical_and_current": 372,
+    "cpu_render": 44,
+    "local_before_after": 16,
+    "blitz_v012": 8
+  },
+  "historical_files_preserved": [
+    {
+      "file": "benchmarks/.gdignore",
+      "sha256": "01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B"
+    },
+    {
+      "file": "benchmarks/balance-v06.csv",
+      "sha256": "ED8B696DEDAB77727B9B6F94BBE7774350658AF71ACE513BD6EC1CDDCA89B751"
+    },
+    {
+      "file": "benchmarks/balance-v06.json",
+      "sha256": "46B61FBFB665A0DCB0ADFF0179F9D1A7BDFA989A66E8029EB36F0A27109B5644"
+    },
+    {
+      "file": "benchmarks/bomb-v011-cpu.csv",
+      "sha256": "C9239DB2B538CE1907AAC8C15A45537C45AC036DBC07C72199CCFA4D7A8DD605"
+    },
+    {
+      "file": "benchmarks/bomb-v011-cpu.json",
+      "sha256": "9596E529CE713ABA0DD00859C4F33DCD1F5D9EA39D775AD85DED3823354DE94C"
+    },
+    {
+      "file": "benchmarks/bomb-v011-render.csv",
+      "sha256": "FB3323EC64DDDF782A3DFA693A9F07A54DD4899747ADDC5CC55DB9F784C0E1C3"
+    },
+    {
+      "file": "benchmarks/bomb-v011-render.json",
+      "sha256": "A4F60A96FC4172B95C9E8E627D35FC960566294EE5787CF9A1B768355CDF8A7D"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-analysis.json",
+      "sha256": "54D31F68B299AF82E4D7F4924EBFD644F7A554B9C056BF9301F5D01C0C850D0E"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-balance.csv",
+      "sha256": "E4EC313B4593A548F7018D8E854805C76CAA4F7259B48D166C3C4159505A4FB3"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-cpu.csv",
+      "sha256": "DF8E16EDADCC70FF18E06ECACB47D5A83D7A74BEFD4C11098BB840562E8FFD1F"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-cpu.json",
+      "sha256": "06FAC7CC3FBF58484345C603FC8ED4CD6E92437C0007C7E9ED4731E889AE55B2"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-crosspaths.csv",
+      "sha256": "3606534A58101C3746941FF2AB02C2DD5EE30EF21254FCBF4A6A0FADA8160EAD"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-render.csv",
+      "sha256": "EDF8AF96B9A2F36DE116997607889872468C8E77F8B1707C610FC7DA4A4E7AB1"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-after-render.json",
+      "sha256": "A461A320DC90BED20973D2F9FC52CD0EBBDD1651A19CD039FEDC0F189A996428"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-analysis.json",
+      "sha256": "1024BB2620950BF454A66778D95455CACE97678699A7CADD48972CB47EAE1FB8"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-balance.csv",
+      "sha256": "E4EC313B4593A548F7018D8E854805C76CAA4F7259B48D166C3C4159505A4FB3"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-cpu.csv",
+      "sha256": "C9318DE4F549179D73C370E4C227A2667532D742617A291C7DFFDAD8460B0634"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-cpu.json",
+      "sha256": "9FE69192DA7F523402A79D5A8385EDEF4AA9BAAB46274DC9C9FD6ADD3E916123"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-crosspaths.csv",
+      "sha256": "9F5571AC213B04F8B2522DDA445D9D55B0BC22093FB5079E8EA55335BFCB1B5E"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-render-hide-balloons.csv",
+      "sha256": "0F9A2248D6AF6273D8F707A77062E31C9B89AF4D50C2C93A50F36DF4E0704028"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-render-hide-balloons.json",
+      "sha256": "7F0018472CB50D5D5E678F73A8778D8ED1D9CE8E4247A37549FB1FA63A19207A"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-render-hide-effects.csv",
+      "sha256": "C1073839D0428A97D87FA1766C023D274BD0CE06FABC89734ED5B0884AD35BD2"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-render-hide-effects.json",
+      "sha256": "099AEB440DD334EDD83C7B62D7D747B8B359B9AEE54349727410500BB0B12F28"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-render.csv",
+      "sha256": "95AB6C079AA04728533C0445CC0E4DEDFF035375DB1012318A6F238F945DE22B"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-before-render.json",
+      "sha256": "BA0D86198B43EED9A555AAD56138C0DA0651C4DA6CF60D2520F90F8B6CBEF8F8"
+    },
+    {
+      "file": "benchmarks/bomb-v0111-comparison.json",
+      "sha256": "6C8631BCC4FDA94C1D45ED7EBA4F5C19805C6A928E9C5D56301D700BB95B54FC"
+    },
+    {
+      "file": "benchmarks/bomb-v012-before-cpu.csv",
+      "sha256": "F2DDFA586678F3A58E362A7EE5B2D067058E4CD4070117869249DA189C68B957"
+    },
+    {
+      "file": "benchmarks/bomb-v012-before-cpu.json",
+      "sha256": "7C942A3C972B9600A7CBED312D7DE944AE11463A8D0AE09C4773115B7D3ABDB4"
+    },
+    {
+      "file": "benchmarks/bomb-v012-before-render.csv",
+      "sha256": "BA48B0CB5CE228FE0AAE5908A22D9858FF54FAF9AA4D83466F2FE66050C90530"
+    },
+    {
+      "file": "benchmarks/bomb-v012-before-render.json",
+      "sha256": "BE776EBE9E050D8735627FD5F735CDCF5D7F9374C857CE1E6A063F837CAAB926"
+    },
+    {
+      "file": "benchmarks/bomb-v012-comparison.json",
+      "sha256": "9AF74E40069C8868F11CF96A1008FADB0F9ACEA813ADA6B9268E3BD28008F2A9"
+    },
+    {
+      "file": "benchmarks/bomb-v012-cpu.csv",
+      "sha256": "248E9246C0F12C38477AD2117654DB13C758515C5E33F94D2D58DD4FA32610B7"
+    },
+    {
+      "file": "benchmarks/bomb-v012-cpu.json",
+      "sha256": "E07717495FAC5877B7CFD75B6AB3E80DCDD1211795B2202BA774BF129423AE3B"
+    },
+    {
+      "file": "benchmarks/bomb-v012-crosspaths.csv",
+      "sha256": "A5DA6C616EA6325CE0A8B07E48A74A616B46A3BABEB8CD299DA8F87D8CE72CE0"
+    },
+    {
+      "file": "benchmarks/bomb-v012-crosspaths.json",
+      "sha256": "E44463D86E73920C59771327DE9EF3D4B605BB006896E3910FC451B8F0D9DEE7"
+    },
+    {
+      "file": "benchmarks/bomb-v012-render.csv",
+      "sha256": "4248B15828D27A884688741ABD7C29646930312D21F4959E0A4DE4FFD74A734E"
+    },
+    {
+      "file": "benchmarks/bomb-v012-render.json",
+      "sha256": "47AD2737FAEDC041B40CF0071E48BDC3EDBB3C266632AB2B64840C7A7BFA1973"
+    },
+    {
+      "file": "benchmarks/bomb-v012-status-after-cpu.csv",
+      "sha256": "A3EC0C6313C72B290CCF56509D91BCEE7F8E30C3B8D7667C1D5C3AD8604CAC93"
+    },
+    {
+      "file": "benchmarks/bomb-v012-status-after-cpu.json",
+      "sha256": "94CE7055C84579672F9906D483AB2FABBDA76B69862DD2AE1CBD9FB5F52D5E13"
+    },
+    {
+      "file": "benchmarks/bomb-v012-status-after-render.csv",
+      "sha256": "94365E1B094D4F36CDCCD82F876BDB3C43FB4C8E7488144F7A2109C9458D77D8"
+    },
+    {
+      "file": "benchmarks/bomb-v012-status-after-render.json",
+      "sha256": "C228CECD544E022C48872717C419CBFC257E0315540651FDE70F7FADAA8FDE4A"
+    },
+    {
+      "file": "benchmarks/bomb-v012-status-before-cpu.csv",
+      "sha256": "14B1409C6B0CB671165630BC7FF08036F53401199B14D42870405507A2854768"
+    },
+    {
+      "file": "benchmarks/bomb-v012-status-before-cpu.json",
+      "sha256": "B6C0DF53DBC0A3AC180DDF9B2021154E861DCBF860B1D91921E70BDF73A92197"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-comparison.csv",
+      "sha256": "5815C142B3053B91BA375ACD1BF11A7E5F8C863A6C0722F13B1461BD9FC1624A"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-comparison.json",
+      "sha256": "06BE3D6D14534EB63D18AD99D11723062C4CA8E02E6A234CC67454C3CA1F1275"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-cpu-quick.csv",
+      "sha256": "8BB0589407DCBC32F6B02DEA5A5D5A3818314052C69B20D329D925CB0C58916D"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-cpu-quick.json",
+      "sha256": "3901D6184090A85FFB0348C0DD15A31075581DCFDB16501ECE5CBEF0502D91FE"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-cpu.csv",
+      "sha256": "1D1B610648C47FA9EC7096821B97F2B19362B0F70D7BA9148F5C4EE618C2194D"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-cpu.json",
+      "sha256": "FCCF8992945EF383B0132385F7F2D0B9361C994DA702179D1C723699E316B032"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-crosspaths.csv",
+      "sha256": "3918190FF7D9E8C73F7B8DA84189D147CD896250987E0D75D9CB82A4B32C16B8"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-crosspaths.json",
+      "sha256": "4D288F9D4F617C46D3DCED5E233CF47279E7A9E3BC2EA02CB9E0F36362A68D8A"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-cluster-off.csv",
+      "sha256": "948719CA0CACD0A5DDF722FC3F4D25733F8438C410DD057932BA7F78BBD241FC"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-cluster-off.json",
+      "sha256": "D43DA8DB0DE8D2B211621F7D9F1746DA7510D3743C5E32507C1F7533FEE3F7B9"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-cluster-on.csv",
+      "sha256": "E40636D6EB3DDD24DFC2CFDF3D420D7A916ED9B267AA757A3C572B8785BFA31C"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-cluster-on.json",
+      "sha256": "76F8CA3C2FE24D1A0DB92BB05BF2D6E998D42F17880605C51BA9A26ACF2CBA2B"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-off.csv",
+      "sha256": "063ABCA7B605AA1C5E609F398E6F925BB948633B8B4BAAED1077641196B08975"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-off.json",
+      "sha256": "CC801F1BE0B5E83178E4C49AA3806D13B678EAE4B05AEEE647ACD255BAA3BCB4"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-on.csv",
+      "sha256": "98E11069A2DCFAC3C35BB988D36E841D1815252D4A99ECC512E95BDBB67E1A04"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-legacy-crosspath-on.json",
+      "sha256": "9859DEB831187B427DBE56288146AB8660FC50E9EBFFB9DD0CA53692C07738D5"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-render.csv",
+      "sha256": "9E5480481FDF1CD64FC8469126CB054066722B23AD6C50BE6C666D2BF4012DA2"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-render.json",
+      "sha256": "BBF38DE12D8E862B5221E940208FC61ED9FB62DC4EBB779B3AC6A19E3E367542"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-unfiltered-cpu.csv",
+      "sha256": "AD9C12534F3317A5873FA1DABC354F6E299F243773451EB711F76659D105A41B"
+    },
+    {
+      "file": "benchmarks/boomerang-v013-unfiltered-cpu.json",
+      "sha256": "B433A81B9F42634472FB4C3B737E3FE266E2B6BC004EB1D717CD15E308EB7CC0"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-after-cpu.csv",
+      "sha256": "900FCB024F6FAAC2ACEBEA03A9A5565B3BC82F4D8186D1C71CDD427E5489BC3E"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-after-cpu.json",
+      "sha256": "036E15A3C1E473E15837BA2A66227A20A60F37B26064841D15EEC94019564D32"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-after-render.csv",
+      "sha256": "96188FDAA798359697115A64F37E2376CD512410487C2550B2C0B8E47BEAA412"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-after-render.json",
+      "sha256": "B3CC52FE3968E8AA670481F87D915B9681A7C4F853B1E372FE4CDFE2EB123CA8"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-before-cpu.csv",
+      "sha256": "894AB1434A4215CA30C8D4560B1B7388706BB1D608474224EC1D2B66302F3F8F"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-before-cpu.json",
+      "sha256": "8D236D4904C45F4246DCE6CFF3B060416B8C5EAF468F0E0B9B6B089FFF564A94"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-before-render.csv",
+      "sha256": "99DCA9A0A80473B1465284CFAF95A98EA1A7E7E7D7D2FAFDEA93095D2396BC77"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-before-render.json",
+      "sha256": "AF382A65F5E72538CC157D995889140332657A002C9B36D12964530AE54F9F43"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-campaign-cpu.json",
+      "sha256": "6150E19649DE4AFE73F18926C74DF61EF82D533C1006055683B75E433FFB6016"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-campaign-render.json",
+      "sha256": "85579AAD1DD3FF0B01107563186C7D6848A8EFE18D44E03623371A10544302C3"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-comparison.csv",
+      "sha256": "AD53AD6E1764AC30B80A7551DF460F3D583312466FB6826ADCF7F9976023BB7F"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-comparison.json",
+      "sha256": "40E3C4FDCD3D6FDB4615E796BDBACB5BC16FF9EF05F63559931AF9D168C9B576"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-crosspaths.csv",
+      "sha256": "3918190FF7D9E8C73F7B8DA84189D147CD896250987E0D75D9CB82A4B32C16B8"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-crosspaths.json",
+      "sha256": "4D288F9D4F617C46D3DCED5E233CF47279E7A9E3BC2EA02CB9E0F36362A68D8A"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-cluster-off.csv",
+      "sha256": "CF858CE03DD7CF0BA023B16815AE5104A7DA82001083FECC0258FE47B739C87D"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-cluster-off.json",
+      "sha256": "F0556C04F4029D36F4695E2DF840CD5293B5440A5167B65CC22A23775AE5A278"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-cluster-on.csv",
+      "sha256": "C96E0AF5F336E329CC01D5C60DD19DBF3E2B5B33D497BA7267FA13C253BEE279"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-cluster-on.json",
+      "sha256": "47FE86A42FA31AA42466022D6B031D55DF676180C7BA392567B248C42D82535C"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-off.csv",
+      "sha256": "2003D2C8FEAE2A719C7044E335B9BBF11E04A803DD3D6DDA3698151ADB7FECD4"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-off.json",
+      "sha256": "41B90466D32DA337C0AB71FBE7A2B354F15A4463B25CEAE322D515119AE549B2"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-on.csv",
+      "sha256": "F8C80868E82790229813E79072C399C13EC060A03E56CAD3C61FDFE754A4FF35"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-legacy-crosspath-on.json",
+      "sha256": "4408D03651E42DF0853858C2EC9B404A3F9B8FF09DEBF448A6625E962B275182"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-matrix.csv",
+      "sha256": "378FDF8353A921583E7F64D1178AB3085D1E35D5D041B96E0BCE1773DE56023B"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-matrix.json",
+      "sha256": "A03FE14BD7C567DDCE7B2C089F3E1296B22DC675CD4BAA6DDBF32367DA76C16E"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-after-cpu.csv",
+      "sha256": "65EECEF3D2BAA0873DFECB1856654EE29ED2971E8F835CDE987A7565CE3E2F8F"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-after-cpu.json",
+      "sha256": "46E13C333A102F4AA02AF00A9B53046D55F0A6AB4DF67F959F229FAD823F634D"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-before-cpu.csv",
+      "sha256": "695DD44B594B331AF0DF9B6DBC91BE5541EB2E7ECEF84998A0E8F9D0F5B46CF3"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-before-cpu.json",
+      "sha256": "D5B4BA207870C1727897D51715D9B519BCBB307F68E45AE1B9983BF6AB583C79"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-stage2-cpu.csv",
+      "sha256": "C4F669FF577E99FE7F8298322D29C12B4EEAAB8CBBD179187B9B3ABF71F9AA7C"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-stage2-cpu.json",
+      "sha256": "2080429B2BB018750136D8DF8DAFE017FC79EC7F09DAE8B998D2184F91BDF24A"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-stage3-cpu.csv",
+      "sha256": "455891BA35B333AE6F9E252898B43F401627C832420EC38880BCED7DED97F783"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-probe-stage3-cpu.json",
+      "sha256": "87DA007C7332DC166A4E4A6EBBF4A888FD8CB47CAAEEC4738C0E3EA9E2AE67BA"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-profile-comparison.csv",
+      "sha256": "6A1328BBD76C933D0255892E88101509041C4CF058F4C013EAAB323FA113D38E"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-profile-summary.json",
+      "sha256": "2795520D131A89707FEB1999286436F5F0DEA251B4D0950AC0FF6F7A3DA9DC3B"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-repeat-cpu.json",
+      "sha256": "DD77D36461C589696DF8DD0E07E4C42F8BD663A485702273834E9D39EAFB2B08"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-repeat-render.json",
+      "sha256": "8E933B034EB93E77F86F0E4B4EFE627DF9E6BD4C819CA239D5B2AFB2BF28D6BA"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stability-cpu-short.json",
+      "sha256": "12E8AC459E100B510F98B87026A9B05325F604F234E92BB598D7A08FA5C55923"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stability-cpu.json",
+      "sha256": "06C44DEE6F0AC649E1F57ECC7F5EC903BBD6F35DA5CF40CAE1300DCE7BA61FE6"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stability-render-profile.json",
+      "sha256": "242B0CA6BFEAF45220A56A296BA33388CDDB4266BF8A76F61C5644A3D3E12389"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stability-render.json",
+      "sha256": "C9CD696E4F0303AED2FDAA6F5B4BFCE1A2E2885B3ED5ABF613131FEEDFFBB591"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage1-cpu.csv",
+      "sha256": "E6EBA0B34CF36EA57FA5A5FDE3221370726E4895FF424F585941C5B9DB0B8B74"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage1-cpu.json",
+      "sha256": "3505D0487BC2AA71A3D131E58982B0D672CABC3F84AD1D4A9A685C98AC58A7E9"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage1-render.csv",
+      "sha256": "620621FF4AA16B4ED0F0B4D6A789C7D88FF1B45CFDD028BB5603CD4142BDC087"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage1-render.json",
+      "sha256": "800CFC3782EC097EAB383BF944FBF2BC86BE1FD114BA110C61A65A5A34F33B2B"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage2-cpu.csv",
+      "sha256": "5C2D714CBAB11E5AA7F1CFEC464AE79C3ED77D66BBD4175A480DC3281528A8DC"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage2-cpu.json",
+      "sha256": "A2080DA01A1A88AA4E43C6387B0A30290038C0545B2CBCA31520EE0C3A6883C9"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage2-render.csv",
+      "sha256": "1A940C20545ECC75CABACF42368675C1B0577089141B86012FA15F6E6DED9C16"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage2-render.json",
+      "sha256": "B7E674421784C14312CCAE10E115AD6C66DEF83C1DA8B4C032517196EFDD5C30"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage3-cpu.csv",
+      "sha256": "49831C417FDA9382C86F5A8E0BCE15C186FD86E8C555CD16EDC96446015408FC"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage3-cpu.json",
+      "sha256": "BBA5C45AFA9A51A802312D8E061D31FA280FCDE5AB340DB17B0FB873B6EF50E3"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage3-render.csv",
+      "sha256": "17797474399FF247CFE78E609EF32AC072B3D56F5235BAA0B69F79FE7B64D810"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage3-render.json",
+      "sha256": "390F9475FA2153F2FCA14F19029F64818CAA9AD0A47EA0E17DB4ADABCE1B0794"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage4-cpu.csv",
+      "sha256": "928F3CD7D5AF0FFF5730BEF58E3784338AA1CD0830EAFD8A0DF859F5C94765E0"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage4-cpu.json",
+      "sha256": "AFDC9E246D61F7DB6A6A6C40AC9184ED3C0F5E0BD35DBCC479E80260267566A3"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage4-render.csv",
+      "sha256": "4D89F093609E8D9554CF7F76037148A244085447B4A6A6E8F19F5E0C7196F043"
+    },
+    {
+      "file": "benchmarks/boomerang-v0131-stage4-render.json",
+      "sha256": "0933084021765D932AC8BC00018FDEEE39D54BA31D77BDB25183479C7BCE5ADF"
+    },
+    {
+      "file": "benchmarks/ddt-bad-v011-cpu.csv",
+      "sha256": "63384F3BADC2C5EB9C1EDAF386B6E892CDEF39693A8A3C729B76DBEEE4E5D55D"
+    },
+    {
+      "file": "benchmarks/ddt-bad-v011-cpu.json",
+      "sha256": "550377E3784C7DA45B53F95AA4A52E2A272C1160765B1F9F127952BD9A83ADC2"
+    },
+    {
+      "file": "benchmarks/ddt-bad-v011-render.csv",
+      "sha256": "37307BAFA0014A27239C22B9E6CA10B1FBE7AED820FDB23F78C8950F02CDFD39"
+    },
+    {
+      "file": "benchmarks/ddt-bad-v011-render.json",
+      "sha256": "334C6D68057844A3859453B2E28E345D461DEC26DA938824F9FD5EAA25ABA1C8"
+    },
+    {
+      "file": "benchmarks/fanclub-v07-cpu-uihidden.csv",
+      "sha256": "E4153CB5A4BA76C6C3E674CBE56B9C0D503C8DCBC169EE1C44A305DB0879D672"
+    },
+    {
+      "file": "benchmarks/fanclub-v07-cpu-uihidden.json",
+      "sha256": "8F88AEE2C141A624084DA310972725966D5A2AF4B93F0ED0DF1977554058DB7A"
+    },
+    {
+      "file": "benchmarks/fanclub-v07-cpu.csv",
+      "sha256": "FFACC4111712EB6B07E771CEE7049E57A84EAD3F9E08D50A631EA39799A96CB0"
+    },
+    {
+      "file": "benchmarks/fanclub-v07-cpu.json",
+      "sha256": "DA5456C20428C4F17053DC75A2E1105C2361AAAF76CCAD5F43B04076CB02AD53"
+    },
+    {
+      "file": "benchmarks/fanclub-v07-render.csv",
+      "sha256": "361E24BAA8FE7F4457374A6F8ED94C65CF2686C532EF55947D4435ECF62CF47F"
+    },
+    {
+      "file": "benchmarks/fanclub-v07-render.json",
+      "sha256": "1912BFF9F3D6C131B7BADBB7E71BCCAD1FE56719251A9F333A644CAB07BC23C9"
+    },
+    {
+      "file": "benchmarks/moab-v010-cpu.csv",
+      "sha256": "386F20868EF406B8AD2E47E8DBE594B446BC936DBA7218B8078E33C60B170C44"
+    },
+    {
+      "file": "benchmarks/moab-v010-cpu.json",
+      "sha256": "92D924526471A0B901C7BE9F1598C2C59B3AC14D7B1B30EB90C2537FB968F04B"
+    },
+    {
+      "file": "benchmarks/moab-v010-render.csv",
+      "sha256": "D26637928BB86545C3DD27809DD54EA0CF6938A12001FE75C2EAD6FD149E8E0F"
+    },
+    {
+      "file": "benchmarks/moab-v010-render.json",
+      "sha256": "5A7E1DBBFDABD81F9CF28E42D4027A1C0FEC00CD6A889FEAB3636055F175BBDE"
+    },
+    {
+      "file": "benchmarks/properties-v09-cpu.csv",
+      "sha256": "CB5F356938D8739076096EB4A8B80B9E8D7FE4C6EB96D56314D77F0E1BCFB892"
+    },
+    {
+      "file": "benchmarks/properties-v09-cpu.json",
+      "sha256": "5F31AD150A026B2AAEC59DAF8AD4DE48BA40C632FB5A6E655A6B2B723B80486F"
+    },
+    {
+      "file": "benchmarks/properties-v09-render.csv",
+      "sha256": "25238EFB1506998DFCFFDD60476FE36DB9D6A3FD668707B7F5668AD9524F886F"
+    },
+    {
+      "file": "benchmarks/properties-v09-render.json",
+      "sha256": "D220CD1CD28AFC919BE68264D73B112F0C60E177008DA90D49920A272149EFA6"
+    },
+    {
+      "file": "benchmarks/render-v06.json",
+      "sha256": "329FB8B30D331A7EDB4D0AA9A4F0EBA3E8B48215B26163FB7369EEA946CBAC29"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-cluster-off.csv",
+      "sha256": "4CDCB81361A0A8AD891235218B3A45015CBFCF0EBA88C35BAAA61ED187F36AA3"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-cluster-off.json",
+      "sha256": "13E7234B14F134D10EC1FB023025530C6CB1956E0567D686E37E595812D6704C"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-cluster-on.csv",
+      "sha256": "FB9D32F23F7E37DDC7A937C22F378F644C6AFD00902E1E7F122CE6117B819A89"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-cluster-on.json",
+      "sha256": "933032565FD7BB909B4746563762E4E0F463750DDF74F9DB63F3A0273FDEB8CC"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-off.csv",
+      "sha256": "D3B422A5AD25B05C92DB0346BE7CCD719919BACC5CEBFF7DF6058DCDD414161B"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-off.json",
+      "sha256": "5FF846D539BC1085F0685B9D3885BB12CD58986202C3568E7AD17B4C6B0627F4"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-on.csv",
+      "sha256": "C99C61EC8E6FC2FBA6BD0C298A6BC81F49A0550B159FB870632AB7F28ACAA608"
+    },
+    {
+      "file": "benchmarks/results-v010-crosspath-on.json",
+      "sha256": "6F216C590F327AB48D3FCB94935C20758C652D28E7388EE260B04B0CE2A4FDD0"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-cluster-off.csv",
+      "sha256": "842E3D91B9D3C4402CFB24C1C1B7197AFB237310C3B2FC6A46B81B2BFFB647C1"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-cluster-off.json",
+      "sha256": "00FF6FDA42869BEFE2FCBBEAA4CD8405902F1880DFF6ED50C887BDE388AA6BC6"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-cluster-on.csv",
+      "sha256": "C4C77AD9CB5B61AD0665811BEE6860B80B1DE9850188C376E967A313A531E956"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-cluster-on.json",
+      "sha256": "5DBF58579BECEF1D0B35C0ACAF5C33E5AC9B7BEA8FC2A8FF52838B42BE0EECF4"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-off.csv",
+      "sha256": "D036F08D962F8F9ABF3FF7B9C7DED07C890FC4A5243AC2EA972E77031E23684E"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-off.json",
+      "sha256": "87B85AE76FD294A0DC66F87A1F342E718CE9D104E9AF1D5F26E05D72B9881FF0"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-on.csv",
+      "sha256": "24D5EF10072C493F7522407BD2BC859FD29AA2814CA0AD831536F3B7696D703A"
+    },
+    {
+      "file": "benchmarks/results-v011-bomb-crosspath-on.json",
+      "sha256": "C7355FB1B7BC755A7004E66B7F4CC23AE5E09A5622C49196ECEDFADB20CE4879"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-cluster-off.csv",
+      "sha256": "294A2E3E9FEEAA00DB6D75E906776A9CCC042905B0B4DBDE05E828F383ED1093"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-cluster-off.json",
+      "sha256": "7BEE39C1D189CF55C974C9D583DDCD6C070985494AEAD61D13A6114C5B666F9D"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-cluster-on.csv",
+      "sha256": "EA6F53AB7749B8827F7D134DB7B01904B4FDF7B33C23163C716B48372E9D1F56"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-cluster-on.json",
+      "sha256": "09E78CF5E61B66C36C74EA576E7312E50E2167EA36D977E5056B7AB6858BE6A2"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-off.csv",
+      "sha256": "2225898CD1B4D397E018C955AFD60C9A1DA10D3A16AB7317499264AA95CB3842"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-off.json",
+      "sha256": "814B8DE2FEBE59AC705C77F68129A3AF1690B5D9210E08BF21FD8BF2C6B67CD3"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-on.csv",
+      "sha256": "FCDA7FE5EFEBB6F580F5F530A8E8F96A9AB76A585A055A3BC79A7DABCD0ED765"
+    },
+    {
+      "file": "benchmarks/results-v011-crosspath-on.json",
+      "sha256": "CD8DB00BC41073677FBF81B7723C45F02BFF1E3CED674E1AF47AE85F32865267"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-cluster-off.csv",
+      "sha256": "AD5E1F7B2A2A97E14101AC810DE1BE3B52638CA58A9E72B77DF631B97D859FD5"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-cluster-off.json",
+      "sha256": "3841B8B9AE74AECE7DFDD688ADFDC769A4E2A20466D6DCE7C2177541993720AE"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-cluster-on.csv",
+      "sha256": "382C643658ECFCFA58E0AF9484647529379B35F7BA33C5FFED5F037659754A5F"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-cluster-on.json",
+      "sha256": "AD74291B243EBF4422AB860963981C253967D2022E31DCFDCDCA21FA7211C639"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-off.csv",
+      "sha256": "97C14E765360398FADAACE755BC721226470F56433BF9709D8D3E92E44C6AE6C"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-off.json",
+      "sha256": "E87DD1C99E134CC5D07FA20F722C0766149AD793C3C89941D890141C9374F589"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-on.csv",
+      "sha256": "18DD90D5AFF3F248F0E2D56792C60CBBC0DEED8D39C51A430365C8A1EC147DBB"
+    },
+    {
+      "file": "benchmarks/results-v0111-bomb-crosspath-on.json",
+      "sha256": "0A114BF785149B708FFFE8441F467DC956FFEAD4F7D7E1A3858A0095DCF01873"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-cluster-off.csv",
+      "sha256": "6222043C38F5C90486211287D0BACD62A299F21904F52A9E2261766C325A4F83"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-cluster-off.json",
+      "sha256": "71CC5CB84D1B4ED460AE01407E16F199D6D60D38B42781F9D42FBDD8755FDAE9"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-cluster-on.csv",
+      "sha256": "0403104D77A556DAA2EC8C13D3923C449D7393B11522F096884C80B509C4F486"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-cluster-on.json",
+      "sha256": "9C37B39B5F52AA5A061521B9DF82DCE1CF6A7F72DE9AB278DDB24F4130CE47D5"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-off.csv",
+      "sha256": "9B65256639845A1777A14339D9CBC154A7EAF69228AAC176AD1713B5B15E5103"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-off.json",
+      "sha256": "C004654ADE8CECD93BA3241880B07EC543E96673A6E96D233E05E60C4ACA2753"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-on.csv",
+      "sha256": "EF1EDD1E2E0FB24CBC3D042325A19ED5A06126D685A11C1F1BB7BA11A498D3AA"
+    },
+    {
+      "file": "benchmarks/results-v012-bomb-crosspath-on.json",
+      "sha256": "368746EDD052A118A95D47CDCC3439320FC63A25BCB329EBF1FA8777454F56AC"
+    },
+    {
+      "file": "benchmarks/results-v03.csv",
+      "sha256": "1367DA90405DDF29573BC7569883CA378B39E2837D13D01BE50C380072E872D6"
+    },
+    {
+      "file": "benchmarks/results-v03.json",
+      "sha256": "BBDC76A0FEFCA874CEF53EC916D1240B51419ED7CEEFDAC565EF031D4C0BA717"
+    },
+    {
+      "file": "benchmarks/results-v04-base.csv",
+      "sha256": "ED03DB0BCBDBD46CE2D4D483E124478DE8EA8405F970BC9EC60AC3A3C71C2A22"
+    },
+    {
+      "file": "benchmarks/results-v04-base.json",
+      "sha256": "8D595E8DFABD85ADF57064B01D5166CB345CEDFAEFB1E9C8C9FE3CAF50ECE883"
+    },
+    {
+      "file": "benchmarks/results-v04-upgraded.csv",
+      "sha256": "32D14A71BF305F8C83F173C321805643DC2662BBF273685F40F3C51B821868FE"
+    },
+    {
+      "file": "benchmarks/results-v04-upgraded.json",
+      "sha256": "B0C5A57A503084CDBFA8BEC58C0C3F0AFCD7C31EA15CCFDD0F35F2E4251A8595"
+    },
+    {
+      "file": "benchmarks/results-v05-base.csv",
+      "sha256": "53B9C6C59BB65D5646A190CE73A7FD6F99E8E96B900265735323F9FD288B4B8A"
+    },
+    {
+      "file": "benchmarks/results-v05-base.json",
+      "sha256": "9AF42BB03440C311250632AFCC54F3E0C4B24681D9E4049F0C314386575C37A3"
+    },
+    {
+      "file": "benchmarks/results-v05-crosspath.csv",
+      "sha256": "3FB849F09AC00253C4E3FAA6421480933B241DA9C16486566EAB8DCD5488D409"
+    },
+    {
+      "file": "benchmarks/results-v05-crosspath.json",
+      "sha256": "68797FC7946D06E8CC27A49985FEC27B705ADE6083B38C5C5384C062FA805169"
+    },
+    {
+      "file": "benchmarks/results-v05-single.csv",
+      "sha256": "253D8D9A6E3E0D2860A4E134EF4276F19B66CFE18E0AEA4BE59FC876EC6C40E5"
+    },
+    {
+      "file": "benchmarks/results-v05-single.json",
+      "sha256": "14641D32C13E97A6FA32CF675AE7A68471A41011544A56CF2237B2BAE77EE7A3"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-cluster-off.csv",
+      "sha256": "F3EFDC7A1136DC9CCAD09FD631A3178BBF113CCEA838C342A39683CE273E0CD1"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-cluster-off.json",
+      "sha256": "EE7FF6ECE8BCC72C3B1BD1495704902F9A7A90B49D5CD84AA2536B582443EF7A"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-cluster-on.csv",
+      "sha256": "30FE45684F4E873F7C076B02D4D438D1985FD93F9B51B795B1ECD8772F4F1731"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-cluster-on.json",
+      "sha256": "1476A7AB77F7CDEC72A9F49915074A9A6ED8F90E2263825E1792AAC918E78AE6"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-off.csv",
+      "sha256": "118962DAD54201AA726DE4371CE8E8DAE13F827E6FA5FAAC1662EDDDB78D1F96"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-off.json",
+      "sha256": "A5E4309381346AB95BFD8C80D12448727142DB9915A7EDC9A757CE7010A9029B"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-on.csv",
+      "sha256": "238C4EF432F3CB6645A9D11AE47F3BB5497A943A4D862EF566727844F641CC7B"
+    },
+    {
+      "file": "benchmarks/results-v06-crosspath-on.json",
+      "sha256": "7537F438C67D99165CEE90B43CE54EE856E955EA990901BE700A028C4668F1D7"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-cluster-off.csv",
+      "sha256": "773158836D134E6E89ACD636D64D12B3076112FA1804E579C9FC19776E787623"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-cluster-off.json",
+      "sha256": "B33DD973604F7752E1317064ED641D3B551EE6BD7D842B61A6143ADD2C6C1924"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-cluster-on.csv",
+      "sha256": "5F1C17424B641E7707AD1BE260685E107E10992C376883DCBB8AC4BA3D435710"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-cluster-on.json",
+      "sha256": "9AEC82076920C262FBBFBD559BE3FCE4FF4CD4F0759FC57A20617F08F82356E5"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-off.csv",
+      "sha256": "D905CA54A638E49D2E8112A502C5A3C96655CEC9B66DB4297049FA46A679E518"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-off.json",
+      "sha256": "0B658C4E3F380FADB6A09EE40F516FCA9DA7FFA3EE49F5CA6A598B1256B2B08D"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-on.csv",
+      "sha256": "7752CF281F26E410B1DEDFDC90D6C8C38A78483DCBC3F909C0C7D94CAF5B5BCC"
+    },
+    {
+      "file": "benchmarks/results-v07-crosspath-on.json",
+      "sha256": "682BD8F18B465601F345C0485EA8AF7A739D2D76E5847015C1F191644445F7B3"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-cluster-off.csv",
+      "sha256": "494787405C811CF83DC70A5882A5ABCEC17B2F991AAE7B5210049F5DF57D6A23"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-cluster-off.json",
+      "sha256": "D2A45D4DEEB7E121F9C763E792F3841915EB385DF375D7C115440E1CB3FE77C1"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-cluster-on.csv",
+      "sha256": "DFD8486EE3DDDA8FE579EA257378AFD42B6ABD22204CEB5DCAF16498645F6A85"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-cluster-on.json",
+      "sha256": "14C5CF94A4B4EFCB8FA1C546FAAB4CB7BF5BACB7F8106A12AE72362E784A2679"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-off.csv",
+      "sha256": "8BBF3C5EFA620EC8E5565F7D59C8C0CB7D121C21C365AFCF30CE8CDCE444A78F"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-off.json",
+      "sha256": "A1AB4D451EA0FFB658CC280DD9701C2087501C9BB18A5AED689B576CD96910AB"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-on.csv",
+      "sha256": "EEB3051C9F87026B1C8C700C040936A3053F970B193628BFE32B532E5F475952"
+    },
+    {
+      "file": "benchmarks/results-v08-crosspath-on.json",
+      "sha256": "6CC80443BD5904216B05DF46E16859A8E5C4CBE570C137537EBC5D644EBE7EE0"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-cluster-off.csv",
+      "sha256": "7A59027D045C76F5FB4037564D483A3486484466A4DDF8B6F7D370FE52B00B44"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-cluster-off.json",
+      "sha256": "9E820B0FAABE414902AA7B0FE4CE1BE1883DC1FAA802DB19B0EF40CA416099CF"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-cluster-on.csv",
+      "sha256": "DFC6D6A246D1E43099E8DA1B76AFE4DDE56B696BD98A3C7BE34183B649DC50A0"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-cluster-on.json",
+      "sha256": "E99706CB5ACFFFF1F52F3E15C6E35D2828CB7C0554E6A479348ACC4DE79C051C"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-off.csv",
+      "sha256": "25BF2AA5759CA8EBAB3C6849C31DD696B88EB1661CE8AB9BB48BB98E41EAB233"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-off.json",
+      "sha256": "9E3BEF8017B51FFF3B61A8DB991DDBB104BFF5BE83496942E707FB31554BAF4A"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-on.csv",
+      "sha256": "771005ECC6FF0F085776749CF2923A9831E834EB9B643BAAEAFD96682A58B4AE"
+    },
+    {
+      "file": "benchmarks/results-v09-crosspath-on.json",
+      "sha256": "D47210DCC120BA18113A2C6C15BF1A61866A094ADC48126530AB8BFCEF585ED9"
+    },
+    {
+      "file": "benchmarks/tier5-v08-cpu-prebatch.csv",
+      "sha256": "8E39E77410F188051E8C55D06A6D17A3779A1ECA90E37863259894CA445FD308"
+    },
+    {
+      "file": "benchmarks/tier5-v08-cpu-prebatch.json",
+      "sha256": "352805ECD3427C9B9EF18F8E4C0894454B1FA26C3FCFBADAF8B0259C1195F823"
+    },
+    {
+      "file": "benchmarks/tier5-v08-cpu-uncached.csv",
+      "sha256": "15F69436391F1BF58170182E47182F7B408DDC92410F871357427029EFC5980C"
+    },
+    {
+      "file": "benchmarks/tier5-v08-cpu-uncached.json",
+      "sha256": "5ADFE9AF33C858B95D22DC2FFE6AEE106770A6B9BDDA2B9CAB4957ED030E438B"
+    },
+    {
+      "file": "benchmarks/tier5-v08-cpu.csv",
+      "sha256": "23707AC227583F921B1931AFEF4EA07401338A69A7E0F08EFEAD16FB07AC8982"
+    },
+    {
+      "file": "benchmarks/tier5-v08-cpu.json",
+      "sha256": "176EE08C7DB5B3DEE1CE7C9EFCB1073054B338F11073EC521594ABC1428E9093"
+    },
+    {
+      "file": "benchmarks/tier5-v08-render-uncached.csv",
+      "sha256": "48D2D11A57D7416AC29288F09107D29676D7A74C0786B44BB297B9561715F68B"
+    },
+    {
+      "file": "benchmarks/tier5-v08-render-uncached.json",
+      "sha256": "694AB2DFF22C352D1021DC653B22E67D9868ADDE0F6B77BE1743FA59F1889D50"
+    },
+    {
+      "file": "benchmarks/tier5-v08-render.csv",
+      "sha256": "BC4661E92F772B8FF29B21ED72C2601066FD6B30FA08EE3A422431D38D68A701"
+    },
+    {
+      "file": "benchmarks/tier5-v08-render.json",
+      "sha256": "4EB149CE7F30586964EA07DF3DADFFFD18FD3FFA2C630757DB54F0394CCFA8B1"
+    },
+    {
+      "file": "benchmarks/tier5-v09-cpu.csv",
+      "sha256": "20315E3C1B8AE9E8B055802F1448968B6F75685DA4B8DFAAE31FC223720C23CE"
+    },
+    {
+      "file": "benchmarks/tier5-v09-cpu.json",
+      "sha256": "561E97651A0EEAC3A2DC4D4D60E83694A2BF467846DFAC7678461317720D322E"
+    },
+    {
+      "file": "benchmarks/tier5-v09-render.csv",
+      "sha256": "DAC4A92576385D8CBE6BD96DEA490602D23BCBF63BB3213F7738625DD237553F"
+    },
+    {
+      "file": "benchmarks/tier5-v09-render.json",
+      "sha256": "825DC653DC9163710AA2E1C11E7EE5F1966706C15D99779D12B4CB07E2EB5878"
+    }
+  ],
+  "unchanged_data": [
+    "data/waves/campaign/wave_01.tres",
+    "data/waves/campaign/wave_02.tres",
+    "data/waves/campaign/wave_03.tres",
+    "data/waves/campaign/wave_04.tres",
+    "data/waves/campaign/wave_05.tres",
+    "data/waves/campaign/wave_06.tres",
+    "data/waves/campaign/wave_07.tres",
+    "data/waves/campaign/wave_08.tres",
+    "data/waves/campaign/wave_09.tres",
+    "data/waves/campaign/wave_10.tres",
+    "data/waves/campaign/wave_11.tres",
+    "data/waves/campaign/wave_12.tres",
+    "data/waves/campaign/wave_13.tres",
+    "data/waves/campaign/wave_14.tres",
+    "data/waves/campaign/wave_15.tres",
+    "data/waves/campaign/wave_16.tres",
+    "data/waves/campaign/wave_17.tres",
+    "data/waves/campaign/wave_18.tres",
+    "data/waves/campaign/wave_19.tres",
+    "data/waves/campaign/wave_20.tres",
+    "data/upgrades/bomb/bottom_1.tres",
+    "data/upgrades/bomb/bottom_2.tres",
+    "data/upgrades/bomb/bottom_3.tres",
+    "data/upgrades/bomb/bottom_4.tres",
+    "data/upgrades/bomb/bottom_5.tres",
+    "data/upgrades/bomb/middle_1.tres",
+    "data/upgrades/bomb/middle_2.tres",
+    "data/upgrades/bomb/middle_3.tres",
+    "data/upgrades/bomb/middle_4.tres",
+    "data/upgrades/bomb/middle_5.tres",
+    "data/upgrades/bomb/top_1.tres",
+    "data/upgrades/bomb/top_2.tres",
+    "data/upgrades/bomb/top_3.tres",
+    "data/upgrades/bomb/top_4.tres",
+    "data/upgrades/bomb/top_5.tres",
+    "data/upgrades/boomerang/bottom_1.tres",
+    "data/upgrades/boomerang/bottom_2.tres",
+    "data/upgrades/boomerang/bottom_3.tres",
+    "data/upgrades/boomerang/middle_1.tres",
+    "data/upgrades/boomerang/middle_2.tres",
+    "data/upgrades/boomerang/middle_3.tres",
+    "data/upgrades/boomerang/top_1.tres",
+    "data/upgrades/boomerang/top_2.tres",
+    "data/upgrades/boomerang/top_3.tres"
+  ],
+  "source_sha256": {
+    "scripts/main.gd": "c6e5774f1d881402718089e73f8b19b5f7c9b163dded94e2c00b1e53c660f37b",
+    "scripts/main.gd.uid": "a8042a4c51016c2b6f1e842dc1bbab4f0a9a25528d4c0a5e8312a751bd3ed49e",
+    "scripts/core/ability_state.gd": "7512c3d126ae662473e71f166c3c9a979c4e2643401bfde4b4c9e8d49577de38",
+    "scripts/core/ability_state.gd.uid": "d4683452ba33449cd7a63141cc2105f1b554c18d7fd1fe0593479c223916b29b",
+    "scripts/core/balloon_leak_policy.gd": "461fbfe3e590668fdb7094d6171b325e4c54b7d5aacdd62767f9af8f5a2b95d2",
+    "scripts/core/balloon_leak_policy.gd.uid": "90f2d1f4b4373365dacaf21a7a49daab388d83149ebb64b7d1f4cfe18916326a",
+    "scripts/core/balloon_state.gd": "32ce9920efbe7c7a82bf4049bce3e95d711241d556a64d58ad045e74218c0e94",
+    "scripts/core/balloon_state.gd.uid": "f3483f79d7f50025dfe7870a998dbb07019fb17a05a19bd37d30988465738a9d",
+    "scripts/core/combat_trace.gd": "c1505b112bef7ab6c3a54980cc52839b336994f807ffe029e5d1fe63328599fe",
+    "scripts/core/combat_trace.gd.uid": "891a3178ccdb56709fa92e02f44946b75e0c89ed249eb388bbc162d4009e6191",
+    "scripts/core/projectile_state.gd": "57b824b412f25dfb3b39a5894245c10c7be4d3830646b9c9f84bd0d9b9a555a0",
+    "scripts/core/projectile_state.gd.uid": "d6c33c77e555ee61a257cd886ace45c65df48aa0e03337927c0758f255fb3038",
+    "scripts/core/tier5_registry.gd": "2490a23f62cef0a81fe5fe51690682ea7d9b642b33a419a4801328ebaf7ed74d",
+    "scripts/core/tier5_registry.gd.uid": "16be9f457ef71a88632f783fb4e879e4bc1410b3b692d9d3a577323c77c751ba",
+    "scripts/core/tower_combat_stats.gd": "a2dfef40cff48c1aa13aa50611ce6eee74efc219cb7510514de943681dc99f5a",
+    "scripts/core/tower_combat_stats.gd.uid": "328f38a02f01db4b45bb9f4ab2d410a139e550da82fdcaa8178a96d7be5162fe",
+    "scripts/core/tower_state.gd": "21d68c4b9c75f6f4ffee7a94986efe75a5f9b7dfeeb0c7cbbe9d244d5ea7f693",
+    "scripts/core/tower_state.gd.uid": "d65acf92d311b47ba40955adadb1aabd116ffa0be479a46d47f55aac77c48aea",
+    "scripts/core/tower_stat_resolver.gd": "382f5dffb34fc7979bb1399929e5e0f09c8e27326464ab3709e69b5450a3e085",
+    "scripts/core/tower_stat_resolver.gd.uid": "0ac415ed9b25e9b47b813792d7b3a790e766d1430ceeeaab6f8f1149efe0599f",
+    "scripts/core/upgrade_policy.gd": "d740bbb7c195590bb6318ee7a5098a1d577fbf58bce3fa39fac6d92c78897e1f",
+    "scripts/core/upgrade_policy.gd.uid": "8e58b0d9a645e06f9c850f799959b48ab39aa317b733e696e325cb5e31d5446e",
+    "scripts/data/ability_definition.gd": "5d4de265761bb2dc178fab0585db98ddc3730dd9e0a01afd6e6a837999e0d66d",
+    "scripts/data/ability_definition.gd.uid": "bfc2db059fb8b4ed7eceeed761c616ad223a4fff12714722e44202b1ec8709cd",
+    "scripts/data/attack_spec.gd": "8a176c3f7ebd7bfc0cbd07fddbeaddebb6151290506ceedfabb6f74cce244931",
+    "scripts/data/attack_spec.gd.uid": "9a37286ed9e9fbd5eb4b568ab9f71ab5b7d042fed7bcf9756d9098a5cf430ea8",
+    "scripts/data/balloon_definition.gd": "cbfe48a8168deda33117f88750cd2f62209529be9ca341a9f7d5f5dcd73fd780",
+    "scripts/data/balloon_definition.gd.uid": "66df68478f87cec4a326aaa996b88a534a7598deabfd4520c990fda8ca9d5dd1",
+    "scripts/data/damage_over_time_definition.gd": "33406f617a06c3c0ccd14e70a221b273f7874b5f4a5da619eb14854ef744a156",
+    "scripts/data/damage_over_time_definition.gd.uid": "e23991972a4278eebbc8a9285de44894a28fd2f7e594ed9f88f4d9e4891da4fd",
+    "scripts/data/projectile_split_definition.gd": "f07d61d2b5928d7ebcd7d44089310a9836d368b834c297194eebb4595f54eaa2",
+    "scripts/data/projectile_split_definition.gd.uid": "1d1b5ba69d30e2360477304383b92be495348bfb09598ccf0bde0afd3634155f",
+    "scripts/data/tower_definition.gd": "26dee0fe55224d680e8f4839c5f830bce0304da2528478c204acf51b89626ec3",
+    "scripts/data/tower_definition.gd.uid": "71115d009d85971b57d66cb764fbdd4ac7b8c2508093bc60d22e8ddbd43b86f1",
+    "scripts/data/upgrade_definition.gd": "42a3e07ee55da1e9eb51794cc62d89190d627c1d2f2cf196c1d18013b0464ba0",
+    "scripts/data/upgrade_definition.gd.uid": "48dbc9bb84d1f7cf4152d295ced38be48211a9fcffb87c5613523e6120874801",
+    "scripts/data/wave_definition.gd": "b934fafee0b70cdafe8c77ee036352e30e79cff0437a1228b672b202a47e4050",
+    "scripts/data/wave_definition.gd.uid": "531d71b479ba72c3193f398b6355e1611c1e2ae927ecc8daac2c231561da6593",
+    "scripts/data/wave_group.gd": "e09cdd64fc5d4a0fd2bd0ef0704520cff6d80239bb6bf4083ef4b91587e46342",
+    "scripts/data/wave_group.gd.uid": "cf2d5c4eafc997c18e9274eada79ae2a571b5781b8eb5539bc0329c2661116c8",
+    "scripts/developer/tier4_sandbox.gd": "e2e583c590a11baa3cf352575f39ff3b5e36e03cd8dde593c94430e1d27768e4",
+    "scripts/developer/tier4_sandbox.gd.uid": "402e9112df752688e0930b806b15fc4c99c1a453bcb309bf7e17192d4ced390d",
+    "scripts/developer/tier5_sandbox.gd": "c0b90796de940e3505b8b879957bf26d4d5d059cedc2741e758471f1650d6bac",
+    "scripts/developer/tier5_sandbox.gd.uid": "8031d1674bf9f279a25bf060726f136fff0524818be08f65af5df4f2365382d0",
+    "scripts/systems/ability_system.gd": "fc68899fa17cdad808ecd89e158907878612c7ca71e3ae073aa152f108f8ed6d",
+    "scripts/systems/ability_system.gd.uid": "b6a9b3d99b358962e6c877fe19c71e522ccee1750b531b43154f1589fca544b8",
+    "scripts/systems/balloon_system.gd": "3f458170c1666b5218e511737cfca592c3994ac91ea75be340e234d39cebb769",
+    "scripts/systems/balloon_system.gd.uid": "e098f11b6f353c56be3f7e2e8f1b25fc9c0132a80db5ba49be9b7706e3f2979c",
+    "scripts/systems/battle_statistics.gd": "b785d0abea5065546797674ff3463ce1a52899353633d095622dd56314866348",
+    "scripts/systems/battle_statistics.gd.uid": "3591fe1c216894232c32b52330f19dd44711702002ffc989facb49e37946684a",
+    "scripts/systems/combat_system.gd": "7b7cf39987872ac6d0af57de5c12f7a211f6168bf2029ccca1ecca4ccb3720ae",
+    "scripts/systems/combat_system.gd.uid": "238b8ef2a6ae9ae22fffb37b247369fbb31c7ce8556a6ff4524447f9c9dc1f74",
+    "scripts/systems/economy.gd": "22049aa10544278eda67d47173c61505c34bf67d7086d183211c3fd8b25d24b9",
+    "scripts/systems/economy.gd.uid": "3e486b6e6e0a0f69cf81a613a7b1d4fc06ae356a0962609946a6954706c4e1c8",
+    "scripts/systems/projectile_system.gd": "325b8e6b9133cdee8bc0e8f41b113c51956fa51e74273f7f88caf68f60c0a65f",
+    "scripts/systems/projectile_system.gd.uid": "e5894f21b4317ca0754f77e1192b76e37d2ce3d5a68f3d667d349dc2cc806697",
+    "scripts/systems/tower_system.gd": "60db7cee68a8bd55b3d5ae54700932869d4a2cb8178573453765657c8f4d3c45",
+    "scripts/systems/tower_system.gd.uid": "9c920f9172acefdce8b76afccd3b8f6af17c84febce5b3bfbe570ce6de532de6",
+    "scripts/systems/upgrade_system.gd": "47fb323afb3a59b0b00fdd323bef182d57c4b7dee215e6f4ee53ee163ecbc352",
+    "scripts/systems/upgrade_system.gd.uid": "2a5ef5ace1aafa694f57027f396fe079893a63258e7965bee44b5f6c7c6c34c3",
+    "scripts/systems/wave_system.gd": "0b3bba9fcbe3ea7bdccf56dc1fd4426b7fa2cabcb12d4248e3baf3e53ff94025",
+    "scripts/systems/wave_system.gd.uid": "5e81e58cf2e01749110f3819b32408f4809d947bd2f05da66709d50de2adc77d",
+    "scripts/ui/game_hud.gd": "9c4fda5150e330ad83563230415b4f057efccbc864b9743420f41a16f8a28621",
+    "scripts/ui/game_hud.gd.uid": "a0fd08b9b890a36371131e85f108e3cfb1b1ba409a8fdc816a1335f77d582a11",
+    "scripts/ui/tower_stats_panel.gd": "8bdea131c2b13062314564b4374564bbf41c8ba8656af6306ff1d9ceffd623a3",
+    "scripts/ui/tower_stats_panel.gd.uid": "9ad1727b02a6c4d4d2387e99f07ddb915682cb76928b7ce6be790f7848b95f77",
+    "scripts/ui/tower_upgrade_panel.gd": "432521c06a1a7287e1ab0e050f1a363f717715f7369d13f5f9fb5b792e375700",
+    "scripts/ui/tower_upgrade_panel.gd.uid": "f5b8c8b36fb8c9f9f05772fd3a4bdc632a4a8964765ec566195a00b576d9b8ba",
+    "scripts/world/balloon_spatial_index.gd": "703033cf5dc021b4d56c6efbdaea1f1287e3892e48c315abbcab38db724353e0",
+    "scripts/world/balloon_spatial_index.gd.uid": "1f61eafe916fd55351defee659c9165866a033d557363fefdbecc8661efdeffd",
+    "scripts/world/route.gd": "e98798197e539ef393a72808dcb471e60f624b9901451c819d302f38a2ab0386",
+    "scripts/world/route.gd.uid": "cfdb82609e6b39d107c69d182921bc4f242e1b27ce21eff08bb3367077af4f9e",
+    "data/abilities/bomb_assassin.tres": "54c29ab6f8e2ebab43d999ad24fdbca8587cb1b133c5bc52cde9780c3c6008b2",
+    "data/abilities/bomb_eliminator.tres": "458faabffb0b1e6b6c0e1e55fde405b7cb1b6f26ef9d68688b7824012e4b76d4",
+    "data/abilities/bomb_storm.tres": "ad9533c58d8de4257bf1b57d9a859d6b77fcb410342e57d9dffa8c44df90f2d1",
+    "data/abilities/boomerang_4.tres": "288d97af11278f131cbedae8f604934ab2e268057b229edaee7159d32e559605",
+    "data/abilities/boomerang_5.tres": "7b3f4af0a57be6c5c6beb676b897785adac78d567bdf1c4851223ef81e57cb54",
+    "data/abilities/fan_club.tres": "08485f4ec46e5fd6a610bb35e8304891f061a964d8911aff8f3c25c0b553a27e",
+    "data/abilities/plasma_fan_club.tres": "1e31f0a5334893d3e134545039cc12e502188514f5db853f79ea959e03d2ee3f",
+    "data/attacks/boomerang_special_4.tres": "8dc05c2280374db65b314d73c67930d5699c648840a8f58411e8fda589966569",
+    "data/attacks/boomerang_special_5.tres": "b03e220e4985192c5cfbc9380fc5b4ff9b1e9abd4d3385ceb6a5da50e679208b",
+    "data/attacks/domination_blast.tres": "9d87ef5315f4936a4585f5f9ddb2b40b77113dd905ec22574cae59bae52e6f15",
+    "data/attacks/glaive_orbit.tres": "2027c7a1d1ce5cb7c46c02c54fc1d251fc8d488803025fc51eacb5435255943c",
+    "data/balloons/bad.tres": "7e0d8f437ddd19fba879cbf3ec044062de41b123fce6eb2a08608b4c40372d7a",
+    "data/balloons/bfb.tres": "fc836f5e56835a1b7a1576aada6b033f1ac1a37815b5f9dd72bc3f2206744157",
+    "data/balloons/black.tres": "f6bffa7208f22c6b51b5f253b6eb7a31c910a113945c667432459277a52a1af1",
+    "data/balloons/blue.tres": "c159a0ae6d44e24649bb9b8257b764bd297218d5539285e90e2c7a09f33e16f8",
+    "data/balloons/ceramic.tres": "71826390af05d154cff096b3443fbcd759a1af99a3dba4659a3eccabf9b0b8a3",
+    "data/balloons/ddt.tres": "8db1fcbcabbbcd505f1e0102ba75859ffaaa71a6d0a2f4e85c91cc1fab4870d3",
+    "data/balloons/green.tres": "bb1c9d390ce2b92b767ad9616818d4b24d976dd2bb29e9048e77c4c0c1c4820c",
+    "data/balloons/lead.tres": "87382f4f26914f3e1b8a50bd489ae41af23a78f1a611ebd03c37c56fc7ff8258",
+    "data/balloons/moab.tres": "2f47c545a08c756f070a5ef21433c59e6330ee082d7d4dce71e308f080a8b7e8",
+    "data/balloons/pink.tres": "f5912afa0de5eb685f1a4d646ecb587f64ebdda2e968f96ead76332fad78595c",
+    "data/balloons/rainbow.tres": "9a160f10d97b85555c9f427566a4f83d54482aaa2b457876b0ec28e196901dc7",
+    "data/balloons/red.tres": "2f472ddaa8b88b7de9209651e36ae4eb99858894802d3465d9d588e6e7fbc65f",
+    "data/balloons/white.tres": "65c24311aa24d4fe8fddee3f51aceed323419aae3fa668feedc0bc3988056a59",
+    "data/balloons/yellow.tres": "4630f850967bf200d5dafa1dc3dc1e084f9dcea2acb5637938326e385cdbb391",
+    "data/balloons/zebra.tres": "5507fba90b4790dd5e0f80547992a96e2f3a8d687b3e582f48993288e65444b5",
+    "data/balloons/zomg.tres": "1d0e0cff38f42000902ab5f1dbb90b5e32c6955d77b7a0eba32b496244e7770d",
+    "data/effects/burn.tres": "2ab20583b334dcc5cd3b3fdefadf02ccf7d64e967962031e00b7ac539e630b2c",
+    "data/effects/shred.tres": "5e4690d9c7c8fe9978bfc6530b629776802a43ab9430c36696a1ed146163165e",
+    "data/projectiles/bomb_assassin.tres": "4447bbdc4453011ad94fb6bbeb1721667038148d3ed0ea8a95a309e91cd1dc22",
+    "data/projectiles/bomb_cluster.tres": "d4baaddf5fb252a9419101a78295d076fa46bd34cc290a875940ab84bc9f1628",
+    "data/projectiles/bomb_cluster_split.tres": "b3f51a50708bc142b40a7e290359b32dc30e5c3ca9da4a3033d1a6fc5bc9f369",
+    "data/projectiles/bomb_eliminator.tres": "60d533736c1f2c046fd36ea0887ff049916aa253994d6cc23cf0e9ed9ecb5a21",
+    "data/projectiles/bomb_frag.tres": "faae5cd155a35279f59be19bbdefd3ed992a1e878b9bc98dee764fca4cd35190",
+    "data/projectiles/bomb_frag_split.tres": "227f8813063d4873e2cf417ff3d7335a6d931dd12797843ff142c7eb79b8fa8c",
+    "data/projectiles/bomb_recursive.tres": "ebb418951288a91a436c997e10a8bd7367590bf01aef2c1fda90a87c53661131",
+    "data/projectiles/bomb_recursive_split.tres": "d3e76042c2161ed8dc575c1cc2519b94b771c952f38012ad76801244ee075787",
+    "data/projectiles/bomb_storm.tres": "1134350938c0217a3dab2aa70da1f3289e5ec6b98f51d6c29b8c18831ce75e90",
+    "data/projectiles/mini_juggernaut.tres": "01804999e3dff0115f1e36102cdeeb5f6ff496f8355990d5a2b026e373bcfaf1",
+    "data/projectiles/ultra_split.tres": "43f930d738ee67d72677a736e3a179eae3b846614c5f4649b97c45e063c5b114",
+    "data/towers/bomb.tres": "efa43712bf08be0eba4498788f4bb9154321c7bf56062d9c432a31e39aba9038",
+    "data/towers/boomerang.tres": "1829e5197a8aebf51a2c36397efc3d1e1087c85742187ad6ef028971facad57a",
+    "data/towers/dart.tres": "2141b5d81cdd8781ccec25d39827258f3f5417a4f4a41667a54204bc274db41c",
+    "data/waves/wave_01.tres": "350732314c08ec8aca2fc18c4c53bca0dc2ad3a5e24da3acafab8417dee23b04",
+    "data/waves/wave_02.tres": "c9ded1eb55e7c792939aaec655d7978c956f0029899c2441e52d38cc04fc3458",
+    "data/waves/wave_03.tres": "f07f82315d9de5fd27ca6d2f12deffc0a9a636acdc1c21d44f34a648535a5ec0",
+    "data/waves/wave_04.tres": "e9c8c3804a8ac3e34a5a22b249c5840d741ab6b0d42fb643e627b5a5c5687c2c",
+    "data/waves/wave_05.tres": "87adc96285ce7fa6bc38135924a445755a11a0a688f84ddd47e25ef902a5e646",
+    "data/waves/wave_06.tres": "b0df1e56087af43af9054e936c138d1776f9371ea650e8a519d6bcec850bfecd",
+    "data/upgrades/bomb/bottom_1.tres": "15b8fb10cc49e2a98c2fe54b7099167e76679f9a6436246fdd229d1f35301bfd",
+    "data/upgrades/bomb/bottom_2.tres": "1f940010922e825019bcc7e42d5f48b5774aa1661f87fb7e90d70f6806c3f589",
+    "data/upgrades/bomb/bottom_3.tres": "d80716559c76187846e6fb606357803cbd2fe8f514ae75da30c146d64e72e07d",
+    "data/upgrades/bomb/bottom_4.tres": "2f4608aae36728da63b19b38c1ee49bd46f72d1304f298db21ef2e42a6f54376",
+    "data/upgrades/bomb/bottom_5.tres": "a04496b2086e552654cda27079223f7d936f6717938c0afbc99214e3f699e06d",
+    "data/upgrades/bomb/middle_1.tres": "2ad9ff5d15da430ce2322b1bd89308cf6e0f7f8f339e737017928ebee8a26982",
+    "data/upgrades/bomb/middle_2.tres": "84c43481e65c06b57bac97d47f94daa95282f8e0e3c94b028c5431505bf20032",
+    "data/upgrades/bomb/middle_3.tres": "0f8ae9ce7036bedb7cee1fa852e4567c688be94c27de2e2025d8bd1d6e91cb68",
+    "data/upgrades/bomb/middle_4.tres": "280b6a8f3283d1c1df8ea8f4a3e1b145ceb92d1a7309615dfc2880f05fe01960",
+    "data/upgrades/bomb/middle_5.tres": "c519a270f116e7e6f8ca85184fbea7df03912ba45fd50a6bca235d82934389b9",
+    "data/upgrades/bomb/top_1.tres": "58351ba17161ff0c24959232b2376f893f8eefaa202395e24c8f3ed7ad92de53",
+    "data/upgrades/bomb/top_2.tres": "d9b9364b5add0abf8d584b5ef5bb444efcfdb410778ba7463c788d04f842d623",
+    "data/upgrades/bomb/top_3.tres": "5e47015a87e2e7eb062605d4af65f8965e236860a68dd09f694ccfd792393653",
+    "data/upgrades/bomb/top_4.tres": "8b748c9ae58fb3640b2973ca1e6c0f367c3de1da633f964808dff5adb0feb82b",
+    "data/upgrades/bomb/top_5.tres": "6fce2d57c31590863ca7b2e336e79ff62ea49d80c068ba28ec53b044fead678e",
+    "data/upgrades/boomerang/bottom_1.tres": "987ba0b4a92d0d6affa5b34ff598b289858d620f5ac6a3e024b9a3a9a9f56fda",
+    "data/upgrades/boomerang/bottom_2.tres": "79243107001e547a68b9088ec628f368f0b5ea39ce8a88fe690752f0ba6bdbac",
+    "data/upgrades/boomerang/bottom_3.tres": "34ba1de01b450e19f7b846313e4da0d8b47d4628037342d4f17a967bc54ed14b",
+    "data/upgrades/boomerang/bottom_4.tres": "a60a85150a7c73fe78730a1202a8f23f01aa3720a18c2886a2b63a2bc98f4598",
+    "data/upgrades/boomerang/bottom_5.tres": "b1a4f917a7d6dda54e8940ee514fe91c59ccf34668dd2322259276579d2636be",
+    "data/upgrades/boomerang/middle_1.tres": "e6c70d01d0e6ef9b3014f73f3cc77570171ba64b1e42f91e931369c3a58591f1",
+    "data/upgrades/boomerang/middle_2.tres": "2fc828777946e658cdef54d53f2b82ae1c50d1a951e0544633a1665fd13a667a",
+    "data/upgrades/boomerang/middle_3.tres": "79dcd0f8f9f01a9b15aed096fadc7d81af114d7e69f0b4cb222a2554df087a1e",
+    "data/upgrades/boomerang/middle_4.tres": "2677919d13f507fa9bf4472671b080cbcb60afdc8fe1f3a7542f23e058c256a8",
+    "data/upgrades/boomerang/middle_5.tres": "338648c692197e2e897d2dba52124ee3f2cbd8ecd37e7a63903e8b90cabee744",
+    "data/upgrades/boomerang/top_1.tres": "5c7ca2c95167a953fdf8aa562d56fa62f2cf766b3e5010de0efa3a286f80826a",
+    "data/upgrades/boomerang/top_2.tres": "484c29c475603bf788c2d9dae9c848e82aaed260210197e01a3a26e5034cfda3",
+    "data/upgrades/boomerang/top_3.tres": "705f07359d261f1f6f6402c623e209cb55606f699839b5f21e503422dc02e37a",
+    "data/upgrades/boomerang/top_4.tres": "18427925fedbce8dceb1541cd002987524e8ca14ce35bde3f5a7ed06beef6a0c",
+    "data/upgrades/boomerang/top_5.tres": "92812f082638a8c095303b8e6aa018ecf31497188aa212b60c27066c65a271a4",
+    "data/waves/campaign/wave_01.tres": "3e40cf083f2b72d59077fa01fe2b60baf34b7a61c0859b7b6c0778eb81e1333c",
+    "data/waves/campaign/wave_02.tres": "a57d92564dfc0b91373f2215ad135116f9ecf15758246a2e87d2158d35e4532e",
+    "data/waves/campaign/wave_03.tres": "a854d752b05ab8095cff42185ed4be51e779c56d6c3226657fcba16f1ac3065f",
+    "data/waves/campaign/wave_04.tres": "2b5d84e9222cb90154259c656887bd977aa9158b6ea42eaec138f5daf6d1d06a",
+    "data/waves/campaign/wave_05.tres": "f00a6b83ab9d4c6e1a0654d7f2e063b9fa4fa9fe5fa7658f7a0ee49ef441acbc",
+    "data/waves/campaign/wave_06.tres": "888b46fdbc98216f5e78eaf2f91b732fb738a66965a4a98e276f668412af9c97",
+    "data/waves/campaign/wave_07.tres": "cb254a9a69689943c0b7d77dbd53cc1893d1aa7df71d055dd65c87d353c1a8f5",
+    "data/waves/campaign/wave_08.tres": "b51ceb56073a00878e2bf4f434476c8a7338f1d83eda73b00cc8948aeabddccb",
+    "data/waves/campaign/wave_09.tres": "61081826aecbf19e27eb45379365d78af908d6082cb6f183a93f35d372eaca9c",
+    "data/waves/campaign/wave_10.tres": "c649cd525b952460c21628e2cd64d31fd5515c9a22bbb9f17261aa6490be90e5",
+    "data/waves/campaign/wave_11.tres": "4b42302905d76236aefda6f7e97c9c3c8ce68f16fa29a2dff22ea3620ac69177",
+    "data/waves/campaign/wave_12.tres": "22ae1a83850073c310e7e4b972a5701e8d1f6a6ed6449db04ea034bee71f7537",
+    "data/waves/campaign/wave_13.tres": "5d27a784ff800e6b1c37e2415330cd3b625a64e73b4bb746a2908a93c114fbc6",
+    "data/waves/campaign/wave_14.tres": "001f790d8a2cfe96028d9d18d6ad9d93a1a0863a0a82bac30b309cbc4d4396d8",
+    "data/waves/campaign/wave_15.tres": "b4e6f995fca758502a89f0f293a003721d422d52fba0bee612a01f169e38561c",
+    "data/waves/campaign/wave_16.tres": "92bc6dba640d5c82e7de2f33ff6df1f516dca3a5a33b00605d6247fa6e3d8759",
+    "data/waves/campaign/wave_17.tres": "31287933f2404342033d531d1d7b9ecd84e409b03d9123e2d6544caf1c8488de",
+    "data/waves/campaign/wave_18.tres": "050108f71a7c336c837eb2afe9f65f9d0b85dcdc9b83c05cbe55e7eb7d767a53",
+    "data/waves/campaign/wave_19.tres": "f43a78ba5dc05ca9b6b1feeece2d75b5f0820e0571bdd402b7a9884d1a1f6660",
+    "data/waves/campaign/wave_20.tres": "189d363722a9af4bc9c6e2a3c147ff856c49ec3f032ab4cb9d7f7f98155e654b"
+  },
+  "logs": [
+    {
+      "file": "test-results/v014-complete-verify.log",
+      "errors": 0,
+      "warnings": 0,
+      "sha256": "6be429e4b062622f63173499e38f5751bbc62cfb12f173d7e70739c3ad1b2ad8"
+    },
+    {
+      "file": "test-results/v014-final-check.log",
+      "errors": 0,
+      "warnings": 0,
+      "sha256": "9091eff0e797cbb3fed891dfbd7cb3986c9e5dfaedc980027d23af43a5448477"
+    },
+    {
+      "file": "test-results/v014-ablation-on.log",
+      "errors": 0,
+      "warnings": 0,
+      "sha256": "aaf485ac74a5b4630a6361537294c337e0f8a38c95ea43296b4562a96f999bf8"
+    },
+    {
+      "file": "test-results/v014-ablation-off.log",
+      "errors": 0,
+      "warnings": 0,
+      "sha256": "3b7440326ba32bcbc960357a60aa8c6f53f933371c4192976799c619e07ae3bb"
+    }
+  ],
+  "screenshots_reviewed": [
+    "combat.png",
+    "upgrade-path-0.png",
+    "upgrade-path-1.png",
+    "upgrade-path-2.png",
+    "crosspath-3-2-0.png",
+    "crosspath-3-0-2.png",
+    "crosspath-2-3-0.png",
+    "crosspath-0-3-2.png",
+    "crosspath-2-0-3.png",
+    "crosspath-0-2-3.png",
+    "boomerang-v014-preset-66.png",
+    "boomerang-v014-preset-75.png",
+    "boomerang-v014-preset-76.png",
+    "boomerang-v014-crosspath-052.png",
+    "boomerang-v014-crosspath-205.png",
+    "boomerang-v014-crosspath-520.png"
+  ],
+  "notes": "Counts are assertions only; benchmark frames and fingerprint comparisons are separate. Final successful logs only. Existing upper-catalog assertions adapted explicitly in TASKS.md. No commit/push."
+}

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/attacks/tack_ring.tres" id="aura_profile"]
+[ext_resource type="Resource" path="res://data/attacks/inferno_meteor.tres" id="secondary_attack"]
+
+[resource]
+script = ExtResource("1")
+id = "tack_top_5"
+display_name = "Inferno Ring"
+path = 0
+tier = 5
+cost = 45500
+reference_medium_cost = 45500
+reference_version = "v016: official v56/v57 + versioned Popology; see BTD6_REFERENCE.md"
+description = "강화된 화염과 독립 운석으로 공격합니다. 운석은 폭발과 4초 화상을 남깁니다."
+replacement_values = {"damage": 8, "pierce": 45, "fire_interval": 0.1, "attack_range": 164.0625, "attack_attribute": 6, "moab_bonus": 4, "projectile_count": 1}
+interactions = [{"requires": [5, 2, 0], "overrides": {"pierce": 60}, "profiles": {"secondary_attack": {"pierce": 2}}}, {"requires": [5, 0, 1], "overrides": {"damage": 9, "projectile_count": 1}}, {"requires": [5, 0, 2], "overrides": {"damage": 10, "projectile_count": 1}, "profiles": {"secondary_attack": {"damage": 1000}}}]
+primary_attack_pattern = 2
+aura_profile = ExtResource("aura_profile")
+secondary_attack = ExtResource("secondary_attack")
+prerequisites = Array[StringName]([&"tack_top_4"])
+visual_color = Color(1,0.35,0.08,1)

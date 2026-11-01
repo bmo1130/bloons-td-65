@@ -1,0 +1,8 @@
+{
+  "cpu_render_pairs": 140,
+  "unfiltered_filtered_pairs": 280,
+  "actual_local_before_pairs": 32,
+  "historical_v015_pairs": 32,
+  "historical_bomb_auxiliary_bridge": "v015 omits current auxiliary snapshot at index7; every historical field compared; full current auxiliary compared separately",
+  "failures": 0
+}

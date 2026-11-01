@@ -110,7 +110,7 @@ func refresh() -> void:
 	if not visible or tower == null:
 		return
 	target_button.text = "조준: %s  [클릭 전환]" % TowerState.TargetMode.keys()[tower.target_mode].capitalize()
-	target_button.disabled = tower.stats.attack_pattern == TowerDefinition.AttackPattern.RADIAL
+	target_button.disabled = tower.stats.attack_pattern != TowerDefinition.AttackPattern.AIMED
 	if target_button.disabled:
 		target_button.text = "조준: 고정 방사형 360°"
 	var started: int = Time.get_ticks_usec() if profile_updates else 0
@@ -142,6 +142,8 @@ func refresh() -> void:
 		_stats.text = "공격 %d · 관통 %d · 간격 %s초\n사거리 %.1f · 속도 %.0f · MOAB+%d\n%s · %s · 반경%.1f" % [stats.damage, stats.pierce, interval_text, stats.attack_range, stats.projectile_speed, stats.moab_bonus, AttackSpec.attribute_name(stats.attack_attribute), ["직선", "곡선 왕복", "연쇄", "직선 왕복"][stats.flight_mode], stats.projectile_radius]
 	if stats.attack_pattern == TowerDefinition.AttackPattern.RADIAL:
 		_stats.text = "공격 %d · 관통 %d · 간격 %s초\n사거리 %.1f · 속도 %.0f · %d발\n%s · 고정 360° · 반경%.1f" % [stats.damage,stats.pierce,interval_text,stats.attack_range,stats.projectile_speed,stats.projectile_count,AttackSpec.attribute_name(stats.attack_attribute),stats.projectile_radius]
+	if stats.attack_pattern == TowerDefinition.AttackPattern.AREA:
+		_stats.text = "화염 %d · 관통 %d · %.3f초\n반경 %.1f · MOAB+%d\n%s · 독립 운석 %s" % [stats.damage,stats.pierce,stats.fire_interval,stats.attack_range,stats.moab_bonus,AttackSpec.attribute_name(stats.attack_attribute),"있음" if stats.secondary_attack != null else "없음"]
 	for path in range(3):
 		var item: UpgradeDefinition = tower.definition.upgrade_at(path, tower.tiers[path] + 1)
 		_next[path] = item
@@ -161,7 +163,7 @@ func refresh() -> void:
 				preview_rebuilds += 1
 			var changes: String = _changes[item.id]
 			_buttons[path].text = "%s→%d · %s" % [current, item.tier, item.display_name]
-			if stats.flight_mode != TowerDefinition.Flight.STRAIGHT or stats.attack_pattern == TowerDefinition.AttackPattern.RADIAL:
+			if stats.flight_mode != TowerDefinition.Flight.STRAIGHT or stats.attack_pattern != TowerDefinition.AttackPattern.AIMED:
 				_buttons[path].text = "%s [%d→%d]" % [item.display_name, tower.tiers[path], item.tier]
 			_details[path].text = "%s\n%d G · %s" % [changes, item.cost, "구매 가능" if reason.is_empty() else reason]
 			_buttons[path].tooltip_text = "%s\n%s\n%s\n%d G · %s" % [item.display_name, item.description, changes, item.cost, reason]
@@ -185,6 +187,11 @@ func refresh() -> void:
 			ability_button.disabled = ability_button.disabled or target == null
 			ability_button.text = "%s [A] · %s" % [state.definition.display_name, ("대기 %.1f초" % state.cooldown_remaining) if state.cooldown_remaining > 0.000001 else ("준비" if target != null else "대상 없음")]
 			ability_button.tooltip_text = "화면 내 유효 MOAB · 현재 조준 우선순위 · 사거리 무관\n단일 대상 %d 피해 · 재사용 %.0f초 · 타겟 소멸 시 미사일 제거\n선택 타워 능력 단축키 A" % [state.definition.attack_profile.damage, state.definition.cooldown]
+		elif state.definition.effect == AbilityDefinition.Effect.RADIAL_BURST:
+			ability_button.disabled = ability_button.disabled or state.active_remaining > 0.000001
+			ability_button.text = "%s [A] · %s" % [state.definition.display_name, ("활성 %.1f초" % state.active_remaining) if state.active_remaining > 0.000001 else (("대기 %.1f초" % state.cooldown_remaining) if state.cooldown_remaining > 0.000001 else "준비")]
+			var blades: TowerDefinition = state.definition.attack_profile
+			ability_button.tooltip_text = "%d줄기 회전 칼날 · %.5f초 간격\n피해%d + 세라믹%d · 개별 관통%d · %s\n지속%.1f초 / 재사용%.1f초 / 최초%.2f초\n활성 중 재발동 불가 · 제거/일시정지 연동" % [blades.projectile_count,state.definition.attack_interval,blades.damage,blades.ceramic_bonus,blades.pierce,AttackSpec.attribute_name(blades.attack_attribute),state.definition.duration,state.definition.cooldown,state.definition.initial_cooldown]
 		elif state.definition.effect == AbilityDefinition.Effect.SELF_BUFF:
 			ability_button.disabled = ability_button.disabled or state.active_remaining > 0.000001
 			ability_button.text = "%s [A] · %s" % [state.definition.display_name, ("활성 %.1f초" % state.active_remaining) if state.active_remaining > 0.000001 else (("대기 %.1f초" % state.cooldown_remaining) if state.cooldown_remaining > 0.000001 else "준비")]
@@ -198,20 +205,29 @@ func refresh() -> void:
 	_stats.tooltip_text = "영구 공격: %d 피해 / 관통 %d / %.3f초\nCRIT: 매 %d번째 발사에 %d 피해" % [tower.stats.damage, tower.stats.pierce, tower.stats.fire_interval, tower.stats.critical_every, tower.stats.critical_damage]
 	_stats.tooltip_text += "\n카모 탐지: %s · 공격 속성 면역은 별도 판정" % ("가능" if stats.detects_camo else "불가")
 	_stats.tooltip_text += "\nMOAB 추가 피해: +%d" % stats.moab_bonus
+	_stats.tooltip_text += "\n세라믹 추가 피해: +%d" % stats.ceramic_bonus
+	if stats.attack_pattern != TowerDefinition.AttackPattern.AIMED:
+		_stats.mouse_filter = Control.MOUSE_FILTER_PASS # Final-tier fire/meteor/radial details remain hoverable.
 	if stats.flight_mode != TowerDefinition.Flight.STRAIGHT:
 		_stats.mouse_filter = Control.MOUSE_FILTER_PASS
 		_stats.tooltip_text += "\n궤도: %s · 최대거리%.2f · 수명%.2f초\n곡선폭%.2f · 연쇄거리%.2f · 재타격%.2f초" % [TowerDefinition.Flight.keys()[stats.flight_mode], stats.flight_distance, stats.projectile_lifetime, stats.curve_width, stats.chain_range, stats.rehit_interval]
-	if stats.aura_profile != null:
+	if stats.aura_profile != null and stats.attack_pattern != TowerDefinition.AttackPattern.AREA:
 		var aura: TowerDefinition = stats.aura_profile as TowerDefinition
 		_stats.tooltip_text += "\n회전 3개 = 범위 판정 1회 / %.2f초\n피해%d + 세라믹%d · 관통%d · 반경%.2f · 카모 탐지" % [aura.fire_interval, aura.damage, aura.ceramic_bonus, aura.pierce, aura.explosion_radius]
 	if stats.damage_over_time != null:
 		_stats.tooltip_text += "\nShred: 100/초 × 10초 · 중첩 없음 / 기간 갱신 · 최초 타워 귀속"
 	if stats.secondary_attack != null:
 		var secondary: TowerDefinition = stats.secondary_attack as TowerDefinition
-		_stats.tooltip_text += "\n독립 MOAB 특수: %d 피해 / 관통%d / %.1f초\n재타격%.1f초 · Press %.3fpx (저항 별도)" % [secondary.damage + secondary.moab_bonus, secondary.pierce, secondary.fire_interval, secondary.rehit_interval, secondary.press_distance]
+		if secondary.press_distance > 0.0:
+			_stats.tooltip_text += "\n독립 MOAB 특수: %d 피해 / 관통%d / %.1f초\n재타격%.1f초 · Press %.3fpx (저항 별도)" % [secondary.damage + secondary.moab_bonus, secondary.pierce, secondary.fire_interval, secondary.rehit_interval, secondary.press_distance]
+		else:
+			_stats.tooltip_text += "\n독립 투사체: %d 피해 / 관통%d / %.1f초\n사거리%.1f · %s · 카모 탐지 %s" % [secondary.damage,secondary.pierce,secondary.fire_interval,secondary.attack_range,AttackSpec.attribute_name(secondary.attack_attribute),"있음" if secondary.detects_camo else "없음"]
 		if secondary.end_explosion != null:
 			var blast: TowerDefinition = secondary.end_explosion as TowerDefinition
-			_stats.tooltip_text += "\n종료 시 1회 폭발: %d 피해 / 관통%d / 반경%.2f\n화상50/초 ×4초 · 중첩 없음" % [blast.damage, blast.pierce, blast.explosion_radius]
+			_stats.tooltip_text += "\n종료 시 1회 폭발: %d 피해 / 관통%d / 반경%.2f" % [blast.damage, blast.pierce, blast.explosion_radius]
+			if blast.damage_over_time != null:
+				var burn: DamageOverTimeDefinition = blast.damage_over_time as DamageOverTimeDefinition
+				_stats.tooltip_text += "\n화상%d / %.2f초 × %.1f초 · 중첩 없음" % [burn.damage,burn.interval,burn.duration]
 	if stats.stun_duration > 0.0:
 		_stats.tooltip_text += "\n기절 %.2f초 / MOAB %.2f초 · 넉백 %.0f / MOAB %.0fpx" % [stats.stun_duration, stats.stun_moab_duration, stats.push_distance, stats.push_moab_distance]
 	if stats.recursive_every > 0:
@@ -240,6 +256,13 @@ static func stat_changes(before: TowerDefinition, after: TowerDefinition) -> Str
 	if before.projectile_split != after.projectile_split and after.projectile_split != null:
 		var child: TowerDefinition = after.projectile_split.child_projectile as TowerDefinition
 		parts.append("%d개 %s" % [after.projectile_split.count_per_burst, "추가 폭발" if child.timed_explosion else "파편"])
+	if after.attack_pattern == TowerDefinition.AttackPattern.AREA:
+		parts.append("원형 화염 %d피해/%d관통/%.3f초" % [after.damage,after.pierce,after.fire_interval])
+	if after.secondary_attack != null and after.secondary_attack != before.secondary_attack:
+		var secondary: TowerDefinition = after.secondary_attack as TowerDefinition
+		parts.append("독립 공격 %d피해/%d관통/%.1f초" % [secondary.damage,secondary.pierce,secondary.fire_interval])
+	if after.ability != null and after.ability.effect == AbilityDefinition.Effect.RADIAL_BURST:
+		parts.append("능력 %.1f초 · %d줄기 · %.5f초" % [after.ability.duration,after.ability.attack_profile.projectile_count,after.ability.attack_interval])
 	return " · ".join(parts) if not parts.is_empty() else "외형 변경"
 
 func _request(path: int) -> void:

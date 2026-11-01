@@ -16,7 +16,8 @@ param(
     [switch]$ChainBenchmark,
     [switch]$ChainStability,
     [switch]$BoomerangTier5Benchmark,
-    [switch]$TackBenchmark
+    [switch]$TackBenchmark,
+    [switch]$TackTier5Benchmark
 )
 
 $ErrorActionPreference = 'Stop'
@@ -54,6 +55,7 @@ try {
     Invoke-GodotCheck -Name 'tests' -Arguments @('--headless', '--script', 'res://tests/run_tests.gd', '--quit-after', '600') -ExpectedResult 'TEST RESULT: \d+ checks, 0 failures'
     Invoke-GodotCheck -Name 'main' -Arguments @('--headless', '--quit-after', '120')
     if ($Visual) {
+        Invoke-GodotCheck -Name 'visual-tack-v016' -Arguments @('--script','res://tests/tack_tier5_visual.gd','--quit-after','4000') -ExpectedResult 'TACK TIER5 VISUAL RESULT: \d+ checks, 0 failures'
         Invoke-GodotCheck -Name 'visual-tack-v015' -Arguments @('--script','res://tests/tack_visual.gd','--quit-after','3000') -ExpectedResult 'TACK VISUAL RESULT: \d+ checks, 0 failures'
         Invoke-GodotCheck -Name 'visual-boomerang-v014' -Arguments @('--script','res://tests/boomerang_tier5_visual.gd','--quit-after','4000') -ExpectedResult 'BOOMERANG TIER5 VISUAL RESULT: \d+ checks, 0 failures'
         Invoke-GodotCheck -Name 'visual-boomerang-v013' -Arguments @('--script', 'res://tests/boomerang_visual.gd', '--quit-after', '2000') -ExpectedResult 'BOOMERANG VISUAL RESULT: \d+ checks, 0 failures'
@@ -73,7 +75,7 @@ try {
     }
     if ($Benchmark) {
         foreach ($variant in @('on','off','cluster-on','cluster-off')) {
-            $benchArgs = @('--headless', '--script', 'res://tests/benchmark.gd', '--quit-after', '600', '--', '--crosspath', '--v015', '--bomb-upgrades')
+            $benchArgs = @('--headless', '--script', 'res://tests/benchmark.gd', '--quit-after', '600', '--', '--crosspath', '--v016', '--bomb-upgrades')
             if ($variant.EndsWith('off')) { $benchArgs += '--stats-off' }
             if ($variant.StartsWith('cluster')) { $benchArgs += '--concentrated' }
             Invoke-GodotCheck -Name "benchmark-v0131-legacy-$variant" -Arguments $benchArgs -ExpectedResult 'BENCHMARK COMPLETE:'
@@ -237,17 +239,17 @@ try {
     if ($ChainStability) {
         foreach ($surface in @('cpu','render')) {
             $prefix = @()
-            $userArgs = @('--output-prefix=tack-v015')
+            $userArgs = @('--output-prefix=tack-v016')
             if ($surface -eq 'cpu') { $prefix = @('--headless') }
             else { $userArgs += '--render' }
             Invoke-GodotCheck -Name "boomerang-v0131-repeat-$surface" -Arguments ($prefix + @('--script','res://tests/chain_repeat.gd','--quit-after','6000','--') + $userArgs) -ExpectedResult 'CHAIN REPEAT COMPLETE:'
             Invoke-GodotCheck -Name "boomerang-v0131-stability-$surface" -Arguments ($prefix + @('--script','res://tests/chain_stability.gd','--quit-after','6000','--') + $userArgs) -ExpectedResult 'CHAIN STABILITY COMPLETE: \d+ checks, 0 failures'
             Invoke-GodotCheck -Name "boomerang-v0131-campaign-$surface" -Arguments ($prefix + @('--script','res://tests/chain_campaign.gd','--quit-after','6000','--') + $userArgs) -ExpectedResult 'CHAIN CAMPAIGN COMPLETE:'
         }
-        Invoke-GodotCheck -Name 'boomerang-v0131-stability-cpu-short' -Arguments @('--headless','--script','res://tests/chain_stability.gd','--','--short','--output-prefix=tack-v015') -ExpectedResult 'CHAIN STABILITY COMPLETE: \d+ checks, 0 failures'
-        Invoke-GodotCheck -Name 'boomerang-v0131-stability-render-profile' -Arguments @('--script','res://tests/chain_stability.gd','--','--render','--capture-stages','--output-prefix=tack-v015') -ExpectedResult 'CHAIN STABILITY COMPLETE: \d+ checks, 0 failures'
-        Invoke-GodotCheck -Name 'boomerang-v0131-probe-after' -Arguments @('--headless','--script','res://tests/chain_benchmark.gd','--','--core','--phase=probe-after','--trials=2','--detail','--output-prefix=tack-v015') -ExpectedResult 'CHAIN BENCHMARK COMPLETE:'
-        & (Join-Path $PSScriptRoot 'analyze_chain_profiles.ps1') -ProjectRoot $projectRoot -CurrentPrefix 'tack-v015'
+        Invoke-GodotCheck -Name 'boomerang-v0131-stability-cpu-short' -Arguments @('--headless','--script','res://tests/chain_stability.gd','--','--short','--output-prefix=tack-v016') -ExpectedResult 'CHAIN STABILITY COMPLETE: \d+ checks, 0 failures'
+        Invoke-GodotCheck -Name 'boomerang-v0131-stability-render-profile' -Arguments @('--script','res://tests/chain_stability.gd','--','--render','--capture-stages','--output-prefix=tack-v016') -ExpectedResult 'CHAIN STABILITY COMPLETE: \d+ checks, 0 failures'
+        Invoke-GodotCheck -Name 'boomerang-v0131-probe-after' -Arguments @('--headless','--script','res://tests/chain_benchmark.gd','--','--core','--phase=probe-after','--trials=2','--detail','--output-prefix=tack-v016') -ExpectedResult 'CHAIN BENCHMARK COMPLETE:'
+        & (Join-Path $PSScriptRoot 'analyze_chain_profiles.ps1') -ProjectRoot $projectRoot -CurrentPrefix 'tack-v016'
     }
     if ($BoomerangTier5Benchmark) {
         foreach ($surface in @('cpu','render')) {
@@ -258,16 +260,14 @@ try {
         }
         & (Join-Path $PSScriptRoot 'compare_boomerang_tier5.ps1') -ProjectRoot $projectRoot
     }
-    if ($TackBenchmark) {
+    if ($TackTier5Benchmark -or $TackBenchmark) {
         foreach ($surface in @('cpu','render')) {
-            $prefix = @()
-            $userArgs = @('--output-prefix=tack-v015-legacy')
-            if ($surface -eq 'cpu') { $prefix += '--headless' }
-            else { $userArgs += '--render' }
-            Invoke-GodotCheck -Name "tack-v015-$surface" -Arguments ($prefix + @('--script','res://tests/tack_benchmark.gd','--quit-after','30000','--') + $userArgs) -ExpectedResult 'TACK BENCHMARK COMPLETE: 72 rows'
-            Invoke-GodotCheck -Name "tack-v015-legacy-$surface" -Arguments ($prefix + @('--script','res://tests/boomerang_tier5_benchmark.gd','--quit-after','30000','--') + $userArgs) -ExpectedResult 'BOOMERANG TIER5 BENCHMARK COMPLETE: 44 rows'
+            $benchArgs = @('--script','res://tests/tack_tier5_benchmark.gd','--quit-after','50000','--')
+            if ($surface -eq 'cpu') { $benchArgs = @('--headless') + $benchArgs }
+            else { $benchArgs += '--render' }
+            Invoke-GodotCheck -Name "tack-v016-$surface" -Arguments $benchArgs -ExpectedResult 'TACK TIER5 BENCHMARK COMPLETE:140rows'
         }
-        & (Join-Path $PSScriptRoot 'compare_tack.ps1') -ProjectRoot $projectRoot
+        & (Join-Path $PSScriptRoot 'compare_tack_tier5.ps1') -ProjectRoot $projectRoot
     }
     Write-Output 'All requested checks passed.'
 

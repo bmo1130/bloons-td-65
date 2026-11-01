@@ -3,6 +3,7 @@ extends Resource
 
 # Replace this path's earlier modifiers for these fields, then compose secondary
 # path modifiers normally. This avoids a tier-4 override erasing crosspaths.
+@export var primary_attack_pattern: int = -1 # -1 preserves the base pattern.
 @export var replacement_values: Dictionary = {}
 @export var interactions: Array[Dictionary] = []
 @export var minimum_fire_interval: float = 0.0 # Zero keeps the existing resolver floor.

@@ -69,7 +69,7 @@ func fire(at: Vector2, target: BalloonState, definition: TowerDefinition, source
 			battle_stats.record_volley(source_id)
 	return shot
 
-func fire_volley(at: Vector2, target: BalloonState, definition: TowerDefinition, source_id: int = 0, critical: bool = false, spawn_fraction: float = 0.0, recursive: bool = false, return_at: Vector2 = Vector2.INF) -> int:
+func fire_volley(at: Vector2, target: BalloonState, definition: TowerDefinition, source_id: int = 0, critical: bool = false, spawn_fraction: float = 0.0, recursive: bool = false, return_at: Vector2 = Vector2.INF, phase_degrees: float = 0.0) -> int:
 	var radial: bool = definition.attack_pattern == TowerDefinition.AttackPattern.RADIAL
 	var heading: Vector2 = Vector2.RIGHT if radial else _aim_direction(at, target, definition)
 	var reach: float = -1.0
@@ -81,6 +81,7 @@ func fire_volley(at: Vector2, target: BalloonState, definition: TowerDefinition,
 	for index in range(definition.projectile_count):
 		var angle: float = definition.heading_offset_degrees
 		if radial:
+			angle += phase_degrees
 			angle += 360.0 * index / definition.projectile_count
 		elif definition.projectile_count > 1:
 			angle += definition.spread_degrees * (float(index) / (definition.projectile_count - 1) - 0.5)
@@ -339,6 +340,7 @@ func _collect_hits(shot: ProjectileState, delta: float, max_id: int, hits: Array
 		if target == null or target.id > max_id or _chain_excluded(shot, target.id, shot.spawn_fraction) or not combat.can_attack(target, shot.attack.attribute, shot.attack.detects_camo):
 			target = _chain_target(shot, shot.spawn_fraction, max_id)
 		if target == null:
+			_end_burst(shot, shot.position, shot.spawn_fraction, max_id)
 			shot.remaining_pierce = 0
 			return
 		var heading_started: int = Time.get_ticks_usec() if trace != null else 0
@@ -379,8 +381,11 @@ func _collect_hits(shot: ProjectileState, delta: float, max_id: int, hits: Array
 		if profile_updates:
 			profile_usec.candidates += Time.get_ticks_usec() - started
 			started = Time.get_ticks_usec()
+		# The grid bounds contain every balloon motion point plus its radius.
+		# A disjoint swept-shot AABB cannot touch; surviving blades still use
+		# the unchanged exact relative-circle test and chronological event queue.
 		for balloon in candidates:
-			if flight_broadphase_enabled and (shot.flight_mode == TowerDefinition.Flight.CURVE or shot.flight_mode == TowerDefinition.Flight.RETURN) and not bounds.intersects(balloon.broadphase_bounds, true):
+			if flight_broadphase_enabled and (shot.flight_mode == TowerDefinition.Flight.CURVE or shot.flight_mode == TowerDefinition.Flight.RETURN or shot.projectile_style == TowerDefinition.ProjectileStyle.BLADE) and not bounds.intersects(balloon.broadphase_bounds, true):
 				continue
 			if shot.rehit_interval > 0.0 and queued.has(balloon.id):
 				continue
@@ -610,6 +615,7 @@ func _continue_chain(shot: ProjectileState, hit: Dictionary, delta: float, max_i
 	shot.age_origin = shot.age - hit.time * delta
 	var target: BalloonState = _chain_target(shot, hit.time, max_id)
 	if target == null:
+		_end_burst(shot, hit.position, hit.time, max_id)
 		shot.remaining_pierce = 0
 		return
 	shot.target_id = target.id
@@ -809,7 +815,11 @@ func _draw() -> void:
 	for effect in split_effects:
 		draw_arc(effect.position, 22.0 * (1.0 - effect.remaining / 0.28), 0, TAU, 16, Color(1, 0.7, 0.3, effect.remaining / 0.14), 2.0)
 	for shot in projectiles:
-		if shot.projectile_style == TowerDefinition.ProjectileStyle.TACK:
+		if shot.projectile_style == TowerDefinition.ProjectileStyle.METEOR:
+			draw_line(shot.position - shot.direction * 26, shot.position, Color("e6532d"), 12, true)
+			draw_circle(shot.position, shot.radius, Color("ffb33d"))
+			draw_circle(shot.position - shot.direction * 2, shot.radius * 0.5, Color("fff0a1"))
+		elif shot.projectile_style == TowerDefinition.ProjectileStyle.TACK:
 			var color: Color = Color("ffd36b") if shot.attack.attribute == AttackSpec.Attribute.NORMAL else Color("e9edf5")
 			draw_line(shot.position - shot.direction * shot.length, shot.position, color, shot.radius * 2, true)
 		elif shot.projectile_style == TowerDefinition.ProjectileStyle.BLADE:

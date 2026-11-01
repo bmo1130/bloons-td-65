@@ -1,0 +1,93 @@
+{
+  "legacy_crosspath_pairs": 12,
+  "engine": "4.7.2",
+  "baseline": {
+    "logic": 8096,
+    "visual": 1119,
+    "total": 9215
+  },
+  "new": {
+    "logic": 1823,
+    "visual": 532,
+    "total": 2355
+  },
+  "final": {
+    "logic": 9919,
+    "visual": 1651,
+    "total": 11570
+  },
+  "stability_separate": 656,
+  "godot_errors": 0,
+  "godot_warnings": 0,
+  "benchmark_comparisons": {
+    "cpu_render_pairs": 140,
+    "unfiltered_filtered_pairs": 280,
+    "actual_local_before_pairs": 32,
+    "historical_v015_pairs": 32,
+    "historical_bomb_auxiliary_bridge": "v015 omits current auxiliary snapshot at index7; every historical field compared; full current auxiliary compared separately",
+    "failures": 0
+  },
+  "runtime_sha": {
+    "projectiles": "cad0691e5e3219c3719b99f376dbfd2a4f1b8d29e752e770a2ca2bff7883cb9a",
+    "towers": "157645094603ad2cb5112851e312d97a977adb8ec0cf76e1f7cc690c30b304c0",
+    "abilities": "7960624ff32072c2cf0ad040b7f735efad414549480a69d2229a67dbac47587d",
+    "combat": "d01c0bcfc163add18e072576c30416d0ef823e1b4fe9b465bbe5c1f6ca5201c1",
+    "resolver": "313e8abad88a9c0343d22f9085fbcd90c7416545cf7b7ea70f671eb585de44c6"
+  },
+  "verification_log": "C:\\codex\\bloons-td-65\\test-results\\v016-final-verification.log",
+  "verification_log_sha": "9121b24d25a9a5b7bcc93efeabd49e183bc2f40d9c88cbb521e16d1cd038f381",
+  "final_ui_log": "C:\\codex\\bloons-td-65\\test-results\\v016-final-ui-verification.log",
+  "final_ui_log_sha": "ae57efd25b0cf3d376f41d69d597fcc1c2ac7c068982793a246255891c75ec3c",
+  "qa_capture_sha": {
+    "combat.png": "9a5161ca26f77298d29163ac0ec5b72adeb09461b0614bce5de7b9b58ef12066",
+    "upgrade-path-0.png": "d4efec2f411ee4b1351c6777001c9448305a9faa68b25c2b859c514bc506bd91",
+    "upgrade-path-1.png": "1b4905f3d2f9964c64a2f8a850525aeaf82d681e1eaf58bb4f6b04e93c7005a9",
+    "upgrade-path-2.png": "58b19f28db23fbc92e28f9d8035c5656700b72d32c9233d87fac2e60b5b1b724",
+    "crosspath-0-2-3.png": "1356d9dd6fcfdb818b52d9ccd3e350ad42aad54a67e9e4924d78798de9d8ffba",
+    "crosspath-0-3-2.png": "eab4db74cb8dc902058be80d256ff90edc3d6c8047affc52c9b5e87809c011e1",
+    "crosspath-2-0-3.png": "363fb1f4a3d3b54e663168eaa2cc933881294ca6df033aeef0abaf10e88699d3",
+    "crosspath-2-3-0.png": "ac4d6422c7139859f69a745afdb80d086c630cfccf6358f5d1e060adc13af6ab",
+    "crosspath-3-0-2.png": "9e7f397fb6044a120d54063cac7eb857814796542adb881d34a554ed5008c3c5",
+    "crosspath-3-2-0.png": "0b3b7dfb55978cfb7063aa711164ae14f4331e47f737a706d3e62a19512a823c",
+    "tack-v016-native-420.png": "960f319054416aeb2c00daa8c959f144ac22ff501cbd223210fee37c73526116",
+    "tack-v016-native-402.png": "ce1dbf570de7e7db9b9acd3a551e5699e388828cfba07cd1de8c3372e6e5a6bd",
+    "tack-v016-native-240.png": "4fd73c9b5f95bc7efcf15ff8c5695e8c30a88e9600dfdccd098bec4eed7b66bd",
+    "tack-v016-native-042.png": "3deb1871e8668114272dba224acf6f1e46ab903397d549462000a80f8b56b4e9",
+    "tack-v016-native-204.png": "0b22d3396b9e8dd3bcc006c5f3e200b7320c45288a3f119a71ef44ad87a43c89",
+    "tack-v016-native-024.png": "094452f5bc95554ca482d7f0918a7656ff12a77e0826d35ffa11f71ad543aa59",
+    "tack-v016-native-520.png": "ac411050212b39dc5334dbcadfef61f4aecd72240147b471680b713dcc2da8ed",
+    "tack-v016-native-502.png": "7bb64ec45c17a5f3f9e6ef7ef2d720ce833fc0837869702a774a769aa8986082",
+    "tack-v016-native-250.png": "fa9f83733696d370ee9481cee7f42b668744da076805919b38731f8b15f04f72",
+    "tack-v016-native-052.png": "dcb6c5a7c741f22d2dcdd36d0e798486a3e1821a2ec32f40c2ab5a68464e08d0",
+    "tack-v016-native-205.png": "d945ae4e700600356e5eb22bf5e6d353efdce7ea86cbeb8bedaf9cd7bef8f7de",
+    "tack-v016-native-025.png": "168c64792ce8fb49137f609d90266488f8274622969de75d92808abd9b840cb7",
+    "tack-v016-preset-95.png": "b05ddd275ac9e35ed278accc4d29e4b7861feb46e9cd50fd8b09f4a55b76538b",
+    "tack-v016-preset-96.png": "5e9f27818f41102f35b7a79f9f6b8ae0ed9c058cfaee8e0ad5e796c957852d50",
+    "tack-v016-preset-97.png": "13a3e852a19fd67fec44874b76e920197872ec16eef43e77bb28430781fbb38b",
+    "tack-v016-preset-98.png": "bca1b70af5b8405822a4c9be32d551acd5d05adf219adf4df5b2d4b1e113bbef",
+    "tack-v016-preset-99.png": "468f961242d7d6cc6e7e8e0f008fb2da5db0f9d72bc9cb666fad2ba98a832237",
+    "tack-v016-preset-100.png": "773ea97b67c55d573bba63e84b395fef79ca5eef5f34a609e433b1958a8a44c2",
+    "tack-v016-preset-101.png": "62e4b3e02441af0647618a87970c9fcbec63a767a9cd0f258658b59397439fde",
+    "tack-v016-preset-102.png": "d0194c412b763cb5ee8bb00909efda1990d9095e28ebca5ee2806c73c4d8ade8",
+    "tack-v016-preset-103.png": "7ca5ff0dd57ba184b9e0e609b9323ec4633fe1bfd750df272f7f3fe5aa0b6e37",
+    "tack-v016-preset-104.png": "8b9dd826b6ea42c0785a64c85eda3de8772180daa07797ace5f6dea24d91a580",
+    "tack-v016-preset-105.png": "b47281d4f2faf7e880af0998ce7348c8afec7147fc9c63abcd91dd98b1e8c19f",
+    "tack-v016-preset-106.png": "9a6aa8e4ab628936a10a8d788617126e203dc43b89a33f1eca920662ba03d4dd",
+    "tack-v016-preset-107.png": "02f1826feda76f8af74813f5affdd5564ac65e0757efbfbf7cfc2ab371a9a139",
+    "tack-v016-preset-108.png": "050b028dda3d0003933405d841d658d4f6b23dbc50faaf050c92c368716731ee",
+    "tack-v016-preset-109.png": "24b7690a888c39d5587ce78ada59176992e6ac115a098ac48328380ae92995fe",
+    "tack-v016-preset-110.png": "edcb99357e89cf23ad5b67ca355a10b32caa5fdca05cc42e86de4daa90c86f9d",
+    "tack-v016-preset-111.png": "71cb7572bbaf57e650cccbda3f3ea4e30cee384f88a361a399459b43295b4f68",
+    "tack-v016-preset-112.png": "ed04477baf8029a59804690c85067823374b17a6480fe8d4431d52daafe3450d",
+    "tack-v016-preset-113.png": "fe24c1ab8f5845700db4baf0d811e9aa4cd78b3c146fc2b80b0f5e5a6ea1373f",
+    "tack-v016-preset-114.png": "2a3d1bea7982e876d76a0b81dbf4d8470e1da0d9ac7f280ea484bad2092d403a",
+    "tack-v016-preset-115.png": "6feda087b7ed87aa1c30730366054c051b6739594849ceb1a303bb8594155d11",
+    "tack-v016-preset-116.png": "b2899ee739753c3a7c38faea12c76c1a4e3f8ba8f275bbb3e48ca01ad59a7189",
+    "tack-v016-preset-117.png": "1745474a2a3f168d8d5d1727eef58253967670d7654597523e9fc5809766e917"
+  },
+  "counting": "Runtime _check/assert calls, including real transaction setup assertions; one final run per suite. Separate656 stability, frames, fingerprints and repeated runs are not added to total.",
+  "execution_exit_codes": {
+    "full_verification": 0,
+    "final_ui": 0
+  }
+}

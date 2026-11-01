@@ -50,6 +50,8 @@ static func resolve(base: TowerDefinition, tiers: PackedInt32Array) -> TowerDefi
 		else:
 			stats.set(field, value)
 	for item in items:
+		if item.primary_attack_pattern >= 0:
+			stats.attack_pattern = item.primary_attack_pattern as TowerDefinition.AttackPattern
 		if item.minimum_fire_interval > 0.0:
 			stats.minimum_fire_interval = item.minimum_fire_interval
 		if item.aura_profile != null:
@@ -64,21 +66,18 @@ static func resolve(base: TowerDefinition, tiers: PackedInt32Array) -> TowerDefi
 			stats.dot_first_moab = item.dot_first_moab
 		if item.ability != null:
 			stats.ability = item.ability
+			if item.ability.effect == AbilityDefinition.Effect.RADIAL_BURST:
+				stats.ability = item.ability.duplicate() as AbilityDefinition
+				stats.ability.attack_profile = item.ability.attack_profile.duplicate() as TowerDefinition
 		if item.projectile_split != null:
 			stats.projectile_split = item.projectile_split
 		for interaction in item.interactions:
 			var required: Array = interaction.get("requires", [0, 0, 0])
 			if tiers[0] >= required[0] and tiers[1] >= required[1] and tiers[2] >= required[2]:
 				for profile_name: String in interaction.get("profiles", {}):
-					var profile: TowerDefinition = stats.get(profile_name) as TowerDefinition
+					var profile: Resource = stats.get(profile_name) as Resource
 					if profile != null:
-						for key: String in interaction.profiles[profile_name]:
-							if key == "end_explosion":
-								var blast: TowerDefinition = profile.end_explosion as TowerDefinition
-								for field: String in interaction.profiles[profile_name][key]:
-									blast.set(field, interaction.profiles[profile_name][key][field])
-							else:
-								profile.set(key, interaction.profiles[profile_name][key])
+						_apply_profile_values(profile, interaction.profiles[profile_name])
 				for field: String in interaction.get("multipliers", {}):
 					stats.set(field, float(stats.get(field)) * float(interaction.multipliers[field]))
 				for field: String in interaction.get("overrides", {}):
@@ -101,9 +100,25 @@ static func resolve(base: TowerDefinition, tiers: PackedInt32Array) -> TowerDefi
 	stats.spread_degrees = clampf(stats.spread_degrees, 0.0, 360.0)
 	if stats.projectile_range_multiplier > 0.0:
 		stats.projectile_lifetime = stats.attack_range * stats.projectile_range_multiplier / stats.projectile_speed
+	if stats.attack_pattern == TowerDefinition.AttackPattern.AREA and stats.aura_profile != null:
+		var area: TowerDefinition = stats.aura_profile as TowerDefinition
+		area.damage = stats.damage
+		area.pierce = stats.pierce
+		area.fire_interval = stats.fire_interval
+		area.explosion_radius = stats.attack_range
+		area.attack_attribute = stats.attack_attribute
+		area.moab_bonus = stats.moab_bonus
+		area.detects_camo = stats.detects_camo
 	return stats
 
 static func preview(base: TowerDefinition, tiers: PackedInt32Array, upgrade: UpgradeDefinition) -> TowerDefinition:
 	var next_tiers: PackedInt32Array = tiers.duplicate()
 	next_tiers[upgrade.path] = upgrade.tier
 	return resolve(base, next_tiers)
+
+static func _apply_profile_values(profile: Resource, values: Dictionary) -> void:
+	for field: String in values:
+		if values[field] is Dictionary and profile.get(field) is Resource:
+			_apply_profile_values(profile.get(field) as Resource, values[field])
+		else:
+			profile.set(field, values[field])

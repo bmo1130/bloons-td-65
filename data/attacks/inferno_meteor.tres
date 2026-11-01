@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/attacks/inferno_blast.tres" id="blast"]
+
+[resource]
+script = ExtResource("1")
+damage = 700
+pierce = 1
+fire_interval = 4.0
+attack_range = 2000.0
+attack_attribute = 2
+flight_mode = 2
+chain_range = 2000.0
+projectile_speed = 720.0
+projectile_radius = 9.375
+projectile_length = 20.0
+projectile_lifetime = 25.0
+projectile_style = 6
+end_explosion = ExtResource("blast")

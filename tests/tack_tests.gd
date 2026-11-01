@@ -27,7 +27,7 @@ func run(window: Window) -> Dictionary:
 		_check(row.combat == battle(build,1,false).combat, "statisticsOFF preserves full combat "+str(build))
 		_check(row.damage > 0 and row.volleys > 0, "crosspath actually damages "+str(build))
 		rows.append(row)
-	var file: FileAccess = FileAccess.open("res://benchmarks/tack-v015-crosspaths.json",FileAccess.WRITE)
+	var file: FileAccess = FileAccess.open("res://benchmarks/tack-v016-legacy-crosspaths.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify({"seconds":20,"fixture":"one tower300,290;50mixed balloons distance450+3i;camo/fortified;no maintenance;1x/2x/statsOFF exact", "rows":rows},"\t")+"\n")
 	file.close()
 	print("TACK TESTS: %d checks, %d failures"%[_checks,_failures])
@@ -35,16 +35,16 @@ func run(window: Window) -> Dictionary:
 
 func _catalog_tack() -> void:
 	_check(MainGame.TOWER_CATALOG == [MainGame.DART,MainGame.BOMB,MainGame.BOOMERANG,TACK], "exact fourth catalog entry preserves prefix")
-	_check(TACK.id == &"tack" and TACK.shortcut == "R" and TACK.cost == 260 and TACK.upgrades.size() == 9, "base price/hotkey/nine upgrades")
+	_check(TACK.id == &"tack" and TACK.shortcut == "R" and TACK.cost == 260 and TACK.upgrades.filter(func(item: UpgradeDefinition)->bool:return item.tier <= 3).size() == 9, "base price/hotkey/nine upgrades")
 	_check(TACK.damage == 1 and TACK.pierce == 1 and TACK.projectile_count == 8 and TACK.fire_interval == 1.12 and TACK.attack_range == 23*4.6875 and not TACK.detects_camo, "independent base values")
 	var original: Array = _fields(TACK)
 	var costs: Array = [[150,300,600],[100,225,550],[110,110,450]]
 	var refs: Array = [[150,220,600],[100,225,550],[150,150,450]]
-	for item in TACK.upgrades:
+	for item in TACK.upgrades.filter(func(item: UpgradeDefinition)->bool:return item.tier <= 3):
 		_check(item.cost == costs[item.path][item.tier-1] and item.reference_medium_cost == refs[item.path][item.tier-1], "adopted cost vs official56 reference")
 		_check(item.prerequisites == ([] if item.tier == 1 else [TACK.upgrade_at(item.path,item.tier-1).id]), "sequential data prerequisite")
 	for path in range(3):
-		_check(TACK.max_upgrade_tier(path) == 3 and TACK.upgrade_at(path,4) == null, "no tack4/5 content")
+		_check(TACK.max_upgrade_tier(path) == 5 and TACK.upgrade_at(path,4) != null, "v016 now exposes tier4/5; original0-3 state domain stays fixed")
 	var legal: int = 0
 	for a in range(4):
 		for b in range(4):
@@ -63,7 +63,7 @@ func _catalog_tack() -> void:
 				_check(tower.spent_on_upgrades == cost and tower.combat_stats.invested_gold == 260+cost and game.economy.gold == 1000000-2*cost, "34state exact gold/statistics")
 				for path in range(3):
 					var next: UpgradeDefinition = TACK.upgrade_at(path,build[path]+1)
-					if next != null and UpgradePolicy.state_reason(PackedInt32Array([a+int(path==0),b+int(path==1),c+int(path==2)])).is_empty():
+					if next != null and next.tier <= 3 and UpgradePolicy.state_reason(PackedInt32Array([a+int(path==0),b+int(path==1),c+int(path==2)])).is_empty():
 						var preview: TowerDefinition = TowerStatResolver.preview(TACK,tower.tiers,next)
 						var tiers: PackedInt32Array = tower.tiers.duplicate()
 						tiers[path] += 1

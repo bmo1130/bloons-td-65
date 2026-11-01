@@ -1,0 +1,3 @@
+mode,balloons,speed,trial,mean_ms,p95_ms,max_ms,stddev_ms,chain_search_ms,checks,projectiles_max
+boomerang_320,1000,2,0,10.200475,32.922,93.647,11.5809349269698,3.50090833333333,13.25,10
+boomerang_320,1000,2,1,10.1351833333333,32.6,92.245,11.5142057187222,3.4986,13.25,10

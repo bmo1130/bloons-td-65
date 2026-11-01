@@ -63,6 +63,9 @@ func update(delta: float) -> void:
 		tower.cooldown -= delta
 		if tower.cooldown > 0.0:
 			continue
+		if stats.attack_pattern == TowerDefinition.AttackPattern.AREA:
+			_update_primary_area(tower, stats, delta)
+			continue
 		if stats.attack_pattern == TowerDefinition.AttackPattern.RADIAL:
 			_update_radial(tower, stats, delta)
 			continue
@@ -146,15 +149,22 @@ func _draw() -> void:
 			draw_arc(tower.position, stats.attack_range, 0, TAU, 64, Color(stats.color, 0.5), 1.5, true)
 			draw_arc(tower.position, 25.0, 0, TAU, 32, Color("ffffff"), 2.0, true)
 		var aura: TowerDefinition = stats.aura_profile as TowerDefinition
-		if aura != null:
+		if aura != null and stats.attack_pattern != TowerDefinition.AttackPattern.AREA:
 			draw_arc(tower.position, aura.explosion_radius, 0, TAU, 48, Color(stats.color, 0.25), 1.0, true)
 			for index in range(3):
 				var phase: float = tower.orbit_phase + index * TAU / 3.0
 				var at: Vector2 = tower.position + Vector2.from_angle(phase) * aura.explosion_radius
 				draw_line(at - Vector2.from_angle(phase * 3.0) * 13, at + Vector2.from_angle(phase * 3.0) * 13, Color("e4f5fa"), 5, true)
 				draw_line(at - Vector2.from_angle(phase * 3.0).orthogonal() * 13, at + Vector2.from_angle(phase * 3.0).orthogonal() * 13, Color("ffd477"), 4, true)
-		if stats.attack_pattern == TowerDefinition.AttackPattern.RADIAL:
+		if stats.attack_pattern != TowerDefinition.AttackPattern.AIMED:
 			_draw_radial_tower(tower.position, stats)
+			if stats.attack_pattern == TowerDefinition.AttackPattern.AREA:
+				var pulse: float = sin(tower.orbit_phase * 4) * 0.5 + 0.5
+				draw_circle(tower.position, stats.attack_range, Color(1.0,0.25,0.03,0.035))
+				draw_arc(tower.position, stats.attack_range*(0.94+0.04*pulse),0,TAU,64,Color(1.0,0.36,0.07,0.55),4,true)
+				for flame in range(8):
+					var axis: Vector2 = Vector2.from_angle(tower.orbit_phase + TAU*flame/8)
+					draw_line(tower.position+axis*8,tower.position+axis*(24+5*pulse),Color("ffc54f"),5,true)
 		else:
 			_draw_tower(tower.position, tower.direction, tower.stats.color)
 		if tower.transformed_stats != null:
@@ -165,7 +175,7 @@ func _draw() -> void:
 				var marker: Vector2 = tower.position + Vector2((tier - 1) * 8, 12 + path * 5)
 				var upgrade: UpgradeDefinition = tower.definition.upgrade_at(path, tier + 1)
 				draw_circle(marker, 2.5, upgrade.visual_color if upgrade != null else Color.WHITE)
-		if stats.attack_pattern == TowerDefinition.AttackPattern.RADIAL:
+		if stats.attack_pattern != TowerDefinition.AttackPattern.AIMED:
 			pass # Fixed ports were drawn above; never draw an aimed barrel.
 		elif stats.projectile_count > 1:
 			for angle in [-12.0, 12.0]:
@@ -207,6 +217,9 @@ func _update_auxiliary(tower: TowerState, stats: TowerDefinition, delta: float) 
 	var aura: TowerDefinition = stats.aura_profile as TowerDefinition
 	if aura != null:
 		tower.orbit_phase = fmod(tower.orbit_phase + delta * 2.5, TAU)
+		if stats.attack_pattern == TowerDefinition.AttackPattern.AREA:
+			aura = null
+	if aura != null:
 		tower.aura_cooldown -= delta
 		while tower.aura_cooldown < -0.000000001:
 			projectile_system.queue_area(tower.position, aura, tower.id, clampf((delta + tower.aura_cooldown) / delta, 0.0, 1.0))
@@ -238,16 +251,8 @@ func _update_auxiliary(tower: TowerState, stats: TowerDefinition, delta: float) 
 		tower.secondary_cooldown += secondary.fire_interval
 
 func _update_radial(tower: TowerState, stats: TowerDefinition, delta: float) -> void:
-	var occupied: bool = false
-	for balloon in balloon_system.candidates_in_rect(Rect2(tower.position, Vector2.ZERO).grow(stats.attack_range)):
-		if balloon_system.find(balloon.id) == null or balloon.exit_time <= 1.0 or not combat.can_target(balloon, stats):
-			continue
-		var reach: float = stats.attack_range + (balloon.definition.radius if balloon.definition.moab_class else 0.0)
-		if tower.position.distance_squared_to(balloon.position) <= reach * reach:
-			occupied = true
-			break
-	if not occupied:
-		tower.cooldown = 0.0 # Ready while idle; no debt or empty volleys.
+	if not _radial_occupied(tower, stats):
+		tower.cooldown = 0.0
 		return
 	while tower.cooldown < -0.000000001:
 		var fraction: float = clampf((delta + tower.cooldown) / delta, 0.0, 1.0)
@@ -259,8 +264,9 @@ func _draw_radial_tower(at: Vector2, stats: TowerDefinition, tint: Color = Color
 	draw_circle(at + Vector2(2,5), stats.radius + 2, Color(0.02,0.07,0.09,0.4))
 	draw_circle(at, stats.radius + 1, Color("152c32") * tint)
 	draw_circle(at, stats.radius - 2, stats.color * tint)
-	for index in range(stats.projectile_count):
-		var axis: Vector2 = Vector2.from_angle(deg_to_rad(stats.heading_offset_degrees) + TAU * index / stats.projectile_count)
+	var ports: int = 8 if stats.attack_pattern == TowerDefinition.AttackPattern.AREA else stats.projectile_count
+	for index in range(ports):
+		var axis: Vector2 = Vector2.from_angle(deg_to_rad(stats.heading_offset_degrees) + TAU * index / ports)
 		draw_line(at + axis * 12, at + axis * 19, Color("16262c") * tint, 5, true)
 		draw_line(at + axis * 16, at + axis * 20, Color("e8d7c2") * tint, 2, true)
 	draw_circle(at, 9, Color("773a45") * tint)
@@ -268,3 +274,23 @@ func _draw_radial_tower(at: Vector2, stats: TowerDefinition, tint: Color = Color
 		draw_circle(at, 6, Color("d3e8f5") * tint)
 	elif stats.attack_attribute == AttackSpec.Attribute.NORMAL:
 		draw_circle(at, 5, Color("ffc759") * tint)
+
+func _radial_occupied(tower: TowerState, stats: TowerDefinition) -> bool:
+	for balloon in balloon_system.candidates_in_rect(Rect2(tower.position, Vector2.ZERO).grow(stats.attack_range)):
+		if balloon_system.find(balloon.id) == null or balloon.exit_time <= 1.0 or not combat.can_target(balloon, stats):
+			continue
+		var reach: float = stats.attack_range + (balloon.definition.radius if balloon.definition.moab_class else 0.0)
+		if tower.position.distance_squared_to(balloon.position) <= reach * reach:
+			return true
+	return false
+
+func _update_primary_area(tower: TowerState, stats: TowerDefinition, delta: float) -> void:
+	if not _radial_occupied(tower, stats):
+		tower.cooldown = 0.0
+		return
+	while tower.cooldown < -0.000000001:
+		projectile_system.queue_area(tower.position, stats.aura_profile as TowerDefinition, tower.id, clampf((delta+tower.cooldown)/delta,0.0,1.0))
+		tower.attack_counter += 1
+		if battle_stats != null:
+			battle_stats.record_volley(tower.id)
+		tower.cooldown += stats.fire_interval

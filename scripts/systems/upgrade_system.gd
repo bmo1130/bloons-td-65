@@ -68,6 +68,8 @@ func purchase(tower: TowerState, upgrade: UpgradeDefinition) -> bool:
 	var new_secondary: TowerDefinition = tower.stats.secondary_attack as TowerDefinition
 	if old_secondary != null and new_secondary != null and tower.secondary_cooldown > 0.0:
 		tower.secondary_cooldown *= new_secondary.fire_interval / old_secondary.fire_interval
+	if tower.stats.attack_pattern == TowerDefinition.AttackPattern.AREA:
+		tower.aura_cooldown = 0.0
 	if old_critical != tower.stats.critical_every:
 		tower.critical_counter = 0
 	if old_recursive != tower.stats.recursive_every:

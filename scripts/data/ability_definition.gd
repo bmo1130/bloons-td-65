@@ -1,7 +1,9 @@
 class_name AbilityDefinition
 extends Resource
 
-enum Effect { FAN_TRANSFORM, MOAB_MISSILE, LEAK_STORM, SELF_BUFF }
+enum Effect { FAN_TRANSFORM, MOAB_MISSILE, LEAK_STORM, SELF_BUFF, RADIAL_BURST }
+@export var attack_interval: float = 0.045
+@export var rotation_turns_per_second: float = 1.0
 @export var self_additions: Dictionary = {}
 @export var self_overrides: Dictionary = {}
 @export var self_multipliers: Dictionary = {}

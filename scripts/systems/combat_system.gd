@@ -214,6 +214,11 @@ func _draw() -> void:
 				draw_arc(balloon.position, balloon.definition.radius + 4.0, 0, PI * 1.5, 16, Color("94eafa"), 2, true)
 			if damage_effects[id].has(&"burn"):
 				draw_arc(balloon.position, balloon.definition.radius + 7.0, PI * 0.5, TAU, 16, Color("ff9d48"), 2, true)
+			for family: StringName in damage_effects[id]:
+				var tint: Color = damage_effects[id][family].get("color", Color.TRANSPARENT)
+				if tint.a > 0.0:
+					draw_arc(balloon.position, balloon.definition.radius+7.0,0,TAU,16,tint,2,true)
+
 	if profile_updates:
 		draw_usec += Time.get_ticks_usec() - started
 
@@ -226,11 +231,12 @@ func _attach_effect(balloon: BalloonState, attack: AttackSpec, time: float) -> v
 	var families: Dictionary = damage_effects[balloon.id]
 	var effect: Dictionary = families.get(data.family, {})
 	if effect.is_empty() or effect.generation != balloon.shell_generation or effect.shell != balloon.definition or effect.expires < now - 0.000000001:
-		var tick: AttackSpec = AttackSpec.new(data.damage, 1, attack.attribute)
+		var kind: AttackSpec.Attribute = attack.attribute if data.attribute_override < 0 else data.attribute_override as AttackSpec.Attribute
+		var tick: AttackSpec = AttackSpec.new(data.damage, 1, kind)
 		tick.source_id = attack.source_id
 		tick.detects_camo = attack.detects_camo
 		effect = {"id": balloon.id, "family": data.family, "shell": balloon.definition,
-			"generation": balloon.shell_generation, "attack": tick, "interval": maxf(0.001, data.interval),
+			"generation": balloon.shell_generation, "attack": tick, "color": data.color, "interval": maxf(0.001, data.interval),
 			"next": now + maxf(0.001, data.interval), "expires": now + data.duration}
 		families[data.family] = effect
 	else:

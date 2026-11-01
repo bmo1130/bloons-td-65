@@ -27,7 +27,7 @@ func _run() -> void:
 			row.trial = trial
 			rows.append(row)
 	var label: String = "render" if _render else "cpu"
-	var base: String = "res://benchmarks/tack-v015-"+label
+	var base: String = "res://benchmarks/"+_argument("--output-prefix","tack-v016-legacy")+"-"+label
 	var report: Dictionary = {"version":"v0.15","rows":rows,"engine":Engine.get_version_info().string,"cpu":OS.get_processor_name(),"gpu":RenderingServer.get_video_adapter_name() if _render else "headless","rendered":_render,
 		"source_sha":{"projectiles":FileAccess.get_sha256("res://scripts/systems/projectile_system.gd"),"towers":FileAccess.get_sha256("res://scripts/systems/tower_system.gd")},
 		"conditions":"36cases x2trials =72rows/surface. Each30warmup+120measured frames;pool240samples/case nearest-rank P95.10towers x250/400,y220+28row;maintained100/500/1000pink/blue/yellow distance600..620. Mixed4:dart230,bomb203,boomer320,tack023,same first4positions. Stress-only unrestricted placement/budget;not campaign balance. Speed1/2fixed60Hz steps per frame:2.5/5total game sec;2/4measured sec. CPU inclusive maintenance/HUD/profiling. Render1280x720 Compatibility,VSyncOFF,frame_post_draw wall includes driver/OS. Profile timers overlap;do not sum. Projectile allocations are actual constructors;static memory/object_count are process-wide observations,not temporary heap peaks. No CombatTrace/pooling/approximation/budget/skipped attacks. Fingerprints include balloons,projectiles,auxiliary owner states."}

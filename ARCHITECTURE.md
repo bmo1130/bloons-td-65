@@ -1,4 +1,35 @@
-# 전투 구조 — v0.15
+# 전투 구조 — v0.16
+
+## v0.16 주력 범위·독립 운석·회전 연사
+
+직선BLADE의 격자후보도 기존 전체이동점+반경AABB로 보수적으로 배제한다. flight_broadphase_enabled ON/OFF는
+정밀상대원검사/시간순큐/ID·자식제외/발수·피해·관통을바꾸지않는다. 새12교차및전체부하280쌍으로동등성을검증한다.
+
+AttackPattern.AREA는 새 데이터 값이다. UpgradeDefinition.primary_attack_pattern(-1=보존)이 선택하고
+Resolver는 별도 aura_profile을 복사해 최종 주력 피해/관통/범위/주기/속성/MOAB/카모 값으로 합성한다.
+기존36개 스칼라 필드는 고정했다. AREA는 TowerSystem._update_primary_area에서 tower.cooldown만 쓰며
+Lord의 보조 aura_cooldown을 소비하지 않는다. 동일한 공통격자/can_target/반개구간 장전→queue_area→explode를 사용한다.
+주력 pulse는1volley/1area이며 실제 ProjectileState를 만들지 않는다.8개 장식 불꽃은8회 피해가 아니다.
+기존 main의 효과→능력→웨이브→타워→풍선이동→투사체→누수→완료 순서는 그대로다.
+
+운석은 secondary_attack/CHAIN/독립 end_explosion/단일 shell-bound DoT를 재사용한다.
+CHAIN에서 목표가 소진돼 종료할 때 end_explosion이 있는 새 프로필만 end_burst를 내며 end_emitted로 중복을 막는다.
+기존 Ricochet/Lord는 end_explosion이 없어 ID/큐/판정이 같다. 최초 목표는 First, 이후 기존거리/ID 순이다.
+개별공격의 대상/속도/관통/명중·자식제외/피해 스냅샷을 유지하고 직접700/1000,폭발50,화상50을 별도 확인한다.
+FIRE는 enum끝에 추가했다. DamageOverTimeDefinition.attribute_override 기본-1은 원타입을 유지하며 새inferno만FIRE다.
+새 optional color marker는 그리기 전용이다. 기존 burn/Shred의 타입/우선순위/틱/귀속은 바꾸지 않는다.
+
+AbilityDefinition.RADIAL_BURST가 attack_profile/attack_interval/rotation_turns_per_second를 정의한다.
+AbilityState는 active_elapsed/burst_cooldown/burst_phase/bursts_emitted를 별도로 가진다. AbilitySystem.update에서
+[시작,끝) 중 실제 활성 구간만 누산하고 위상+생성시각을 fire_volley의 optional phase_degrees로 전달한다.
+매 연사에 Resource를 재복제하지 않고 기존launch가 각 실제투사체를 복사한다. 여러 발이 기한이면 전부 발사하며 예산을 두지 않는다.
+능력은 transformed_stats를 쓰지 않으므로 주력은 계속 독립 발사한다. 종료/제거 시 새 생성만 멈추며 기발사탄은 유한 수명으로 남는다.
+040→050은 이미 사용한 시간을 새 duration에서 차감한다. 남은쿨다운/주기비율/회전위상을 보존한다.일시정지는 main 입구에서 시간을 막는다.
+
+Ability Resource와 attack_profile,secondary의 end_explosion은 명시적으로 복사한 뒤 재귀적 데이터값만 합성한다.
+기존54개 강화 리소스를 변경하지 않는다. 통계는 확정된 피해와 원래타워ID에 귀속한다.
+ability fire_volley는 실제발사 통계에 포함하지만 tower.attack_counter는 주력만 센다. secondary_projectiles는 독립/능력 투사체다.
+area/dot ordering ID와 실제 ProjectileState 생성 수를 구별한다. 진단값과 통계는 전투 판단에 사용하지 않는다.
 
 ## v0.15 방사형 공격
 

@@ -19,8 +19,13 @@ func sync_tower(tower: TowerState) -> void:
 		states[tower.id] = AbilityState.new(tower.stats.ability)
 	elif tower.stats.ability != null:
 		# Buying the next ability tier preserves the already running cooldown.
-		if tower.stats.ability.effect in [AbilityDefinition.Effect.MOAB_MISSILE, AbilityDefinition.Effect.SELF_BUFF]:
+		if tower.stats.ability.effect in [AbilityDefinition.Effect.MOAB_MISSILE, AbilityDefinition.Effect.SELF_BUFF, AbilityDefinition.Effect.RADIAL_BURST]:
 			states[tower.id].cooldown_remaining = minf(states[tower.id].cooldown_remaining, tower.stats.ability.cooldown)
+		var current: AbilityState = states[tower.id]
+		if current.definition.effect == AbilityDefinition.Effect.RADIAL_BURST and tower.stats.ability.effect == AbilityDefinition.Effect.RADIAL_BURST:
+			current.burst_cooldown *= tower.stats.ability.attack_interval / current.definition.attack_interval
+			if current.active_remaining > 0.000001:
+				current.active_remaining = maxf(0.0, tower.stats.ability.duration-current.active_elapsed)
 		states[tower.id].definition = tower.stats.ability
 	var state: AbilityState = state_for(tower)
 	if state != null and state.definition.effect == AbilityDefinition.Effect.SELF_BUFF and state.active_remaining > 0.000001:
@@ -60,6 +65,17 @@ func activate(caster: TowerState) -> bool:
 	var state: AbilityState = state_for(caster)
 	if not enabled or state == null or not tower_system.towers.has(caster) or state.cooldown_remaining > 0.000001:
 		return false
+	if state.definition.effect == AbilityDefinition.Effect.RADIAL_BURST:
+		if state.active_remaining > 0.000001:
+			return false
+		state.cooldown_remaining = state.definition.cooldown
+		state.active_remaining = state.definition.duration
+		state.active_elapsed = 0.0
+		state.burst_cooldown = 0.0
+		state.burst_phase = 0.0
+		state.last_targets = PackedInt64Array([caster.id])
+		changed.emit()
+		return true
 	if state.definition.effect == AbilityDefinition.Effect.SELF_BUFF:
 		if state.active_remaining > 0.000001:
 			return false
@@ -228,6 +244,8 @@ func remove_tower(id: int) -> void:
 func update(delta: float) -> void:
 	for id: int in states:
 		var state: AbilityState = states[id]
+		if state.definition.effect == AbilityDefinition.Effect.RADIAL_BURST and state.active_remaining > 0.000000001:
+			_update_radial_burst(id, state, delta)
 		var was_active: bool = state.active_remaining > 0.000001
 		var was_charging: bool = state.cooldown_remaining > 0.000001
 		state.cooldown_remaining = maxf(0.0, state.cooldown_remaining - delta)
@@ -253,3 +271,24 @@ func update(delta: float) -> void:
 			else:
 				transformations.erase(id)
 			changed.emit()
+
+func _update_radial_burst(id: int, state: AbilityState, delta: float) -> void:
+	var caster: TowerState = tower_system.find(id)
+	if caster == null:
+		return
+	var span: float = minf(delta, state.active_remaining)
+	var angular_speed: float = TAU * state.definition.rotation_turns_per_second
+	while state.burst_cooldown < span - 0.000000001:
+		var at: float = maxf(0.0, state.burst_cooldown)
+		var phase: float = state.burst_phase + angular_speed * at
+		var count: int = tower_system.projectile_system.fire_volley(caster.position, null, state.definition.attack_profile, id, false, at/delta, false, Vector2.INF, rad_to_deg(phase))
+		if count > 0:
+			state.bursts_emitted += 1
+			if tower_system.battle_stats != null and tower_system.battle_stats.enabled and caster.combat_stats != null:
+				caster.combat_stats.secondary_projectiles += count
+		state.burst_cooldown += state.definition.attack_interval
+	state.burst_cooldown -= span
+	state.burst_phase = fmod(state.burst_phase + angular_speed*span, TAU)
+	state.active_elapsed += span
+	if state.active_remaining <= delta + 0.000000001:
+		changed.emit()

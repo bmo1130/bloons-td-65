@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/abilities/tack_4.tres" id="ability"]
+
+[resource]
+script = ExtResource("1")
+id = "tack_middle_4"
+display_name = "Blade Maelstrom"
+path = 1
+tier = 4
+cost = 2700
+reference_medium_cost = 2700
+reference_version = "v016: official v56/v57 + versioned Popology; see BTD6_REFERENCE.md"
+description = "기본 칼날 피해가 2가 됩니다. [A]로 회전하는 두 줄기 칼날을 연속 발사합니다."
+replacement_values = {"damage": 2}
+interactions = [{"requires": [1, 4, 0], "profiles": {"ability": {"attack_interval": 0.03825}}}, {"requires": [2, 4, 0], "profiles": {"ability": {"attack_interval": 0.0325125}}}, {"requires": [0, 4, 1], "profiles": {"ability": {"duration": 3.5, "rotation_turns_per_second": -1.0}}}, {"requires": [0, 4, 2], "profiles": {"ability": {"duration": 4.0}}}]
+ability = ExtResource("ability")
+prerequisites = Array[StringName]([&"tack_middle_3"])
+visual_color = Color(0.72,0.9,1,1)

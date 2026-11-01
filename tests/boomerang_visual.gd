@@ -51,7 +51,7 @@ func _run() -> void:
 	game = current_scene as MainGame
 	game.set_process(false)
 	var lab: Node = _lab(game)
-	_check((lab.get("preset_picker") as OptionButton).item_count == 95 and (lab.get("preset_picker") as OptionButton).selected == 47, "original47 preset indices retained and14new appended")
+	_check((lab.get("preset_picker") as OptionButton).item_count == 118 and (lab.get("preset_picker") as OptionButton).selected == 47, "original47 preset indices retained and14new appended")
 	for index in range(47, 61):
 		if index != 47:
 			await _pick(lab.get("preset_picker") as OptionButton, index)

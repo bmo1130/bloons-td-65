@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "tack_bottom_5"
+display_name = "The Tack Zone"
+path = 2
+tier = 5
+cost = 20000
+reference_medium_cost = 20000
+reference_version = "v016: official v56/v57 + versioned Popology; see BTD6_REFERENCE.md"
+description = "32방향 독립 압정을 빠르게 발사합니다. 각 압정은 비행선에 추가 피해를 줍니다."
+replacement_values = {"damage": 1, "pierce": 2, "projectile_count": 32, "fire_interval": 0.224, "attack_range": 140.625, "moab_bonus": 1, "projectile_speed": 540.0}
+interactions = [{"requires": [0, 2, 5], "overrides": {"attack_range": 234.375, "pierce": 10}}]
+prerequisites = Array[StringName]([&"tack_bottom_4"])
+visual_color = Color(0.3,0.33,0.4,1)

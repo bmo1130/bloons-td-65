@@ -2,7 +2,7 @@ class_name AttackSpec
 extends RefCounted
 
 # Attribution never participates in damage/targeting decisions.
-enum Attribute { SHARP, EXPLOSIVE, NORMAL, PLASMA, COLD, SHATTER }
+enum Attribute { SHARP, EXPLOSIVE, NORMAL, PLASMA, COLD, SHATTER, FIRE }
 
 var damage_over_time: DamageOverTimeDefinition
 var dot_consumed: bool = false

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=11 format=3]
+[gd_resource type="Resource" load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
 [ext_resource type="Resource" path="res://data/upgrades/tack/top_1.tres" id="2"]
@@ -10,6 +10,13 @@
 [ext_resource type="Resource" path="res://data/upgrades/tack/bottom_1.tres" id="8"]
 [ext_resource type="Resource" path="res://data/upgrades/tack/bottom_2.tres" id="9"]
 [ext_resource type="Resource" path="res://data/upgrades/tack/bottom_3.tres" id="10"]
+
+[ext_resource type="Resource" path="res://data/upgrades/tack/top_4.tres" id="11"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/top_5.tres" id="12"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/middle_4.tres" id="13"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/middle_5.tres" id="14"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/bottom_4.tres" id="15"]
+[ext_resource type="Resource" path="res://data/upgrades/tack/bottom_5.tres" id="16"]
 
 [resource]
 script = ExtResource("1")
@@ -33,4 +40,4 @@ projectile_style = 4
 color = Color(0.87,0.28,0.39,1)
 shortcut = "R"
 upgrade_path_names = PackedStringArray("상단 · 연사/화력", "중단 · 사거리/칼날", "하단 · 압정 수")
-upgrades = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10")]
+upgrades = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16")]

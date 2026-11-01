@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/attacks/tack_ring.tres" id="aura_profile"]
+
+[resource]
+script = ExtResource("1")
+id = "tack_top_4"
+display_name = "Ring of Fire"
+path = 0
+tier = 4
+cost = 3500
+reference_medium_cost = 3500
+reference_version = "v016: official v56/v57 + versioned Popology; see BTD6_REFERENCE.md"
+description = "범위 안 풍선에 화염 피해를 줍니다. 하단은 화력, 중단은 범위와 관통을 강화합니다."
+replacement_values = {"damage": 5, "pierce": 30, "fire_interval": 0.315, "attack_attribute": 6, "projectile_count": 1}
+interactions = [{"requires": [4, 2, 0], "overrides": {"pierce": 45}}, {"requires": [4, 0, 1], "overrides": {"damage": 6, "projectile_count": 1}}, {"requires": [4, 0, 2], "overrides": {"damage": 7, "projectile_count": 1}}]
+primary_attack_pattern = 2
+aura_profile = ExtResource("aura_profile")
+prerequisites = Array[StringName]([&"tack_top_3"])
+visual_color = Color(1,0.35,0.08,1)

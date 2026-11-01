@@ -81,6 +81,9 @@ func _run() -> void:
 	var tack: Dictionary = load("res://tests/tack_tests.gd").new().run(root)
 	_checks += tack.checks
 	_failures += tack.failures
+	var tack_tier5: Dictionary = load("res://tests/tack_tier5_tests.gd").new().run(root)
+	_checks += tack_tier5.checks
+	_failures += tack_tier5.failures
 	print("TEST RESULT: %d checks, %d failures" % [_checks, _failures])
 	quit(0 if _failures == 0 else 1)
 

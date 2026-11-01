@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "tack_bottom_4"
+display_name = "Overdrive"
+path = 2
+tier = 4
+cost = 3200
+reference_medium_cost = 3200
+reference_version = "v016: official v56/v57 + versioned Popology; see BTD6_REFERENCE.md"
+description = "16방향 압정을 기존 Sprayer보다 세 배 빠르게 발사합니다."
+replacement_values = {"fire_interval": 0.37333333333333335, "projectile_count": 16, "pierce": 2}
+interactions = []
+prerequisites = Array[StringName]([&"tack_bottom_3"])
+visual_color = Color(0.3,0.33,0.4,1)

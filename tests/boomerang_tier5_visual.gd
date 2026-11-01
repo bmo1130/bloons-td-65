@@ -15,7 +15,7 @@ func _run() -> void:
 	game = current_scene as MainGame
 	game.set_process(false)
 	var lab: Node = _lab(game)
-	_check((lab.get("preset_picker") as OptionButton).item_count == 95,"61 old presets plus16 appended")
+	_check((lab.get("preset_picker") as OptionButton).item_count == 118,"61 old presets plus16 appended")
 	for index in range(61,77):
 		await _pick(lab.get("preset_picker") as OptionButton,index)
 		await scene_changed

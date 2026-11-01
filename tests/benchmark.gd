@@ -83,6 +83,9 @@ func _run() -> void:
 	if OS.get_cmdline_user_args().has("--v015"):
 		prefix = "tack-v015-legacy-"
 		report.version = "v0.15"
+	if OS.get_cmdline_user_args().has("--v016"):
+		prefix = "tack-v016-legacy-"
+		report.version = "v0.16"
 	var basename: String = prefix + mode + ("-cluster" if _concentrated else "") + ("-on" if _statistics_enabled else "-off")
 	var output: FileAccess = FileAccess.open(directory.path_join(basename + ".json"), FileAccess.WRITE)
 	if output == null:

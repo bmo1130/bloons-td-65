@@ -2,8 +2,8 @@ class_name TowerDefinition
 extends Resource
 
 enum Flight { STRAIGHT, CURVE, CHAIN, RETURN }
-enum ProjectileStyle { DEFAULT, RANG, GLAIVE, KYLIE, TACK, BLADE }
-enum AttackPattern { AIMED, RADIAL }
+enum ProjectileStyle { DEFAULT, RANG, GLAIVE, KYLIE, TACK, BLADE, METEOR }
+enum AttackPattern { AIMED, RADIAL, AREA }
 @export var attack_pattern: AttackPattern = AttackPattern.AIMED
 # Zero preserves authored lifetime. Positive values derive travel from final range.
 @export var projectile_range_multiplier: float = 0.0

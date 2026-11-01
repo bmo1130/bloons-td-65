@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+damage = 5
+pierce = 30
+fire_interval = 0.315
+attack_attribute = 6
+area_visual = false

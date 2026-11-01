@@ -27,6 +27,9 @@ const TACK_BUILDS: Array = [[0,0,0],[1,0,0],[2,0,0],[3,0,0],[0,1,0],[0,2,0],[0,3
 const BALLOON_IDS: Array[String] = ["red", "blue", "green", "yellow", "pink", "black", "white", "zebra", "rainbow", "lead", "ceramic", "moab", "bfb", "zomg", "ddt", "bad"]
 const BALLOON_NAMES: Array[String] = ["빨강", "파랑", "초록", "노랑", "분홍", "검정", "하얀", "얼룩말", "무지개", "납", "세라믹", "MOAB", "BFB", "ZOMG", "DDT", "BAD"]
 
+const TACK_TIER5_BUILDS: Array = [[4, 0, 0], [0, 4, 0], [0, 0, 4], [5, 0, 0], [0, 5, 0], [0, 0, 5], [4, 2, 0], [4, 0, 2], [2, 4, 0], [0, 4, 2], [2, 0, 4], [0, 2, 4], [5, 2, 0], [5, 0, 2], [2, 5, 0], [0, 5, 2], [2, 0, 5], [0, 2, 5], [4, 2, 0], [5, 0, 2], [0, 5, 2], [0, 2, 5], [0, 0, 5]]
+const TACK_TIER5_SPECIMENS: Array[String] = ["400 Ring of Fire", "040 Blade Maelstrom", "004 Overdrive", "500 Inferno Ring", "050 Super Maelstrom", "005 The Tack Zone", "420 / 화염 관통", "402 / 화염 피해", "240 / 빠른 능력", "042 / 긴 능력", "204 / 고속16방향", "024 / 사거리·관통", "520 / 운석2관통", "502 / 운석1000", "250 / 고속4줄기", "052 / 12초 폭풍", "205 / 고속32방향", "025 / 관통10", "화염 속성 혼합", "운석 vs BAD", "능력 세라믹150", "32방향 MOAB10", "4종 고티어 혼합"]
+
 func _ready() -> void:
 	game = get_parent() as MainGame
 	if not _command_line_applied:
@@ -51,6 +54,9 @@ func _ready() -> void:
 		if OS.get_cmdline_user_args().has("--boomerang-tier5-lab"):
 			scenario_index = 5
 			specimen_index = 61
+		if OS.get_cmdline_user_args().has("--tack-high-lab"):
+			scenario_index = 5
+			specimen_index = 95
 		if OS.get_cmdline_user_args().has("--tack-lab"):
 			scenario_index = 5
 			specimen_index = 77
@@ -131,7 +137,7 @@ func _ready() -> void:
 			for path in range(3):
 				for tier in range(1, build[path] + 1):
 					game.try_upgrade(boomerang, MainGame.BOOMERANG.upgrade_at(path, tier))
-	if scenario_index == 5 and specimen_index >= 77:
+	if scenario_index == 5 and specimen_index >= 77 and specimen_index < 95:
 		builds = []
 		game.try_place_tower(Vector2(300,290), MainGame.TACK)
 		var tack: TowerState = game.towers.towers.back()
@@ -147,6 +153,23 @@ func _ready() -> void:
 				for path in range(3):
 					for tier in range(1,build[path]+1):
 						game.try_upgrade(tower,catalog[index].upgrade_at(path,tier))
+	if scenario_index == 5 and specimen_index >= 95:
+		builds = []
+		game.try_place_tower(Vector2(300,290),MainGame.TACK)
+		var tower: TowerState = game.towers.towers.back()
+		var build: Array = TACK_TIER5_BUILDS[specimen_index-95]
+		for path in range(3):
+			for tier in range(1,build[path]+1):
+				game.try_upgrade(tower,MainGame.TACK.upgrade_at(path,tier))
+		if specimen_index == 117:
+			var catalog: Array[TowerDefinition] = [MainGame.DART,MainGame.BOMB,MainGame.BOOMERANG]
+			for index in range(3):
+				game.try_place_tower(positions[index],catalog[index])
+				var ally: TowerState = game.towers.towers.back()
+				var tiers: Array = [[0,2,5],[0,2,5],[5,0,2]][index]
+				for path in range(3):
+					for tier in range(1,tiers[path]+1):
+						game.try_upgrade(ally,catalog[index].upgrade_at(path,tier))
 	for index in range(builds.size()):
 		game.try_place_tower(positions[index])
 		var tower: TowerState = game.towers.towers.back()
@@ -227,7 +250,7 @@ func _ready() -> void:
 			game.hud._status.text = "곡선 / 연쇄 / 카일리 · 일반 F6"
 		if specimen_index >= 77:
 			game.hud._wave.text = "압정 슈터 검사실"
-			game.hud._status.text = "고정 방사형 · 칼날 · 일반 F6"
+			game.hud._status.text = "화염 / 운석 / 능력 / 32방향" if specimen_index >= 95 else "고정 방사형 · 칼날 · 일반 F6"
 		game.hud._start.text = "선택 풍선 소환 [Space]"
 
 func _specimen_controls() -> void:
@@ -251,6 +274,8 @@ func _specimen_controls() -> void:
 		presets.add_item(title)
 	for title in TACK_SPECIMENS:
 		presets.add_item(title)
+	for title in TACK_TIER5_SPECIMENS:
+		presets.add_item(title)
 	presets.selected = specimen_index
 	presets.item_selected.connect(func(index: int) -> void:
 		specimen_index = index
@@ -272,8 +297,10 @@ func _specimen_controls() -> void:
 		type_picker.selected = [2, 1, 11, 11, 2, 9, 10, 11, 11, 11, 2, 9, 10, 11][specimen_index - 47]
 	if specimen_index >= 61 and specimen_index < 77:
 		type_picker.selected = [10,10,12,9,11,12,12,11,12,11,12,12,12,15,13,13][specimen_index - 61]
-	if specimen_index >= 77:
+	if specimen_index >= 77 and specimen_index < 95:
 		type_picker.selected = [2,2,2,9,2,2,10,2,2,2,10,9,10,10,10,10,10,11][specimen_index-77]
+	if specimen_index >= 95:
+		type_picker.selected = 15 if specimen_index == 114 else (11 if specimen_index in [98,100,107,108,111,112,116,117] else 10)
 	type_picker.item_selected.connect(func(_index: int) -> void: _allow_armor())
 	game.hud._root.add_child(type_picker)
 	quantity = SpinBox.new()
@@ -292,8 +319,10 @@ func _specimen_controls() -> void:
 		quantity.value = [15, 20, 4, 4, 20, 15, 20, 4, 4, 4, 10, 10, 10, 4][specimen_index - 47]
 	if specimen_index >= 61 and specimen_index < 77:
 		quantity.value = 100 if specimen_index in [61,62,64] else (1 if specimen_index in [63,74] else 6)
-	if specimen_index >= 77:
+	if specimen_index >= 77 and specimen_index < 95:
 		quantity.value = 30
+	if specimen_index >= 95:
+		quantity.value = 1 if specimen_index == 114 else (10 if specimen_index == 116 else 150)
 	game.hud._root.add_child(quantity)
 	camo_toggle = CheckButton.new()
 	camo_toggle.text = "카모"
@@ -341,7 +370,7 @@ func spawn_selected() -> void:
 	var start_distance: float = 650.0 if data.moab_class else 500.0
 	for index in range(int(quantity.value)):
 		var sample: BalloonDefinition = data
-		if specimen_index == 93:
+		if specimen_index in [93,113]:
 			sample = load("res://data/balloons/%s.tres" % ["ceramic","lead","black"][index%3])
 		game.balloons.spawn(sample, start_distance + (_spawn_batch % 6) * 60.0 + (index % 100) * 1.5, camo_toggle.button_pressed, fortified_toggle.button_pressed, true)
 	_spawn_batch += 1

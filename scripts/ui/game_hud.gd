@@ -67,7 +67,7 @@ func _ready() -> void:
 	add_child(_root)
 	_panel(Rect2(24, 24, 1232, 80), Color("182d32"))
 	_label("풍타디 6.5", Rect2(46, 30, 340, 40), 28, INK)
-	_label("v0.15  /  압정 · 고정 방사형 · 칼날", Rect2(48, 72, 350, 20), 12, MUTED)
+	_label("v0.16  /  압정 · 화염 · 회전 칼날 · 32방향", Rect2(48, 72, 350, 20), 12, MUTED)
 	var tier5: Button = _button("F7 · 5티어 실험", Rect2(410, 26, 180, 28))
 	tier5.add_theme_font_size_override("font_size", 13)
 	tier5.pressed.connect(func() -> void: tier5_requested.emit())

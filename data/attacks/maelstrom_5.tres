@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+damage = 2
+pierce = 300
+projectile_count = 4
+attack_pattern = 1
+attack_attribute = 5
+ceramic_bonus = 8
+projectile_speed = 720.0
+projectile_radius = 18.75
+projectile_length = 37.5
+projectile_lifetime = 3.0
+projectile_style = 5

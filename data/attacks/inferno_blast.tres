@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/tower_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/effects/inferno_burn.tres" id="burn"]
+
+[resource]
+script = ExtResource("1")
+damage = 50
+pierce = 10
+explosion_radius = 84.375
+attack_attribute = 1
+damage_over_time = ExtResource("burn")

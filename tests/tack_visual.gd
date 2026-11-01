@@ -43,7 +43,7 @@ func _run() -> void:
 			_check(button.get_theme_font("font").get_string_size(button.text,HORIZONTAL_ALIGNMENT_LEFT,-1,button.get_theme_font_size("font_size")).x <= button.size.x-12, "upgrade title fully fits")
 		var label: Label = game.hud.upgrade_panel._stats
 		_check(Array(label.text.split("\n")).all(func(line:String)->bool:return label.get_theme_font("font").get_string_size(line,HORIZONTAL_ALIGNMENT_LEFT,-1,label.get_theme_font_size("font_size")).x <= label.size.x), "all radial stat lines fully fit")
-		_check(game.hud.upgrade_panel._buttons[path].disabled and game.hud.upgrade_panel._buttons[path].text.contains("완료"), "tier3 is actual cap")
+		_check(not game.hud.upgrade_panel._buttons[path].disabled and game.hud.upgrade_panel._buttons[path].text.contains("3→4"), "v016 exposes next tier4 after the fixed original tier3 domain")
 		await _capture("tack-upgrade-path-%d-v015"%path)
 	_key(KEY_F7)
 	await scene_changed
@@ -54,7 +54,7 @@ func _run() -> void:
 	game = current_scene as MainGame
 	game.set_process(false)
 	var lab: Node = _lab(game)
-	_check(lab != null and lab.get("preset_picker").item_count == 95 and lab.get("preset_picker").selected == 77, "native tack lab appended after77 existing presets")
+	_check(lab != null and lab.get("preset_picker").item_count == 118 and lab.get("preset_picker").selected == 77, "native tack lab appended after77 existing presets")
 	for index in range(77,95):
 		if index != 77:
 			await _pick(lab.get("preset_picker") as OptionButton,index)
@@ -90,9 +90,9 @@ func _run() -> void:
 		rows.append(probe.battle(build,1))
 	_checks += probe._checks
 	_failures += probe._failures
-	var reference: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://benchmarks/tack-v015-crosspaths.json"))
+	var reference: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://benchmarks/tack-v016-legacy-crosspaths.json"))
 	_check(JSON.parse_string(JSON.stringify(rows)) == reference.rows, "all6 complete20game second fingerprints match headless under real renderer")
-	var file: FileAccess = FileAccess.open("res://benchmarks/tack-v015-render-crosspaths.json",FileAccess.WRITE)
+	var file: FileAccess = FileAccess.open("res://benchmarks/tack-v016-legacy-render-crosspaths.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify({"rows":rows},"\t")+"\n")
 	file.close()
 	print("TACK VISUAL RESULT: %d checks, %d failures"%[_checks,_failures])

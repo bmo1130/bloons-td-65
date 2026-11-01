@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/upgrade_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://data/abilities/tack_5.tres" id="ability"]
+
+[resource]
+script = ExtResource("1")
+id = "tack_middle_5"
+display_name = "Super Maelstrom"
+path = 1
+tier = 5
+cost = 15000
+reference_medium_cost = 15000
+reference_version = "v016: official v56/v57 + versioned Popology; see BTD6_REFERENCE.md"
+description = "기본 칼날이 납을 뚫습니다. [A]는 4줄기·세라믹 추가 피해·긴 지속시간을 제공합니다."
+replacement_values = {"damage": 5, "ceramic_bonus": 5, "attack_attribute": 2}
+interactions = [{"requires": [1, 5, 0], "profiles": {"ability": {"attack_interval": 0.03825}}}, {"requires": [2, 5, 0], "profiles": {"ability": {"attack_interval": 0.0325125}}}, {"requires": [0, 5, 1], "profiles": {"ability": {"duration": 10.5, "rotation_turns_per_second": 1.0}}}, {"requires": [0, 5, 2], "profiles": {"ability": {"duration": 12.0, "rotation_turns_per_second": 1.0}}}]
+ability = ExtResource("ability")
+prerequisites = Array[StringName]([&"tack_middle_4"])
+visual_color = Color(0.72,0.9,1,1)
